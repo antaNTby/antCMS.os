@@ -9,7 +9,7 @@
                 "composer.*",
             ],
             "folder_exclude_patterns": [
-                "cache/templates_c",
+                // "cache/templates_c",
                 "lib",
                 "media",
                 "vendor",
