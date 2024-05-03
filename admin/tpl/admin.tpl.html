@@ -28,6 +28,7 @@
     </h6>
     {/if}
     <main class="flex-shrink-0" data-tpl="admin.tpl.html">
+    {include file="../apps/Toasts/appToasts.tpl.html"}
         {if $use_offcanvas_menu}
         <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
             <div class="row" data-bs-theme="light">
@@ -63,6 +64,5 @@
     <script src="/admin/js/admin.js"></script>
     <script src="/admin/js/index.js" type="module"></script>
 </body>
-    {include file="../apps/Toasts/appToasts.tpl.html"}
 
 </html>

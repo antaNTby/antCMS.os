@@ -1,10 +1,12 @@
 // import * as a from '../.././js/adminFunctions.js';
 const btnSuccess = document.getElementById("btnSuccess");
 const btnDanger = document.getElementById("btnDanger");
+const btnShowToast = document.getElementById("btnShowToast");
+const toastContainer = document.getElementById('toast-container');
 
 const ErrorToastEl = document.querySelector('#myError');
 const SuccessToastEl = document.querySelector('#mySuccess');
-const myInvalidEl = document.querySelector('#myInvalid');
+const myInvalidFormEl = document.querySelector('#myInvalidForm');
 
 const toastElList = document.querySelectorAll('.toast'); //  все html класса тост
 const timeElements = document.querySelectorAll('.showTime');
@@ -20,7 +22,7 @@ const option = {};
 // Create toast instance
 const myError = new bootstrap.Toast(ErrorToastEl);
 const mySuccess = new bootstrap.Toast(SuccessToastEl);
-const myInvalidForm = new bootstrap.Toast(myInvalidEl);
+const myInvalidForm = new bootstrap.Toast(myInvalidFormEl);
 
 const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option)); // массив объекьов
 
@@ -37,24 +39,44 @@ const showInvalid = function(text) {
     if (IS_ALLOW) myInvalidForm.show();
 }
 
-function showToast (text) {
-  let toastContainer = document.getElementById('toast-container');
+function showToast(text, headerText = "") {
 
-  let toastEl = document.createElement('div');
-  toastEl.classList.add('toast');
-  toastEl.setAttribute('role', 'alert');
-  toastEl.setAttribute('aria-live', 'assertive');
-  toastEl.setAttribute('aria-atomic', 'true');
+    let toastEl = document.createElement('div');
+    toastEl.classList.add('toast');
+    toastEl.setAttribute('role', 'alert');
+    toastEl.setAttribute('aria-live', 'assertive');
+    toastEl.setAttribute('aria-atomic', 'true');
 
-  let toastBody = document.createElement('div');
-  toastBody.classList.add('toast-body');
-  toastBody.innerText = text;
+    if (headerText) {
+        let toastHeader = document.createElement('div');
+        toastHeader.classList.add('toast-header');
+        toastHeader.innerText = headerText;
 
-  toastEl.appendChild(toastBody);
-  toastContainer.appendChild(toastEl);
+        let btnClose = document.createElement('button');
 
-  let bootstrapToast = new bootstrap.Toast(toastEl);
-  bootstrapToast.show();
+        btnClose.setAttribute('type', 'button');
+        btnClose.setAttribute('class', 'btn-close');
+        btnClose.setAttribute('data-bs-dismiss', 'toast');
+        btnClose.setAttribute('aria-label', 'Close');
+
+        if (btnClose) {
+            toastHeader.appendChild(btnClose);
+        }
+    }
+
+    let toastBody = document.createElement('div');
+    toastBody.classList.add('toast-body');
+    toastBody.innerText = text;
+
+    // if (headerText) {
+    //     toastEl.appendChild(toastHeader);
+    // }
+
+    toastEl.appendChild(toastBody);
+    toastContainer.appendChild(toastEl);
+
+    let bootstrapToast = new bootstrap.Toast(toastEl);
+    bootstrapToast.show();
 }
 
 
@@ -69,6 +91,10 @@ document.addEventListener("DOMContentLoaded", function() {
     btnSuccess.addEventListener("click", function() {
         // mySuccess.show();
         showSuccess("mySuccess");
+    });
+
+    btnShowToast.addEventListener("click", function() {
+        showToast('function showToast (text)', 'ssssss serfw34t ');
     });
 
     /* выводим СВОЁ время выполнения для всех toastElList*/

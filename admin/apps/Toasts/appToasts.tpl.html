@@ -1,5 +1,5 @@
 {* appToasts.tpl.html *}
-<div class="toast-container position-fixed top-0 end-0 p-5">
+<div class="toast-container position-fixed top-0 end-0 p-5" id="toast-container">
     <div class="toast success-toast" id="mySuccess" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header text-bg-success bg-opacity-75">
             {* <img src="/{$smarty.const.ADMIN_IMAGES_DEFAULT_PATH}/{$smarty.const.CONF_LOGO_FILE}" class="rounded me-2" alt="{$smarty.const.SITE_URL}" height="32"> *}
@@ -22,7 +22,7 @@
             Ошибка при выполнении запроса к серверу
         </div>
     </div>
-    <div class="toast" id="myInvalid" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast" id="myInvalidForm" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header text-danger bg-opacity-75">
             {* <img src="/{$smarty.const.ADMIN_IMAGES_DEFAULT_PATH}/{$smarty.const.CONF_LOGO_FILE}" class="rounded me-2" alt="{$smarty.const.SITE_URL}" height="32"> *}
             <strong class="me-auto"><i class="bi bi-bug-fill"></i> Проверьте введенные данные</strong>
