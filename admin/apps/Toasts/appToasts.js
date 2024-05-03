@@ -50,27 +50,30 @@ function showToast(text, headerText = "") {
     if (headerText) {
         let toastHeader = document.createElement('div');
         toastHeader.classList.add('toast-header');
-        toastHeader.innerText = headerText;
+        toastHeader.classList.add('text-bg-dark');
+        let strongEl = document.createElement('strong');
+        // <strong class="me-auto">Bootstrap</strong>
+        strongEl.classList.add('me-auto');
+        strongEl.innerText = headerText;
+        toastHeader.appendChild(strongEl);
 
         let btnClose = document.createElement('button');
 
+        btnClose.classList.add('btn-close');
         btnClose.setAttribute('type', 'button');
-        btnClose.setAttribute('class', 'btn-close');
         btnClose.setAttribute('data-bs-dismiss', 'toast');
         btnClose.setAttribute('aria-label', 'Close');
 
         if (btnClose) {
             toastHeader.appendChild(btnClose);
         }
+        toastEl.appendChild(toastHeader);
     }
 
     let toastBody = document.createElement('div');
     toastBody.classList.add('toast-body');
     toastBody.innerText = text;
 
-    // if (headerText) {
-    //     toastEl.appendChild(toastHeader);
-    // }
 
     toastEl.appendChild(toastBody);
     toastContainer.appendChild(toastEl);
@@ -94,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     btnShowToast.addEventListener("click", function() {
-        showToast('function showToast (text)', 'ssssss serfw34t ');
+        showToast('function showToast (text) ', 'ssssss serfw34t '+'<i class="bi bi-bug-fill"></i>');
     });
 
     /* выводим СВОЁ время выполнения для всех toastElList*/
