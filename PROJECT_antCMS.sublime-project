@@ -2,19 +2,25 @@
     "folders": [
         {
             "path": ".",
-             // "path": "admin",
+            // "path": "admin",
             "file_exclude_patterns": [
                 "**.sublime-workspace",
-                "**.sublime-project",
+                // "**.sublime-project",
                 "composer.*",
+                "adminer.*",
+                ".gitignore",
+                "smarty4.2.1.tar",
+                "cache/ant*.php",
             ],
             "folder_exclude_patterns": [
                 // "cache/templates_c",
                 "lib",
+                "smarty_config",
                 "media",
                 "vendor",
                 ".idea",
-                "smarty4.2.1"
+                "smarty4.2.1",
+                "database_install",
             ],
         }
 
