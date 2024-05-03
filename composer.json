@@ -2,6 +2,8 @@
     "require": {
         "twbs/bootstrap": "^5.3",
         "smarty/smarty": "^5.1",
-        "twbs/bootstrap-icons": "^1.11"
+        "twbs/bootstrap-icons": "^1.11",
+        "datatables/datatables": "^1.10",
+        "vakata/jstree": "^3.3"
     }
 }
