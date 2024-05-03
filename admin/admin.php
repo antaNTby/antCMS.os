@@ -101,10 +101,10 @@ require '../vendor/autoload.php';
 ### //init Smarty 5.1
 use Smarty\Smarty;
 $smarty = new Smarty();
-$smarty->setTemplateDir('../admin/tpl');
+$smarty->setTemplateDir('../admin/tpl'); // здесь лежат шаблоны tpl.html
 // $smarty->setCompileDir('../admin/core/cache/templates_c/');
-$smarty->setCompileDir('../admin/core/cache/');
-$smarty->setConfigDir('../admin/tpl/smarty_config/');
+$smarty->setCompileDir('../admin/core/cache/php'); // здесь компилируюся *.php
+$smarty->setConfigDir('../admin/tpl/smarty_config/'); // незнаю
 $smarty->setCacheDir('../admin/core/cache/');
 $smarty->compile_id    = 'ant';
 $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;

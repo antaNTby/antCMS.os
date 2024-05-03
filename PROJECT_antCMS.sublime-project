@@ -11,6 +11,7 @@
                 ".gitignore",
                 "smarty4.2.1.tar",
                 "cache/ant*.php",
+                "cache/php/ant*.php",
             ],
             "folder_exclude_patterns": [
                 // "cache/templates_c",
