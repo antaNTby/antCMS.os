@@ -1,0 +1,22 @@
+<hr class="border border-dark border-1 opacity-25 my-1">
+{section name=sub_index loop=$admin_sub_departments}
+{if $current_sub eq $admin_sub_departments[sub_index].id}
+<nav class="my-0 d-flex flex-column-inverse flex-md-row-inverse justify-content-start justify-content-md-end" style="--bs-breadcrumb-divider: '::';" aria-label="breadcrumb">
+    <ol class="my-0 px-1 breadcrumb text-small lh-1">
+        <li class="breadcrumb-item"><a class="text-decoration-none" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i></a></li>
+        <li class="breadcrumb-item"><a href="{$smarty.const.ADMIN_FILE}">{$current_dpt_name}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{$admin_sub_departments[sub_index].name}</li>
+    </ol>
+</nav>
+
+<h1 class="h4 fw-lighter text-body" data-id="PageH1" data-tpl="standartdpt.tpl.html">
+    {$admin_sub_departments[sub_index].name}
+</h1>
+{/if}
+{/section}
+<hr class="border border-dark border-1 opacity-25 my-1">
+
+{* <input type="text" id="phpColumns" value="{$Columns|json_encode}"> *}
+
+
+{include file="sub/$admin_sub_dpt"}

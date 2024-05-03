@@ -1,0 +1,38 @@
+{
+    "folders": [
+        {
+            "path": ".",
+             // "path": "admin",
+            "file_exclude_patterns": [
+                "**.sublime-workspace",
+                "**.sublime-project",
+                "composer.*",
+            ],
+            "folder_exclude_patterns": [
+                "cache/templates_c",
+                "lib",
+                "media",
+                "vendor",
+                ".idea",
+                "smarty4.2.1"
+            ],
+        }
+
+    ],
+
+
+    "settings":
+    {
+        "default_encoding": "UTF-8",
+        "fallback_encoding": "UTF-8",
+        "tab_size": 4,
+        "xdebug":
+        {
+            // "url": "nix.os",
+            // "url": "http://nix.os/admin.php",
+            "url": "http://antCMS/admin/admin.php",
+        },
+        "color_scheme": "Mariana.sublime-color-scheme",
+        // "color_scheme": "Packages/Color Scheme — Default/Monokai.sublime-color-scheme",
+    }
+}

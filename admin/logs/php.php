@@ -1,0 +1,97 @@
+<?php
+
+### //init Smarty 4.2.1
+### require "core/smarty4.2.1/Smarty.class.php"; // require "core/smarty/smarty.class.php";
+### $smarty                     = new Smarty();  //core smarty object
+### $smarty_mail                = new Smarty();  //for e-mails
+### $smarty->force_compile      = true;
+### $smarty_mail->force_compile = true;
+### // set Smarty include files dir
+### $smarty->template_dir = "tpl";
+### $smarty->compile_id   = "antCMS00"; // у кэш-файлов разных шаблонов будут разные имена (префиксы).
+
+<?php
+###trade_orders.php
+
+$DPT_SUB = 'trade_orders';
+// echo "$DPT_SUB PHP is here!!!";
+
+$db_fields   = array();
+$subTables[] = ORDERS_TABLE;
+$db_fields[] = db_getColumnNames($subTables[0]);
+
+$whiteList = array(
+    'customer_firstname',
+    'orderID',
+    // 'currency_code',
+    // 'customerID',
+    // 'order_time',
+    // 'shipping_cost',
+    // 'order_discount',
+    'order_amount',
+    'currency_value',
+);
+
+$blackList = array(
+    'shipping_firstname',
+    'shipping_lastname',
+    'shipping_country',
+    'shipping_state',
+    'shipping_city',
+    'shipping_address',
+    'billing_firstname',
+    'billing_lastname',
+    'billing_country',
+    'billing_state',
+    'billing_city',
+    'billing_address',
+    'cc_number',
+    'cc_holdername',
+    'cc_expires',
+    'cc_cvv',
+    'order_aka',
+    'customer_aka'
+);
+$dt_columns = array();
+// $blackList =[];
+
+## array_diff_key — Вычисляет расхождение массивов, сравнивая ключи
+## Возвращает массив (array), содержащий все элементы array с ключами, которых нет во всех последующих массивах.
+$dt_columns1 = array_diff(array_keys($db_fields[0]), $blackList);
+## array_diff_ukey — Вычисляет расхождение массивов, используя callback-функцию для сравнения ключей
+## Возвращает массив (array), содержащий все элементы array, отсутствующие в каком-либо из всех остальных массивов.
+// $dt_columns2 = array_diff_ukey(array_keys($db_fields[0]), $whiteList, 'key_compare_func');
+
+
+
+// foreach ($db_fields[0] as $key => $value)
+// {
+//     // echo " $key => $value<br>";
+// }
+
+
+foreach ($dt_columns1 as $key => $value)
+{
+    if (in_array($value,$whiteList)){
+    $dt_columns2[]=$value;
+    }
+}
+
+// echo debug(array_keys($db_fields[0])) . '<br><br>';
+// echo debug(array_values($db_fields[0]))."<br><br>";
+
+cls();
+jlog($dt_columns1);
+echo debug($dt_columns1);
+// jlog(array_keys($db_fields[0]));
+jlog($dt_columns2);
+echo debug($dt_columns2);
+
+echo debug(array_keys($dt_columns2));
+echo debug(array_values($dt_columns2));
+// jlog(array_values($db_fields[0]));
+
+//show Smarty output
+$smarty->assign('subTables', $subTables);
+$smarty->assign('db_fields', $db_fields);
+showSubSmartyOutput($DPT_SUB);

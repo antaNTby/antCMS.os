@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH} h-100 text-bg-secondary bg-opacity-50" lang="ru-RU">
+{assign var=use_offcanvas_menu value=1}
+
+<head>
+    <base href= />
+    <link rel="icon" sizes=16x16 href="/media/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="title" content="admin antCMS" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>admin :: {$smarty.const.SITE_URL} :: antCMS v00 alpha</title>
+    {* css links *}
+    {*
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.min.css"> *}
+    <link rel="stylesheet" type="text/css" href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
+</head>
+
+<body class="d-flex flex-column h-100 shadow-lg px-0" style="max-height: 2000px!important; overflow-y: scroll;">
+    <header>
+        {include file="admin__navbar.tpl.html"}
+    </header>
+    {if $smarty_error}
+    <h6 class="text-bg-danger p-2">
+        {$smarty_error_message}
+    </h6>
+    {/if}
+    <main class="flex-shrink-0" data-tpl="admin.tpl.html">
+        {if $use_offcanvas_menu}
+        <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
+            <div class="row" data-bs-theme="light">
+                {include file="admin__menu_offcanvas.tpl.html"}
+            </div>
+            <div class="row">
+                {include file="$admin_main_content_template"}
+            </div>
+        </div>
+        {else}
+        <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
+            <div class="row">
+                <div class="col order-2  order-md-1 col-md-4">
+                    {include file="admin__menu_accordion.tpl.html"}
+                </div>
+                <div class="colorder-1  order-md-2 col-md-8">
+                    {include file="$admin_main_content_template"}
+                </div>
+            </div>
+        </div>
+        {/if}
+    </main>
+    <footer class=" text-bg-dark d-block mt-auto">
+        <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
+            {include file="admin__footer.tpl.html"}
+        </div>
+    </footer>
+    {*main scripts.js*}
+    {* <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script> *}
+    <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/admin/js/admin.js"></script>
+    <script src="/admin/js/index.js" type="module"></script>
+</body>
+    {include file="../apps/Toasts/appToasts.tpl.html"}
+
+</html>
