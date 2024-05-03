@@ -4,4 +4,4 @@ composer require twbs/bootstrap
 composer require smarty/smarty
 composer require twbs/bootstrap-icons
 composer require datatables/datatables
-composer require vakata/jstree # add jquery
+composer require vakata/jstree ==== add jquery

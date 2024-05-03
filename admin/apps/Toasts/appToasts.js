@@ -24,18 +24,39 @@ const myInvalidForm = new bootstrap.Toast(myInvalidEl);
 
 const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option)); // массив объекьов
 
-const showError = function(mess) {
-    htmlMessage = mess;
+const showError = function(text) {
+    htmlMessage = text;
     if (IS_ALLOW_DANGER) myError.show();
 }
-const showSuccess = function(mess) {
-    htmlMessage = mess;
+const showSuccess = function(text) {
+    htmlMessage = text;
     if (IS_ALLOW) mySuccess.show();
 }
-const showInvalid = function(mess) {
-    htmlMessage = mess;
+const showInvalid = function(text) {
+    htmlMessage = text;
     if (IS_ALLOW) myInvalidForm.show();
 }
+
+function showToast (text) {
+  let toastContainer = document.getElementById('toast-container');
+
+  let toastEl = document.createElement('div');
+  toastEl.classList.add('toast');
+  toastEl.setAttribute('role', 'alert');
+  toastEl.setAttribute('aria-live', 'assertive');
+  toastEl.setAttribute('aria-atomic', 'true');
+
+  let toastBody = document.createElement('div');
+  toastBody.classList.add('toast-body');
+  toastBody.innerText = text;
+
+  toastEl.appendChild(toastBody);
+  toastContainer.appendChild(toastEl);
+
+  let bootstrapToast = new bootstrap.Toast(toastEl);
+  bootstrapToast.show();
+}
+
 
 // const IS_ALLOW = false;
 document.addEventListener("DOMContentLoaded", function() {
@@ -69,6 +90,7 @@ export {
     showError,
     showSuccess,
     showInvalid,
+    showToast,
     toastElList,
     toastList
 }
