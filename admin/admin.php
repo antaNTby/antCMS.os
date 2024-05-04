@@ -7,7 +7,22 @@ include_once 'core/functions.php';
 include_once 'core/headers.php';
 include_once 'core/tables.php';
 
-require 'core/mysqli.php'; // mysqli DataBase
+#composer
+require_once '../vendor/autoload.php';
+
+// cd domains
+// cd antCMS.os
+// composer require twbs/bootstrap
+// composer require smarty/smarty
+// composer require twbs/bootstrap-icons
+// composer require --dev symfony/var-dumper
+
+
+# The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
+# Built on top, it provides a better dump() function that you can use instead of var_dump
+
+# mysqli DataBase
+require 'core/mysqli.php';
 
 $sc_1 = gmts();
 $sc_4 = 0;
@@ -95,15 +110,12 @@ elseif (isset($_POST['enter']) && !isset($_SESSION['log'])) //user login
         $wrongLoginOrPw = 1;
     }
 }
-#composer
-require '../vendor/autoload.php';
 
 ### //init Smarty 5.1
 use Smarty\Smarty;
 $smarty = new Smarty();
-$smarty->setTemplateDir('../admin/tpl'); // здесь лежат шаблоны tpl.html
-// $smarty->setCompileDir('../admin/core/cache/templates_c/');
-$smarty->setCompileDir('../admin/core/cache/php'); // здесь компилируюся *.php
+$smarty->setTemplateDir('../admin/tpl');              // здесь лежат шаблоны tpl.html
+$smarty->setCompileDir('../admin/core/cache/php');    // здесь компилируюся *.php
 $smarty->setConfigDir('../admin/tpl/smarty_config/'); // незнаю
 $smarty->setCacheDir('../admin/core/cache/');
 $smarty->compile_id    = 'ant';
@@ -113,6 +125,10 @@ $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->testInstall();
 //define default smarty template
 $smarty->assign('admin_main_content_template', 'default.tpl.html');
+
+
+
+dump($_SESSION);
 
 $relaccess = checklogin();
 if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
@@ -154,8 +170,8 @@ $smarty->assign('current_dpt', $dpt);
 
 if (isset($_GET['table']))
 {
-    $table_mode=1;
-    $subTables = array();
+    $table_mode = 1;
+    $subTables  = array();
     require 'core/classes/class.adminSSP.php';
 
     $PDO_connect = array(
@@ -170,10 +186,11 @@ if (isset($_GET['table']))
     $smarty->assign('subTables', $subTables);
     $smarty->assign('table_mode', $table_mode);
 
-} else{
-    $table_mode=0;
 }
-
+else
+{
+    $table_mode = 0;
+}
 
 if (isset($_GET['edit_id']))
 {
