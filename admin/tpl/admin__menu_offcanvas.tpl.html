@@ -1,16 +1,17 @@
-<div class="offcanvas offcanvas-end show" tabindex="-1" id="offcanvasMenu"  data-bs-scroll="false"  data-bs-backdrop="false" aria-labelledby="offcanvasMenuLabel" data-bs-theme="dark">
+{if $show_offcanvas_menu_on_load}
+{assign var="show" value="show"}
+{/if}
+<div class="offcanvas offcanvas-end{$show}" tabindex="-1" id="offcanvasMenu" data-bs-scroll="false" data-bs-backdrop="false" aria-labelledby="offcanvasMenuLabel" data-bs-theme="dark">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasMenuLabel">Меню {$smarty.const.SITE_URL}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         {include file="admin__menu_accordion.tpl.html"}
-
         <div class="p-0 mt-5 d-block mt-auto">
             <a class="nav-link fs-5 active" aria-current="page" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i> Admin </a>
             <a class="nav-link fs-5" href="index.php"><i class="bi bi-house"></i> {$smarty.const.LANG_ADMIN_BACK_TO_SHOP} </a>
             <a class="nav-link fs-5" href="{$smarty.const.ADMIN_LOGOUT_LINK}"><i class="bi bi-door-open"></i> {$smarty.const.LANG_ADMIN_LOGOUT_LINK} </a>
         </div>
-
     </div>
 </div>
