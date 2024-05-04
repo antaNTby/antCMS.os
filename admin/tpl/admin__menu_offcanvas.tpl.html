@@ -1,5 +1,5 @@
 {if $show_offcanvas_menu_on_load}
-{assign var="show" value="show"}
+{assign var="show" value=" show"}
 {/if}
 <div class="offcanvas offcanvas-end{$show}" tabindex="-1" id="offcanvasMenu" data-bs-scroll="false" data-bs-backdrop="false" aria-labelledby="offcanvasMenuLabel" data-bs-theme="dark">
     <div class="offcanvas-header">
@@ -12,6 +12,12 @@
             <a class="nav-link fs-5 active" aria-current="page" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i> Admin </a>
             <a class="nav-link fs-5" href="index.php"><i class="bi bi-house"></i> {$smarty.const.LANG_ADMIN_BACK_TO_SHOP} </a>
             <a class="nav-link fs-5" href="{$smarty.const.ADMIN_LOGOUT_LINK}"><i class="bi bi-door-open"></i> {$smarty.const.LANG_ADMIN_LOGOUT_LINK} </a>
+        </div>
+        <div class="p-0 mt-auto d-block mt-auto">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switcherMenuOnLoad" checked>
+                <label class="form-check-label" for="switcherMenuOnLoad">Открывать это меню при загрузке страницы</label>
+            </div>
         </div>
     </div>
 </div>
