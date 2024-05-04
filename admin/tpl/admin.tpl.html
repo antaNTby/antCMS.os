@@ -35,16 +35,18 @@
                 {include file="admin__menu_offcanvas.tpl.html"}
             </div>
             <div class="row">
+                <div class="col">
                 {include file="$admin_main_content_template"}
+                </div>
             </div>
         </div>
         {else}
         <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
             <div class="row">
-                <div class="col order-2  order-md-1 col-md-4">
+                <div class="col order-2 order-md-1 col-md-4">
                     {include file="admin__menu_accordion.tpl.html"}
                 </div>
-                <div class="colorder-1  order-md-2 col-md-8">
+                <div class="col order-1 order-md-2 col-md-8">
                     {include file="$admin_main_content_template"}
                 </div>
             </div>
