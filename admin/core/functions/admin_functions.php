@@ -74,7 +74,10 @@ function selectDefaultSub($subs)
     return $defaultSub;
 }
 
-function checkColumnJsonIsPresent($DPT_SUB, $path)
+function checkColumnJsonIsPresent(
+    $DPT_SUB,
+    $path
+)
 {
 }
 
@@ -136,6 +139,7 @@ function showSubSmartyOutput(
     {
         $smarty->assign('smarty_error', true);
         $smarty->assign('smarty_error_message', $e->getMessage());
+        dump($smarty->getTemplateVars());
     }
 }
 

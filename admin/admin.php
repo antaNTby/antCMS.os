@@ -126,10 +126,6 @@ $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 //define default smarty template
 $smarty->assign('admin_main_content_template', 'default.tpl.html');
 
-
-
-dump($_SESSION);
-
 $relaccess = checklogin();
 if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
 {
@@ -256,6 +252,13 @@ if (isset($_SESSION['log']))
     $smarty->assign('admintempname', $_SESSION['log']);
 }
 
+
+
+// dump($_GET);
+// dump($_SESSION);
+
+
+
 //show Smarty output
 try
 {
@@ -265,10 +268,16 @@ catch (SmartyException $e)
 {
     $smarty->assign('smarty_error', true);
     $smarty->assign('smarty_error_message', $e->getMessage());
+    dump($smarty->getTemplateVars());
 }
 
-if (ADMIN_SMARTY_LOG_VARS)
+
+if  (ADMIN_SMARTY_LOG_VARS)
 {
-    $all_tpl_vars = $smarty->getTemplateVars();
-    smartylog($all_tpl_vars);
+    // dump($antMenu);
+    dump($smarty->getTemplateVars());
+    // $all_tpl_vars = $smarty->getTemplateVars();
+    // smartylog($all_tpl_vars);
 }
+
+

@@ -81,14 +81,14 @@ function db_query(
 
     if (!$res['resource'])
     {
-        $outOld = 'ERROR: ' . mysqli_errno($DB->link) . ':' . mysqli_error($DB->link) . '    Sql: ' . $s . '    Link: ' . $_SERVER['REQUEST_URI'] . '    Date: ' . date('d.m.y - H:i:s') . '    Dump:    ';
+        // $outOld = 'ERROR: ' . mysqli_errno($DB->link) . ':' . mysqli_error($DB->link) . '    Sql: ' . $s . '    Link: ' . $_SERVER['REQUEST_URI'] . '    Date: ' . date('d.m.y - H:i:s') . '    Dump:    ';
 
         $out = array(
             'ERR_NO' => mysqli_errno($DB->link),
             'SQL'    => $s,
             'ERROR'  => mysqli_error($DB->link),
             'Link'   => str_replace('/', '\\', $_SERVER['REQUEST_URI']),
-            'Date'   => date('Y-m-d h:i:s')
+            'Date'   => date('Y-m-d h:i:s'),
 
         );
         if ($speedtest)
@@ -97,13 +97,15 @@ function db_query(
         }
 
         $Dump = var_export($_REQUEST, true);
-        $fp   = fopen('logs/SQLDEBUG', 'a');
+
+        $fp   = fopen('logs/SQLDEBUG.JSON', 'a');
         fwrite($fp, json_encode($out, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE));
         fwrite($fp, "\r\n");
         fwrite($fp, $Dump);
         fclose($fp);
 
         // die('Wrong database query!');
+
     }
 
     $res['columns'] = array();
@@ -307,7 +309,10 @@ function db_delete_column(
     db_query('alter table ' . $tableName . ' drop column ' . $columnName);
 }
 
-function db_getColumns($_TableName, $lowerCase = false)
+function db_getColumns(
+    $_TableName,
+    $lowerCase = false
+)
 {
     $Columns = array();
     $sql     = '
@@ -321,13 +326,16 @@ function db_getColumns($_TableName, $lowerCase = false)
     while ($_Row = db_fetch_row($Result))
     {
         ($lowerCase)
-            ? $Columns[strtolower($_Row['Field'])] = $_Row
-            : $Columns[$_Row['Field']]             = $_Row;
+        ? $Columns[strtolower($_Row['Field'])] = $_Row
+        : $Columns[$_Row['Field']]             = $_Row;
     }
     return $Columns;
 }
 
-function db_getColumnNames($_TableName, $lowerCase = false)
+function db_getColumnNames(
+    $_TableName,
+    $lowerCase = false
+)
 {
     $Columns = array();
     $sql     = '
@@ -341,8 +349,8 @@ function db_getColumnNames($_TableName, $lowerCase = false)
     while ($_Row = db_fetch_row($Result))
     {
         ($lowerCase)
-            ? $Columns[strtolower($_Row['Field'])] = $_Row['Type']
-            : $Columns[$_Row['Field']]             = $_Row['Type'];
+        ? $Columns[strtolower($_Row['Field'])] = $_Row['Type']
+        : $Columns[$_Row['Field']]             = $_Row['Type'];
     }
     return $Columns;
 }

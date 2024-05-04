@@ -45,26 +45,36 @@ class antDataBase
 
         if ($result === false || $print === 1)
         {
+
             $error = mysqli_error(self::$link);
             $trace = debug_backtrace();
-            $out   = array(1 => '');
+
+            $out = array(1 => '');
 
             if (!empty($error))
             {
                 preg_match("#'(.+?)'#is", $error, $out);
             }
 
-            $head = $error ? '<b style="color:red">MySQL error: </b><br>
-            <b style="color:orangered">' . $error . '</b><br>' : null;
-
-            $error_log = date('Y-m-d h:i:s') . ' ' . $head . '
-            <b>Query: </b><br>
-            <pre><span style="color:#990099">'
-            . str_replace($out[1], '<b style="color:red">' . $out[1] . '</b>', $trace[0]['args'][0])
-                . '</pre></span><br>
-            <b>File: </b><b style="color:#660099">' . $trace[0]['file'] . ':' . $trace[0]['line'] . '</b><br>
-            <b>Line: </b><b style="color:#660099">' . $trace[0]['line'] . '</b>';
-            exit($error_log);
+            $error_date = date('Y-m-d h:i:s');
+            $head       = $error ? "MySQL error: <br>" . $error : null;
+            $errQuery   = str_replace($out[1], '<strong style="color:steelblue">' . $out[1] . '</strong>', $trace[0]['args'][0]);
+            $error_log  = <<<HTML
+<!DOCTYPE html>
+<pre style="background-color:#333; color:#fff; padding:10px;">
+{$error_date}
+<em style="font-size:70%; color:silver;">{$head}</em>
+Query:
+<strong style="color:red;">{$errQuery}</strong>
+sql:
+<strong style="color:darksalmon;">{$sql}</strong>
+File:
+<strong style="color:#1299DA;">{$trace[0]['file']}:{$trace[0]['line']}</strong> @Line: <strong>{$trace[0]['line']}</strong>
+</pre>
+<pre style="background-color:#18171B; color:#fff; padding:10px;">Error Trace:</pre>
+HTML;
+            echo ($error_log);
+            dd($trace); //symphony
         }
 
         return $result;

@@ -10,7 +10,7 @@ const ADMIN_LOGOUT_LINK = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN
 const FILEDEBUGJSON         = 'logs/FILEDEBUG.JSON';   //  {$smarty.const.FILEDEBUGJSON}
 const SQLDEBUG              = 'logs/SQLDEBUG.JSON';    //  {$smarty.const.SQLDEBUG}
 const SMARTYDEBUGJSON       = 'logs/SMARTYDEBUG.JSON'; //  {$smarty.const.SMARTYDEBUGJSON}
-const ADMIN_SMARTY_LOG_VARS = 1;                       //   {$smarty.const.ADMIN_SMARTY_LOG_VARS}
+const ADMIN_SMARTY_LOG_VARS = 0;                       //   {$smarty.const.ADMIN_SMARTY_LOG_VARS}
 
 const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {$smarty.const.ERROR_DB_INIT} database system
 const DBMS          = 'mysqli';                                           //   {$smarty.const.DBMS}          database host
