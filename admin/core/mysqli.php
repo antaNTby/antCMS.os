@@ -63,11 +63,8 @@ function db_query(
     {
         global $relaccess;
     }
-        $microtime = microtime(true);
-    $sec       = floor($microtime);
-    $usec      = fmod($microtime, 1);
-    // list($usec, $sec) = explode(' ', microtime(true));
-    $start            = $usec + $sec;
+
+    $start = db_gmts();
 
     #### САМ ЗАПРОС
     $res['resource'] = $DB->Query($s, $print);
@@ -86,16 +83,16 @@ function db_query(
     $scriptp   = db_gmts();
     $queryTime = $scriptp - $scriptv;
 
-    if (!$res['resource'])
-    {
-        // $outOld = 'ERROR: ' . mysqli_errno($DB->link) . ':' . mysqli_error($DB->link) . '    Sql: ' . $s . '    Link: ' . $_SERVER['REQUEST_URI'] . '    Date: ' . date('d.m.y - H:i:s') . '    Dump:    ';
+// dump(gettype($res['resource']));
 
+    if (($res['resource'] === false) or $speedtest)
+    {
         $out = array(
             'ERR_NO' => mysqli_errno($DB->link),
             'SQL'    => $s,
             'ERROR'  => mysqli_error($DB->link),
             'Link'   => str_replace('/', '\\', $_SERVER['REQUEST_URI']),
-            'Date'   => date('Y-m-d h:i:s')
+            'Date'   => date('Y-m-d h:i:s'),
 
         );
         if ($speedtest)
@@ -114,14 +111,25 @@ function db_query(
         // die('Wrong database query!');
     }
 
-    $res['columns'] = array();
-    $column_index   = 0;
-    dump($res);
+    // $res['columns'] = array();
+    $column_index = 0;
+    // cls();
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 
-    while ($xwer = @mysqli_fetch_field($res['resource']))
+    if (!is_bool($res["resource"]))
     {
-        $res['columns'][$xwer->name] = $column_index;
-        $column_index++;
+        while ($xwer = @mysqli_fetch_field($res["resource"]))
+        {
+            $res['columns'][$xwer->name] = $column_index;
+            $column_index++;
+        }
     }
 
     if (isset($gmc) && $gmc == 1)
@@ -130,6 +138,7 @@ function db_query(
         $sc_4++;
         $sc_8 = $sc_8 + $sc_82 - $sc_81;
     }
+    // dump($res);
     return $res;
 }
 
@@ -333,8 +342,8 @@ function db_getColumns(
     while ($_Row = db_fetch_row($Result))
     {
         ($lowerCase)
-            ? $Columns[strtolower($_Row['Field'])] = $_Row
-            : $Columns[$_Row['Field']]             = $_Row;
+        ? $Columns[strtolower($_Row['Field'])] = $_Row
+        : $Columns[$_Row['Field']]             = $_Row;
     }
     return $Columns;
 }
@@ -356,8 +365,8 @@ function db_getColumnNames(
     while ($_Row = db_fetch_row($Result))
     {
         ($lowerCase)
-            ? $Columns[strtolower($_Row['Field'])] = $_Row['Type']
-            : $Columns[$_Row['Field']]             = $_Row['Type'];
+        ? $Columns[strtolower($_Row['Field'])] = $_Row['Type']
+        : $Columns[$_Row['Field']]             = $_Row['Type'];
     }
     return $Columns;
 }

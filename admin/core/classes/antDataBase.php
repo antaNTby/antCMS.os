@@ -42,6 +42,7 @@ class antDataBase
         self::$count++;
 
         $result = mysqli_query(self::$link, $sql);
+        // $result = mysqli_query(self::$link, $sql) or die( mysqli_error(self::$link));
 
         if ($result === false || $print === 1)
         {

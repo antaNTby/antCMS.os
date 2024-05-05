@@ -2,10 +2,11 @@
 ### КОНСТАНТЫ
 
 // FROM connect.inc.php
-const SLASH             = '/';                        //   {$smarty.const.SLASH}
-const SITE_URL          = 'antCMS';                   //    {$smarty.const.SITE_URL}
-const ADMIN_FILE        = '/admin/admin.php';         //    {$smarty.const.ADMIN_FILE}
-const ADMIN_LOGOUT_LINK = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN_LOGOUT_LINK}
+const SLASH              = '/';                        //   {$smarty.const.SLASH}
+const SITE_URL           = 'antCMS.os';                //    {$smarty.const.SITE_URL}
+const CONF_FULL_SHOP_URL = 'antCMS.os';                //    {$smarty.const.CONF_FULL_SHOP_URL}
+const ADMIN_FILE         = '/admin/admin.php';         //    {$smarty.const.ADMIN_FILE}
+const ADMIN_LOGOUT_LINK  = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN_LOGOUT_LINK}
 
 const FILEDEBUGJSON         = 'logs/FILEDEBUG.JSON';   //  {$smarty.const.FILEDEBUGJSON}
 const SQLDEBUG              = 'logs/SQLDEBUG.JSON';    //  {$smarty.const.SQLDEBUG}

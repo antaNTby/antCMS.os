@@ -221,11 +221,11 @@ function set_query(
     }
 
     $_anchor                   = '';
-    @list($_request, $_anchor) = explode('#', $_request);
+    list($_request, $_anchor) = explode('#', $_request);
 
     if (strpos($_vars, '#') !== false)
     {
-        @list($_vars, $_anchor) = explode('#', $_vars);
+        list($_vars, $_anchor) = explode('#', $_vars);
     }
 
     if (!$_vars && !$_anchor)

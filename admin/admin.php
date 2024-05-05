@@ -1,6 +1,5 @@
 <?php
 # сбрасываем время сессии
-session_cache_expire();
 
 include_once 'core/const.php';    // управляющие и служебные константы
 include_once 'core/errors.php';   // обработка ошибок
@@ -30,9 +29,24 @@ $sc_1 = gmts();
 $sc_4 = 0;
 $sc_8 = 0;
 $gmc  = 1;
+session_cache_expire();
 
 $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
+
+$dird          = dirname($_SERVER['PHP_SELF']);
+$sourcessrandd = array("//" => "/", "\\" => "/");
+$dird          = strtr($dird, $sourcessrandd);
+if ($dird != "/")
+{
+    $dirf = "/";
+}
+else
+{
+    $dirf = "";
+}
+$url = "http://" . $_SERVER["HTTP_HOST"] . $dird . $dirf;
+define('CONF_FULL_SHOP_URL', trim($url));
 
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);
@@ -178,7 +192,7 @@ if (isset($_GET['table']))
         'db'             => DB_NAME,
         'host'           => DB_HOST,
         'charset'        => 'utf8mb3',
-        'headersCharset' => 'utf8'
+        'headersCharset' => 'utf8',
     );
 
     $smarty->assign('subTables', $subTables);
@@ -191,7 +205,7 @@ else
 
 if (isset($_GET['edit_id']))
 {
-    $editID = (int) $_GET['edit_id'];
+    $editID = (int)$_GET['edit_id'];
     if ($editID > 0)
     {
         $smarty->assign('editID', $editID);
