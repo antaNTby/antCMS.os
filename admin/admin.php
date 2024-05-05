@@ -1,6 +1,9 @@
 <?php
+# сбрасываем время сессии
+session_cache_expire();
 
 include_once 'core/const.php';    // управляющие и служебные константы
+include_once 'core/errors.php';   // обработка ошибок
 include_once 'core/orklang.php';  // строки текста
 include_once 'core/settings.php'; // настройки
 include_once 'core/functions.php';
@@ -17,7 +20,6 @@ require_once '../vendor/autoload.php';
 // composer require twbs/bootstrap-icons
 // composer require --dev symfony/var-dumper
 
-
 # The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
 # Built on top, it provides a better dump() function that you can use instead of var_dump
 
@@ -32,9 +34,6 @@ $gmc  = 1;
 $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
 
-# сбрасываем время сессии
-session_cache_expire();
-
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);
 @ini_set('session.use_only_cookies', 1);
@@ -45,6 +44,9 @@ session_cache_expire();
 @ini_set('display_errors', 1);
 
 error_reporting(1);
+set_error_handler('errorHandler');
+register_shutdown_function('shutdownHandler');
+
 error_reporting(E_ALL & ~E_NOTICE);
 
 $_POST   = stripslashes_deep($_POST);
@@ -176,12 +178,11 @@ if (isset($_GET['table']))
         'db'             => DB_NAME,
         'host'           => DB_HOST,
         'charset'        => 'utf8mb3',
-        'headersCharset' => 'utf8',
+        'headersCharset' => 'utf8'
     );
 
     $smarty->assign('subTables', $subTables);
     $smarty->assign('table_mode', $table_mode);
-
 }
 else
 {
@@ -190,7 +191,7 @@ else
 
 if (isset($_GET['edit_id']))
 {
-    $editID = (int)$_GET['edit_id'];
+    $editID = (int) $_GET['edit_id'];
     if ($editID > 0)
     {
         $smarty->assign('editID', $editID);
@@ -252,12 +253,8 @@ if (isset($_SESSION['log']))
     $smarty->assign('admintempname', $_SESSION['log']);
 }
 
-
-
 // dump($_GET);
 // dump($_SESSION);
-
-
 
 //show Smarty output
 try
@@ -271,13 +268,10 @@ catch (SmartyException $e)
     dump($smarty->getTemplateVars());
 }
 
-
-if  (ADMIN_SMARTY_LOG_VARS)
+if (ADMIN_SMARTY_LOG_VARS)
 {
     // dump($antMenu);
     dump($smarty->getTemplateVars());
     // $all_tpl_vars = $smarty->getTemplateVars();
     // smartylog($all_tpl_vars);
 }
-
-

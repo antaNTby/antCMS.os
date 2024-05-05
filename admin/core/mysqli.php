@@ -1,7 +1,11 @@
 <?php
 function db_gmts()
 {
-    list($usec, $sec) = explode(' ', microtime(true));
+    $microtime = microtime(true);
+    $sec       = floor($microtime);
+    $usec      = fmod($microtime, 1);
+
+    // list($usec, $sec) = explode(' ', microtime(true));
     return $usec + $sec;
 }
 
@@ -59,7 +63,10 @@ function db_query(
     {
         global $relaccess;
     }
-    list($usec, $sec) = explode(' ', microtime(true));
+        $microtime = microtime(true);
+    $sec       = floor($microtime);
+    $usec      = fmod($microtime, 1);
+    // list($usec, $sec) = explode(' ', microtime(true));
     $start            = $usec + $sec;
 
     #### САМ ЗАПРОС
@@ -88,7 +95,7 @@ function db_query(
             'SQL'    => $s,
             'ERROR'  => mysqli_error($DB->link),
             'Link'   => str_replace('/', '\\', $_SERVER['REQUEST_URI']),
-            'Date'   => date('Y-m-d h:i:s'),
+            'Date'   => date('Y-m-d h:i:s')
 
         );
         if ($speedtest)
@@ -98,14 +105,13 @@ function db_query(
 
         $Dump = var_export($_REQUEST, true);
 
-        $fp   = fopen('logs/SQLDEBUG.JSON', 'a');
+        $fp = fopen('logs/SQLDEBUG.JSON', 'a');
         fwrite($fp, json_encode($out, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE));
         fwrite($fp, "\r\n");
         fwrite($fp, $Dump);
         fclose($fp);
 
         // die('Wrong database query!');
-
     }
 
     $res['columns'] = array();
@@ -326,8 +332,8 @@ function db_getColumns(
     while ($_Row = db_fetch_row($Result))
     {
         ($lowerCase)
-        ? $Columns[strtolower($_Row['Field'])] = $_Row
-        : $Columns[$_Row['Field']]             = $_Row;
+            ? $Columns[strtolower($_Row['Field'])] = $_Row
+            : $Columns[$_Row['Field']]             = $_Row;
     }
     return $Columns;
 }
@@ -349,8 +355,8 @@ function db_getColumnNames(
     while ($_Row = db_fetch_row($Result))
     {
         ($lowerCase)
-        ? $Columns[strtolower($_Row['Field'])] = $_Row['Type']
-        : $Columns[$_Row['Field']]             = $_Row['Type'];
+            ? $Columns[strtolower($_Row['Field'])] = $_Row['Type']
+            : $Columns[$_Row['Field']]             = $_Row['Type'];
     }
     return $Columns;
 }
