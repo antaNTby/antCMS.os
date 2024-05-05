@@ -116,6 +116,7 @@ function db_query(
 
     $res['columns'] = array();
     $column_index   = 0;
+    dump($res);
 
     while ($xwer = @mysqli_fetch_field($res['resource']))
     {
