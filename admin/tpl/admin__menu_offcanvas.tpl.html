@@ -4,7 +4,7 @@
 <div class="offcanvas offcanvas-start{$show}" tabindex="-1" id="offcanvasMenu" data-bs-scroll="false" data-bs-backdrop="false" aria-labelledby="offcanvasMenuLabel" data-bs-theme="dark">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasMenuLabel">Меню {$smarty.const.SITE_URL}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close" id="btnCloseMenu" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column justify-content-between">
         {include file="admin__menu_accordion.tpl.html"}

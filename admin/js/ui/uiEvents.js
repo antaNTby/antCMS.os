@@ -20,7 +20,9 @@ ui.switcherMenuPosition.addEventListener('change', function(e) {
     }
 });
 
-
+ui.btnCloseMenu.addEventListener('click', () => {
+    ui.bsOffcanvasMenu.hide();
+});
 
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 
@@ -45,4 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.elOffcanvasMenu.classList.remove('offcanvas-end');
         ui.switcherMenuPosition.checked = undefined;
     }
+
+
 });
