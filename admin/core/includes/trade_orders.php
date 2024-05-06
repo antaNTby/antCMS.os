@@ -1,8 +1,9 @@
 <?php
 ###trade_orders.php
 $DPT_SUB             = 'trade_orders';
-$jsonPath            = 'tpl/sub/';
+$jsonPath            = "tpl/sub/";
 $jsonColumnsFileName = $jsonPath . $DPT_SUB . '__columns.json';
+// dump($jsonColumnsFileName);
 
 $subTables         = array(ORDERS_TABLE);
 $dbTable           = ORDERS_TABLE;
@@ -41,10 +42,11 @@ else
             'data'       => $value,
             'db'         => $value,
             'dt'         => $value,
-            'title'      => 'Заголовок',
+            'title'      => 'title '.$value,
             'orderable'  => true,
             'visible'    => true,
             'searchable' => true,
+            'formatter' => null
         );
         $Columns[] = $newColumnItem;
         // jlog($newColumnItem);
@@ -57,13 +59,32 @@ else
 if (isset($_GET['saveNewJsonColumns']) || $saveNewJsonColumns)
 {
     $isSaved = file_put_contents($jsonColumnsFileName, $jsonColumns);
-    header("Content-Type: application/json; charset=utf-8");
-    die(json_encode('isSaved: ' . $isSaved));
+    header("Content-Type: text/html; charset=utf-8");
+    echo ($jsonColumnsFileName.' Is saved size: ' . format_size($isSaved));
 }
 
 $Columns = json_decode($jsonColumns);
 
-// dump($Columns);
+dump($Columns);
+
+
+
+// require  'core/classes/class.adminSSP.php';
+
+$ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $Columns);
+header("Content-Type: application/json; charset=utf-8");
+die(json_encode($ssp_result));
+
+
+
+
+
+
+
+
+
+
+
 
 //show Smarty output
 $smarty->assign('subTables', $subTables);

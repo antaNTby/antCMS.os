@@ -4,129 +4,142 @@
         "data": "orderID",
         "db": "orderID",
         "dt": "orderID",
-        "title": "Заголовок",
+        "title": "title orderID",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 1,
         "data": "customerID",
         "db": "customerID",
         "dt": "customerID",
-        "title": "Заголовок",
+        "title": "title customerID",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 2,
         "data": "order_time",
         "db": "order_time",
         "dt": "order_time",
-        "title": "Заголовок",
+        "title": "title order_time",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 3,
         "data": "shipping_cost",
         "db": "shipping_cost",
         "dt": "shipping_cost",
-        "title": "Заголовок",
+        "title": "title shipping_cost",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 4,
         "data": "order_discount",
         "db": "order_discount",
         "dt": "order_discount",
-        "title": "Заголовок",
+        "title": "title order_discount",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 5,
         "data": "order_amount",
         "db": "order_amount",
         "dt": "order_amount",
-        "title": "Заголовок",
+        "title": "title order_amount",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 6,
         "data": "currency_code",
         "db": "currency_code",
         "dt": "currency_code",
-        "title": "Заголовок",
+        "title": "title currency_code",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 7,
         "data": "currency_value",
         "db": "currency_value",
         "dt": "currency_value",
-        "title": "Заголовок",
+        "title": "title currency_value",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 8,
         "data": "currency_round",
         "db": "currency_round",
         "dt": "currency_round",
-        "title": "Заголовок",
+        "title": "title currency_round",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 9,
         "data": "shippmethod",
         "db": "shippmethod",
         "dt": "shippmethod",
-        "title": "Заголовок",
+        "title": "title shippmethod",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 10,
         "data": "paymethod",
         "db": "paymethod",
         "dt": "paymethod",
-        "title": "Заголовок",
+        "title": "title paymethod",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 11,
         "data": "companyID",
         "db": "companyID",
         "dt": "companyID",
-        "title": "Заголовок",
+        "title": "title companyID",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     },
     {
         "index": 12,
         "data": "admin_comment",
         "db": "admin_comment",
         "dt": "admin_comment",
-        "title": "Заголовок",
+        "title": "title admin_comment",
         "orderable": true,
         "visible": true,
-        "searchable": true
+        "searchable": true,
+        "formatter": null
     }
 ]

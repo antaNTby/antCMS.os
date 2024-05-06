@@ -186,7 +186,7 @@ if (isset($_GET['table']))
     $subTables  = array();
     require 'core/classes/class.adminSSP.php';
 
-    $PDO_connect = array(
+    $pdo_connect = array(
         'user'           => DB_USER,
         'pass'           => DB_PASS,
         'db'             => DB_NAME,
