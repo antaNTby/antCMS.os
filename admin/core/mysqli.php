@@ -83,8 +83,6 @@ function db_query(
     $scriptp   = db_gmts();
     $queryTime = $scriptp - $scriptv;
 
-// dump(gettype($res['resource']));
-
     if (($res['resource'] === false) or $speedtest)
     {
         $out = array(
@@ -111,17 +109,8 @@ function db_query(
         // die('Wrong database query!');
     }
 
-    // $res['columns'] = array();
+    $res['columns'] = array();
     $column_index = 0;
-    // cls();
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
 
     if (!is_bool($res["resource"]))
     {

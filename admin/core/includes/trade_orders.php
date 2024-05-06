@@ -25,7 +25,7 @@ $dtColumnFieldNames = array(
     'companyID',
     'admin_comment',
 );
-
+$saveNewJsonColumns = false;
 $Columns = array();
 
 if (file_exists($jsonColumnsFileName))
@@ -63,8 +63,7 @@ if (isset($_GET['saveNewJsonColumns']) || $saveNewJsonColumns)
 
 $Columns = json_decode($jsonColumns);
 
-cls();
-jlog($Columns);
+// dump($Columns);
 
 //show Smarty output
 $smarty->assign('subTables', $subTables);
