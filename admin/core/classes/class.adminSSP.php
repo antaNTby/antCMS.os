@@ -41,7 +41,6 @@ class adminSSP
 
             for ($j = 0, $jen = count($columns); $j < $jen; $j++) {
                 $column = $columns[$j];
-        dump(gettype($column));
 
                 // Is there a formatter?
                 if (isset($column['formatter'])) {
@@ -743,35 +742,28 @@ class adminSSP
      *  @param  string $prop Property to read
      *  @return array        Array of property values
      */
-    // public static function pluck(
-    //     $a,
-    //     $prop
-    // ) {
-    //     $out = array();
-    //     for ($i = 0, $len = count($a); $i < $len; $i++) {
-    //         $out[] = $a[$i][$prop];
-    //     }
-    //     return $out;
-    // }
+    public static function pluck(
+        $a,
+        $prop
+    ) {
+        $out = array();
+        for ($i = 0, $len = count($a); $i < $len; $i++) {
+            $out[] = $a[$i][$prop];
+        }
+        return $out;
+    }
 
-    public static function pluck($a, $prop)
+    public static function pluckFromObject($a, $prop)
     {
         $out = array();
-
-        // for ($i = 0, $len = count($a); $i < $len; $i++)
-        // {
-        //     $out[] = $a[$i][$prop];
-        // }
 
         $ii=0;
         foreach ($a as $key => $value) {
             // $out[] = $a->$key[$prop];
             $out[$value->index]= $value->$prop;
         }
-
         // dump($out);
         return $out;
-
     }
 
     /**

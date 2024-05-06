@@ -26,7 +26,9 @@ $dtColumnFieldNames = array(
     'companyID',
     'admin_comment',
 );
+
 $saveNewJsonColumns = false;
+
 $Columns = array();
 
 if (file_exists($jsonColumnsFileName))
@@ -42,11 +44,11 @@ else
             'data'       => $value,
             'db'         => $value,
             'dt'         => $value,
-            'title'      => 'title '.$value,
+            'title'      => 'title ' . $value,
             'orderable'  => true,
             'visible'    => true,
             'searchable' => true,
-            'formatter' => null
+            'formatter'  => null,
         );
         $Columns[] = $newColumnItem;
         // jlog($newColumnItem);
@@ -60,31 +62,20 @@ if (isset($_GET['saveNewJsonColumns']) || $saveNewJsonColumns)
 {
     $isSaved = file_put_contents($jsonColumnsFileName, $jsonColumns);
     header("Content-Type: text/html; charset=utf-8");
-    echo ($jsonColumnsFileName.' Is saved size: ' . format_size($isSaved));
+    echo ($jsonColumnsFileName . ' Is saved size: ' . format_size($isSaved));
 }
 
-$Columns = json_decode($jsonColumns);
+$Columns = json_decode($jsonColumns, true); //as array
 
 // dump($Columns);
 
-
-
 // require  'core/classes/class.adminSSP.php';
-
-$ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $Columns);
-header("Content-Type: application/json; charset=utf-8");
-die(json_encode($ssp_result));
-
-
-
-
-
-
-
-
-
-
-
+if (isset($_GET['getDataTableData']))
+{
+    $ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $Columns);
+    header("Content-Type: application/json; charset=utf-8");
+    die(json_encode($ssp_result));
+}
 
 //show Smarty output
 $smarty->assign('subTables', $subTables);

@@ -282,7 +282,7 @@ catch (SmartyException $e)
     dump($smarty->getTemplateVars());
 }
 
-if (ADMIN_SMARTY_LOG_VARS)
+if (1 or ADMIN_SMARTY_LOG_VARS)
 {
     // dump($antMenu);
     dump($smarty->getTemplateVars());
