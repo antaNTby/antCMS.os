@@ -5,6 +5,7 @@ export const elOffcanvasMenu = document.querySelector('div#offcanvasMenu');
 export const bsOffcanvasMenu = new bootstrap.Offcanvas(elOffcanvasMenu)
 
 export const switcherMenuOnLoad = document.querySelector('input#switcherMenuOnLoad');
+export const switcherMenuPosition = document.querySelector('input#switcherMenuPosition');
 
 
 export const offcanvasElementList = document.querySelectorAll('.offcanvas')
