@@ -126,7 +126,7 @@ function directlog(
 {
     $fp = fopen(FILEDEBUGJSON, 'a');
     // fwrite( $fp, "__" . gettype( $variable ) . "__  ::  \r\n" );
-    if ($gettyp)
+    if ($gettype)
     {
         fwrite($fp, '__' . gettype($variable) . '__  :: ');
     }

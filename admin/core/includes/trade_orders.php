@@ -65,7 +65,7 @@ if (isset($_GET['saveNewJsonColumns']) || $saveNewJsonColumns)
 
 $Columns = json_decode($jsonColumns);
 
-dump($Columns);
+// dump($Columns);
 
 
 
