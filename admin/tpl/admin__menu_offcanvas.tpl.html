@@ -9,22 +9,24 @@
     <div class="offcanvas-body d-flex flex-column justify-content-between">
         {include file="admin__menu_accordion.tpl.html"}
         <div class="d-flex flex-column">
-            <div class="form-check form-switch d-flex justify-content-end" title="Открывать это меню при каждой загрузке страницы">
-                <input class="form-check-input" type="checkbox" role="switch" id="switcherMenuOnLoad">
-                <label class="form-check-label px-3" for="switcherMenuOnLoad"> Закрепить</label>
-            </div>
-            <div class="form-check form-switch d-flex justify-content-end" title="Открывать это меню при каждой загрузке страницы">
-                <label class="form-check-label px-3" for="switcherMenuPosition">Слева</label>
-                <input class="form-check-input ms-2" type="checkbox" role="switch" id="switcherMenuPosition">
-                <label class="form-check-label px-3" for="switcherMenuPosition"> Справа</label>
+            <hr>
+            <div class="d-flex justify-content-center">
+                <a class="px-2 nav-link active" aria-current="page" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i> Admin </a>
+                <a class="px-2 nav-link" href="index.php"><i class="bi bi-house"></i> {$smarty.const.LANG_ADMIN_BACK_TO_SHOP} </a>
+                <a class="px-2 nav-link" href="{$smarty.const.ADMIN_LOGOUT_LINK}"><i class="bi bi-door-open"></i> {$smarty.const.LANG_ADMIN_LOGOUT_LINK} </a>
             </div>
             <hr>
-            <div class="d-flex justify-content-end">
-                <a class="px-2 nav-link fs-5 active" aria-current="page" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i> Admin </a>
-                <a class="px-2 nav-link fs-5" href="index.php"><i class="bi bi-house"></i> {$smarty.const.LANG_ADMIN_BACK_TO_SHOP} </a>
-                <a class="px-2 nav-link fs-5" href="{$smarty.const.ADMIN_LOGOUT_LINK}"><i class="bi bi-door-open"></i> {$smarty.const.LANG_ADMIN_LOGOUT_LINK} </a>
+            <div class="d-flex flex-row justify-content-between">
+                <div class="form-check form-switch d-flex justify-content-start" title="Открывать это меню при каждой загрузке страницы">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switcherMenuOnLoad">
+                    <label class="form-check-label px-3" for="switcherMenuOnLoad"><i class="bi bi-pin-angle-fill"></i></label>
+                </div>
+                <div class="form-check form-switch d-flex justify-content-end" title="Открывать это меню при каждой загрузке страницы">
+                    <label class="form-check-label pe-1" for="switcherMenuPosition"><i class="bi bi-text-indent-left"></i></label>
+                    <input class="form-check-input ms-2" type="checkbox" role="switch" id="switcherMenuPosition">
+                    <label class="form-check-label ps-3" for="switcherMenuPosition"><i class="bi bi-text-indent-right"></i></label>
+                </div>
             </div>
-
         </div>
     </div>
 </div>

@@ -5,9 +5,9 @@ import * as ui from './uiAdmin.js';
 ui.switcherMenuOnLoad.addEventListener('change', function(e) {
     // console.log(e);
     if (e.target.checked) {
-        localStorage.setItem('showMenuOnLoad', "1");
+        localStorage.setItem('switcherMenuOnLoad', "1");
     } else {
-        localStorage.setItem('showMenuOnLoad', "0");
+        localStorage.setItem('switcherMenuOnLoad', "0");
     }
 });
 
@@ -25,9 +25,9 @@ ui.switcherMenuPosition.addEventListener('change', function(e) {
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 
 document.addEventListener("DOMContentLoaded", function() {
-
-    let showMenuOnLoad = localStorage.getItem('showMenuOnLoad');
-    if (showMenuOnLoad === "1") {
+    console.log(ui)
+    let switcherMenuOnLoad = localStorage.getItem('switcherMenuOnLoad');
+    if (switcherMenuOnLoad === "1") {
         ui.bsOffcanvasMenu.show();
         ui.switcherMenuOnLoad.checked = true;
     } else {
@@ -37,12 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let switcherMenuPosition = localStorage.getItem('switcherMenuPosition');
     if (switcherMenuPosition === "1") {
-        ui.bsOffcanvasMenu.classlist.add('offcanvas-start');
-        ui.bsOffcanvasMenu.classlist.remove('offcanvas-end');
+        ui.elOffcanvasMenu.classList.remove('offcanvas-start');
+        ui.elOffcanvasMenu.classList.add('offcanvas-end');
         ui.switcherMenuPosition.checked = true;
     } else {
-        ui.bsOffcanvasMenu.classlist.add('offcanvas-end');
-        ui.bsOffcanvasMenu.classlist.remove('offcanvas-start');
+        ui.elOffcanvasMenu.classList.add('offcanvas-start');
+        ui.elOffcanvasMenu.classList.remove('offcanvas-end');
         ui.switcherMenuPosition.checked = undefined;
     }
 });
