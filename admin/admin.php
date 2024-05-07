@@ -35,10 +35,8 @@ require_once '../vendor/autoload.php';
 // composer require datatables.net-staterestore-bs5
 
 
-$ composer self-update
-Upgrading to version 2.7.6 (stable channel).
-
-
+// $ composer self-update
+// Upgrading to version 2.7.6 (stable channel).
 
 # The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
 # Built on top, it provides a better dump() function that you can use instead of var_dump

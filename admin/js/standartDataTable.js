@@ -4,7 +4,7 @@
 
 const app = function() {
 
-    const selector = "table#xxxDataTable";
+    const selector = "table#exmple";
     const FilterParams = () => {
         let filter = {};
         // filter.searchstring = document.querySelector('input#app_searchstring').value.toString();
