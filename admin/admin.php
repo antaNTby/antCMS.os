@@ -19,6 +19,27 @@ require_once '../vendor/autoload.php';
 // composer require twbs/bootstrap-icons
 // composer require --dev symfony/var-dumper
 
+// composer require datatables.net-bs5
+// composer require datatables.net-buttons-bs5
+// composer require datatables.net-datetime
+// composer require datatables.net-fixedcolumns-bs5
+// composer require datatables.net-fixedheader-bs5
+// composer require datatables.net-keytable-bs5
+// composer require datatables.net-responsive-bs5
+// composer require datatables.net-rowgroup-bs5
+// composer require datatables.net-rowreorder-bs5
+// composer require datatables.net-scroller-bs5
+// composer require datatables.net-searchbuilder-bs5
+// composer require datatables.net-searchpanes-bs5
+// composer require datatables.net-select-bs5
+// composer require datatables.net-staterestore-bs5
+
+
+$ composer self-update
+Upgrading to version 2.7.6 (stable channel).
+
+
+
 # The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
 # Built on top, it provides a better dump() function that you can use instead of var_dump
 
