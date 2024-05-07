@@ -59,3 +59,16 @@ function formatTime(date, $sep = ' ') {
     let result = hh + ':' + ii + ':' + ss;
     return result;
 }
+
+function checkOnUrl(url) {
+    let urlArrayDot = url.split('.');
+    if (urlArrayDot[urlArrayDot.length - 1] === 'html') {
+        urlArrayDot.pop();
+        let newUrl = urlArrayDot.join('.');
+        let urlArraySlash = newUrl.split('/');
+        urlArraySlash.pop();
+        newUrl = urlArraySlash.join('/') + '/';
+        return newUrl;
+    }
+    return url;
+}

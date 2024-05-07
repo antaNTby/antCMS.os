@@ -15,16 +15,16 @@ $dtColumnFieldNames = array(
     'orderID',
     'customerID',
     'order_time',
-    'shipping_cost',
-    'order_discount',
-    'order_amount',
+    // 'shipping_cost',
+     // 'order_discount',
+     'order_amount',
     'currency_code',
     'currency_value',
-    'currency_round',
-    'shippmethod',
-    'paymethod',
-    'companyID',
-    'admin_comment',
+    // 'currency_round',
+     // 'shippmethod',
+     // 'paymethod',
+     // 'companyID',
+     'admin_comment',
 );
 
 $saveNewJsonColumns = false;
@@ -34,6 +34,7 @@ $Columns = array();
 if (file_exists($jsonColumnsFileName))
 {
     $jsonColumns = file_get_contents($jsonColumnsFileName);
+    // dump($jsonColumns);
 }
 else
 {
@@ -58,30 +59,34 @@ else
     $saveNewJsonColumns = true;
 }
 
-if (isset($_GET['saveNewJsonColumns']) || $saveNewJsonColumns)
+if ($_GET['operation'] === "saveNewJsonColumns" || $saveNewJsonColumns)
 {
     $isSaved = file_put_contents($jsonColumnsFileName, $jsonColumns);
     header("Content-Type: text/html; charset=utf-8");
     echo ($jsonColumnsFileName . ' Is saved size: ' . format_size($isSaved));
 }
 
-$Columns = json_decode($jsonColumns, true); //as array
 
-// dump($Columns);
 
-// require  'core/classes/class.adminSSP.php';
-if (isset($_GET['getDataTableData']))
+if (isset($_GET['operation']))
 {
-    $ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $Columns);
-    header("Content-Type: application/json; charset=utf-8");
-    die(json_encode($ssp_result));
+
+    $Columns = json_decode($jsonColumns, true); //as array
+
+    if ($_GET['operation'] === "getDataTableData")
+    {
+        $ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $Columns);
+        header("Content-Type: application/json; charset=utf-8");
+        die(json_encode($ssp_result));
+    }
+
 }
 
 //show Smarty output
 $smarty->assign('subTables', $subTables);
 $smarty->assign('dtColumnFieldNames', $dtColumnFieldNames);
 // $smarty->assign('jsonColumns', $jsonColumns);
-$smarty->assign('Columns', $Columns);
+$smarty->assign('dtColumns', $Columns);
 showSubSmartyOutput($DPT_SUB);
 
 /*
@@ -131,3 +136,6 @@ showSubSmartyOutput($DPT_SUB);
 
  */
 ;
+{
+
+}

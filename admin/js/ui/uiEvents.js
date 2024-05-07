@@ -27,7 +27,7 @@ ui.btnCloseMenu.addEventListener('click', () => {
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log(ui)
+    // console.log(ui)
     let switcherMenuOnLoad = localStorage.getItem('switcherMenuOnLoad');
     if (switcherMenuOnLoad === "1") {
         ui.bsOffcanvasMenu.show();
