@@ -1,4 +1,4 @@
-<hr class="border border-dark border-1 opacity-25 my-1">
+{* <hr class="border border-dark border-1 opacity-25 my-1"> *}
 {section name=sub_index loop=$admin_sub_departments}
 {if $current_sub eq $admin_sub_departments[sub_index].id}
 <nav class="my-0 d-flex flex-column-inverse flex-md-row-inverse justify-content-start justify-content-md-end" style="--bs-breadcrumb-divider: '::';" aria-label="breadcrumb">
@@ -13,7 +13,9 @@
 </h1>
 {/if}
 {/section}
-<hr class="border border-dark border-1 opacity-25 my-1">
+
+{* <h3>{$current_sub_name}[{$current_sub_index}]</h3> *}
+{* <hr class="border border-dark border-1 opacity-25 my-1"> *}
 {* <input type="text" id="phpColumns" value="{$Columns|json_encode}"> *}
 {include file="sub/$admin_sub_dpt"}
 
@@ -27,9 +29,9 @@
 </table>
 
 *}
-*
-<table id="example" class="display" style="width:100%">
-        <thead>
+
+<table id="example" class="display table table-striped table-bordered table-sm" style="width:100%">
+        <thead class="table-dark">
             <tr>
                 <th>Name</th>
                 <th>Position</th>
@@ -73,12 +75,29 @@
                 <td>$850,000</td>
             </tr>
             <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Brenden Wagner</td>
+                <td>Software Engineer</td>
+                <td>San Francisco</td>
+                <td>28</td>
+                <td>2011-06-07</td>
+                <td>$206,850</td>
+            </tr>
+            <tr>
+                <td>Fiona Green</td>
+                <td>Chief Operating Officer (COO)</td>
+                <td>San Francisco</td>
+                <td>48</td>
+                <td>2010-03-11</td>
+                <td>$850,000</td>
+            </tr>
             <tr>
                 <td>Garrett Winters</td>
                 <td>Accountant</td>
@@ -104,13 +123,6 @@
                 <td>$850,000</td>
             </tr>
             <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
-            <tr>
                 <td>Garrett Winters</td>
                 <td>Accountant</td>
                 <td>Tokyo</td>
@@ -135,13 +147,6 @@
                 <td>$850,000</td>
             </tr>
             <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
-            <tr>
                 <td>Garrett Winters</td>
                 <td>Accountant</td>
                 <td>Tokyo</td>
@@ -165,44 +170,6 @@
                 <td>2010-03-11</td>
                 <td>$850,000</td>
             </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Brenden Wagner</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>28</td>
-                <td>2011-06-07</td>
-                <td>$206,850</td>
-            </tr>
-            <tr>
-                <td>Fiona Green</td>
-                <td>Chief Operating Officer (COO)</td>
-                <td>San Francisco</td>
-                <td>48</td>
-                <td>2010-03-11</td>
-                <td>$850,000</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
             <tr>
                 <td>Garrett Winters</td>
                 <td>Accountant</td>
@@ -259,13 +226,6 @@
                 <td>$850,000</td>
             </tr>
             <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
-            <tr>
                 <td>Garrett Winters</td>
                 <td>Accountant</td>
                 <td>Tokyo</td>
@@ -288,21 +248,6 @@
                 <td>48</td>
                 <td>2010-03-11</td>
                 <td>$850,000</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <t
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
             </tr>
             <tr>
                 <td>Brenden Wagner</td>

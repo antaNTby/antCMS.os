@@ -34,7 +34,6 @@ require_once '../vendor/autoload.php';
 // composer require datatables.net-select-bs5
 // composer require datatables.net-staterestore-bs5
 
-
 // $ composer self-update
 // Upgrading to version 2.7.6 (stable channel).
 
@@ -255,6 +254,22 @@ foreach ($Departments as $index => $admin_dpt)
         $sub = isset($sub) ? $sub : selectDefaultSub($admin_dpt['sub_departments']);
 
         $smarty->assign('current_sub', $sub);
+
+        $plucked_sub_names = pluck($admin_dpt['sub_departments'], 'name');
+        $plucked_sub_ids   = pluck($admin_dpt['sub_departments'], 'id');
+        $current_sub_index = array_search($sub, $plucked_sub_ids);
+        $current_sub_name = ($plucked_sub_names[$current_sub_index]);
+
+        // dump($plucked_sub_names);
+        // dump($plucked_sub_ids);
+        // dump($sub);
+        // dump($current_sub_index);
+        // dump($current_sub_name);
+
+        $smarty->assign('plucked_sub_names', $plucked_sub_names);
+        $smarty->assign('plucked_sub_ids', $plucked_sub_ids);
+        $smarty->assign('current_sub_index', $current_sub_index);
+        $smarty->assign('current_sub_name', $current_sub_name);
 
         // есть ли php для выбранного суб?
         $phpFileName = $pathToIncludesDirectory . $admin_dpt['id'] . '_' . $sub . '.php';

@@ -350,3 +350,14 @@ function check_permission_acp($perm)
 
     return true;
 }
+
+function pluck(
+        $a,
+        $prop
+    ) {
+        $out = array();
+        for ($i = 0, $len = count($a); $i < $len; $i++) {
+            $out[] = $a[$i][$prop];
+        }
+        return $out;
+    }
