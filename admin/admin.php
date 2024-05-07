@@ -41,6 +41,12 @@ require_once '../vendor/autoload.php';
 # The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
 # Built on top, it provides a better dump() function that you can use instead of var_dump
 
+// npm
+//  Открываем закладку Сервер
+//  Затем Настройка использования переменной Path -> выбираем из этого списка Свой Path + userdata/config/path.txt + Win Path
+// d:\OSPanel\userdata\config\path.txt  -- создать файл в опенсервер для подключения Npm
+// C:\Program Files\nodejs\             -- прописать в него путь до nodejs
+
 # mysqli DataBase
 require 'core/mysqli.php';
 
