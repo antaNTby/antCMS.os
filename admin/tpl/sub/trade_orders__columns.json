@@ -48,7 +48,7 @@
         "data": "currency_code",
         "db": "currency_code",
         "dt": "currency_code",
-        "title": "ВАЛЮТА",
+        "title": "title currency_code",
         "orderable": true,
         "visible": true,
         "searchable": true,

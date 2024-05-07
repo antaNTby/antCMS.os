@@ -31,6 +31,7 @@ $saveNewJsonColumns = false;
 
 $Columns = array();
 
+$ForceSaveJsonColumns = false;
 if (file_exists($jsonColumnsFileName))
 {
     $jsonColumns = file_get_contents($jsonColumnsFileName);
@@ -55,11 +56,11 @@ else
         // jlog($newColumnItem);
     }
 
+    $ForceSaveJsonColumns = true;
     $jsonColumns        = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
-    $saveNewJsonColumns = true;
 }
 
-if ($_GET['operation'] === "saveNewJsonColumns" || $saveNewJsonColumns)
+if ( $ForceSaveJsonColumns )
 {
     $isSaved = file_put_contents($jsonColumnsFileName, $jsonColumns);
     header("Content-Type: text/html; charset=utf-8");

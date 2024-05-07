@@ -54,7 +54,7 @@ const jsonColumns = [{
 
 const res = await fetch(checkOnUrl('admin/tpl/sub/trade_orders__columns.json'));
 const dataJsonFile = await res.json();
-console.log(dataJsonFile)
+// console.log(dataJsonFile)
 
 
 
