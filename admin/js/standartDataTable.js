@@ -12,42 +12,42 @@ const app = function() {
         return filter;
     };
 
-    const table = new DataTable(
+    // const table = new DataTable(
 
-        '#xxxDataTable',
+    //     '#xxxDataTable',
 
-        {
+    //     {
 
 
-            ajax: {
-                url: checkOnUrl(document.location.href) + '&DataTable=getShortCompaniesData' + '&app=app_admincompanies',
-                type: 'POST',
-                data: function(d) {
-                    const postData = {
-                        params: FilterParams(),
-                    }
-                    d.DATA = {
-                        //
-                        ...postData
-                        //
-                    };
-                },
-            },
-            serverSide: true,
-            processing: true,
-            searchDelay: 300,
-            search: {
-                return: true
-            },
-            ordering: true,
-            order: order_array,
-            background: true,
-            info: false,
-            ordering: false,
-            paging: false
-        }
+    //         // ajax: {
+    //         //     url: checkOnUrl(document.location.href) + '&DataTable=getShortCompaniesData' + '&app=app_admincompanies',
+    //         //     type: 'POST',
+    //         //     data: function(d) {
+    //         //         const postData = {
+    //         //             params: FilterParams(),
+    //         //         }
+    //         //         d.DATA = {
+    //         //             //
+    //         //             ...postData
+    //         //             //
+    //         //         };
+    //         //     },
+    //         // },
+    //         // serverSide: true,
+    //         processing: true,
+    //         searchDelay: 300,
+    //         search: {
+    //             return: true
+    //         },
+    //         ordering: true,
+    //         order: order_array,
+    //         background: true,
+    //         info: false,
+    //         ordering: false,
+    //         paging: false
+    //     }
 
-    );
+    // );
 
 
 
