@@ -52,6 +52,7 @@ function flatAdminDepartments($departments): array
         $menu[$dpt_key]['dpt_id']    = $dpt_id;
         $menu[$dpt_key]['dpt_name']  = $dpt_name;
         $menu[$dpt_key]['sub_count'] = count($ad['sub_departments']);
+        $menu[$dpt_key]['dpt_template_file'][] = PATH_TPL . $dpt_id . '.tpl.html';
 
         $ii = 0;
         foreach ($ad as $key => $value)
@@ -60,13 +61,12 @@ function flatAdminDepartments($departments): array
             {
                 foreach ($value as $k => $v)
                 {
-                    $menu[$dpt_key]['sub_id'][]            = $v['id'];
-                    $menu[$dpt_key]['sub_name'][]          = $v['name'];
-                    $menu[$dpt_key]['sub_href'][]          = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
-                    $menu[$dpt_key]['sub_href2'][]         = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
-                    $menu[$dpt_key]['columns_json_file'][] = PATH_JSON . $dpt_id . '_' . $v['id'] . '__columns.json';
-                    $menu[$dpt_key]['include_php_file'][]  = PATH_INCLUDES . $dpt_id . '_' . $v['id'] . '.php';
-                    $menu[$dpt_key]['dpt_template_file'][] = PATH_TPL . $dpt_id . '.tpl.html';
+                    $menu[$dpt_key]['sub_ids'][]            = $v['id'];
+                    $menu[$dpt_key]['sub_names'][]          = $v['name'];
+                    $menu[$dpt_key]['sub_hrefs'][]          = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
+                    $menu[$dpt_key]['columns_json_files'][] = PATH_JSON . $dpt_id . '_' . $v['id'] . '__columns.json';
+                    $menu[$dpt_key]['include_php_files'][]  = PATH_INCLUDES . $dpt_id . '_' . $v['id'] . '.php';
+                    $menu[$dpt_key]['dpt_sub_template_files'][] = PATH_TPL . $dpt_id . '_' . $v['id'] .'.tpl.html';
                 }
             }
         }

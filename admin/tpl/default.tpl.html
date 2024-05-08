@@ -9,7 +9,7 @@
             <ul class="list-group list-group-flush">
                 {assign var="mySubMenu" value=$myMenu}
                 {section name=sub_index loop=$mySubMenu.sub_count}
-                <li class="list-group-item"><a class="card-link text-start text-xl-center text-decoration-none" href="{$mySubMenu.sub_href[sub_index]}" role="button">{$mySubMenu.sub_name[sub_index]} <sub class="ps-2 fw-lighter text-dark text-opacity-25 text-decoration-none">{$mySubMenu.sub_id[sub_index]}</sub></a></li>
+                <li class="list-group-item"><a class="card-link text-start text-xl-center text-decoration-none" href="{$mySubMenu.sub_hrefs[sub_index]}" role="button">{$mySubMenu.sub_names[sub_index]} <sub class="ps-2 fw-lighter text-dark text-opacity-25 text-decoration-none">{$mySubMenu.sub_ids[sub_index]}</sub></a></li>
                 {/section}
             </ul>
         </div>

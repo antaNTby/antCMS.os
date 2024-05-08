@@ -12,15 +12,15 @@
                 <div class="d-grid gap-1 col mx-auto">
                     {assign var="mySubMenu" value=$myMenu}
                     {section name=sub_index loop=$mySubMenu.sub_count}
-                    {if $mySubMenu.sub_id[sub_index] eq "custlist"}
+                    {if $mySubMenu.sub_ids[sub_index] eq "custlist"}
                     {assign var="myHrefMod" value="&groupID=0&fActState=-1&search=1"}
                     {else}
                     {assign var="myHrefMod" value=""}
                     {/if}
-                    {if $current_sub eq $mySubMenu.sub_id[sub_index]}
-                    <a class="btn btn-danger text-wrap text-start text-xl-center" href="{$mySubMenu.sub_href[sub_index]}{$myHrefMod}" role="button">{$mySubMenu.sub_name[sub_index]} <sub class="ps-2 fw-lighter text-dark text-opacity-25">{$mySubMenu.sub_id[sub_index]}</sub></a>
+                    {if $current_sub eq $mySubMenu.sub_ids[sub_index]}
+                    <a class="btn btn-danger text-wrap text-start text-xl-center" href="{$mySubMenu.sub_hrefs[sub_index]}{$myHrefMod}" role="button">{$mySubMenu.sub_names[sub_index]} <sub class="ps-2 fw-lighter text-dark text-opacity-25">{$mySubMenu.sub_ids[sub_index]}</sub></a>
                     {else}
-                    <a class="btn btn-light text-wrap text-start text-xl-center" href="{$mySubMenu.sub_href[sub_index]}{$myHrefMod}" role="button">{$mySubMenu.sub_name[sub_index]} <sub class="ps-2 fw-lighter text-dark text-opacity-25">{$mySubMenu.sub_id[sub_index]}</sub></a>
+                    <a class="btn btn-light text-wrap text-start text-xl-center" href="{$mySubMenu.sub_hrefs[sub_index]}{$myHrefMod}" role="button">{$mySubMenu.sub_names[sub_index]} <sub class="ps-2 fw-lighter text-dark text-opacity-25">{$mySubMenu.sub_ids[sub_index]}</sub></a>
                     {/if}
                     {/section}</div>
             </div>
