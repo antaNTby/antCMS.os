@@ -57,8 +57,8 @@ else
     }
 
     $ForceSaveJsonColumns = true;
-    // $jsonColumns        = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
-    $jsonColumns        = json_encode($Columns, JSON_INVALID_UTF8_IGNORE);
+    $jsonColumns        = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
+
 }
 
 if ( $ForceSaveJsonColumns )
