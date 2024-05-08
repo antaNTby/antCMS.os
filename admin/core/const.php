@@ -33,7 +33,11 @@ const CONF_ENABLE_REGCONFIRMATION = 0; //Требовать активацию �
 const LOGO256 = '/media/logo256.jpg';
 const LOGO64  = '/media/logo64.jpg';
 
-const JSON_PATH='json/';
+const PATH_JSON='json/';
+const PATH_INCLUDES = 'core/includes/';
+const PATH_TPL = 'tpl/';
+const PATH_TPL_SUB = 'tpl/sub/';
+const EXT_TPL ='.tpl.html';
 
 const ERROR_FORBIDDEN = '<!doctype html>
 <html lang="ru">

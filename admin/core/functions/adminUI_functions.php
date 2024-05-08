@@ -64,7 +64,7 @@ function flatAdminDepartments($departments): array
                     $menu[$dpt_key]['sub_name'][]            = $v['name'];
                     $menu[$dpt_key]['sub_href'][]            = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
                     $menu[$dpt_key]['sub_href2'][]           = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
-                    $menu[$dpt_key]['columns_json_file'][] = JSON_PATH . $dpt_id . '_' . $v['id'] . '__columns.json';
+                    $menu[$dpt_key]['columns_json_file'][] = PATH_JSON . $dpt_id . '_' . $v['id'] . '__columns.json';
                 }
             }
         }
@@ -75,8 +75,8 @@ function flatAdminDepartments($departments): array
 
 function showSubSmartyOutput(
     $dpt_sub,
-    $folder = 'tpl/sub/',
-    $ext = '.tpl.html'
+    $folder = PATH_TPL_SUB,
+    $ext = EXT_TPL
 )
 {
     global $smarty;

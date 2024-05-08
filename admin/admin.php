@@ -72,7 +72,7 @@ else
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
 define('CONF_FULL_SHOP_URL', trim($url));
 
-$JSON_PATH = JSON_PATH;
+$PATH_JSON = PATH_JSON;
 
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);
@@ -241,7 +241,7 @@ if (isset($_GET['edit_id']))
     }
 }
 
-$pathToIncludesDirectory = 'core/includes/';
+
 include_once 'core/adminDepartmensDescription.php';
 $Departments       = array();
 $Departments       = ADMIN_DEPARTMENTS;
@@ -278,7 +278,7 @@ foreach ($Departments as $index => $admin_dpt)
         $smarty->assign('current_sub_name', $current_sub_name);
 
         $DPT_SUB             = $admin_dpt['id'] . '_' . $current_sub_id; //'trade_orders';
-        $jsonColumnsFileName = JSON_PATH . $DPT_SUB . '__columns.json';
+        $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
 
         $smarty->assign('current_DPT_SUB', $DPT_SUB);
 
@@ -288,12 +288,12 @@ foreach ($Departments as $index => $admin_dpt)
         }
 
         // есть ли php для выбранного суб?
-        $phpFileName = $pathToIncludesDirectory . $admin_dpt['id'] . '_' . $sub . '.php';
+        $phpFileName = PATH_INCLUDES. $admin_dpt['id'] . '_' . $sub . '.php';
         $tplFileName = $admin_dpt['id'] . '.tpl.html';
         if (file_exists($phpFileName))
         {
             //assign admin main department template
-            if (file_exists('tpl/' . $tplFileName))
+            if (file_exists(PATH_TPL . $tplFileName))
             {
                 $smarty->assign('admin_main_content_template', $tplFileName);
             }
@@ -341,6 +341,7 @@ catch (SmartyException $e)
 if (1 or ADMIN_SMARTY_LOG_VARS)
 {
     // dump($antMenu);
+    dump($smarty->getTemplateVars('current_jsonColumnsFileName'));
     dump($smarty->getTemplateVars());
     // $all_tpl_vars = $smarty->getTemplateVars();
     // smartylog($all_tpl_vars);
