@@ -1,9 +1,16 @@
 {* Шаблон сообщения СТРАНИЦА НЕ НАЙДЕНА *}
-<h3 class="text-dark bg-danger p-5" data-tpl="notfound.tpl.html">
-    НЕТ *.php data-tpl="notfound.tpl.html"
-</h3>
-<div class="m-3 p-3 d-flex justify-content-center btn-group">
-    <a class="btn btn-outline-secondary me-3" aria-current="page" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i> {$smarty.const.LANG_ADMINISTRATE_LINK} </a>
-    <a class="btn btn-outline-secondary me-3" href="index.php"><i class="bi bi-house"></i> {$smarty.const.LANG_ADMIN_BACK_TO_SHOP} </a>
-    <a class="btn btn-outline-secondary me-3" href="{$smarty.const.ADMIN_LOGOUT_LINK}"><i class="bi bi-door-open"></i> {$smarty.const.LANG_ADMIN_LOGOUT_LINK} </a>
+
+<div class="alert alert-danger m-5 p-5" role="alert">
+  <h1 class="alert-heading">404 </h1>
+  <p>СТРАНИЦА НЕ НАЙДЕНА</p>
+  <hr>
+  <p class="mb-0">НЕТ "{$needPHP}" файла</p>
 </div>
+
+<hr>
+<div class="d-flex justify-content-center m-2 p-2">
+<a class="px-2 nav-link active" aria-current="page" href="{$smarty.const.ADMIN_FILE}"><i class="bi bi-house-gear"></i> Admin </a>
+<a class="px-2 nav-link" href="index.php"><i class="bi bi-house"></i> {$smarty.const.LANG_ADMIN_BACK_TO_SHOP} </a>
+<a class="px-2 nav-link" href="{$smarty.const.ADMIN_LOGOUT_LINK}"><i class="bi bi-door-open"></i> {$smarty.const.LANG_ADMIN_LOGOUT_LINK} </a>
+</div>
+<hr>

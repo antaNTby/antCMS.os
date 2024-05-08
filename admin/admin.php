@@ -216,6 +216,14 @@ else
 }
 $smarty->assign('current_dpt', $dpt);
 
+if (isset($sub))
+{
+    $needPHP = PATH_INCLUDES . $dpt . '_' . $sub . '.php';
+    $needTPL = $dpt . '.tpl.html';
+    $smarty->assign('needPHP', $needPHP);
+    $smarty->assign('needTPL', $needTPL);
+}
+
 $table_mode = 1;
 
 if (isset($_GET['edit_id']))
@@ -244,11 +252,12 @@ if (isset($_GET['edit_id']))
 include_once 'core/adminDepartmensDescription.php';
 $Departments       = array();
 $Departments       = ADMIN_DEPARTMENTS;
-$admin_departments = array();
+$admin_departments = array(); // сортированы по "sort_order"
 
 foreach ($Departments as $index => $department)
 {
     add_department($department);
+
     //show department if it is being selected
     if ($dpt == $department['id'])
     {
@@ -278,9 +287,7 @@ foreach ($Departments as $index => $department)
 
         $DPT_SUB             = $department['id'] . '_' . $current_sub_id; //'trade_orders';
         $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
-
         $smarty->assign('current_DPT_SUB', $DPT_SUB);
-
         if (file_exists($jsonColumnsFileName))
         {
             $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
@@ -289,6 +296,7 @@ foreach ($Departments as $index => $department)
         // есть ли php для выбранного суб?
         $phpFileName = PATH_INCLUDES . $department['id'] . '_' . $sub . '.php';
         $tplFileName = $department['id'] . '.tpl.html';
+
         if (file_exists($phpFileName))
         {
             //assign admin main department template
