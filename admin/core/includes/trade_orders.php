@@ -1,14 +1,11 @@
 <?php
 ###trade_orders.php
-$DPT_SUB             = 'trade_orders';
-$jsonPath            = "tpl/sub/";
-$jsonColumnsFileName = $jsonPath . $DPT_SUB . '__columns.json';
-// dump($jsonColumnsFileName);
 
 $subTables         = array(ORDERS_TABLE);
 $dbTable           = ORDERS_TABLE;
 $primaryKey        = 'orderID';
 $dbTableFields     = db_getColumnNames($dbTable);
+
 $dbTableFieldNames = array_keys($dbTableFields); // выводим в логг все названия полей
 
 $dtColumnFieldNames = array(
@@ -27,11 +24,14 @@ $dtColumnFieldNames = array(
      'admin_comment',
 );
 
+
+
 $saveNewJsonColumns = false;
 
 $Columns = array();
 
 $ForceSaveJsonColumns = false;
+    // dump($jsonColumnsFileName);
 if (file_exists($jsonColumnsFileName))
 {
     $jsonColumns = file_get_contents($jsonColumnsFileName);
@@ -57,7 +57,8 @@ else
     }
 
     $ForceSaveJsonColumns = true;
-    $jsonColumns        = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
+    // $jsonColumns        = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
+    $jsonColumns        = json_encode($Columns, JSON_INVALID_UTF8_IGNORE);
 }
 
 if ( $ForceSaveJsonColumns )
@@ -82,6 +83,8 @@ if (isset($_GET['operation']))
     }
 
 }
+
+
 
 //show Smarty output
 $smarty->assign('subTables', $subTables);

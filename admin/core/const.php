@@ -33,6 +33,8 @@ const CONF_ENABLE_REGCONFIRMATION = 0; //Требовать активацию �
 const LOGO256 = '/media/logo256.jpg';
 const LOGO64  = '/media/logo64.jpg';
 
+const JSON_PATH='json/';
+
 const ERROR_FORBIDDEN = '<!doctype html>
 <html lang="ru">
 <meta charset="utf-8">

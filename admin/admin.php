@@ -59,18 +59,20 @@ $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
 
 $dird          = dirname($_SERVER['PHP_SELF']);
-$sourcessrandd = array("//" => "/", "\\" => "/");
+$sourcessrandd = array('//' => '/', '\\' => '/');
 $dird          = strtr($dird, $sourcessrandd);
-if ($dird != "/")
+if ($dird != '/')
 {
-    $dirf = "/";
+    $dirf = '/';
 }
 else
 {
-    $dirf = "";
+    $dirf = '';
 }
-$url = "http://" . $_SERVER["HTTP_HOST"] . $dird . $dirf;
+$url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
 define('CONF_FULL_SHOP_URL', trim($url));
+
+$JSON_PATH = JSON_PATH;
 
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);
@@ -96,6 +98,16 @@ require 'core/classes/antDataBase.php';
 $DB         = new antDataBase();
 $linkMysqli = db_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME) or exit(ERROR_DB_INIT);
 db_select_db($linkMysqli, DB_NAME) or exit(db_error());
+
+require 'core/classes/class.adminSSP.php';
+$pdo_connect = array(
+    'user'           => DB_USER,
+    'pass'           => DB_PASS,
+    'db'             => DB_NAME,
+    'host'           => DB_HOST,
+    'charset'        => 'utf8mb3',
+    'headersCharset' => 'utf8'
+);
 
 if (isset($_GET['db']))
 {
@@ -204,32 +216,24 @@ else
 }
 $smarty->assign('current_dpt', $dpt);
 
-if (isset($_GET['table']))
-{
-    $table_mode = 1;
-    $subTables  = array();
-    require 'core/classes/class.adminSSP.php';
-
-    $pdo_connect = array(
-        'user'           => DB_USER,
-        'pass'           => DB_PASS,
-        'db'             => DB_NAME,
-        'host'           => DB_HOST,
-        'charset'        => 'utf8mb3',
-        'headersCharset' => 'utf8',
-    );
-
-    $smarty->assign('subTables', $subTables);
-    $smarty->assign('table_mode', $table_mode);
-}
-else
-{
-    $table_mode = 0;
-}
+$table_mode = 1;
 
 if (isset($_GET['edit_id']))
 {
-    $editID = (int)$_GET['edit_id'];
+    $table_mode = 0;
+}
+else
+{
+    $table_mode = 1;
+    $subTables  = array();
+    $smarty->assign('subTables', $subTables);
+}
+
+$smarty->assign('table_mode', $table_mode);
+
+if (isset($_GET['edit_id']))
+{
+    $editID = (int) $_GET['edit_id'];
     if ($editID > 0)
     {
         $smarty->assign('editID', $editID);
@@ -258,7 +262,8 @@ foreach ($Departments as $index => $admin_dpt)
         $plucked_sub_names = pluck($admin_dpt['sub_departments'], 'name');
         $plucked_sub_ids   = pluck($admin_dpt['sub_departments'], 'id');
         $current_sub_index = array_search($sub, $plucked_sub_ids);
-        $current_sub_name = ($plucked_sub_names[$current_sub_index]);
+        $current_sub_id    = ($plucked_sub_ids[$current_sub_index]);
+        $current_sub_name  = ($plucked_sub_names[$current_sub_index]);
 
         // dump($plucked_sub_names);
         // dump($plucked_sub_ids);
@@ -269,7 +274,18 @@ foreach ($Departments as $index => $admin_dpt)
         $smarty->assign('plucked_sub_names', $plucked_sub_names);
         $smarty->assign('plucked_sub_ids', $plucked_sub_ids);
         $smarty->assign('current_sub_index', $current_sub_index);
+        $smarty->assign('current_sub_id', $current_sub_id);
         $smarty->assign('current_sub_name', $current_sub_name);
+
+        $DPT_SUB             = $admin_dpt['id'] . '_' . $current_sub_id; //'trade_orders';
+        $jsonColumnsFileName = JSON_PATH . $DPT_SUB . '__columns.json';
+
+        $smarty->assign('current_DPT_SUB', $DPT_SUB);
+
+        if (file_exists($jsonColumnsFileName))
+        {
+            $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
+        }
 
         // есть ли php для выбранного суб?
         $phpFileName = $pathToIncludesDirectory . $admin_dpt['id'] . '_' . $sub . '.php';

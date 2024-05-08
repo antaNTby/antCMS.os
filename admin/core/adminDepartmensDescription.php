@@ -5,7 +5,7 @@ const ADMIN_DEPARTMENTS = array(
     // catalog
     array(
         "id"              => "catalog",          //department ID
-         "sort_order"      => 200,                 //sort order (less `sort_order`s appear first)
+         "sort_order"      => 10,                 //sort order (less `sort_order`s appear first)
          "name"            => LANG_ADMIN_CATALOG, //department name
          "sub_departments" => array
         (

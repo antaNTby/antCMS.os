@@ -5,6 +5,7 @@ include_once 'core/functions/registration_functions.php';
 include_once 'core/functions/session_functions.php';
 include_once 'core/functions/debug_functions.php';
 include_once 'core/functions/admin_functions.php';
+include_once 'core/functions/adminUI_functions.php';
 
 function get_microtime()
 {
@@ -18,6 +19,30 @@ function gmts()
     list($usec, $sec) = explode(' ', microtime(true));
     return $usec + $sec;
 }
+
+
+
+function isWindows()
+{
+    return (isset($_SERVER['WINDIR']) || isset($_SERVER['windir']));
+}
+
+function fix_directory_separator($str)
+{
+    global $IS_WINDOWS;
+    if ($IS_WINDOWS)
+    {
+        $str = str_replace('/', DIRECTORY_SEPARATOR, $str);
+    }
+    else
+    {
+        $str = str_replace('\\', DIRECTORY_SEPARATOR, $str);
+    }
+
+    return $str;
+}
+
+
 
 function key_compare_func($key1, $key2)
 {
