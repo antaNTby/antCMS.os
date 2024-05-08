@@ -241,26 +241,25 @@ if (isset($_GET['edit_id']))
     }
 }
 
-
 include_once 'core/adminDepartmensDescription.php';
 $Departments       = array();
 $Departments       = ADMIN_DEPARTMENTS;
 $admin_departments = array();
 
-foreach ($Departments as $index => $admin_dpt)
+foreach ($Departments as $index => $department)
 {
-    add_department($admin_dpt);
+    add_department($department);
     //show department if it is being selected
-    if ($dpt == $admin_dpt['id'])
+    if ($dpt == $department['id'])
     {
         // если в запросе нету sub то выбираем дефолтный , если и его нету то нулевой
 
-        $sub = isset($sub) ? $sub : selectDefaultSub($admin_dpt['sub_departments']);
+        $sub = isset($sub) ? $sub : selectDefaultSub($department['sub_departments']);
 
         $smarty->assign('current_sub', $sub);
 
-        $plucked_sub_names = pluck($admin_dpt['sub_departments'], 'name');
-        $plucked_sub_ids   = pluck($admin_dpt['sub_departments'], 'id');
+        $plucked_sub_names = pluck($department['sub_departments'], 'name');
+        $plucked_sub_ids   = pluck($department['sub_departments'], 'id');
         $current_sub_index = array_search($sub, $plucked_sub_ids);
         $current_sub_id    = ($plucked_sub_ids[$current_sub_index]);
         $current_sub_name  = ($plucked_sub_names[$current_sub_index]);
@@ -277,7 +276,7 @@ foreach ($Departments as $index => $admin_dpt)
         $smarty->assign('current_sub_id', $current_sub_id);
         $smarty->assign('current_sub_name', $current_sub_name);
 
-        $DPT_SUB             = $admin_dpt['id'] . '_' . $current_sub_id; //'trade_orders';
+        $DPT_SUB             = $department['id'] . '_' . $current_sub_id; //'trade_orders';
         $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
 
         $smarty->assign('current_DPT_SUB', $DPT_SUB);
@@ -288,8 +287,8 @@ foreach ($Departments as $index => $admin_dpt)
         }
 
         // есть ли php для выбранного суб?
-        $phpFileName = PATH_INCLUDES. $admin_dpt['id'] . '_' . $sub . '.php';
-        $tplFileName = $admin_dpt['id'] . '.tpl.html';
+        $phpFileName = PATH_INCLUDES . $department['id'] . '_' . $sub . '.php';
+        $tplFileName = $department['id'] . '.tpl.html';
         if (file_exists($phpFileName))
         {
             //assign admin main department template
@@ -302,7 +301,7 @@ foreach ($Departments as $index => $admin_dpt)
                 $smarty->assign('admin_main_content_template', 'standartdpt.tpl.html');
             }
             //assign subdepts
-            $smarty->assign('admin_sub_departments', $admin_dpt['sub_departments']);
+            $smarty->assign('admin_sub_departments', $department['sub_departments']);
             //include selected sub-department
             include $phpFileName;
         }
@@ -311,11 +310,11 @@ foreach ($Departments as $index => $admin_dpt)
             //no sub department found
             $smarty->assign('admin_main_content_template', 'notfound.tpl.html');
         }
-        $smarty->assign('current_dpt_name', $admin_dpt['name']);
+        $smarty->assign('current_dpt_name', $department['name']);
     }
 }
 
-$flatDepartments = flatAdminDepartments($Departments);
+$flatDepartments = flatAdminDepartments($admin_departments);
 $smarty->assign('flatDepartments', $flatDepartments);
 
 if (isset($_SESSION['log']))

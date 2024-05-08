@@ -1,13 +1,13 @@
 <?php
 // adminUserInteface_functions.php
 
-//adds new $admin_dpt to departments list
-function add_department($admin_dpt)
+//adds new $department to departments list
+function add_department($department)
 {
     global $admin_departments;
 
     $i = 0;
-    while ($i < count($admin_departments) && $admin_departments[$i]['sort_order'] < $admin_dpt['sort_order'])
+    while ($i < count($admin_departments) && $admin_departments[$i]['sort_order'] < $department['sort_order'])
     {
         $i++;
     }
@@ -17,7 +17,7 @@ function add_department($admin_dpt)
         $admin_departments[$j + 1] = $admin_departments[$j];
     }
 
-    $admin_departments[$i] = $admin_dpt;
+    $admin_departments[$i] = $department;
 }
 
 function selectDefaultSub($subs)
