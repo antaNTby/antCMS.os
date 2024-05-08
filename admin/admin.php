@@ -230,7 +230,7 @@ if (isset($_GET['edit_id']))
 {
     $table_mode = 0;
 }
-else
+elseif (isset($_GET['dpt']) && isset($_GET['sub']))
 {
     $table_mode = 1;
     $subTables  = array();
