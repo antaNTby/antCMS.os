@@ -315,8 +315,8 @@ foreach ($Departments as $index => $admin_dpt)
     }
 }
 
-$antMenu = flatAdminDepartments($Departments);
-$smarty->assign('antMenu', $antMenu);
+$flatDepartments = flatAdminDepartments($Departments);
+$smarty->assign('flatDepartments', $flatDepartments);
 
 if (isset($_SESSION['log']))
 {
@@ -340,7 +340,7 @@ catch (SmartyException $e)
 
 if (1 or ADMIN_SMARTY_LOG_VARS)
 {
-    // dump($antMenu);
+    // dump($flatDepartments);
     dump($smarty->getTemplateVars('current_jsonColumnsFileName'));
     dump($smarty->getTemplateVars());
     // $all_tpl_vars = $smarty->getTemplateVars();

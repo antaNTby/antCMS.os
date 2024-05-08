@@ -174,7 +174,7 @@
     ],
     "admin_sub_dpt": "trade_orders.tpl.html",
     "current_dpt_name": "Торговля",
-    "antMenu": [
+    "flatDepartments": [
         {
             "dpt_id": "catalog",
             "dpt_name": "Каталог товаров",

@@ -1,6 +1,6 @@
 <div class="m-4 row row-cols-1 row-cols-md-3 g-3">
-    {section name=dpt_index loop=$antMenu|@count}
-    {assign var="myMenu" value=$antMenu[dpt_index]}
+    {section name=dpt_index loop=$flatDepartments|@count}
+    {assign var="myMenu" value=$flatDepartments[dpt_index]}
     <div class="col">
         <div class="card h-100 border-dark">
             <div class="h5 card-header text-bg-secondary">

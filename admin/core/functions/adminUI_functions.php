@@ -60,11 +60,13 @@ function flatAdminDepartments($departments): array
             {
                 foreach ($value as $k => $v)
                 {
-                    $menu[$dpt_key]['sub_id'][]              = $v['id'];
-                    $menu[$dpt_key]['sub_name'][]            = $v['name'];
-                    $menu[$dpt_key]['sub_href'][]            = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
-                    $menu[$dpt_key]['sub_href2'][]           = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
+                    $menu[$dpt_key]['sub_id'][]            = $v['id'];
+                    $menu[$dpt_key]['sub_name'][]          = $v['name'];
+                    $menu[$dpt_key]['sub_href'][]          = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
+                    $menu[$dpt_key]['sub_href2'][]         = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
                     $menu[$dpt_key]['columns_json_file'][] = PATH_JSON . $dpt_id . '_' . $v['id'] . '__columns.json';
+                    $menu[$dpt_key]['include_php_file'][]  = PATH_INCLUDES . $dpt_id . '_' . $v['id'] . '.php';
+                    $menu[$dpt_key]['dpt_template_file'][] = PATH_TPL . $dpt_id . '.tpl.html';
                 }
             }
         }
