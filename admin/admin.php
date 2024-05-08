@@ -175,8 +175,8 @@ $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
 // $smarty->testInstall();
-//define default smarty template
-$smarty->assign('admin_main_content_template', 'default.tpl.html');
+//define start smarty template
+$smarty->assign('admin_main_content_template', 'start.tpl.html');
 
 $relaccess = checklogin();
 if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
@@ -306,7 +306,7 @@ foreach ($Departments as $index => $department)
             }
             else
             {
-                $smarty->assign('admin_main_content_template', 'standartdpt.tpl.html');
+                $smarty->assign('admin_main_content_template', 'default_dpt.tpl.html');
             }
             //assign subdepts
             $smarty->assign('admin_sub_departments', $department['sub_departments']);

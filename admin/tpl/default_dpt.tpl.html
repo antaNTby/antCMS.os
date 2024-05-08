@@ -8,15 +8,13 @@
         <li class="breadcrumb-item active" aria-current="page">{$admin_sub_departments[sub_index].name}</li>
     </ol>
 </nav>
-<h1 class="h4 fw-lighter text-body" data-id="PageH1" data-tpl="standartdpt.tpl.html">
+
+<h1 class="h4 fw-lighter text-body" data-id="PageH1" data-tpl="default_dpt.tpl.html">
     {$admin_sub_departments[sub_index].name}
 </h1>
 {/if}
 {/section}
 
-{* <h3>{$current_sub_name}[{$current_sub_index}]</h3> *}
-{* <hr class="border border-dark border-1 opacity-25 my-1"> *}
-{* <input type="text" id="phpColumns" value="{$Columns|json_encode}"> *}
 {include file="sub/$admin_sub_dpt"}
 
 
