@@ -896,9 +896,9 @@ class adminSSP
         $table,
         $primaryKey,
         $columns,
+        $whereCondition,
         $whereResult = null,
         $whereAll = null,
-        $whereCondition,
         $joinCondition = null,
         $selectQuery = null
     ) {

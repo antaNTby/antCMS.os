@@ -16,12 +16,15 @@
 	 * @version      4.0
 	 * @since        $date$
 	 * @license      license GPL v.2 http://www.ave-cms.ru/license.txt
+	 *
+	 *
+	 * , $error_context -expired in 8.1
 	*/
 
 	// set_error_handler("errorHandler");
 	// register_shutdown_function("shutdownHandler");
 
-	function errorHandler($error_level, $error_message, $error_file, $error_line, $error_context)
+	function errorHandler($error_level, $error_message, $error_file, $error_line)
 	{
 		$error =
 		sprintf('
@@ -66,23 +69,24 @@
 	function shutdownHandler()
 	{
 		$lasterror = error_get_last();
-
-		switch ($lasterror['type'])
-		{
-			case E_ERROR:
-			case E_CORE_ERROR:
-			case E_COMPILE_ERROR:
-			case E_USER_ERROR:
-			case E_RECOVERABLE_ERROR:
-			case E_CORE_WARNING:
-			case E_COMPILE_WARNING:
-			case E_PARSE:
-				$color = '#f05050';
-				$error =
-				sprintf('
-					[SHUTDOWN] Lvl: <strong>%s</strong><br>Message: <strong>%s</strong><br>File: <strong>%s</strong><br>Line: <strong>%s</strong>
-				', $lasterror['type'], nl2br($lasterror['message']), $lasterror['file'], $lasterror['line']);
-				errorLogs($error, "Fatal", $color);
+		if (!is_null($lasterror)){
+			switch ($lasterror['type'])
+			{
+				case E_ERROR:
+				case E_CORE_ERROR:
+				case E_COMPILE_ERROR:
+				case E_USER_ERROR:
+				case E_RECOVERABLE_ERROR:
+				case E_CORE_WARNING:
+				case E_COMPILE_WARNING:
+				case E_PARSE:
+					$color = '#f05050';
+					$error =
+					sprintf('
+						[SHUTDOWN] Lvl: <strong>%s</strong><br>Message: <strong>%s</strong><br>File: <strong>%s</strong><br>Line: <strong>%s</strong>
+					', $lasterror['type'], nl2br($lasterror['message']), $lasterror['file'], $lasterror['line']);
+					errorLogs($error, "Fatal", $color);
+			}
 		}
 	}
 

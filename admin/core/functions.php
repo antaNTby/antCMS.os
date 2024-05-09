@@ -39,7 +39,8 @@ function get_microtime()
 
 function gmts()
 {
-    list($usec, $sec) = explode(' ', microtime(true));
+    // list($usec, $sec) = explode(' ', microtime(true)); // php 7.4
+    list($usec, $sec) = explode(" ", microtime()); // php 8.1
     return $usec + $sec;
 }
 
