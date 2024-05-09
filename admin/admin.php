@@ -60,7 +60,7 @@ session_cache_expire();
 $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
 
-$dird          = dirname($_SERVER['PHP_SELF']);
+$dird          = dirname($_SERVER['PHP_SELF']); // "/admin"
 $sourcessrandd = array('//' => '/', '\\' => '/');
 $dird          = strtr($dird, $sourcessrandd);
 if ($dird != '/')
@@ -72,9 +72,9 @@ else
     $dirf = '';
 }
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
-define('CONF_FULL_SHOP_URL', trim($url));
+define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 
-$PATH_JSON = PATH_JSON;
+
 
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);
