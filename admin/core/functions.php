@@ -7,10 +7,33 @@ include_once 'core/functions/debug_functions.php';
 include_once 'core/functions/admin_functions.php';
 include_once 'core/functions/adminUI_functions.php';
 
+function php_gd()
+{
+    ob_start();
+    phpinfo(8);
+    $module_info = ob_get_contents();
+    ob_end_clean();
+    if (preg_match("/\bgd\s+version\b[^\d\n\r]+?([\d\.]+)/i", $module_info, $matches))
+    {
+        $gdversion = $matches[1];
+    }
+    else
+    {
+        $gdversion = 0;
+    }
+    return $gdversion;
+}
+
+function db_version()
+{
+    list($dbversion) = db_fetch_row(db_query("SELECT VERSION()"));
+    return $dbversion;
+}
+
 function get_microtime()
 {
     $t         = explode(' ', microtime());
-    $timestamp = date('Y-m-d H:i:s', $t[1]) . substr((string) $t[0], 1, 4);
+    $timestamp = date('Y-m-d H:i:s', $t[1]) . substr((string)$t[0], 1, 4);
     return $timestamp;
 }
 
@@ -19,8 +42,6 @@ function gmts()
     list($usec, $sec) = explode(' ', microtime(true));
     return $usec + $sec;
 }
-
-
 
 function isWindows()
 {
@@ -42,9 +63,10 @@ function fix_directory_separator($str)
     return $str;
 }
 
-
-
-function key_compare_func($key1, $key2)
+function key_compare_func(
+    $key1,
+    $key2
+)
 {
     if ($key1 == $key2)
     {
@@ -66,7 +88,8 @@ function key_compare_func($key1, $key2)
  * @param int $file_size размер
  * @return string нормированный размер с единицой измерения
  */
-function format_size($file_size)
+function format_size(int $file_size)
+: string
 {
     if ($file_size >= 1073741824)
     {
@@ -94,7 +117,8 @@ function format_size($file_size)
  * @param string $directory наименование директории
  * @return int
  */
-function get_dir_size($directory)
+function get_dir_size(string $directory)
+: int
 {
     if (!is_dir($directory))
     {
@@ -304,7 +328,10 @@ function get_mime_type($file)
     return $ctype;
 }
 
-function file_download($filename, $retbytes = true)
+function file_download(
+    $filename,
+    $retbytes = true
+)
 {
     $chunksize = 1 * (1024 * 1024);
     $buffer    = '';
@@ -377,12 +404,14 @@ function check_permission_acp($perm)
 }
 
 function pluck(
-        $a,
-        $prop
-    ) {
-        $out = array();
-        for ($i = 0, $len = count($a); $i < $len; $i++) {
-            $out[] = $a[$i][$prop];
-        }
-        return $out;
+    $a,
+    $prop
+)
+{
+    $out = array();
+    for ($i = 0, $len = count($a); $i < $len; $i++)
+    {
+        $out[] = $a[$i][$prop];
     }
+    return $out;
+}

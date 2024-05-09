@@ -85,10 +85,9 @@ $PATH_JSON = PATH_JSON;
 @ini_set('register_globals', 0);
 @ini_set('display_errors', 1);
 
-error_reporting(1);
+// error_reporting(1);
 set_error_handler('errorHandler');
 register_shutdown_function('shutdownHandler');
-
 error_reporting(E_ALL & ~E_NOTICE);
 
 $_POST   = stripslashes_deep($_POST);
@@ -108,7 +107,7 @@ $pdo_connect = array(
     'db'             => DB_NAME,
     'host'           => DB_HOST,
     'charset'        => 'utf8mb3',
-    'headersCharset' => 'utf8'
+    'headersCharset' => 'utf8',
 );
 
 if (isset($_GET['db']))
@@ -243,7 +242,7 @@ $smarty->assign('table_mode', $table_mode);
 
 if (isset($_GET['edit_id']))
 {
-    $editID = (int) $_GET['edit_id'];
+    $editID = (int)$_GET['edit_id'];
     if ($editID > 0)
     {
         $smarty->assign('editID', $editID);
@@ -334,6 +333,19 @@ if (isset($_SESSION['log']))
 
 // dump($_GET);
 // dump($_SESSION);
+
+if (!extension_loaded('gd'))
+{
+    $gd_ver = 0;
+}
+else
+{
+    $gd_ver = php_gd();
+}
+$rd = db_version();
+$smarty->assign("mver", $rd);
+$phpver = phpversion();
+$smarty->assign("pver", $phpver);
 
 //show Smarty output
 try
