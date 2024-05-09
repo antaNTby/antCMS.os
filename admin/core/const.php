@@ -17,8 +17,8 @@ const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {
 const DBMS          = 'mysqli';                                           //   {$smarty.const.DBMS}          database host
 const DB_HOST       = 'localhost';                                        //   {$smarty.const.DB_HOST}       username
 const DB_USER       = 'nixby_dbadmin';                                    //   {$smarty.const.DB_USER}       database name
-const DB_NAME       = 'db_antCMS';                                        //   {$smarty.const.DB_NAME}       password
 const DB_PASS       = 'openserver';                                       //   {$smarty.const.DB_PASS}       database prefix
+const DB_NAME       = 'db_antCMS';                                        //   {$smarty.const.DB_NAME}       password
 const DB_PRFX       = 'ant_';
 //   {$smarty.const.DB_PRFX}            // FROM connect.inc.php
 #### const DB_PASS= "658!admin";
