@@ -1,6 +1,19 @@
-<h1 class="p-5 text-bg-primary">
+<input type="text" id="jsonFN" value="{$current_jsonColumnsFileName}">
 
-trade_orders.tpl.html
-trade_orders.tpl.html
+{if $table_mode}
+<table id="example" class="display table table-striped table-bordered table-sm" style="width:100%">
+    <thead class="table-danger">
+        <tr>
+{*             {section name=idx loop=$dtColumnFieldNames|@count}
+            {assign var="current_field" value=$dtColumnFieldNames[idx]}
+            <th>{$current_field}</th>
+            {/section} *}
+        </tr>
+    </thead>
+</table>
+{else}
 
-</h1>
+edit
+
+{/if}
+

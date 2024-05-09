@@ -74,8 +74,6 @@ else
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
 define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 
-
-
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);
 @ini_set('session.use_only_cookies', 1);
@@ -254,13 +252,14 @@ include_once 'core/adminDepartmensDescription.php';
 $Departments       = array();
 $Departments       = ADMIN_DEPARTMENTS;
 $admin_departments = array(); // сортированы по "sort_order"
+$subsTables        = SUB_DB_TABLES;
 
 foreach ($Departments as $index => $department)
 {
     add_department($department);
 
     //show department if it is being selected
-    if ($dpt == $department['id'])
+    if ($dpt === $department['id'])
     {
         // если в запросе нету sub то выбираем дефолтный , если и его нету то нулевой
 
@@ -289,10 +288,16 @@ foreach ($Departments as $index => $department)
         $DPT_SUB             = $department['id'] . '_' . $current_sub_id; //'trade_orders';
         $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
         $smarty->assign('current_DPT_SUB', $DPT_SUB);
-        if (file_exists($jsonColumnsFileName))
-        {
-            $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
-        }
+        $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
+        // if (file_exists($jsonColumnsFileName))
+        // {
+        // $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
+        // $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
+        // }
+        // else
+        // {
+        // $jsonColumnsFileName = "-";
+        // }
 
         // есть ли php для выбранного суб?
         $phpFileName = PATH_INCLUDES . $department['id'] . '_' . $sub . '.php';
@@ -323,8 +328,27 @@ foreach ($Departments as $index => $department)
     }
 }
 
-$flatDepartments = flatAdminDepartments($admin_departments);
+$flatDepartments = flatAdminDepartments($admin_departments, SUB_DB_TABLES);
+# assign current DB table
+foreach ($flatDepartments as $key => $dep)
+{
+
+    if ($dep['dpt_id'] === $dpt)
+    {
+        $current_sub_index = array_search($sub, $plucked_sub_ids);
+        $current_tables = $dep["sub_tables"];
+        $current_sub_table = $dep["sub_tables"][$current_sub_index];
+        $smarty->assign('current_sub_table', $current_sub_table);
+    }
+}
+
 $smarty->assign('flatDepartments', $flatDepartments);
+
+###################
+###################
+###################
+###################
+###################
 
 if (isset($_SESSION['log']))
 {
@@ -359,10 +383,10 @@ catch (SmartyException $e)
     dump($smarty->getTemplateVars());
 }
 
-if (0 or ADMIN_SMARTY_LOG_VARS)
+if (1 or ADMIN_SMARTY_LOG_VARS)
 {
     // dump($flatDepartments);
-    dump($smarty->getTemplateVars('current_jsonColumnsFileName'));
+    // dump($smarty->getTemplateVars('flatDepartments'));
     dump($smarty->getTemplateVars());
     // $all_tpl_vars = $smarty->getTemplateVars();
     // smartylog($all_tpl_vars);

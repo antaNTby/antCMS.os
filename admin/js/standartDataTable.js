@@ -1,5 +1,7 @@
+const fn = document.getElementById('jsonFN').value;
+console.log("FN=" + fn);
 
-const res = await fetch(checkOnUrl('admin/json/trade_orders__columns.json'));
+const res = await fetch(checkOnUrl('admin/'+fn));
 const dataJsonFile = await res.json();
 // console.log(dataJsonFile)
 

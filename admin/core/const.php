@@ -34,6 +34,7 @@ const LOGO256 = '/media/logo256.jpg';
 const LOGO64  = '/media/logo64.jpg';
 
 const PATH_JSON='json/';
+const PATH_CORE = 'core/';
 const PATH_INCLUDES = 'core/includes/';
 const PATH_TPL = 'tpl/';
 const PATH_TPL_SUB = 'tpl/sub/';

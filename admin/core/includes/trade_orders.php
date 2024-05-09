@@ -5,7 +5,6 @@ $subTables         = array(ORDERS_TABLE);
 $dbTable           = ORDERS_TABLE;
 $primaryKey        = 'orderID';
 $dbTableFields     = db_getColumnNames($dbTable);
-
 $dbTableFieldNames = array_keys($dbTableFields); // выводим в логг все названия полей
 
 $dtColumnFieldNames = array(
@@ -24,67 +23,8 @@ $dtColumnFieldNames = array(
      'admin_comment',
 );
 
-
-
-$saveNewJsonColumns = false;
-
-$Columns = array();
-
-$ForceSaveJsonColumns = false;
-    // dump($jsonColumnsFileName);
-if (file_exists($jsonColumnsFileName))
-{
-    $jsonColumns = file_get_contents($jsonColumnsFileName);
-    // dump($jsonColumns);
-}
-else
-{
-    foreach ($dtColumnFieldNames as $key => $value)
-    {
-        $newColumnItem = array(
-            'index'      => $key,
-            'data'       => $value,
-            'db'         => $value,
-            'dt'         => $value,
-            'title'      => 'title ' . $value,
-            'orderable'  => true,
-            'visible'    => true,
-            'searchable' => true,
-            'formatter'  => null,
-        );
-        $Columns[] = $newColumnItem;
-        // jlog($newColumnItem);
-    }
-
-    $ForceSaveJsonColumns = true;
-    $jsonColumns        = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
-
-}
-
-if ( $ForceSaveJsonColumns )
-{
-    $isSaved = file_put_contents($jsonColumnsFileName, $jsonColumns);
-    header("Content-Type: text/html; charset=utf-8");
-    echo ($jsonColumnsFileName . ' Is saved size: ' . format_size($isSaved));
-}
-
-
-
-if (isset($_GET['operation']))
-{
-
-    $Columns = json_decode($jsonColumns, true); //as array
-
-    if ($_GET['operation'] === "getDataTableData")
-    {
-        $ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $Columns);
-        header("Content-Type: application/json; charset=utf-8");
-        die(json_encode($ssp_result));
-    }
-
-}
-
-
+require PATH_CORE . 'dtGenerateColumns.php';
+require PATH_CORE . 'dtInit.php';
 
 //show Smarty output
 $smarty->assign('subTables', $subTables);
