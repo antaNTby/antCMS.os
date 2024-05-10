@@ -1,0 +1,152 @@
+[
+    {
+        "index": 0,
+        "data": "companyID",
+        "db": "companyID",
+        "dt": "companyID",
+        "title": "title companyID",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 1,
+        "data": "company_title",
+        "db": "company_title",
+        "dt": "company_title",
+        "title": "title company_title",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 2,
+        "data": "company_name",
+        "db": "company_name",
+        "dt": "company_name",
+        "title": "title company_name",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 3,
+        "data": "company_unp",
+        "db": "company_unp",
+        "dt": "company_unp",
+        "title": "title company_unp",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 4,
+        "data": "company_okpo",
+        "db": "company_okpo",
+        "dt": "company_okpo",
+        "title": "title company_okpo",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 5,
+        "data": "company_adress",
+        "db": "company_adress",
+        "dt": "company_adress",
+        "title": "title company_adress",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 6,
+        "data": "company_bank",
+        "db": "company_bank",
+        "dt": "company_bank",
+        "title": "title company_bank",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 7,
+        "data": "company_contacts",
+        "db": "company_contacts",
+        "dt": "company_contacts",
+        "title": "title company_contacts",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 8,
+        "data": "company_email",
+        "db": "company_email",
+        "dt": "company_email",
+        "title": "title company_email",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 9,
+        "data": "company_director",
+        "db": "company_director",
+        "dt": "company_director",
+        "title": "title company_director",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 10,
+        "data": "company_data",
+        "db": "company_data",
+        "dt": "company_data",
+        "title": "title company_data",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 11,
+        "data": "company_admin",
+        "db": "company_admin",
+        "dt": "company_admin",
+        "title": "title company_admin",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 12,
+        "data": "read_only",
+        "db": "read_only",
+        "dt": "read_only",
+        "title": "title read_only",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 13,
+        "data": "creation_time",
+        "db": "creation_time",
+        "dt": "creation_time",
+        "title": "title creation_time",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 14,
+        "data": "update_time",
+        "db": "update_time",
+        "dt": "update_time",
+        "title": "title update_time",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    }
+]

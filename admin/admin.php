@@ -262,9 +262,7 @@ foreach ($Departments as $index => $department)
     if ($dpt === $department['id'])
     {
         // если в запросе нету sub то выбираем дефолтный , если и его нету то нулевой
-
         $sub = isset($sub) ? $sub : selectDefaultSub($department['sub_departments']);
-
         $smarty->assign('current_sub', $sub);
 
         $plucked_sub_names = pluck($department['sub_departments'], 'name');
@@ -272,13 +270,6 @@ foreach ($Departments as $index => $department)
         $current_sub_index = array_search($sub, $plucked_sub_ids);
         $current_sub_id    = ($plucked_sub_ids[$current_sub_index]);
         $current_sub_name  = ($plucked_sub_names[$current_sub_index]);
-
-        // dump($plucked_sub_names);
-        // dump($plucked_sub_ids);
-        // dump($sub);
-        // dump($current_sub_index);
-        // dump($current_sub_name);
-
         $smarty->assign('plucked_sub_names', $plucked_sub_names);
         $smarty->assign('plucked_sub_ids', $plucked_sub_ids);
         $smarty->assign('current_sub_index', $current_sub_index);
@@ -289,15 +280,6 @@ foreach ($Departments as $index => $department)
         $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
         $smarty->assign('current_DPT_SUB', $DPT_SUB);
         $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
-        // if (file_exists($jsonColumnsFileName))
-        // {
-        // $jsonColumnsFileName = PATH_JSON . $DPT_SUB . '__columns.json';
-        // $smarty->assign('current_jsonColumnsFileName', $jsonColumnsFileName);
-        // }
-        // else
-        // {
-        // $jsonColumnsFileName = "-";
-        // }
 
         // есть ли php для выбранного суб?
         $phpFileName = PATH_INCLUDES . $department['id'] . '_' . $sub . '.php';
@@ -324,25 +306,34 @@ foreach ($Departments as $index => $department)
             //no sub department found
             $smarty->assign('admin_main_content_template', 'notfound.tpl.html');
         }
+
         $smarty->assign('current_dpt_name', $department['name']);
+        $smarty->assign('phpFileName', $phpFileName);
     }
 }
 
 $flatDepartments = flatAdminDepartments($admin_departments, SUB_DB_TABLES);
+$smarty->assign('flatDepartments', $flatDepartments);
 # assign current DB table
+$current_sub_table=null;
 foreach ($flatDepartments as $key => $dep)
 {
-
     if ($dep['dpt_id'] === $dpt)
     {
         $current_sub_index = array_search($sub, $plucked_sub_ids);
-        $current_tables = $dep["sub_tables"];
+        $current_tables    = $dep["sub_tables"];
         $current_sub_table = $dep["sub_tables"][$current_sub_index];
         $smarty->assign('current_sub_table', $current_sub_table);
+        //no sub department found
+
     }
 }
 
-$smarty->assign('flatDepartments', $flatDepartments);
+if (!is_null($current_sub_table) && !file_exists($phpFileName) && isset($dpt) && isset($sub))
+{
+    $phpFileName = PATH_INCLUDES . 'default_dpt.php';
+    include $phpFileName;
+}
 
 ###################
 ###################
