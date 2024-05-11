@@ -75,7 +75,6 @@ $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 //define start smarty template
 $smarty->assign('admin_main_content_template', 'start.tpl.html');
 
-
 $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
 

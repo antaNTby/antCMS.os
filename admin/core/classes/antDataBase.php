@@ -62,6 +62,15 @@ class antDataBase
             $errQuery   = str_replace($out[1], '<strong style="color:steelblue">' . $out[1] . '</strong>', $trace[0]['args'][0]);
             $error_log  = <<<HTML
 <!DOCTYPE html>
+!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MySQL error</title>
+</head>
+<body>
+
 <pre style="background-color:#333; color:#fff; padding:10px;">
 {$error_date}
 <em style="font-size:70%; color:silver;">{$head}</em>
@@ -73,6 +82,8 @@ File:
 <strong style="color:#1299DA;">{$trace[0]['file']}:{$trace[0]['line']}</strong> @Line: <strong>{$trace[0]['line']}</strong>
 </pre>
 <pre style="background-color:#18171B; color:#fff; padding:10px;">Error Trace:</pre>
+</body>
+</html>
 HTML;
             echo ($error_log);
             dd($trace); //symphony

@@ -17,80 +17,8 @@ $sc_1 = gmts();
 $sc_4 = 0;
 $sc_8 = 0;
 $gmc  = 1;
-# сбрасываем время сессии
-session_cache_expire();
 
-$_POST   = stripslashes_deep($_POST);
-$_GET    = stripslashes_deep($_GET);
-$_COOKIE = stripslashes_deep($_COOKIE);
-
-if (isset($_GET['db']))
-{
-    $url = 'adminer.php?username=' . DB_USER . '&db=' . DB_NAME; //adminer.php?username=nixby_dbadmin&db=db_antCMS&table=ant_customers
-    Redirect($url);
-}
-
-# стартуем сессию
-define('SECURITY_EXPIRE', 60 * 60 * CONF_SECURITY_EXPIRE);
-session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy', 'sess_gc');
-
-# посылаем cookie сессии
-if (isset($_COOKIE['PHPSESSID']))
-{
-    if (SECURITY_EXPIRE > 0)
-    {
-        set_cookie('PHPSESSID', $_COOKIE['PHPSESSID'], time() + SECURITY_EXPIRE);
-    }
-    else
-    {
-        set_cookie('PHPSESSID', $_COOKIE['PHPSESSID']);
-    }
-}
-session_set_cookie_params(SECURITY_EXPIRE);
-session_start();
-
-if (isset($_GET['logout'])) //user logout
-{
-    unset($_SESSION['log']);
-    unset($_SESSION['pass']);
-
-    RedirectJavaScript(ADMIN_FILE . '?access_deny=' . SITE_URL);
-}
-elseif (isset($_POST['enter']) && !isset($_SESSION['log'])) //user login
-{
-    if (regAuthenticate($_POST['user_login'], $_POST['user_pw']))
-    {
-        if (!isset($_POST['order']))
-        {
-            if (in_array(100, $relaccess))
-            {
-                Redirect(ADMIN_FILE);
-            }
-            else
-            {
-                Redirect(ADMIN_FILE . '?user_details=yes');
-            }
-        }
-    }
-    else
-    {
-        $wrongLoginOrPw = 1;
-    }
-}
-
-$relaccess = checklogin();
-if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
-{
-    if (isset($_POST['user_login']) && isset($_POST['user_pw']))
-    {
-        if (regAuthenticate($_POST['user_login'], $_POST['user_pw']))
-        {
-            Redirect(set_query('&__tt='));
-        }
-        exit(ERROR_FORBIDDEN);
-    }
-    exit(ERROR_FORBIDDEN);
-}
+require 'authentication.php';
 
 ### define department and subdepartment
 //define department and subdepartment
@@ -236,50 +164,4 @@ if (!is_null($current_sub_table) && !file_exists($phpFileName) && isset($dpt) &&
     include $phpFileName;
 }
 
-###################
-###################
-###################
-###################
-###################
-
-if (isset($_SESSION['log']))
-{
-    $smarty->assign('admintempname', $_SESSION['log']);
-}
-
-// dump($_GET);
-// dump($_SESSION);
-
-if (!extension_loaded('gd'))
-{
-    $gd_ver = 0;
-}
-else
-{
-    $gd_ver = php_gd();
-}
-$rd = db_version();
-$smarty->assign("mver", $rd);
-$phpver = phpversion();
-$smarty->assign("pver", $phpver);
-
-//show Smarty output
-try
-{
-    $smarty->display('admin.tpl.html');
-}
-catch (SmartyException $e)
-{
-    $smarty->assign('smarty_error', true);
-    $smarty->assign('smarty_error_message', $e->getMessage());
-    dump($smarty->getTemplateVars());
-}
-
-if (1 or ADMIN_SMARTY_LOG_VARS)
-{
-    // dump($flatDepartments);
-    // dump($smarty->getTemplateVars('flatDepartments'));
-    dump($smarty->getTemplateVars());
-    // $all_tpl_vars = $smarty->getTemplateVars();
-    // smartylog($all_tpl_vars);
-}
+include_once 'admin_end.php';
