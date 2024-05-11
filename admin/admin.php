@@ -18,6 +18,10 @@ $sc_4 = 0;
 $sc_8 = 0;
 $gmc  = 1;
 
+$_POST   = stripslashes_deep($_POST);
+$_GET    = stripslashes_deep($_GET);
+$_COOKIE = stripslashes_deep($_COOKIE);
+
 require 'authentication.php';
 
 ### define department and subdepartment
@@ -144,7 +148,7 @@ foreach ($Departments as $index => $department)
 $flatDepartments = flatAdminDepartments($admin_departments, SUB_DB_TABLES);
 $smarty->assign('flatDepartments', $flatDepartments);
 # assign current DB table
-$current_sub_table=null;
+$current_sub_table = null;
 foreach ($flatDepartments as $key => $dep)
 {
     if ($dep['dpt_id'] === $dpt)

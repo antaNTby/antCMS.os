@@ -2,16 +2,6 @@
 # сбрасываем время сессии
 session_cache_expire();
 
-$_POST   = stripslashes_deep($_POST);
-$_GET    = stripslashes_deep($_GET);
-$_COOKIE = stripslashes_deep($_COOKIE);
-
-if (isset($_GET['db']))
-{
-    $url = 'adminer.php?username=' . DB_USER . '&db=' . DB_NAME; //adminer.php?username=nixby_dbadmin&db=db_antCMS&table=ant_customers
-    Redirect($url);
-}
-
 # стартуем сессию
 define('SECURITY_EXPIRE', 60 * 60 * CONF_SECURITY_EXPIRE);
 session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy', 'sess_gc');
@@ -73,5 +63,3 @@ if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
     }
     exit(ERROR_FORBIDDEN);
 }
-
-

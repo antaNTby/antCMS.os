@@ -8,6 +8,14 @@ if (isset($_SESSION['log']))
 // dump($_GET);
 // dump($_SESSION);
 
+
+if (isset($_GET['db']))
+{
+    $url = 'adminer.php?username=' . DB_USER . '&db=' . DB_NAME; //adminer.php?username=nixby_dbadmin&db=db_antCMS&table=ant_customers
+    Redirect($url);
+}
+
+
 if (!extension_loaded('gd'))
 {
     $gd_ver = 0;
