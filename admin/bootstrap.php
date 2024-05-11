@@ -74,3 +74,35 @@ $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->testInstall();
 //define start smarty template
 $smarty->assign('admin_main_content_template', 'start.tpl.html');
+
+
+$IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
+define('PATH_DELIMITER', isWindows() ? ';' : ':');
+
+$dird          = dirname($_SERVER['PHP_SELF']); // "/admin"
+$sourcessrandd = array('//' => '/', '\\' => '/');
+$dird          = strtr($dird, $sourcessrandd);
+if ($dird != '/')
+{
+    $dirf = '/';
+}
+else
+{
+    $dirf = '';
+}
+$url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
+define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
+
+@ini_set('session.use_trans_sid', 0);
+@ini_set('session.use_cookies', 1);
+@ini_set('session.use_only_cookies', 1);
+@ini_set('session.auto_start', 0);
+@ini_set('magic_quotes_gpc', 0);
+@ini_set('magic_quotes_runtime', 0);
+@ini_set('register_globals', 0);
+@ini_set('display_errors', 1);
+
+// error_reporting(1);
+set_error_handler('errorHandler');
+register_shutdown_function('shutdownHandler');
+error_reporting(E_ALL & ~E_NOTICE);
