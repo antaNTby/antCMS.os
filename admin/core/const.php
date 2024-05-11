@@ -14,17 +14,6 @@ const SMARTYDEBUGJSON       = 'logs/SMARTYDEBUG.JSON'; //  {$smarty.const.SMARTY
 const ADMIN_SMARTY_LOG_VARS = 0;                       //   {$smarty.const.ADMIN_SMARTY_LOG_VARS}
 
 const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {$smarty.const.ERROR_DB_INIT} database system
-const DBMS          = 'mysqli';                                           //   {$smarty.const.DBMS}          database host
-const DB_HOST       = 'localhost';                                        //   {$smarty.const.DB_HOST}       username
-const DB_USER       = 'nixby_dbadmin';                                    //   {$smarty.const.DB_USER}       database name
-const DB_PASS       = 'openserver';                                       //   {$smarty.const.DB_PASS}       database prefix
-const DB_NAME       = 'db_antCMS';                                        //   {$smarty.const.DB_NAME}       password
-const DB_PRFX       = 'ant_';
-//   {$smarty.const.DB_PRFX}            // FROM connect.inc.php
-#### const DB_PASS= "658!admin";
-#### const DB_NAME= "nixby_UTF8";
-#### const DB_PASS= "nixby_dbadmin658!!!";
-#### const DB_PRFX= "UTF_";
 
 const CONF_SECURE_SESSIONS = 1; //   {$smarty.const.CONF_SECURE_SESSIONS}  Использовать безопасные сессии    При использовании данной опции ip адрес и поле user_agent будут сверяться с начальным значением при старте сессии
 
