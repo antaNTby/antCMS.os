@@ -115,10 +115,6 @@ if (in_array($dpt, $plucked_dpt_ids))
                 include $sub_processor;
             }
 
-            // if (file_exists($sub_template))
-            // {
-            //     $smarty->assign('admin_main_content_template', $sub_template);
-            // }
 
             $smarty->assign('DPT_SUB', $DPT_SUB);
             $smarty->assign('table', $table);
