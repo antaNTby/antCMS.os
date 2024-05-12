@@ -77,8 +77,8 @@ $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
 
 $dird          = dirname($_SERVER['PHP_SELF']); // "/admin"
-$sourcessrandd = array('//' => '/', '\\' => '/');
-$dird          = strtr($dird, $sourcessrandd);
+// $sourcessrandd = array('//' => '/', '\\' => '/');
+$dird          = strtr($dird, ['//' => '/', '\\' => '/']);
 if ($dird != '/')
 {
     $dirf = '/';
