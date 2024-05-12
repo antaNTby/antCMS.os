@@ -31,7 +31,7 @@ foreach ($Departments as $dpt_key => $dep)
 
         $value['table_columns'] = PATH_CONFIGS . $dep_id . '_' . $sub_id . '__columns.json';
         $value['sub_processor']     = PATH_INCLUDES . $dep_id . '_' . $sub_id . '.php';
-        $value['sub_template']      = PATH_TPL . $dep_id . '_' . $sub_id . '.tpl.html';
+        $value['sub_template']      = PATH_TPL .'sub/'. $dep_id . '_' . $sub_id . '.tpl.html';
         $value['sub_href']          = ADMIN_FILE . "?dpt={$dep_id}&sub=" . $sub_id;
 
         if (array_key_exists($sub_id, $subsTables))
