@@ -1,11 +1,11 @@
 <?php
 ### ФУНКЦИИ
-include_once 'core/functions/crypto_functions.php';
-include_once 'core/functions/registration_functions.php';
-include_once 'core/functions/session_functions.php';
-include_once 'core/functions/debug_functions.php';
-include_once 'core/functions/admin_functions.php';
-include_once 'core/functions/adminUI_functions.php';
+include_once 'functions/crypto_functions.php';
+include_once 'functions/registration_functions.php';
+include_once 'functions/session_functions.php';
+include_once 'functions/debug_functions.php';
+include_once 'functions/admin_functions.php';
+include_once 'functions/adminUI_functions.php';
 
 function php_gd()
 {

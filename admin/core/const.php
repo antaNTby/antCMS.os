@@ -15,18 +15,20 @@ const ADMIN_SMARTY_LOG_VARS = 0;                       //   {$smarty.const.ADMIN
 
 const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {$smarty.const.ERROR_DB_INIT} database system
 
-const CONF_SECURE_SESSIONS = 1; //   {$smarty.const.CONF_SECURE_SESSIONS}  Использовать безопасные сессии    При использовании данной опции ip адрес и поле user_agent будут сверяться с начальным значением при старте сессии
-
-const CONF_ENABLE_REGCONFIRMATION = 0; //Требовать активацию учетной записи покупателя после регистрации Если данная опция включена, покупателю будет отправляться по электронной почте ключ активации, который он должен ввести после заполнения регистрационной формы. Это позволяет проверять правильность ввода электронного адреса
 
 const LOGO256 = '/media/logo256.jpg';
 const LOGO64  = '/media/logo64.jpg';
 
-const PATH_JSON='json/';
 const PATH_CORE = 'core/';
 const PATH_INCLUDES = 'core/includes/';
+
+const PATH_CONFIGS='core/configs/';
+const PATH_DESCRIPTIONS='core/descriptions/';
+
+
 const PATH_TPL = 'tpl/';
 const PATH_TPL_SUB = 'tpl/sub/';
+
 const EXT_TPL ='.tpl.html';
 
 const ERROR_FORBIDDEN = '<!doctype html>

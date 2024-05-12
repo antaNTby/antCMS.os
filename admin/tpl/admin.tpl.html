@@ -17,9 +17,6 @@
     <link rel="stylesheet" type="text/css" href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/vendor/twbs/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/datatables/datatables.css">
-
-
-
 </head>
 
 <body class="d-flex flex-column h-100 shadow-lg px-0" style="max-height: 5000px!important; overflow-y: scroll;">
@@ -67,15 +64,12 @@
     <script src="/vendor/components/jquery/jquery.min.js"></script>
     <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/datatables/datatables.js"></script>
-
     {* my scripts *}
     <script src="/admin/js/admin.js"></script>
     <script src="/admin/js/index.js" type="module"></script>
-
-{if $current_sub && $current_sub_table}
+    {if $current_sub && $current_sub_table}
     <script src="/admin/js/standartDataTable.js" type="module"></script>
-{/if}
-
+    {/if}
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 
 if (isset($_SESSION['log']))
 {
-    $smarty->assign('admintempname', $_SESSION['log']);
+    $smarty->assign('adminlogname', $_SESSION['log']);
 }
 
 // dump($_GET);

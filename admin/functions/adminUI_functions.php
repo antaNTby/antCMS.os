@@ -1,23 +1,28 @@
 <?php
 // adminUserInteface_functions.php
 
+function d($var){
+    return dump($var);
+}
+
+
 //adds new $department to departments list
-function add_department($department)
+function sortByField($item, $items, $sortField='sort_order')
 {
-    global $admin_departments;
 
     $i = 0;
-    while ($i < count($admin_departments) && $admin_departments[$i]['sort_order'] < $department['sort_order'])
+    while ($i < count($items) && $items[$i][$sortField] < $item[$sortField])
     {
         $i++;
     }
 
-    for ($j = count($admin_departments) - 1; $j >= $i; $j--)
+    for ($j = count($items) - 1; $j >= $i; $j--)
     {
-        $admin_departments[$j + 1] = $admin_departments[$j];
+        $items[$j + 1] = $items[$j];
     }
 
-    $admin_departments[$i] = $department;
+    $items[$i] = $item;
+    return $items;
 }
 
 function selectDefaultSub($subs)
@@ -29,7 +34,7 @@ function selectDefaultSub($subs)
         foreach ($subs as $key => $value)
         {
             // dump($value);
-            if (isset($value['default'] ) && $value['default'] == 1)
+            if (isset($value['default']) && $value['default'] == 1)
             {
                 $defaultSub = $value['id'];
             }
@@ -68,10 +73,10 @@ function flatAdminDepartments(
             {
                 foreach ($value as $k => $v)
                 {
-                    $menu[$dpt_key]['sub_ids'][]                = $v['id'];
-                    $menu[$dpt_key]['sub_names'][]              = $v['name'];
+                    $menu[$dpt_key]['sub_ids'][]   = $v['id'];
+                    $menu[$dpt_key]['sub_names'][] = $v['name'];
 
-                    if (array_key_exists($v['id'],$subsTables))
+                    if (array_key_exists($v['id'], $subsTables))
                     {
                         $menu[$dpt_key]['sub_tables'][] = $subsTables[$v['id']];
                     }
@@ -80,7 +85,7 @@ function flatAdminDepartments(
                         $menu[$dpt_key]['sub_tables'][] = null;
                     }
                     $menu[$dpt_key]['sub_hrefs'][]              = ADMIN_FILE . "?dpt={$dpt_id}&sub=" . $v['id'];
-                    $menu[$dpt_key]['columns_json_files'][]     = PATH_JSON . $dpt_id . '_' . $v['id'] . '__columns.json';
+                    $menu[$dpt_key]['columns_json_files'][]     = PATH_CONFIGS . $dpt_id . '_' . $v['id'] . '__columns.json';
                     $menu[$dpt_key]['include_php_files'][]      = PATH_INCLUDES . $dpt_id . '_' . $v['id'] . '.php';
                     $menu[$dpt_key]['dpt_sub_template_files'][] = PATH_TPL . $dpt_id . '_' . $v['id'] . '.tpl.html';
                 }
