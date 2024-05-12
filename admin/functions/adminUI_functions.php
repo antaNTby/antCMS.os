@@ -112,7 +112,7 @@ function showSubSmartyOutput(
         }
         else
         {
-            $smarty->assign('admin_sub_dpt', 'standartsub.tpl.html');
+            $smarty->assign('admin_sub_dpt', 'default_sub.tpl.html');
         }
     }
     catch (SmartyException $e)
