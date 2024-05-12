@@ -13,6 +13,7 @@
 
 require 'bootstrap.php';
 
+// какая-то херня для теста производительности  ДБ
 $sc_1 = gmts();
 $sc_4 = 0;
 $sc_8 = 0;
@@ -23,6 +24,9 @@ $_GET    = stripslashes_deep($_GET);
 $_COOKIE = stripslashes_deep($_COOKIE);
 
 require 'authentication.php';
+
+//define start smarty template
+$smarty->assign('admin_main_content_template', 'start.tpl.html');
 
 ### define department and subdepartment
 //define department and subdepartment
@@ -46,6 +50,7 @@ else
 {
     $sub = $_GET['sub'];
 }
+
 $smarty->assign('current_dpt', $dpt);
 
 if (isset($sub))

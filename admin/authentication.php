@@ -51,6 +51,7 @@ elseif (isset($_POST['enter']) && !isset($_SESSION['log'])) //user login
 }
 
 $relaccess = checklogin();
+
 if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
 {
     if (isset($_POST['user_login']) && isset($_POST['user_pw']))

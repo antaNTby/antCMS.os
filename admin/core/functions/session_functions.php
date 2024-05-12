@@ -47,7 +47,8 @@ function sess_write(
     $val
 )
 {
-    db_query('REPLACE INTO ' . SESSION_TABLE . " VALUES ('" . addslashes($key) . "', '" . addslashes($val) . "', UNIX_TIMESTAMP() + " . SECURITY_EXPIRE . ", '" . addslashes(stGetCustomerIP_Address()) . "', '" . addslashes($_SERVER['HTTP_REFERER']) . "', '" . addslashes($_SERVER['HTTP_USER_AGENT']) . "', '" . addslashes($_SERVER['REQUEST_URI']) . "')");
+
+    db_query('REPLACE INTO ' . SESSION_TABLE . " VALUES ('" . addslashes($key) . "', '" . addslashes($val) . "', UNIX_TIMESTAMP() + " . SECURITY_EXPIRE . ", '" . addslashes(stGetCustomerIP_Address()) . "', '" . addslashes($_SERVER['HTTP_REFERER'] ?? "") . "', '" . addslashes($_SERVER['HTTP_USER_AGENT']) . "', '" . addslashes($_SERVER['REQUEST_URI']) . "')");
     return true;
 }
 

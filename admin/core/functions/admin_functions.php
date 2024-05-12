@@ -96,7 +96,7 @@ function set_query(
         $_request = $_SERVER['REQUEST_URI'];
     }
 
-    $_anchor                   = '';
+    $_anchor                  = '';
     list($_request, $_anchor) = explode('#', $_request);
 
     if (strpos($_vars, '#') !== false)

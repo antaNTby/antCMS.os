@@ -23,16 +23,19 @@ function add_department($department)
 function selectDefaultSub($subs)
 {
     $defaultSub = $subs[0]['id'];
+
     if (is_array($subs) && count($subs) > 1)
     {
         foreach ($subs as $key => $value)
         {
-            if ($value['default'] == 1)
+            // dump($value);
+            if (isset($value['default'] ) && $value['default'] == 1)
             {
                 $defaultSub = $value['id'];
             }
         }
     }
+    // dump($defaultSub);
     return $defaultSub;
 }
 
