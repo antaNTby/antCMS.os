@@ -9,6 +9,7 @@
 // composer require twbs/bootstrap
 // composer require smarty/smarty
 // composer require twbs/bootstrap-icons
+// composer require gabordemooij/redbean
 // composer require --dev symfony/var-dumper
 
 // composer require datatables.net-bs5
@@ -25,6 +26,7 @@
 // composer require datatables.net-searchpanes-bs5
 // composer require datatables.net-select-bs5
 // composer require datatables.net-staterestore-bs5
+
 // $ composer self-update
 // Upgrading to version 2.7.6 (stable channel).
 //
@@ -59,6 +61,9 @@ $pdo_connect = array(
     'charset'        => 'utf8mb3',
     'headersCharset' => 'utf8',
 );
+
+
+
 
 ### //init Smarty 5.1
 use Smarty\Smarty;

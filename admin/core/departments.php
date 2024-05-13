@@ -59,6 +59,6 @@ $Departments_type=gettype($Departments[0]["id"]);
 
 $smarty->assign('Departments', $Departments);
 $smarty->assign('Departments_count', $Departments_count);
-$smarty->assign('Departments_type', $Departments_type);
+// $smarty->assign('Departments_type', $Departments_type);
 
 

@@ -21,6 +21,10 @@ class ComposerStaticInitb5f56d7d080216ffc3aea94b9bf1f095
             'Symfony\\Component\\VarDumper\\' => 28,
             'Smarty\\' => 7,
         ),
+        'R' => 
+        array (
+            'RedBeanPHP\\' => 11,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -39,6 +43,10 @@ class ComposerStaticInitb5f56d7d080216ffc3aea94b9bf1f095
         'Smarty\\' => 
         array (
             0 => __DIR__ . '/..' . '/smarty/smarty/src',
+        ),
+        'RedBeanPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
         ),
     );
 

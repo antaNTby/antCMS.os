@@ -150,4 +150,13 @@ if (!is_null($route_message))
     $smarty->assign('ROUTE_MESSAGE', $route_message);
 }
 
+use RedBeanPHP\R;
+R::setup( 'mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER,DB_PASS );
+// $book = R::dispense("ant_companies");
+// dd($book);
+    $post = R::dispense( 'post' );
+    $post->title = 'My holiday';
+    $post->comment = ' iuhuo8hoijpoij9089hj holiday';
+    $id = R::store( $post );
+
 include_once PATH_CORE . 'admin_end.php';
