@@ -75,7 +75,6 @@ if (in_array($dpt, $plucked_dpt_ids))
     {
         if ($dpt === $department['id'])
         {
-
             $plucked_sub_names = pluck($department['sub_departments'], 'name');
             $plucked_sub_ids   = pluck($department['sub_departments'], 'id');
 
@@ -83,7 +82,6 @@ if (in_array($dpt, $plucked_dpt_ids))
             {
                 $route_message = null;
                 $sub           = $sub;
-
             }
             else
             {
@@ -104,24 +102,22 @@ if (in_array($dpt, $plucked_dpt_ids))
 
             $smarty->assign('admin_main_content_template', 'default_dpt.tpl.html');
 
-            $DPT_SUB       = $department['sub_departments'][$current_sub_index]["DPT_SUB"];
-            $table         = $department['sub_departments'][$current_sub_index]["table"];
-            $table_columns = $department['sub_departments'][$current_sub_index]["table_columns"];
-            $sub_processor = $department['sub_departments'][$current_sub_index]["sub_processor"];
-            $sub_template  = $department['sub_departments'][$current_sub_index]["sub_template"];
+            $DPT_SUB       = $department['sub_departments'][$current_sub_index]['DPT_SUB'];
+            $table         = $department['sub_departments'][$current_sub_index]['table'];
+            $table_columns = $department['sub_departments'][$current_sub_index]['table_columns'];
+            $sub_processor = $department['sub_departments'][$current_sub_index]['sub_processor'];
+            $sub_template  = $department['sub_departments'][$current_sub_index]['sub_template'];
 
             if (file_exists($sub_processor))
             {
                 include $sub_processor;
             }
 
-
             $smarty->assign('DPT_SUB', $DPT_SUB);
             $smarty->assign('table', $table);
             $smarty->assign('table_columns', $table_columns);
             $smarty->assign('sub_processor', $sub_processor);
             $smarty->assign('sub_template', $sub_template);
-
         }
     }
 }
@@ -150,13 +146,27 @@ if (!is_null($route_message))
     $smarty->assign('ROUTE_MESSAGE', $route_message);
 }
 
-use RedBeanPHP\R;
-R::setup( 'mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER,DB_PASS );
 // $book = R::dispense("ant_companies");
 // dd($book);
-    $post = R::dispense( 'post' );
-    $post->title = 'My holiday';
-    $post->comment = ' iuhuo8hoijpoij9089hj holiday';
+
+use RedBeanPHP\R;
+R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+##  расширение для таблиц с _ в имени
+R::ext('xdispense', function($table_name){
+return R::getRedBean()->dispense($table_name);
+});
+
+
+    $post = R::xdispense( 'ant_ippost' );
+    $post->timeStamp= addslashes(time());
+    $post->title = 'My antaNT ЯкоБы IP';
+    $post->ip = addslashes(stGetCustomerIP_Address());
     $id = R::store( $post );
+
+
+     $t= R::getAll( 'SELECT * FROM ant_ippost where time_Stamp Like "%7";' );
+
+     d($t);
+
 
 include_once PATH_CORE . 'admin_end.php';

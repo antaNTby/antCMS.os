@@ -43,6 +43,7 @@ include_once 'core/headers.php';
 include_once 'core/tables.php';
 
 
+
 # mysqli DataBase
 require 'core/mysqli.php';
 
@@ -61,6 +62,8 @@ $pdo_connect = array(
     'charset'        => 'utf8mb3',
     'headersCharset' => 'utf8',
 );
+
+
 
 
 
