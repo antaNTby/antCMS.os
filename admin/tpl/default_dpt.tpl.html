@@ -7,13 +7,16 @@
     </ol>
 </nav>
 
-<input type="text" id="jsonFN" value="{$table_columns}">
-
 <h1 class="h4 fw-lighter text-body" data-id="PageH1">
-    {$current_sub_name} <sub>{$current_dpt_name}</sub>
+    {$current_sub_name} <sub>{$current_dpt_name}</sub> - СТРАНИЦА ПО-УМОЛЧАНИЮ
 </h1>
-{$admin_sub_dpt}
+
+{if $admin_sub_dpt}
+
 {include file="sub/$admin_sub_dpt"}
 
+{else}
 
+{include file="sub/default_sub.tpl.html"}
 
+{/if}
