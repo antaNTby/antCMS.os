@@ -1,15 +1,57 @@
 <?php
 // adminUserInteface_functions.php
 
-function d($var){
+function d($var)
+{
     return dump($var);
 }
 
+function exportColumnsToJson($dtColumnFieldNames, $limit = 5)
+{
+    $ii      = 0;
+    $Columns = array();
+    foreach ($dtColumnFieldNames as $key => $value)
+    {
+        if ($ii < $limit)
+        {
+            $newColumnItem = array(
+                'index'      => $key,
+                'data'       => $value,
+                'db'         => $value,
+                'dt'         => $value,
+                'title'      => 'title ' . $value,
+                'orderable'  => true,
+                'visible'    => true,
+                'searchable' => true
+            );
+        }
+        else
+        {
+            $newColumnItem = array(
+                'index'      => $key,
+                'data'       => $value,
+                'db'         => $value,
+                'dt'         => $value,
+                'title'      => 'title ' . $value,
+                'orderable'  => true,
+                'visible'    => false,
+                'searchable' => true
+            );
+        }
+
+        $Columns[] = $newColumnItem;
+        $ii++;
+        // jlog($newColumnItem);
+    }
+
+    $jsonColumns = json_encode($Columns, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE);
+
+    return $jsonColumns;
+}
 
 //adds new $department to departments list
-function sortByField($item, $items, $sortField='sort_order')
+function sortByField($item, $items, $sortField = 'sort_order')
 {
-
     $i = 0;
     while ($i < count($items) && $items[$i][$sortField] < $item[$sortField])
     {
@@ -43,7 +85,6 @@ function selectDefaultSub($subs)
     // dump($defaultSub);
     return $defaultSub;
 }
-
 
 function showSubSmartyOutput(
     $dpt_sub,

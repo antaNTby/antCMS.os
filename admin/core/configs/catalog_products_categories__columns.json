@@ -1,0 +1,302 @@
+[
+    {
+        "index": 0,
+        "data": "productID",
+        "db": "productID",
+        "dt": "productID",
+        "title": "title productID",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 1,
+        "data": "categoryID",
+        "db": "categoryID",
+        "dt": "categoryID",
+        "title": "title categoryID",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 2,
+        "data": "name",
+        "db": "name",
+        "dt": "name",
+        "title": "title name",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 3,
+        "data": "description",
+        "db": "description",
+        "dt": "description",
+        "title": "title description",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 4,
+        "data": "customers_rating",
+        "db": "customers_rating",
+        "dt": "customers_rating",
+        "title": "title customers_rating",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 5,
+        "data": "Price",
+        "db": "Price",
+        "dt": "Price",
+        "title": "title Price",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 6,
+        "data": "in_stock",
+        "db": "in_stock",
+        "dt": "in_stock",
+        "title": "title in_stock",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 7,
+        "data": "customer_votes",
+        "db": "customer_votes",
+        "dt": "customer_votes",
+        "title": "title customer_votes",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 8,
+        "data": "items_sold",
+        "db": "items_sold",
+        "dt": "items_sold",
+        "title": "title items_sold",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 9,
+        "data": "enabled",
+        "db": "enabled",
+        "dt": "enabled",
+        "title": "title enabled",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 10,
+        "data": "brief_description",
+        "db": "brief_description",
+        "dt": "brief_description",
+        "title": "title brief_description",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 11,
+        "data": "list_price",
+        "db": "list_price",
+        "dt": "list_price",
+        "title": "title list_price",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 12,
+        "data": "product_code",
+        "db": "product_code",
+        "dt": "product_code",
+        "title": "title product_code",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 13,
+        "data": "sort_order",
+        "db": "sort_order",
+        "dt": "sort_order",
+        "title": "title sort_order",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 14,
+        "data": "default_picture",
+        "db": "default_picture",
+        "dt": "default_picture",
+        "title": "title default_picture",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 15,
+        "data": "date_added",
+        "db": "date_added",
+        "dt": "date_added",
+        "title": "title date_added",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 16,
+        "data": "date_modified",
+        "db": "date_modified",
+        "dt": "date_modified",
+        "title": "title date_modified",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 17,
+        "data": "viewed_times",
+        "db": "viewed_times",
+        "dt": "viewed_times",
+        "title": "title viewed_times",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 18,
+        "data": "eproduct_filename",
+        "db": "eproduct_filename",
+        "dt": "eproduct_filename",
+        "title": "title eproduct_filename",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 19,
+        "data": "eproduct_available_days",
+        "db": "eproduct_available_days",
+        "dt": "eproduct_available_days",
+        "title": "title eproduct_available_days",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 20,
+        "data": "eproduct_download_times",
+        "db": "eproduct_download_times",
+        "dt": "eproduct_download_times",
+        "title": "title eproduct_download_times",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 21,
+        "data": "weight",
+        "db": "weight",
+        "dt": "weight",
+        "title": "title weight",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 22,
+        "data": "meta_description",
+        "db": "meta_description",
+        "dt": "meta_description",
+        "title": "title meta_description",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 23,
+        "data": "meta_keywords",
+        "db": "meta_keywords",
+        "dt": "meta_keywords",
+        "title": "title meta_keywords",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 24,
+        "data": "free_shipping",
+        "db": "free_shipping",
+        "dt": "free_shipping",
+        "title": "title free_shipping",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 25,
+        "data": "min_order_amount",
+        "db": "min_order_amount",
+        "dt": "min_order_amount",
+        "title": "title min_order_amount",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 26,
+        "data": "shipping_freight",
+        "db": "shipping_freight",
+        "dt": "shipping_freight",
+        "title": "title shipping_freight",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 27,
+        "data": "classID",
+        "db": "classID",
+        "dt": "classID",
+        "title": "title classID",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 28,
+        "data": "title",
+        "db": "title",
+        "dt": "title",
+        "title": "title title",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 29,
+        "data": "vendorID",
+        "db": "vendorID",
+        "dt": "vendorID",
+        "title": "title vendorID",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    }
+]

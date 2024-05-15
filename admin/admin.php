@@ -103,19 +103,23 @@ if (in_array($dpt, $plucked_dpt_ids))
             $smarty->assign('admin_main_content_template', 'default_dpt.tpl.html');
 
             $admin_page    = $department['sub_departments'][$current_sub_index]['admin_page'];
-            $table         = $department['sub_departments'][$current_sub_index]['table'];
+            $table_name         = $department['sub_departments'][$current_sub_index]['table_name'];
             $table_columns = $department['sub_departments'][$current_sub_index]['table_columns'];
+            $table_primaryKey = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
             $sub_processor = $department['sub_departments'][$current_sub_index]['sub_processor'];
             $sub_template  = $department['sub_departments'][$current_sub_index]['sub_template'];
 
             if (file_exists($sub_processor))
             {
                 include $sub_processor;
+            } else{
+                require PATH_INCLUDES."default_dpt.php";
             }
 
             $smarty->assign('admin_page', $admin_page);
-            $smarty->assign('table', $table);
+            $smarty->assign('table_name', $table_name);
             $smarty->assign('table_columns', $table_columns);
+            $smarty->assign('table_primaryKey', $table_primaryKey);
             $smarty->assign('sub_processor', $sub_processor);
             $smarty->assign('sub_template', $sub_template);
         }

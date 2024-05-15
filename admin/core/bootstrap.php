@@ -63,11 +63,6 @@ $pdo_connect = array(
     'headersCharset' => 'utf8',
 );
 
-
-
-
-
-
 ### //init Smarty 5.1
 use Smarty\Smarty;
 $smarty = new Smarty();

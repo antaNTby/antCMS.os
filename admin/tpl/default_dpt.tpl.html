@@ -11,12 +11,12 @@
     {$current_sub_name} <sub>{$current_dpt_name}</sub> - СТРАНИЦА ПО-УМОЛЧАНИЮ
 </h1>
 
-{if $admin_sub_dpt}
-
-{include file="sub/$admin_sub_dpt"}
-
-{else}
+{if $page_message neq ''}
+<div class="alert alert-{$page_message_type} alert-dismissible fade show" role="alert">
+  <strong>{$admin_page} !</strong> {$page_message}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{/if}
 
 {include file="sub/default_sub.tpl.html"}
 
-{/if}
