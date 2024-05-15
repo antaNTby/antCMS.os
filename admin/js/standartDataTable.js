@@ -38,19 +38,54 @@ export const table = new DataTable('#defaultDataTable', {
     columns: dataJsonFile,
     serverSide: true,
     processing: true,
-    searchDelay: 300,
-    search: {
-        return: true
-    },
     ordering: true,
     order: ORDER_ARRAY,
-    background: true,
-        language: KatzapskayaMova,
-        paging: true,
-        pageLength: 8,
-        lengthMenu: [
-            [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16], //
-            [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`] //
-        ],
+    // background: true,
+    language: KatzapskayaMova,
+    // paging: true,
+    pageLength: 8,
+    searchDelay: 300,
+    layout: {
+
+        top2Start: function () {
+            let toolbar = document.createElement('div');
+            toolbar.innerHTML = '<b>Custom tool bar! Text/images etc.</b>';
+
+            return toolbar;
+        },
+        top2End: {
+            buttons: [
+                'copy', 'excel'
+            ]
+        },
+
+        topStart: {
+            pageLength: {
+                menu: [
+                    [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16], //
+                    [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`] //
+                ],
+            }
+        },
+        topEnd: {
+            search: {
+                placeholder: 'Поиск по таблице',
+                return: true
+            },
+        },
+        bottomEnd: {
+            paging: {
+                numbers: 3
+            }
+        },
+    }
+
+
+
+
+
+
+
+
 
 });
