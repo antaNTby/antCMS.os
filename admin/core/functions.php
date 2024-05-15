@@ -26,21 +26,21 @@ function php_gd()
 
 function db_version()
 {
-    list($dbversion) = db_fetch_row(db_query("SELECT VERSION()"));
+    list($dbversion) = db_fetch_row(db_query('SELECT VERSION()'));
     return $dbversion;
 }
 
 function get_microtime()
 {
     $t         = explode(' ', microtime());
-    $timestamp = date('Y-m-d H:i:s', $t[1]) . substr((string)$t[0], 1, 4);
+    $timestamp = date('Y-m-d H:i:s', $t[1]) . substr((string) $t[0], 1, 4);
     return $timestamp;
 }
 
 function gmts()
 {
                                                    // list($usec, $sec) = explode(' ', microtime(true)); // php 7.4
-    list($usec, $sec) = explode(" ", microtime()); // php 8.1
+    list($usec, $sec) = explode(' ', microtime()); // php 8.1
     return $usec + $sec;
 }
 
@@ -86,7 +86,7 @@ function key_compare_func(
 /**
  * Форматированный вывод размера
  */
-function format_size(intintintintintintintint $file_size)
+function format_size( $file_size)
 {
     if ($file_size >= 1073741824)
     {
@@ -111,7 +111,7 @@ function format_size(intintintintintintintint $file_size)
 /**
  * Размер дириктории
  */
-function get_dir_size(stringstringstringstringstring $directory)
+function get_dir_size( $directory)
 {
     if (!is_dir($directory))
     {

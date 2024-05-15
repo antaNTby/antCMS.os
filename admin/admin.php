@@ -102,20 +102,24 @@ if (in_array($dpt, $plucked_dpt_ids))
 
             $smarty->assign('admin_main_content_template', 'default_dpt.tpl.html');
 
-            $DPT_SUB       = $department['sub_departments'][$current_sub_index]['DPT_SUB'];
-            $table         = $department['sub_departments'][$current_sub_index]['table'];
+            $admin_page    = $department['sub_departments'][$current_sub_index]['admin_page'];
+            $table_name         = $department['sub_departments'][$current_sub_index]['table_name'];
             $table_columns = $department['sub_departments'][$current_sub_index]['table_columns'];
+            $table_primaryKey = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
             $sub_processor = $department['sub_departments'][$current_sub_index]['sub_processor'];
             $sub_template  = $department['sub_departments'][$current_sub_index]['sub_template'];
 
             if (file_exists($sub_processor))
             {
                 include $sub_processor;
+            } else{
+                require PATH_INCLUDES."default_dpt.php";
             }
 
-            $smarty->assign('DPT_SUB', $DPT_SUB);
-            $smarty->assign('table', $table);
+            $smarty->assign('admin_page', $admin_page);
+            $smarty->assign('table_name', $table_name);
             $smarty->assign('table_columns', $table_columns);
+            $smarty->assign('table_primaryKey', $table_primaryKey);
             $smarty->assign('sub_processor', $sub_processor);
             $smarty->assign('sub_template', $sub_template);
         }
@@ -149,24 +153,22 @@ if (!is_null($route_message))
 // $book = R::dispense("ant_companies");
 // dd($book);
 
-use RedBeanPHP\R;
-R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-##  расширение для таблиц с _ в имени
-R::ext('xdispense', function($table_name){
-return R::getRedBean()->dispense($table_name);
-});
+// use RedBeanPHP\R;
+// R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+// ##  расширение для таблиц с _ в имени
+// R::ext('xdispense', function ($table_name)
+// {
+//     return R::getRedBean()->dispense($table_name);
+// });
 
+// $post            = R::xdispense('ant_ippost');
+// $post->timeStamp = addslashes(time());
+// $post->title     = 'My antaNT ЯкоБы IP';
+// $post->ip        = addslashes(stGetCustomerIP_Address());
+// $id              = R::store($post);
 
-    $post = R::xdispense( 'ant_ippost' );
-    $post->timeStamp= addslashes(time());
-    $post->title = 'My antaNT ЯкоБы IP';
-    $post->ip = addslashes(stGetCustomerIP_Address());
-    $id = R::store( $post );
+// $t = R::getAll('SELECT * FROM ant_ippost where time_Stamp Like "%7%";');
 
-
-     $t= R::getAll( 'SELECT * FROM ant_ippost where time_Stamp Like "%7";' );
-
-     d($t);
-
+// d($t);
 
 include_once PATH_CORE . 'admin_end.php';

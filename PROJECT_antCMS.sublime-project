@@ -13,7 +13,7 @@
                 "smarty4.2.1.tar",
                 "cache/ant*.php",
                 "cache/php/ant*.php",
-                // "composer.*",
+                "composer.*",
                 "*.zip",
                 "*.rar",
                 "*.ico",

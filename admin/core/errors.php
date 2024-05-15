@@ -28,8 +28,8 @@
 	{
 		$error =
 		sprintf('
-			Lvl: <strong>%s</strong><br>Message: <strong>%s</strong><br>File: <strong>%s</strong><br>Line: <strong>%s</strong>
-		', $error_level, nl2br($error_message), $error_file, $error_line);
+			Lvl: <strong>%s</strong><br>Message: <strong>%s</strong><br>File: <strong>%s:%s</strong><br>Line: <strong>%s</strong>
+		', $error_level, nl2br($error_message), $error_file, $error_line, $error_line);
 
 		switch ($error_level) {
 			case E_ERROR:
@@ -83,8 +83,8 @@
 					$color = '#f05050';
 					$error =
 					sprintf('
-						[SHUTDOWN] Lvl: <strong>%s</strong><br>Message: <strong>%s</strong><br>File: <strong>%s</strong><br>Line: <strong>%s</strong>
-					', $lasterror['type'], nl2br($lasterror['message']), $lasterror['file'], $lasterror['line']);
+						[SHUTDOWN] Lvl: <strong>%s</strong><br>Message: <strong>%s</strong><br>File: <strong>%s:%s</strong><br>Line: <strong>%s</strong>
+					', $lasterror['type'], nl2br($lasterror['message']), $lasterror['file'], $lasterror['line'], $lasterror['line']);
 					errorLogs($error, "Fatal", $color);
 			}
 		}

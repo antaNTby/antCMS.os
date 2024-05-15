@@ -1,0 +1,172 @@
+[
+    {
+        "index": 0,
+        "data": "categoryID",
+        "db": "categoryID",
+        "dt": "categoryID",
+        "title": "title categoryID",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 1,
+        "data": "name",
+        "db": "name",
+        "dt": "name",
+        "title": "title name",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 2,
+        "data": "parent",
+        "db": "parent",
+        "dt": "parent",
+        "title": "title parent",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 3,
+        "data": "products_count",
+        "db": "products_count",
+        "dt": "products_count",
+        "title": "title products_count",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 4,
+        "data": "description",
+        "db": "description",
+        "dt": "description",
+        "title": "title description",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 5,
+        "data": "picture",
+        "db": "picture",
+        "dt": "picture",
+        "title": "title picture",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 6,
+        "data": "products_count_admin",
+        "db": "products_count_admin",
+        "dt": "products_count_admin",
+        "title": "title products_count_admin",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 7,
+        "data": "sort_order",
+        "db": "sort_order",
+        "dt": "sort_order",
+        "title": "title sort_order",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 8,
+        "data": "viewed_times",
+        "db": "viewed_times",
+        "dt": "viewed_times",
+        "title": "title viewed_times",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 9,
+        "data": "allow_products_comparison",
+        "db": "allow_products_comparison",
+        "dt": "allow_products_comparison",
+        "title": "title allow_products_comparison",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 10,
+        "data": "allow_products_search",
+        "db": "allow_products_search",
+        "dt": "allow_products_search",
+        "title": "title allow_products_search",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 11,
+        "data": "show_subcategories_products",
+        "db": "show_subcategories_products",
+        "dt": "show_subcategories_products",
+        "title": "title show_subcategories_products",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 12,
+        "data": "meta_description",
+        "db": "meta_description",
+        "dt": "meta_description",
+        "title": "title meta_description",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 13,
+        "data": "meta_keywords",
+        "db": "meta_keywords",
+        "dt": "meta_keywords",
+        "title": "title meta_keywords",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 14,
+        "data": "title",
+        "db": "title",
+        "dt": "title",
+        "title": "title title",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 15,
+        "data": "subcount",
+        "db": "subcount",
+        "dt": "subcount",
+        "title": "title subcount",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 16,
+        "data": "enabled",
+        "db": "enabled",
+        "dt": "enabled",
+        "title": "title enabled",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    }
+]

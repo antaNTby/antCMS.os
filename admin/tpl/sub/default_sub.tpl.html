@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {* <h5 class="bg-danger p-2 justify-content-center">
     Файл шаблона "{$current_dpt}_{$current_sub}.tpl.html" не найден в директории "tpl/sub/" <small class="text-body-secondary">выведен стандартный шаблон "tpl/sub/standartsub.tpl.html"</small>
 </h5>
@@ -8,18 +9,22 @@
 </div>
 *}
 <table id="example" class="display table table-striped table-bordered table-sm" style="width:100%">
+=======
+<input type="text" id="jsonFN" value="{$table_columns}">
+<caption>{$table_name} - автогенерация</caption>
+<table id="defaultDataTable" class="display table table-striped table-bordered table-sm" style="width:100%">
+>>>>>>> origin/main
     <thead class="table-danger">
-        <tr>
-            {* {section name=idx loop=$dtColumnFieldNames|@count}
-            {assign var="current_field" value=$dtColumnFieldNames[idx]}
-            <th>{$current_field}</th>
-            {/section} *}
-        </tr>
     </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+    </tfoot>
 </table>
 <div class="shadow p-3 mb-5 bg-body-tertiary rounded border border-1">
     <form class="p-3" action="save_defaultForm1">
         <input type="text" id="jsonFN" value="{$table_columns}">
         <button class="btn btn-success btn-lg" id="btnSubmit" name="btnSubmit">save</button>
+    </form>
 </div>
-</form>
+<script src="/admin/js/standartDataTable.js" type="module"></script>
