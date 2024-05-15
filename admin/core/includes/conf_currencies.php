@@ -28,7 +28,7 @@ $smarty->assign('subTables', $subTables);
 $smarty->assign('dtColumnFieldNames', $dtColumnFieldNames);
 // $smarty->assign('jsonColumns', $jsonColumns);
 $smarty->assign('dtColumns', $Columns);
-showSubSmartyOutput($DPT_SUB);
+showSubSmartyOutput($admin_page);
 
 /*
 "CID",

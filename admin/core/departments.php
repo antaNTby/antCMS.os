@@ -27,7 +27,7 @@ foreach ($Departments as $dpt_key => $dep)
         $sub_id                = $value['id'];
         $sub_departments[$key] = $value;
 
-        $value['DPT_SUB'] = $dep_id . '_' . $sub_id; //'trade_orders';
+        $value['admin_page'] = $dep_id . '_' . $sub_id; //'trade_orders';
 
         $value['table_columns'] = PATH_CONFIGS . $dep_id . '_' . $sub_id . '__columns.json';
         $value['sub_processor'] = PATH_INCLUDES . $dep_id . '_' . $sub_id . '.php';
