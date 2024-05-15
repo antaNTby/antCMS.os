@@ -47,6 +47,13 @@ export const table = new DataTable('#defaultDataTable', {
     searchDelay: 300,
     layout: {
 
+        top3Start: {
+            buttons: [ 'create', 'edit', 'remove' ]
+        },
+        top3End: {
+            buttons: [ 'excel', 'csv' ]
+        },
+
         top2Start: function () {
             let toolbar = document.createElement('div');
             toolbar.innerHTML = '<b>Custom tool bar! Text/images etc.</b>';
@@ -77,6 +84,13 @@ export const table = new DataTable('#defaultDataTable', {
             paging: {
                 numbers: 3
             }
+        },
+
+        bottom2: {
+            search: {
+                placeholder: 'Поиск по таблице',
+                return: true
+            },
         },
     }
 
