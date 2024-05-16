@@ -1,5 +1,7 @@
 import KatzapskayaMova from "../js/lang/defaultKatzapskayaMova.js";
 import * as bsToast from "../apps/Toasts/appToasts.js";
+import * as dtE from "./dtEvents.js";
+import * as dtB from "./dtButtons.js";
 
 
 const fn = document.getElementById('jsonFN').value;
@@ -48,22 +50,22 @@ export const table = new DataTable('#defaultDataTable', {
     layout: {
 
         top3Start: {
-            buttons: [ 'create', 'edit', 'remove' ]
-        },
-        top3End: {
-            buttons: [ 'excel', 'csv' ]
+            buttons: ['create', 'edit', 'remove']
         },
 
-        top2Start: function () {
+        top3End: {
+            buttons: ['excel', 'csv']
+        },
+
+        top2Start: function() {
             let toolbar = document.createElement('div');
             toolbar.innerHTML = '<b>Custom tool bar! Text/images etc.</b>';
 
             return toolbar;
         },
+
         top2End: {
-            buttons: [
-                'copy', 'excel'
-            ]
+            buttons: dtB.standartButtons,
         },
 
         topStart: {
@@ -103,3 +105,5 @@ export const table = new DataTable('#defaultDataTable', {
 
 
 });
+
+dtE.tdBodyDtDblClick(table);

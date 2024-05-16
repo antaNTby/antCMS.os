@@ -41,7 +41,7 @@ catch (SmartyException $e)
     dump($smarty->getTemplateVars());
 }
 
-if (1 or ADMIN_SMARTY_LOG_VARS)
+if (0 or ADMIN_SMARTY_LOG_VARS)
 {
     // dump($flatDepartments);
     // dump($smarty->getTemplateVars('flatDepartments'));
