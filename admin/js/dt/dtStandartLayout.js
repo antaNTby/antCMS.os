@@ -1,8 +1,9 @@
 // dtButtons.js
 import {btnColVis} from "./dtButtons.js";
+import {dropExport} from "./dtButtons.js";
 import myButtons from "./dtButtons.js";
 
-console.log(myButtons)
+console.log(dropExport)
 
 
 const layoutDefault = {
@@ -27,7 +28,7 @@ const layoutDefault = {
     top2End: null,
     //
     top: {
-        buttons: [btnColVis]
+        buttons: [btnColVis,dropExport]
     },
 
     topStart: "info",
