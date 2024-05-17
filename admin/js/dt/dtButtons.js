@@ -1,5 +1,13 @@
 // dtButtons.js
 
+$.fn.dataTable.ext.buttons.separator = {
+    text: '',
+    attr: {style: 'width: 5px; height: 5px; ' +
+            'padding-left: 0px; padding-right: 0px; cursor: auto;'},
+    action: function () {
+    }
+};
+
 export const btnColVis = {
     text: 'Показать столбцы',
     className: 'text-bg-danger',
@@ -18,10 +26,13 @@ export const btnExportPDF = {
     pageSize: 'A4',
     orientation: 'landscape',
     margins: [20, 10, 10, 20],
+    title: '',
+    header: '',
+    footer: '',
     exportOptions: {
         columns: ':visible',
         modifier: {
-            page: 'all'
+            page: 'current'
         }
     }
 };
@@ -79,9 +90,10 @@ export const btnExportsMenu = {
     className: 'text-bg-light',
     extend: 'collection',
     buttons: [
-        btnExportPDF,
-        btnExportJSON,
         btnExportExcel,
+        // btnExportPDF,
+        btnExportJSON,
+        'separator',
         'excelHtml5',
         btnExportCSV,
         'csvHtml5',

@@ -50,6 +50,7 @@ export const table = new DataTable('#defaultDataTable', {
     pageLength: 8,
     searchDelay: 300,
     layout: layoutDefault,
+    select:true,
 
 
 
