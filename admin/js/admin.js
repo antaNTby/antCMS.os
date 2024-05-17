@@ -37,6 +37,26 @@ function formatDateTime(date, $sep = ' ') {
     return result;
 }
 
+function formatNowToFileName() {
+    // создаем новый объект `Date`
+    let date = new Date();
+    let hh = date.getHours();
+    if (hh < 10) hh = '0' + hh;
+    let ii = date.getMinutes();
+    if (ii < 10) ii = '0' + ii;
+    let ss = date.getSeconds();
+    if (ss < 10) ss = '0' + ss;
+    let dd = date.getDate();
+    if (dd < 10) dd = '0' + dd;
+    let mm = date.getMonth() + 1;
+    if (mm < 10) mm = '0' + mm;
+    // let yy = date.getFullYear() % 100;
+    // if (yy < 10) yy = '0' + yy;
+    let yy = date.getFullYear();
+    let result = yy + '-' + mm + '-' + dd + ' ' + hh + '։' + ii + '։' + ss;
+    return result;
+}
+
 function formatDate(date, $sep = ' ') {
     let dd = date.getDate();
     if (dd < 10) dd = '0' + dd;

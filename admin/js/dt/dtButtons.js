@@ -1,17 +1,5 @@
 // dtButtons.js
 
-var docDefinition = {
-    // a string or { width: number, height: number }
-    pageSize: 'A4',
-
-    // by default we use portrait, you can change it to landscape if you wish
-    pageOrientation: 'landscape',
-
-    // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
-    pageMargins: [20, 10, 10, 20],
-};
-
-
 export const btnColVis = {
     text: 'Показать столбцы',
     className: 'text-bg-danger',
@@ -23,33 +11,73 @@ export const btnColVis = {
 };
 
 export const btnExportPDF = {
-    text: 'PDF-file',
+    text: 'PDF',
     className: 'text-danger',
     extend: 'pdfHtml5',
-    customize: function(doc) {
-        console.info(doc)
-        doc={...docDefinition};
-        console.log(doc)
-        return doc;
+    filename: 'dtExport ' + formatNowToFileName(),
+    pageSize: 'A4',
+    orientation: 'landscape',
+    margins: [20, 10, 10, 20],
+    exportOptions: {
+        columns: ':visible',
+        modifier: {
+            page: 'current'
+        }
     }
 };
 
-export const dropExport = {
+export const btnExportExcel = {
+    text: 'XLS',
+    className: 'text-success',
+    extend: 'excelHtml5',
+    filename: 'dtExport ' + formatNowToFileName(),
+    pageSize: 'A4',
+    orientation: 'landscape',
+    margins: [20, 10, 10, 20],
+    exportOptions: {
+        columns: ':visible',
+        modifier: {
+            page: 'current'
+        }
+    }
+};
+
+export const btnExportJSON = {
+    text: 'JSON',
+    action: function(e, dt, button, config) {
+        var data = dt.buttons.exportData();
+        DataTable.fileSave(new Blob([JSON.stringify(data)]), 'Export.json');
+    }
+};
+
+export const btnExportCSV = {
+    text: 'CSV ;',
+    fieldSeparator: ";",
+    escapeChar: "&quot;",
+    fieldBoundary: "'",
+    newline: "\r\n",
+    charset: "utf-8",
+    className: 'text-dark',
+    extend: 'csv',
+    filename: 'dtExport ' + formatNowToFileName(),
+    exportOptions: {
+        columns: ':visible',
+        modifier: {
+            page: 'current'
+        }
+    }
+}
+
+export const btnExportsMenu = {
     text: 'Export',
     className: 'text-bg-light',
     extend: 'collection',
     buttons: [
-
-
         btnExportPDF,
-        // 'csv',
-        // 'excel',
-        // 'pdf',
+        btnExportJSON,
+        btnExportExcel,
+        btnExportCSV,
         'csvHtml5',
-        'excelHtml5',
-        'pdfHtml5',
-
-
     ]
 
 };

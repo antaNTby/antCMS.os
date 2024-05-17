@@ -1,9 +1,10 @@
 // dtButtons.js
 import {btnColVis} from "./dtButtons.js";
-import {dropExport} from "./dtButtons.js";
+import {btnExportsMenu} from "./dtButtons.js";
+// import {btnExportJSON} from "./dtButtons.js";
 import myButtons from "./dtButtons.js";
 
-console.log(dropExport)
+console.log(btnExportsMenu)
 
 
 const layoutDefault = {
@@ -14,8 +15,21 @@ const layoutDefault = {
 
         return toolbar;
     },
-    top4Start: null,
-    top4End: null,
+    top4Start: {
+        pageLength: {
+            menu: [
+                [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16], //
+                [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`] //
+            ],
+        },
+    },
+    top4End: {
+        paging: {
+            // numbers: 3
+            type: 'first_last_numbers',
+            boundaryNumbers: true,
+        }
+    },
     //
     top3: null,
     top3Start: null,
@@ -28,7 +42,7 @@ const layoutDefault = {
     top2End: null,
     //
     top: {
-        buttons: [btnColVis,dropExport]
+        buttons: [btnColVis,btnExportsMenu]
     },
 
     topStart: "info",
@@ -57,7 +71,6 @@ const layoutDefault = {
             // numbers: 3
             type: 'first_last_numbers',
             boundaryNumbers: true,
-            className: "m-5"
         }
     },
     //
