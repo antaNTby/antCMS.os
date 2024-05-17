@@ -1,16 +1,16 @@
 // dtButtons.js
+//
+export const btnColVis = {
+    text: 'Показать столбцы',
+    className: 'text-bg-danger',
+    extend: 'colvis',
+    // columns: 'th:nth-child(n+2)',
+    columnText: function(dt, idx, title) {
+        return idx + 1 + ' ' + title;
+    }
+};
 
 const standartButtons = [
-    //
-    {
-        text: 'Показать столбцы',
-        className: 'text-bg-danger',
-        extend: 'colvis',
-        // columns: 'th:nth-child(n+2)',
-        columnText: function(dt, idx, title) {
-            return idx + 1 + ' ' + title;
-        }
-    },
     //
     {
         text: 'Select filter applied - object',
@@ -65,5 +65,6 @@ const otherButtons = [
         }
     }
 ];
+
 
 export default standartButtons

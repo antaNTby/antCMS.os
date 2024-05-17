@@ -1,5 +1,5 @@
 import * as bsToast from "../../apps/Toasts/appToasts.js";
-import KatzapskayaMova from "./defaultKatzapskayaMova.js";
+import katzapskayaMova from "./defaultKatzapskayaMova.js";
 import * as standartEvents from "./dtEvents.js";
 import layoutDefault from "./dtStandartLayout.js";
 
@@ -10,7 +10,8 @@ const fn = document.getElementById('jsonFN').value;
 const res = await fetch(checkOnUrl('admin/' + fn));
 const dataJsonFile = await res.json();
 // console.log(dataJsonFile)
-const ORDER_ARRAY = [
+//
+const orderBy = [
     [0, 'asc'],
     // [1, 'asc']
 ];
@@ -42,9 +43,9 @@ export const table = new DataTable('#defaultDataTable', {
     serverSide: true,
     processing: true,
     ordering: true,
-    order: ORDER_ARRAY,
+    order: orderBy,
     // background: true,
-    language: KatzapskayaMova,
+    language: katzapskayaMova,
     // paging: true,
     pageLength: 8,
     searchDelay: 300,
@@ -61,3 +62,8 @@ export const table = new DataTable('#defaultDataTable', {
 });
 
 standartEvents.tdBodyDtDblClick(table);
+
+
+// стилизуем поиск DT
+// const inputSearch = document.querySelectorAll('div.dt-search input[type="search"]')[0];
+// inputSearch.classList.add('w-50');
