@@ -21,7 +21,7 @@ export const btnExportPDF = {
     exportOptions: {
         columns: ':visible',
         modifier: {
-            page: 'current'
+            page: 'all'
         }
     }
 };
@@ -31,14 +31,20 @@ export const btnExportExcel = {
     className: 'text-success',
     extend: 'excelHtml5',
     filename: 'dtExport ' + formatNowToFileName(),
-    pageSize: 'A4',
-    orientation: 'landscape',
-    margins: [20, 10, 10, 20],
+    // pageSize: 'A4',
+    // orientation: 'landscape',
+    // margins: [20, 10, 10, 20],
+    title: '',
+    header: '',
+    footer: '',
+    messageBottom: '',
+    messageTop: '',
     exportOptions: {
-        columns: ':visible',
+        autoFilter: true,
         modifier: {
-            page: 'current'
-        }
+            page: 'all'
+        },
+        columns: ':visible',
     }
 };
 
@@ -76,6 +82,7 @@ export const btnExportsMenu = {
         btnExportPDF,
         btnExportJSON,
         btnExportExcel,
+        'excelHtml5',
         btnExportCSV,
         'csvHtml5',
     ]
