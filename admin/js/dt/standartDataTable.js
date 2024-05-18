@@ -44,13 +44,15 @@ export const table = new DataTable('#defaultDataTable', {
     processing: true,
     ordering: true,
     order: orderBy,
-    // background: true,
+    background: true,
     language: katzapskayaMova,
     // paging: true,
     pageLength: 8,
     searchDelay: 300,
     layout: layoutDefault,
     select:true,
+    scrollX:true,
+    autowidth:true,
 
 
 
