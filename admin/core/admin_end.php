@@ -20,6 +20,20 @@ if (isset($_COOKIE['TEMPLATE_WIDTH']))
     $container_width = $_COOKIE['TEMPLATE_WIDTH'];
 }
 
+$allowedContainerWidths = array('container', 'container-sm', 'container-md', 'container-lg', 'container-xl', 'container-xxl', 'container-fluid');
+$smarty->assign('allowedContainerWidths', $allowedContainerWidths);
+if (isset($_GET['change_template_width']))
+{
+    $new_template_width = $_GET['change_template_width'];
+
+    $container_width = (in_array($new_template_width, $allowedContainerWidths))
+        ? $new_template_width
+        : ADMIN_CONTAINER_WIDTH;
+    set_cookie('TEMPLATE_WIDTH', $container_width);
+
+    Redirect(ADMIN_FILE);
+}
+
 if (!extension_loaded('gd'))
 {
     $gd_ver = 0;

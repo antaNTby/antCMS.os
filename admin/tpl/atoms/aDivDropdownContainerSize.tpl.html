@@ -1,0 +1,14 @@
+<div class="dropdown-center">
+    <a class="btn btn-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {$container_width}
+    </a>
+    <ul class="dropdown-menu">
+        {foreach $allowedContainerWidths as $width}
+        {if $container_width eq $width}
+        <li><a class="dropdown-item disabled" aria-disabled="true">{$width}</a></li>
+        {else}
+        <li><a class="dropdown-item" href="{$smarty.const.ADMIN_FILE}?change_template_width={$width}">{$width}</a></li>
+        {/if}
+        {/foreach}
+    </ul>
+</div>
