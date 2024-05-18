@@ -39,7 +39,7 @@ function get_microtime()
 
 function gmts()
 {
-                                                   // list($usec, $sec) = explode(' ', microtime(true)); // php 7.4
+    ## list($usec, $sec) = explode(' ', microtime(true)); // php 7.4
     list($usec, $sec) = explode(' ', microtime()); // php 8.1
     return $usec + $sec;
 }
@@ -86,7 +86,7 @@ function key_compare_func(
 /**
  * Форматированный вывод размера
  */
-function format_size( $file_size)
+function format_size($file_size)
 {
     if ($file_size >= 1073741824)
     {
@@ -111,7 +111,7 @@ function format_size( $file_size)
 /**
  * Размер дириктории
  */
-function get_dir_size( $directory)
+function get_dir_size($directory)
 {
     if (!is_dir($directory))
     {

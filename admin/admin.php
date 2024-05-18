@@ -15,16 +15,6 @@ include_once 'core/const.php';
 // echo (PATH_CORE);
 include_once PATH_CORE . 'bootstrap.php';
 
-// какая-то херня для теста производительности  ДБ
-$sc_1 = gmts();
-$sc_4 = 0;
-$sc_8 = 0;
-$gmc  = 1;
-
-$_POST   = stripslashes_deep($_POST);
-$_GET    = stripslashes_deep($_GET);
-$_COOKIE = stripslashes_deep($_COOKIE);
-
 include_once PATH_CORE . 'authentication.php';
 
 ### define department and subdepartment

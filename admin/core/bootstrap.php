@@ -1,4 +1,7 @@
 <?php
+# сбрасываем время сессии
+session_cache_expire();
+
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
@@ -34,6 +37,7 @@
 require_once '../vendor/autoload.php';
 
 include_once 'core/const.php';    // управляющие и служебные константы
+
 include_once 'core/connect.php';    // DB_CONST
 include_once 'core/errors.php';   // обработка ошибок
 include_once 'core/orklang.php';  // строки текста
@@ -42,6 +46,15 @@ include_once 'core/functions.php';
 include_once 'core/headers.php';
 include_once 'core/tables.php';
 
+// какая-то херня для теста производительности  ДБ
+$sc_1 = gmts();
+$sc_4 = 0;
+$sc_8 = 0;
+$gmc  = 1;
+
+$_POST   = stripslashes_deep($_POST);
+$_GET    = stripslashes_deep($_GET);
+$_COOKIE = stripslashes_deep($_COOKIE);
 
 
 # mysqli DataBase
@@ -106,3 +119,4 @@ define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 set_error_handler('errorHandler');
 register_shutdown_function('shutdownHandler');
 error_reporting(E_ALL & ~E_NOTICE);
+

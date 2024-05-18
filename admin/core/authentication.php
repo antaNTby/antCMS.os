@@ -1,10 +1,13 @@
 <?php
-# сбрасываем время сессии
-session_cache_expire();
 
-# стартуем сессию
 define('SECURITY_EXPIRE', 60 * 60 * CONF_SECURITY_EXPIRE);
 session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy', 'sess_gc');
+
+session_set_cookie_params(SECURITY_EXPIRE);
+
+# стартуем сессию
+session_start();
+
 
 # посылаем cookie сессии
 if (isset($_COOKIE['PHPSESSID']))
@@ -18,37 +21,9 @@ if (isset($_COOKIE['PHPSESSID']))
         set_cookie('PHPSESSID', $_COOKIE['PHPSESSID']);
     }
 }
-session_set_cookie_params(SECURITY_EXPIRE);
-session_start();
 
-if (isset($_GET['logout'])) //user logout
-{
-    unset($_SESSION['log']);
-    unset($_SESSION['pass']);
+// ЗДЕСЬ ВСТАВЛЯЮТСЯ DO=PROCESSOR
 
-    RedirectJavaScript(ADMIN_FILE . '?access_deny=' . SITE_URL);
-}
-elseif (isset($_POST['enter']) && !isset($_SESSION['log'])) //user login
-{
-    if (regAuthenticate($_POST['user_login'], $_POST['user_pw']))
-    {
-        if (!isset($_POST['order']))
-        {
-            if (in_array(100, $relaccess))
-            {
-                Redirect(ADMIN_FILE);
-            }
-            else
-            {
-                Redirect(ADMIN_FILE . '?user_details=yes');
-            }
-        }
-    }
-    else
-    {
-        $wrongLoginOrPw = 1;
-    }
-}
 
 $relaccess = checklogin();
 
@@ -60,11 +35,20 @@ if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
         {
             Redirect(set_query('&__tt='));
         }
-        exit(ERROR_FORBIDDEN);
+        die(ERROR_FORBIDDEN);
     }
-    exit(ERROR_FORBIDDEN);
+    $wrongLoginOrPw = 1;
+    die(ERROR_FORBIDDEN);
 }
 
+if (isset($_GET['logout'])) //user logout
+{
+    unset($_SESSION['log']);
+    unset($_SESSION['pass']);
+
+    // RedirectJavaScript(ADMIN_FILE . '?access_deny=' . SITE_URL);
+    RedirectJavaScript(ADMIN_FILE);
+}
 
 /*
 
