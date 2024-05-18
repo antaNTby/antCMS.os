@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH} h-100 text-bg-secondary bg-opacity-50" lang="ru-RU">
+<html class="container-{$container_width} h-100 text-bg-secondary bg-opacity-50" lang="ru-RU">
 {assign var=use_offcanvas_menu value=1}
 
 <head>
@@ -31,7 +31,7 @@
     <main class="flex-shrink-0" data-tpl="admin.tpl.html">
         {include file="../apps/Toasts/appToasts.tpl.html"}
         {if $use_offcanvas_menu}
-        <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
+        <div class="container-{$container_width}">
             <div class="row" data-bs-theme="light">
                 {include file="admin__menu_offcanvas.tpl.html"}
             </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
         {else}
-        <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
+        <div class="container-{$container_width}">
             <div class="row">
                 <div class="col order-2 order-md-1 col-md-4">
                     {include file="admin__menu_accordion.tpl.html"}
@@ -54,8 +54,8 @@
         </div>
         {/if}
     </main>
-    <footer class=" text-bg-dark d-block mt-auto">
-        <div class="container-{$smarty.const.ADMIN_BSCONTAINER_WIDTH}">
+    <footer class="text-bg-dark d-block mt-auto">
+        <div class="container-{$container_width}">
             {include file="admin__footer.tpl.html"}
         </div>
     </footer>

@@ -8,13 +8,17 @@ if (isset($_SESSION['log']))
 // dump($_GET);
 // dump($_SESSION);
 
-
 if (isset($_GET['db']))
 {
     $url = 'adminer.php?username=' . DB_USER . '&db=' . DB_NAME; //adminer.php?username=nixby_dbadmin&db=db_antCMS&table=ant_customers
     Redirect($url);
 }
 
+$container_width = ADMIN_CONTAINER_WIDTH;
+if (isset($_COOKIE['TEMPLATE_WIDTH']))
+{
+    $container_width = $_COOKIE['TEMPLATE_WIDTH'];
+}
 
 if (!extension_loaded('gd'))
 {
@@ -25,13 +29,14 @@ else
     $gd_ver = php_gd();
 }
 $rd = db_version();
-$smarty->assign("mver", $rd);
+$smarty->assign('mver', $rd);
 $phpver = phpversion();
-$smarty->assign("pver", $phpver);
+$smarty->assign('pver', $phpver);
 
 //show Smarty output
 try
 {
+    $smarty->assign('container_width', $container_width);
     $smarty->display('admin.tpl.html');
 }
 catch (SmartyException $e)
@@ -45,7 +50,7 @@ if (0 or ADMIN_SMARTY_LOG_VARS)
 {
     // dump($flatDepartments);
     // dump($smarty->getTemplateVars('flatDepartments'));
-    dump($smarty->getTemplateVars());
+    dumpADMIN_CONTAINER_WIDTH($smarty->getTemplateVars());
     // $all_tpl_vars = $smarty->getTemplateVars();
     // smartylog($all_tpl_vars);
 }

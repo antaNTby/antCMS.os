@@ -7,7 +7,7 @@ const CONF_SECURITY_EXPIRE       = 12; //   {$smarty.const.CONF_SECURITY_EXPIRE}
 const ADMIN_SMARTY_FORCE_COMPILE = 1;  //   {$smarty.const.ADMIN_SMARTY_FORCE_COMPILE}
 
 
-const ADMIN_BSCONTAINER_WIDTH = 'lg'; //    {$smarty.const.ADMIN_BSCONTAINER_WIDTH}
+const ADMIN_CONTAINER_WIDTH = 'xl'; //    {$smarty.const.ADMIN_CONTAINER_WIDTH}
 
 
 const CONF_SECURE_SESSIONS = 1; //   {$smarty.const.CONF_SECURE_SESSIONS}  Использовать безопасные сессии    При использовании данной опции ip адрес и поле user_agent будут сверяться с начальным значением при старте сессии
