@@ -66,7 +66,7 @@ document.addEventListener('keydown', function(event) {
 
 
 window.addEventListener('scroll', function() {
-    arrowTop.hidden = (pageYOffset < 200);
+    arrowTop.hidden = (pageYOffset < 100);
     arrowDown.hidden = (pageYOffset > (document.body.scrollHeight - 100));
 });
 
