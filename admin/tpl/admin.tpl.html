@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="{$container_width} h-100 text-bg-secondary bg-opacity-50" lang="ru-RU">
+<html class="{$container_width} h-100" lang="ru-RU">{* text-bg-secondary bg-opacity-50 *}
 {assign var=use_offcanvas_menu value=1}
 
 <head>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="/lib/datatables/datatables.css">
 </head>
 
-<body class="d-flex flex-column h-100 shadow-lg px-0" style="max-height: 5000px!important; overflow-y: scroll;">
+<body class="d-flex flex-column h-100" style="overflow-y: scroll;">  {* h-100 shadow-lg px-0 *}
     <header>
         {include file="admin__navbar.tpl.html"}
     </header>
@@ -32,14 +32,14 @@
         {include file="../apps/Toasts/appToasts.tpl.html"}
         {if $use_offcanvas_menu}
         <div class="{$container_width}">
-            <div class="row" data-bs-theme="light">
+            {* <div class="row" data-bs-theme="dark"> *}
                 {include file="admin__menu_offcanvas.tpl.html"}
-            </div>
-            <div class="row">
-                <div class="col">
+            {* </div> *}
+            {* <div class="row"> *}
+                {* <div class="col"> *}
                     {include file="$admin_main_content_template"}
-                </div>
-            </div>
+                {* </div> *}
+            {* </div> *}
         </div>
         {else}
         <div class="{$container_width}">
