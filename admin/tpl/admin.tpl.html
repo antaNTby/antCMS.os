@@ -3,6 +3,39 @@
 {assign var=use_offcanvas_menu value=1}
 
 <head>
+    {literal}
+    <style type="text/css">
+    #arrowTop {
+        height: 33px;
+        width: 33px;
+        color: red;
+        position: fixed;
+        top: 2px;
+        left: 20px;
+        cursor: pointer;
+        z-index: 2000;
+        font-size:20px;
+    }
+    #arrowDown{
+        height: 33px;
+        width: 33px;
+        color: blue;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        z-index: 2000;
+        font-size:20px;
+    }
+
+    #arrowTop::before {
+        content: '▲';
+    }
+    #arrowDown::before {
+        content: '▼';
+    }
+    </style>
+    {/literal}
     <base href= />
     <link rel="icon" sizes=16x16 href="/media/favicon.ico">
     <meta charset="utf-8">
@@ -19,7 +52,7 @@
     <link rel="stylesheet" type="text/css" href="/lib/datatables/datatables.css">
 </head>
 
-<body class="d-flex flex-column h-100" style="overflow-y: scroll;">  {* h-100 shadow-lg px-0 *}
+<body class="d-flex flex-column h-100" style="overflow-y: scroll;"> {* h-100 shadow-lg px-0 *}
     <header>
         {include file="admin__navbar.tpl.html"}
     </header>
@@ -28,31 +61,20 @@
         {$smarty_error_message}
     </h6>
     {/if}
+                    <div id="arrowTop" hidden></div>
+                    <div id="arrowDown" hidden></div>
     <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
         {include file="../apps/Toasts/appToasts.tpl.html"}
-        {if $use_offcanvas_menu}
         <div class="{$container_width}">
             {* <div class="row" data-bs-theme="dark"> *}
                 {include file="admin__menu_offcanvas.tpl.html"}
-            {* </div> *}
+                {* </div> *}
             {* <div class="row"> *}
                 {* <div class="col"> *}
                     {include file="$admin_main_content_template"}
+                    {* </div> *}
                 {* </div> *}
-            {* </div> *}
         </div>
-        {else}
-        <div class="{$container_width}">
-            <div class="row">
-                <div class="col order-2 order-md-1 col-md-4">
-                    {include file="admin__menu_accordion.tpl.html"}
-                </div>
-                <div class="col order-1 order-md-2 col-md-8">
-                    {include file="$admin_main_content_template"}
-                </div>
-            </div>
-        </div>
-        {/if}
     </main>
     <footer class="text-bg-dark d-block mt-auto">
         <div class="{$container_width}">
@@ -67,7 +89,6 @@
     {* my scripts *}
     <script src="/admin/js/admin.js"></script>
     <script src="/admin/js/index.js" type="module"></script>
-
 </body>
 
 </html>

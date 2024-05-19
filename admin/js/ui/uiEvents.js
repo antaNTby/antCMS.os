@@ -51,15 +51,24 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('keydown', function(event) {
-  if (event.code == 'KeyM' && (event.ctrlKey || event.metaKey)) {
-    ui.bsOffcanvasMenu.toggle();
-}
-
-
+    if (event.code == 'KeyM' && (event.ctrlKey || event.metaKey)) {
+        ui.bsOffcanvasMenu.toggle();
+    }
+    if (event.code == 'ArrowUp' && (event.ctrlKey || event.metaKey) && event.shiftKey) {
+        scrolToMyTop();
+    }
+    if (event.code == 'ArrowDown' && (event.ctrlKey || event.metaKey) && event.shiftKey) {
+        scrolToMyBottom();
+    }
 });
 
 
-// document.addEventListener('keydown', function(event) {
-//   if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-//     alert('Отменить!')
-//   }
+
+
+window.addEventListener('scroll', function() {
+    arrowTop.hidden = (pageYOffset < 200);
+    arrowDown.hidden = (pageYOffset > (document.body.scrollHeight - 100));
+});
+
+arrowDown.onclick = scrolToMyBottom;
+arrowTop.onclick = scrolToMyTop;

@@ -92,3 +92,12 @@ function checkOnUrl(url) {
     }
     return url;
 }
+
+
+function scrolToMyTop() {
+    window.scrollTo(0, 0);
+};
+
+function scrolToMyBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
+};
