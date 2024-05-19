@@ -56,7 +56,7 @@
         "dt": "company_adress",
         "title": "title company_adress",
         "orderable": true,
-        "visible": false,
+        "visible": true,
         "searchable": true
     },
     {
@@ -66,7 +66,7 @@
         "dt": "company_bank",
         "title": "title company_bank",
         "orderable": true,
-        "visible": false,
+        "visible": true,
         "searchable": true
     },
     {

@@ -4,7 +4,7 @@
         "data": "CID",
         "db": "CID",
         "dt": "CID",
-        "title": "ID",
+        "title": "title CID",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -14,7 +14,7 @@
         "data": "Name",
         "db": "Name",
         "dt": "Name",
-        "title": "Название",
+        "title": "title Name",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -24,7 +24,7 @@
         "data": "code",
         "db": "code",
         "dt": "code",
-        "title": "Код",
+        "title": "title code",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -34,7 +34,7 @@
         "data": "currency_value",
         "db": "currency_value",
         "dt": "currency_value",
-        "title": "Значение",
+        "title": "title currency_value",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -44,7 +44,7 @@
         "data": "where2show",
         "db": "where2show",
         "dt": "where2show",
-        "title": "Положение",
+        "title": "title where2show",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -54,9 +54,9 @@
         "data": "sort_order",
         "db": "sort_order",
         "dt": "sort_order",
-        "title": "s\\o",
+        "title": "title sort_order",
         "orderable": true,
-        "visible": false,
+        "visible": true,
         "searchable": true
     },
     {
@@ -64,9 +64,9 @@
         "data": "currency_iso_3",
         "db": "currency_iso_3",
         "dt": "currency_iso_3",
-        "title": "ISO3",
+        "title": "title currency_iso_3",
         "orderable": true,
-        "visible": false,
+        "visible": true,
         "searchable": true
     },
     {
@@ -74,7 +74,7 @@
         "data": "roundval",
         "db": "roundval",
         "dt": "roundval",
-        "title": "Округление",
+        "title": "title roundval",
         "orderable": true,
         "visible": false,
         "searchable": true

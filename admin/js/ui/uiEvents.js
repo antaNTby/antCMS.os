@@ -48,5 +48,18 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.switcherMenuPosition.checked = undefined;
     }
 
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'KeyM' && (event.ctrlKey || event.metaKey)) {
+    ui.bsOffcanvasMenu.toggle();
+}
+
 
 });
+
+
+// document.addEventListener('keydown', function(event) {
+//   if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+//     alert('Отменить!')
+//   }

@@ -32,7 +32,7 @@ if (!is_null($table_name))
             $dbTableFieldNames  = array_keys($dbTableFields); // выводим в логг все названия полей
             $dtColumnFieldNames = $dbTableFieldNames;
 
-            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 5);
+            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 7);
             $isSaved           = file_put_contents($table_columns, $jsonColumns);
             $page_message      = $table_columns . ' Is saved size: ' . format_size((int) $isSaved);
             $page_message_type = 'warning';
