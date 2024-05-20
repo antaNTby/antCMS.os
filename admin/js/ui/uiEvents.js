@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 document.addEventListener('keydown', function(event) {
-    console.log(event);
+    // console.log(event);
     if (event && event.altKey && (event.ctrlKey || event.metaKey)) {
 
         if (event.code == 'KeyM') {

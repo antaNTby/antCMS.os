@@ -66,6 +66,28 @@ export const table = new DataTable('#defaultDataTable', {
 
 standartEvents.tdBodyDtDblClick(table);
 
+table.MakeCellsEditable({
+    "onUpdate": myCallbackFunction,
+    "inputCss":'form-control',
+            "confirmationButton": { // could also be true
+            "confirmCss": 'btn-link',
+            "cancelCss": 'btn-link',
+                    "inputTypes": [
+            {
+                "column": 4,
+                "type": "number",
+                "options": null
+            },
+            ]
+        },
+});
+
+
+function myCallbackFunction(updatedCell, updatedRow, oldValue) {
+    console.log("The new value for the cell is: " + updatedCell.data());
+    console.log("The old value for that cell was: " + oldValue);
+    console.log("The values for each cell in that row are: " , updatedRow.data());
+}
 
 // стилизуем поиск DT
 // const inputSearch = document.querySelectorAll('div.dt-search input[type="search"]')[0];
