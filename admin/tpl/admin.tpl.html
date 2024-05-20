@@ -5,7 +5,7 @@
 <head>
     {literal}
     <style type="text/css">
-    #arrowTop {
+/*    #arrowUp {
         height: 33px;
         width: 33px;
         color: red;
@@ -14,9 +14,10 @@
         left: 20px;
         cursor: pointer;
         z-index: 2000;
-        font-size:20px;
+        font-size: 20px;
     }
-    #arrowDown{
+
+    #arrowDown {
         height: 33px;
         width: 33px;
         color: blue;
@@ -25,12 +26,13 @@
         left: 20px;
         cursor: pointer;
         z-index: 2000;
-        font-size:20px;
-    }
+        font-size: 20px;
+    }*/
 
-    #arrowTop::before {
+    #arrowUp::before {
         content: '▲';
     }
+
     #arrowDown::before {
         content: '▼';
     }
@@ -61,9 +63,8 @@
         {$smarty_error_message}
     </h6>
     {/if}
-                    <div id="arrowTop" hidden></div>
-                    <div id="arrowDown" hidden></div>
-    <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
+
+    <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-Up:60px;">
         {include file="../apps/Toasts/appToasts.tpl.html"}
         <div class="{$container_width}">
             {* <div class="row" data-bs-theme="dark"> *}

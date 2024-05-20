@@ -1,6 +1,8 @@
 // uiAdmin.js
 export const elH1 = document.querySelector("[data-id='PageH1']");
 export const elTemplateNow = document.querySelector("[data-id='template-now']");
+export const arrowUp = document.querySelectorAll("[name='arrowUp']");
+export const arrowDown = document.querySelectorAll("[name='arrowDown']");
 export const elOffcanvasMenu = document.querySelector('div#offcanvasMenu');
 export const bsOffcanvasMenu = new bootstrap.Offcanvas(elOffcanvasMenu);
 export const btnCloseMenu = document.querySelector('button#btnCloseMenu');

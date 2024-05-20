@@ -1,6 +1,4 @@
 import * as ui from './uiAdmin.js';
-
-
 // События
 ui.switcherMenuOnLoad.addEventListener('change', function(e) {
     // console.log(e);
@@ -10,7 +8,6 @@ ui.switcherMenuOnLoad.addEventListener('change', function(e) {
         localStorage.setItem('switcherMenuOnLoad', "0");
     }
 });
-
 ui.switcherMenuPosition.addEventListener('change', function(e) {
     // console.log(e);
     if (e.target.checked) {
@@ -19,13 +16,10 @@ ui.switcherMenuPosition.addEventListener('change', function(e) {
         localStorage.setItem('switcherMenuPosition', "0");
     }
 });
-
 ui.btnCloseMenu.addEventListener('click', () => {
     ui.bsOffcanvasMenu.hide();
 });
-
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
-
 document.addEventListener("DOMContentLoaded", function() {
     // console.log(ui)
     let switcherMenuOnLoad = localStorage.getItem('switcherMenuOnLoad');
@@ -36,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.bsOffcanvasMenu.hide();
         ui.switcherMenuOnLoad.checked = undefined;
     }
-
     let switcherMenuPosition = localStorage.getItem('switcherMenuPosition');
     if (switcherMenuPosition === "1") {
         ui.elOffcanvasMenu.classList.remove('offcanvas-start');
@@ -47,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.elOffcanvasMenu.classList.remove('offcanvas-end');
         ui.switcherMenuPosition.checked = undefined;
     }
-
 });
-
 document.addEventListener('keydown', function(event) {
     if (event.code == 'KeyM' && (event.ctrlKey || event.metaKey)) {
         ui.bsOffcanvasMenu.toggle();
@@ -61,14 +52,21 @@ document.addEventListener('keydown', function(event) {
         scrolToMyBottom();
     }
 });
-
-
-
-
 window.addEventListener('scroll', function() {
-    arrowTop.hidden = (pageYOffset < 100);
-    arrowDown.hidden = (pageYOffset > (document.body.scrollHeight - 100));
+    [].forEach.call(ui.arrowUp, function(El) {
+        El.hidden = (pageYOffset < 100);
+    });
+    [].forEach.call(ui.arrowDown, function(El) {
+        El.hidden = (pageYOffset > (document.body.scrollHeight - 100));
+    });
 });
 
-arrowDown.onclick = scrolToMyBottom;
-arrowTop.onclick = scrolToMyTop;
+
+[].forEach.call(ui.arrowUp, function(El) {
+    El.onclick = scrolToMyTop;
+    El.hidden = (pageYOffset < 100);
+});
+[].forEach.call(ui.arrowDown, function(El) {
+    El.onclick = scrolToMyBottom;
+    El.hidden = (pageYOffset > (document.body.scrollHeight - 100));
+});
