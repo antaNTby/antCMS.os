@@ -5,37 +5,15 @@
 <head>
     {literal}
     <style type="text/css">
-/*    #arrowUp {
-        height: 33px;
-        width: 33px;
-        color: red;
-        position: fixed;
-        top: 2px;
-        left: 20px;
-        cursor: pointer;
-        z-index: 2000;
-        font-size: 20px;
-    }
-
-    #arrowDown {
-        height: 33px;
-        width: 33px;
-        color: blue;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        cursor: pointer;
-        z-index: 2000;
-        font-size: 20px;
-    }*/
-
-    #arrowUp::before {
-        content: '▲';
-    }
-
-    #arrowDown::before {
-        content: '▼';
-    }
+div.offcanvas{
+background-color: #8888aa88;
+}
+div.offcanvas-header{
+background-color: #222222;
+}
+div#uiControl{
+background-color: #8888aa02;
+}
     </style>
     {/literal}
     <base href= />
@@ -87,6 +65,7 @@
     <script src="/vendor/components/jquery/jquery.min.js"></script>
     <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/datatables/datatables.js"></script>
+    <script src="/lib/datatables/dataTables.cellEdit.js"></script>
     {* my scripts *}
     <script src="/admin/js/admin.js"></script>
     <script src="/admin/js/index.js" type="module"></script>

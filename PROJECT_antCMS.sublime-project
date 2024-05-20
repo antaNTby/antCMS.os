@@ -20,7 +20,7 @@
             ],
             "folder_exclude_patterns": [
                 "cache/templates_c",
-                "lib",
+                // "lib",
                 "smarty_config",
                 "media",
                 // "vendor",

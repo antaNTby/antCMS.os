@@ -42,31 +42,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 document.addEventListener('keydown', function(event) {
-    if (event.code == 'KeyM' && (event.ctrlKey || event.metaKey)) {
-        ui.bsOffcanvasMenu.toggle();
-    }
-    if (event.code == 'ArrowUp' && (event.ctrlKey || event.metaKey) && event.shiftKey) {
-        scrolToMyTop();
-    }
-    if (event.code == 'ArrowDown' && (event.ctrlKey || event.metaKey) && event.shiftKey) {
-        scrolToMyBottom();
+    console.log(event);
+    if (event && event.altKey && (event.ctrlKey || event.metaKey)) {
+
+        if (event.code == 'KeyM') {
+            ui.bsOffcanvasMenu.toggle();
+        }
+        if (event.code == 'ArrowUp') {
+            scrolToMyTop();
+        }
+        if (event.code == 'ArrowDown') {
+            scrolToMyBottom();
+        }
     }
 });
 window.addEventListener('scroll', function() {
     [].forEach.call(ui.arrowUp, function(El) {
-        El.hidden = (pageYOffset < 100);
+        El.disabled = (pageYOffset < 100);
     });
     [].forEach.call(ui.arrowDown, function(El) {
-        El.hidden = (pageYOffset > (document.body.scrollHeight - 100));
+        El.disabled = (pageYOffset > (document.body.scrollHeight - 100));
     });
 });
 
 
 [].forEach.call(ui.arrowUp, function(El) {
     El.onclick = scrolToMyTop;
-    El.hidden = (pageYOffset < 100);
+    El.disabled = (pageYOffset < 100);
 });
 [].forEach.call(ui.arrowDown, function(El) {
     El.onclick = scrolToMyBottom;
-    El.hidden = (pageYOffset > (document.body.scrollHeight - 100));
+    El.disabled = (pageYOffset > (document.body.scrollHeight - 100));
 });
