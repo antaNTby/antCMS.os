@@ -4,7 +4,7 @@ import {btnExportsMenu} from "./dtButtons.js";
 // import {btnExportJSON} from "./dtButtons.js";
 import myButtons from "./dtButtons.js";
 
-console.log(btnExportsMenu)
+// console.log(btnExportsMenu)
 
 
 const layoutDefault = {
@@ -15,29 +15,30 @@ const layoutDefault = {
 
         return toolbar;
     },
-    top4Start: {
-        pageLength: {
-            menu: [
-                [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16], //
-                [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`] //
-            ],
-        },
-    },
-    top4End: {
-        paging: {
-            // numbers: 3
-            type: 'first_last_numbers',
-            boundaryNumbers: true,
-        }
-    },
+    // top4Start: {
+    //     pageLength: {
+    //         menu: [
+    //             [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16], //
+    //             [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`] //
+    //         ],
+    //     },
+    // },
+    // top4End: {
+    //     paging: {
+    //         // numbers: 3
+    //         type: 'first_last_numbers',
+    //         boundaryNumbers: true,
+    //     }
+    // },
     //
     top3: null,
     top3Start: null,
     top3End: null,
     //
-    top2: {
-        buttons: myButtons,
-    },
+    // top2: {
+    //     buttons: myButtons,
+    // },
+    top2:null,
     top2Start: null,
     top2End: null,
     //
@@ -74,7 +75,9 @@ const layoutDefault = {
         }
     },
     //
-    bottom2:null,
+    bottom2: {
+        buttons: myButtons,
+    },
     bottom2Start: null,
     bottom2End: null,
 

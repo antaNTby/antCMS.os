@@ -41,21 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.switcherMenuPosition.checked = undefined;
     }
 });
-document.addEventListener('keydown', function(event) {
-    // console.log(event);
-    if (event && event.altKey && (event.ctrlKey || event.metaKey)) {
 
-        if (event.code == 'KeyM') {
-            ui.bsOffcanvasMenu.toggle();
-        }
-        if (event.code == 'ArrowUp') {
-            scrolToMyTop();
-        }
-        if (event.code == 'ArrowDown') {
-            scrolToMyBottom();
-        }
-    }
-});
+
 window.addEventListener('scroll', function() {
     [].forEach.call(ui.arrowUp, function(El) {
         El.disabled = (pageYOffset < 100);
@@ -63,6 +50,7 @@ window.addEventListener('scroll', function() {
     [].forEach.call(ui.arrowDown, function(El) {
         El.disabled = (pageYOffset > (document.body.scrollHeight - 100));
     });
+    // console.log(pageYOffset)
 });
 
 
