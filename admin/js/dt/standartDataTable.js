@@ -68,7 +68,7 @@ table.MakeCellsEditable(
             "errorClass": "error"
         },
         // "confirmationButton": true,
-        // "confirmAll": false,
+        "confirmAll": true,
         "listenToKeys": true,
         // could also be true
         // "confirmationButton": { // could also be true
