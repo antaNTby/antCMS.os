@@ -191,6 +191,8 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
             input.html = input.html + "</select>&nbsp;<a href='javascript:void(0);' class='" + confirmCss + "' onclick='$(this).updateEditableCell(this);'>Confirm</a> <a href='javascript:void(0);' class='" + cancelCss + "' onclick='$(this).cancelEditableCell(this)'>Cancel</a>" + endWrapperHtml;
             input.focus = false;
             break;
+
+
         case "datepicker": //Both datepicker options work best when confirming the values
         case "datepicker-confirm":
             // Makesure jQuery UI is loaded on the page
@@ -214,6 +216,8 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
                 });
             }, 100);
             break;
+
+
         case "text-confirm": // text input w/ confirm
             input.html = startWrapperHtml + "<input id='ejbeatycelledit' class='" + inputCss + "' value='" + oldValue + "'" + (listenToKeys ? " onkeyup='if(event.keyCode==13) {$(this).updateEditableCell(this);} else if (event.keyCode===27) {$(this).cancelEditableCell(this);}'" : "") + "></input>&nbsp;<a href='javascript:void(0);' class='" + confirmCss + "' onclick='$(this).updateEditableCell(this)'>Confirm</a> <a href='javascript:void(0);' class='" + cancelCss + "' onclick='$(this).cancelEditableCell(this)'>Cancel</a>" + endWrapperHtml;
             break;
