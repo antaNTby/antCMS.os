@@ -45,9 +45,9 @@ export const table = new DataTable('#defaultDataTable', {
     pageLength: 8,
     searchDelay: 300,
     layout: layoutDefault,
-    select: true,
     scrollX: true,
     autowidth: true,
+    // select: true,
 });
 
 //
@@ -67,12 +67,22 @@ table.MakeCellsEditable(
             "columns": [3],
             "errorClass": "error"
         },
-        "confirmationButton": { // could also be true
-            "confirmCss": "btn btn-xs btn-primary float-start mt-1",
-            "cancelCss": "btn btn-xs btn-danger float-end mt-1",
-        },
+        // "confirmationButton": true,
+        // "confirmAll": false,
+        "listenToKeys": true,
+        // could also be true
+        // "confirmationButton": { // could also be true
+        //     "confirmCss": "btn btn-sm btn-primary float-start mt-1",
+        //     "cancelCss": "btn btn-sm btn-danger float-end mt-1",
+        // },
+        confirmationButton: true,
         "inputTypes": [
             //
+            {
+                "column": 0,
+                "type": false,
+            },
+
             {
                 "column": 4,
                 "type": "number",
@@ -81,7 +91,7 @@ table.MakeCellsEditable(
             //
             {
                 "column": 1,
-                "type": "list",
+                "type": "list-noconfirm",
                 "options": [{
                     "value": "1",
                     "display": "Beaty"
@@ -93,10 +103,38 @@ table.MakeCellsEditable(
                     "display": "Dirt"
                 }]
             },
+            {
+                "column": 2,
+                "type": "list",
+                "options": [{
+                    "value": "1",
+                    "display": "Beaty"
+                }, {
+                    "value": "2",
+                    "display": "Doe"
+                }, {
+                    "value": "3",
+                    "display": "Dirt"
+                }, {
+                    "value": "4",
+                    "display": "Beaty"
+                }, {
+                    "value": "5",
+                    "display": "Doe"
+                }, {
+                    "value": "6",
+                    "display": "Dirt"
+                }]
+            },
             //
             {
+                "column": 3,
+                "type": "text-confirm",
+                "options": null
+            },
+            {
                 "column": 5,
-                "type": "textarea",
+                "type": "textarea-confirm",
                 "options": null
             },
         ]
@@ -105,8 +143,8 @@ table.MakeCellsEditable(
 );
 
 function dtDefaultCallbackFunction(updatedCell, updatedRow, oldValue) {
-    console.log('The new value for the cell is: ' + updatedCell.data());
-    console.log('The old value for that cell was: ' + oldValue);
+    // console.log('The new value for the cell is: ' + updatedCell.data());
+    // console.log('The old value for that cell was: ' + oldValue);
     console.log('The values for each cell in that row are: ', updatedRow.data());
 }
 // стилизуем поиск DT
