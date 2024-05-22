@@ -80,12 +80,26 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
         },
         // CANCEL
         cancelEditableCell: function(callingElement) {
+
+            console.log("callingElement:",callingElement)
             let table = $(callingElement.closest("table")).DataTable().table();
             let cell = table.cell($(callingElement).parents('td, th'));
             // Set cell to it's original value
             cell.data(cell.data());
             // Redraw table
             table.draw();
+        },
+        // restore
+        restoreCellData: function(callingElement) {
+
+            console.log("callingElement:",callingElement)
+            let table = $(callingElement.closest("table")).DataTable().table();
+            let cell = table.cell($(callingElement).parents('td, th'));
+            // Set cell to it's original value
+            cell.data(cell.data());
+            // Redraw table
+            // table.refresh();
+            return cell.data();
         }
     });
     // Destroy
@@ -97,6 +111,16 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
         // On cell dblclick
         $(table.body()).on('dblclick', 'td', function() {
             let currentColumnIndex = table.cell(this).index().column;
+            // удалить другие CAN BE EDITED
+            let editedCells = $('[data-id="editedCell"]');
+            // console.log(editedCells);
+
+            $.each(editedCells, function(index, abortedCell) {
+                // console.info(abortedCell.innerHTML);
+                $(abortedCell).attr("data-id", "Photo by Kelly Clark");
+                $(abortedCell).restoreCellData($(abortedCell));
+            });
+
             // DETERMINE WHAT COLUMNS CAN BE EDITED
             if ((settings.columns && settings.columns.indexOf(currentColumnIndex) > -1) || (!settings.columns)) {
                 let row = table.row($(this).parents('tr'));
@@ -111,7 +135,7 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
                     let input = getInputHtml(currentColumnIndex, settings, oldValue);
                     $(cell).html(input.html);
                     if (input.focus) {
-                        $('#editedCell').focus();
+                        $('[data-id="editedCell"]').focus();
                     }
                 }
             }
@@ -120,38 +144,28 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
 });
 
 function getInputHtml(currentColumnIndex, settings, oldValue) {
-
     let inputSetting, input, inputCss, confirmCss, cancelCss;
-
     let endWrapperHtml = '';
     let startWrapperHtml = '';
     let listenToKeys = false;
-
     let wrapperHtmlDefault = '<div class="shadow shadow-lg rounded-1 p-1 bg-dark-subtle">{content}</div>';
-
     let inputType = "textarea";
-
     input = {
         "focus": true,
         "html": null
     };
-
     if (settings.inputTypes) {
         $.each(settings.inputTypes, function(index, setting) {
             if (setting.column == currentColumnIndex) {
                 inputSetting = setting;
-                console.info(typeof(inputSetting.type), inputSetting.type);
                 let isDenyEdit = false;
                 if (inputSetting.type === false) {
-                    console.info(currentColumnIndex, input);
                     isDenyEdit = true;
                 }
-
                 inputType = (isDenyEdit) ? null : inputSetting.type.toLowerCase();
             }
         });
     }
-
     if (inputType === null) {
         inputDenyEdit = {
             "focus": false,
@@ -159,25 +173,18 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
         };
         return inputDenyEdit;
     }
-
-
     //##
     if ((inputType == 'list') || (inputType == 'select') || (inputType == 'list-confirm') || (inputType == 'select-confirm') || (inputType == 'list-noconfirm') || (inputType == 'select-noconfirm')) {
         inputCss = "form-select form-select-sm";
     } else {
         inputCss = "form-control form-control-sm";
     }
-
-
-
-
     //##
     if (settings.inputCss) {
         inputCss += ' ' + settings.inputCss;
     }
     //##
     settings.wrapperHtml = wrapperHtmlDefault;
-
     if (settings.wrapperHtml) {
         let elements = settings.wrapperHtml.split('{content}');
         if (elements.length === 2) {
@@ -186,26 +193,19 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
         }
     }
     //##
-
     // стили кнопоков конфирм
-    let confirmCssDefault = "btn btn-xs btn-success";
-    let cancelCssDefault = "btn btn-xs btn-danger";
+    let confirmCssDefault = "btn btn-sm btn-success";
+    let cancelCssDefault = "btn btn-sm btn-danger";
     confirmCss = confirmCssDefault;
     cancelCss = cancelCssDefault;
-
     if (settings.confirmationButton && settings.confirmationButton.confirmCss) {
         confirmCss = settings.confirmationButton.confirmCss;
     }
     if (settings.confirmationButton && settings.confirmationButton.cancelCss) {
         cancelCss = settings.confirmationButton.cancelCss;
     }
-
     // стили кнопоков конфирм
-
-
-
     let needConfirmEdit = true; // по-умолчанию все Типы требуют подтверждения
-
     if (!!settings.confirmAll) {
         needConfirmEdit = true; // по-умолчанию все Типы требуют подтверждения
     }
@@ -214,12 +214,10 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
     }
     // локальное type-confirm отменяет дефолтное
     if (!(inputType.endsWith('-noconfirm')) && !(inputType.endsWith('-confirm'))) {
-
         if (needConfirmEdit) {
             inputType = inputType + "-confirm";
         }
     }
-
     if (inputType.endsWith('-confirm')) {
         needConfirmEdit = true;
     }
@@ -227,42 +225,28 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
         inputType = inputType.split('-noconfirm')[0];
         needConfirmEdit = false;
     }
-
-
-
     let antToolbar = "";
-
     let _onchangeEvent_ = " onchange='$(this).updateEditableCell(this);'";
     let _onfocusoutEvent_ = " onfocusout='$(this).updateEditableCell(this);'";
     let _onKeyupEvent_ = '';
-
     if (needConfirmEdit) {
-
         if (settings.confirmationButton && settings.confirmationButton.listenToKeys) {
             listenToKeys = settings.confirmationButton.listenToKeys;
         }
-
         if (settings && settings.listenToKeys) {
             listenToKeys = settings.listenToKeys;
         }
-
         _onchangeEvent_ = "";
         _onfocusoutEvent_ = "";
-
-
-        antToolbar = "<div class='btn-toolbar d-flex flex-column flex-lg-row justify-content-lg-between mt-1'>";
+        antToolbar = "<div class='btn-toolbar d-flex flex-column flex-xxl-row justify-content-xxl-between mt-1'>";
         antToolbar += "<a href='javascript:void(0);' class='mt-1 text-nowrap " + confirmCss + "' onclick='$(this).updateEditableCell(this);'><i class=\"bi bi-check-lg\"></i> Ok!</a> ";
         antToolbar += "<a href='javascript:void(0);' class='mt-1 text-nowrap " + cancelCss + "' onclick='$(this).cancelEditableCell(this)'><i class=\"bi bi-x-lg\"> Cancel</i></a>";
         antToolbar += "</div";
-
-
         if (listenToKeys) {
             let keyUpScript = "if (event.keyCode == 13) {$(this).updateEditableCell(this);} else if (event.keyCode === 27) {$(this).cancelEditableCell(this);}";
             _onKeyupEvent_ = `onkeyup="${keyUpScript}"`;
         }
-
     }
-
     //##
     //##
     //##
@@ -275,7 +259,6 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
         case "select":
         case "list-confirm": // List w/ confirm
         case "select-confirm": // List w/ confirm
-
             htmlOptions = "";
             $.each(inputSetting.options, function(index, option) {
                 if (oldValue == option.value) {
@@ -284,20 +267,15 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
                     htmlOptions += "<option value='" + option.value + "'>" + option.display + "</option>"
                 }
             });
-
             html = startWrapperHtml;
-            html += "<select class='" + inputCss + "'" + _onchangeEvent_ + ">"; //
+            html += "<select  data-id='editedCell' class='" + inputCss + "'" + _onchangeEvent_ + ">"; //
             html += htmlOptions;
             html += "</select>";
             html += antToolbar;
             html += endWrapperHtml;
-
             input.html = html;
             input.focus = false;
-
             break;
-
-
             // case "datepicker": //Both datepicker options work best when confirming the values
             // case "datepicker-confirm":
             //     // Makesure jQuery UI is loaded on the page
@@ -306,7 +284,7 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
             //         break;
             //     }
             //     jQuery(".datepick").datepicker("destroy");
-            //     input.html = startWrapperHtml + "<input id='editedCell' type='text' name='date' class='datepick " + inputCss + "'   value='" + oldValue + "'> "+toolbar + endWrapperHtml;
+            //     input.html = startWrapperHtml + "<input data-id='editedCell' type='text' name='date' class='datepick " + inputCss + "'   value='" + oldValue + "'> "+toolbar + endWrapperHtml;
             //     setTimeout(function() { //Set timeout to allow the script to write the input.html before triggering the datepicker
             //         let icon = "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif";
             //         // Allow the user to provide icon
@@ -321,28 +299,26 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
             //         });
             //     }, 100);
             //     break;
-
-
         case "text-confirm": // text input w/ confirm
-            input.html = startWrapperHtml + "<input id='editedCell' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         case "undefined-confirm": // text input w/ confirm
-            input.html = startWrapperHtml + "<input id='editedCell' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         case "textarea":
-            input.html = startWrapperHtml + "<textarea id='editedCell' class='" + inputCss + "'" + _onfocusoutEvent_ + ">" + oldValue + "</textarea>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<textarea data-id='editedCell' class='" + inputCss + "'" + _onfocusoutEvent_ + ">" + oldValue + "</textarea>" + endWrapperHtml;
             break;
         case "textarea-confirm":
-            input.html = startWrapperHtml + "<textarea id='editedCell' class='" + inputCss + "'>" + oldValue + "</textarea>" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<textarea data-id='editedCell' class='" + inputCss + "'>" + oldValue + "</textarea>" + antToolbar + endWrapperHtml;
             break;
         case "number":
-            input.html = startWrapperHtml + "<input id='editedCell' type='number' class='" + inputCss + "' value='" + oldValue + "'>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' type='number' class='" + inputCss + "' value='" + oldValue + "'>" + endWrapperHtml;
             break;
         case "number-confirm":
-            input.html = startWrapperHtml + "<input id='editedCell' type='number' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' type='number' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         default: // text input
-            input.html = startWrapperHtml + "<input id='editedCell' class='" + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' class='" + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'>" + endWrapperHtml;
             break;
     }
     return input;

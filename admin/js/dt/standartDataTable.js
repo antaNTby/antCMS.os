@@ -143,9 +143,9 @@ table.MakeCellsEditable(
 );
 
 function dtDefaultCallbackFunction(updatedCell, updatedRow, oldValue) {
-    // console.log('The new value for the cell is: ' + updatedCell.data());
+    console.log('The new value for the cell is: ' , updatedCell.data());
     // console.log('The old value for that cell was: ' + oldValue);
-    console.log('The values for each cell in that row are: ', updatedRow.data());
+    // console.log('The values for each cell in that row are: ', updatedRow.data());
 }
 // стилизуем поиск DT
 // const inputSearch = document.querySelectorAll('div.dt-search input[type='search']')[0];
