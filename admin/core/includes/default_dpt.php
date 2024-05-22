@@ -1,5 +1,6 @@
 <?php
 ###default_dpt.php
+use RedBeanPHP\R;
 
 $page_message      = '';
 $page_message_type = 'success';
@@ -28,7 +29,7 @@ if (!is_null($table_name))
         }
         else
         {
-            d('NO FILE');
+                                                              // d('NO FILE');
             $dbTableFieldNames  = array_keys($dbTableFields); // выводим в логг все названия полей
             $dtColumnFieldNames = $dbTableFieldNames;
 
@@ -58,7 +59,6 @@ if ($OK && isset($_GET['operation']))
         if ($OK)
         {
             // dump([$_POST, $dbTable, $primaryKey, $dtColumns]);
-
             $ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $dtColumns);
         }
         else
@@ -69,6 +69,63 @@ if ($OK && isset($_GET['operation']))
         header('Content-Type: application/json; charset=utf-8');
         exit(json_encode($ssp_result));
     }
+
+################
+    ################
+    if ($_GET['operation'] === 'editCell')
+    {
+        global $pdo_connect;
+
+        $DATA   = json_decode(file_get_contents('php://input'), true, JSON_BIGINT_AS_STRING | JSON_INVALID_UTF8_IGNORE);
+        $result = false;
+
+        $columnIndex = $DATA['columnIndex'];
+        $newValue    = $DATA['newValue'];
+        $editID      = $DATA['editID'];
+
+        $Column = array(
+            'index' => $dtColumns[$columnIndex]['index'],
+            'data'  => $dtColumns[$columnIndex]['data'],
+            'db'    => $dtColumns[$columnIndex]['db'],
+            'dt'    => $dtColumns[$columnIndex]['dt']
+        );
+
+        if ($OK)
+        {
+            // $editedID=$_POST['updatedCell']['companyID'];
+            $sql = "UPDATE `{$dbTable}` SET `{$Column['db']}` = :newValue WHERE `{$primaryKey}`= :editID;";
+
+            R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+            ##  расширение для таблиц с _ в имени
+            R::ext('xdispense', function ($table_name)
+            {
+                return R::getRedBean()->dispense($table_name);});
+
+            $rb    = R::xdispense($dbTable);
+            $aRows = R::exec($sql, array(':newValue' => htmlspecialchars($newValue), ':editID' => ($editID)));
+            // $aRows = R::exec($sql, array(':newValue' => trim($newValue), ':editID' => ($editID)));
+
+            // d($aRows);
+
+            $page_message = 'CELL HAS BEEN EDITED';
+        }
+
+        header('Content-Type: application/json; charset=utf-8');
+
+        exit(json_encode(array(
+            'page_message' => $page_message,
+            'table_name'   => $dbTable,
+            'primaryKey'   => $primaryKey,
+            'columnIndex'  => $columnIndex,
+            'Column'       => $Column,
+            'sql'          => $sql,
+                                     // "editedID"=> (int)$editedID,
+            'phpDATA'      => $DATA //as array
+        )));
+    }
+
+################
+    ################
 }
 
 $smarty->assign('page_message', $page_message);

@@ -25,5 +25,5 @@ document.addEventListener('keydown', function(event) {
         }
     }
 
-        console.info(event.code);
+        // console.info(event.code);
 });

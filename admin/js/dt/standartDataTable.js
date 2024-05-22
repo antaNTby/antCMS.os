@@ -26,7 +26,7 @@ export const table = new DataTable('#defaultDataTable', {
                 // currencyValue: getCurrencyValue(),
                 // tableID: document.querySelector('select#selectItemSource').value,
                 // params: FilterParams(),
-            }
+            };
             d.DATA = {
                 //
                 ...postData
@@ -49,14 +49,10 @@ export const table = new DataTable('#defaultDataTable', {
     autowidth: true,
     // select: true,
 });
-
 //
 //
 //
-
 // standartEvents.tdBodyDtDblClick(table);
-
-
 table.MakeCellsEditable(
     //
     {
@@ -81,16 +77,14 @@ table.MakeCellsEditable(
             {
                 "column": 0,
                 "type": false,
-            },
-
-            {
+            }, {
                 "column": 4,
                 "type": "number",
                 "options": null
             },
             //
             {
-                "column": 1,
+                "column": 12,
                 "type": "list-noconfirm",
                 "options": [{
                     "value": "1",
@@ -102,9 +96,8 @@ table.MakeCellsEditable(
                     "value": "3",
                     "display": "Dirt"
                 }]
-            },
-            {
-                "column": 2,
+            }, {
+                "column": 10,
                 "type": "list",
                 "options": [{
                     "value": "1",
@@ -131,8 +124,7 @@ table.MakeCellsEditable(
                 "column": 3,
                 "type": "text-confirm",
                 "options": null
-            },
-            {
+            }, {
                 "column": 5,
                 "type": "textarea-confirm",
                 "options": null
@@ -141,17 +133,33 @@ table.MakeCellsEditable(
     }
     //
 );
-
-function dtDefaultCallbackFunction(updatedCell, updatedRow, oldValue) {
-    console.log('The new value for the cell is: ' , updatedCell.data());
-    // console.log('The old value for that cell was: ' + oldValue);
-    // console.log('The values for each cell in that row are: ', updatedRow.data());
+async function dtDefaultCallbackFunction(updatedCell, updatedRow, oldValue, columnIndex) {
+    let url = checkOnUrl(document.location.href) + '&operation=editCell';
+    let editID = updatedRow.data().companyID;
+    let DATA = {
+        // "updatedRow": updatedRow.data(),
+        "editID": +editID,
+        "newValue": updatedCell.data(),
+        "oldValue": oldValue,
+        "columnIndex": columnIndex,
+    };
+    let defaultResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(DATA)
+    });
+    let result = await defaultResponse.json();
+    // alert(result.message);
+    console.log("result", result)
+    // console.log("myAjax", myAjax)
 }
+//
+//
 // стилизуем поиск DT
 // const inputSearch = document.querySelectorAll('div.dt-search input[type='search']')[0];
 // inputSearch.classList.add('w-50');
-
-
 function destroyTable() {
     if ($.fn.DataTable.isDataTable('#defaultDataTable')) {
         table.destroy();

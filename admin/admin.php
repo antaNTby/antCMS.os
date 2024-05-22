@@ -25,6 +25,7 @@ include_once PATH_CORE . 'departments.php';
 //define start smarty template
 $smarty->assign('admin_main_content_template', 'start.tpl.html');
 
+
 //show department if it is being selected
 if (!isset($_GET['dpt']))
 {
@@ -143,13 +144,7 @@ if (!is_null($route_message))
 // $book = R::dispense("ant_companies");
 // dd($book);
 
-// use RedBeanPHP\R;
-// R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-// ##  расширение для таблиц с _ в имени
-// R::ext('xdispense', function ($table_name)
-// {
-//     return R::getRedBean()->dispense($table_name);
-// });
+
 
 // $post            = R::xdispense('ant_ippost');
 // $post->timeStamp = addslashes(time());

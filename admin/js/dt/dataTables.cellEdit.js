@@ -71,8 +71,9 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
                 let oldValue = cell.data();
                 cell.data(newValue);
                 //Return cell & row.
-                settings.onUpdate(cell, row, oldValue);
+                settings.onUpdate(cell, row, oldValue,columnIndex);
             }
+
             // Get current page
             let currentPageIndex = table.page.info().page;
             //Redraw table
@@ -80,8 +81,6 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
         },
         // CANCEL
         cancelEditableCell: function(callingElement) {
-
-            console.log("callingElement:",callingElement)
             let table = $(callingElement.closest("table")).DataTable().table();
             let cell = table.cell($(callingElement).parents('td, th'));
             // Set cell to it's original value
@@ -91,14 +90,11 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
         },
         // restore
         restoreCellData: function(callingElement) {
-
-            console.log("callingElement:",callingElement)
             let table = $(callingElement.closest("table")).DataTable().table();
             let cell = table.cell($(callingElement).parents('td, th'));
             // Set cell to it's original value
             cell.data(cell.data());
-            // Redraw table
-            // table.refresh();
+            // No Redraw table
             return cell.data();
         }
     });
@@ -111,12 +107,10 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
         // On cell dblclick
         $(table.body()).on('dblclick', 'td', function() {
             let currentColumnIndex = table.cell(this).index().column;
+
             // удалить другие CAN BE EDITED
             let editedCells = $('[data-id="editedCell"]');
-            // console.log(editedCells);
-
             $.each(editedCells, function(index, abortedCell) {
-                // console.info(abortedCell.innerHTML);
                 $(abortedCell).attr("data-id", "Photo by Kelly Clark");
                 $(abortedCell).restoreCellData($(abortedCell));
             });
@@ -148,7 +142,7 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
     let endWrapperHtml = '';
     let startWrapperHtml = '';
     let listenToKeys = false;
-    let wrapperHtmlDefault = '<div class="shadow shadow-lg rounded-1 p-1 bg-dark-subtle">{content}</div>';
+    let wrapperHtmlDefault = '<div class="shadow shadow-lg rounded-1 border border-1 p-1 bg-dark-subtle">{content}</div>';
     let inputType = "textarea";
     input = {
         "focus": true,
@@ -252,7 +246,7 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
     //##
     //##
     //##
-    console.log("INPUT_TYPE:" + inputType, "  listenToKeys:" + listenToKeys)
+    // console.log("INPUT_TYPE:" + inputType, "  listenToKeys:" + listenToKeys)
     //
     switch (inputType) {
         case "list":
@@ -268,7 +262,7 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
                 }
             });
             html = startWrapperHtml;
-            html += "<select  data-id='editedCell' class='" + inputCss + "'" + _onchangeEvent_ + ">"; //
+            html += "<select data-currentColumnIndex='"+currentColumnIndex+"'ata-id='editedCell' class='" + inputCss + "'" + _onchangeEvent_ + ">"; //
             html += htmlOptions;
             html += "</select>";
             html += antToolbar;
@@ -284,7 +278,7 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
             //         break;
             //     }
             //     jQuery(".datepick").datepicker("destroy");
-            //     input.html = startWrapperHtml + "<input data-id='editedCell' type='text' name='date' class='datepick " + inputCss + "'   value='" + oldValue + "'> "+toolbar + endWrapperHtml;
+            //     input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' type='text' name='date' class='datepick " + inputCss + "'   value='" + oldValue + "'> "+toolbar + endWrapperHtml;
             //     setTimeout(function() { //Set timeout to allow the script to write the input.html before triggering the datepicker
             //         let icon = "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif";
             //         // Allow the user to provide icon
@@ -300,25 +294,25 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
             //     }, 100);
             //     break;
         case "text-confirm": // text input w/ confirm
-            input.html = startWrapperHtml + "<input data-id='editedCell' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         case "undefined-confirm": // text input w/ confirm
-            input.html = startWrapperHtml + "<input data-id='editedCell' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         case "textarea":
-            input.html = startWrapperHtml + "<textarea data-id='editedCell' class='" + inputCss + "'" + _onfocusoutEvent_ + ">" + oldValue + "</textarea>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<textarea data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "'" + _onfocusoutEvent_ + ">" + oldValue + "</textarea>" + endWrapperHtml;
             break;
         case "textarea-confirm":
-            input.html = startWrapperHtml + "<textarea data-id='editedCell' class='" + inputCss + "'>" + oldValue + "</textarea>" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<textarea data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "'>" + oldValue + "</textarea>" + antToolbar + endWrapperHtml;
             break;
         case "number":
-            input.html = startWrapperHtml + "<input data-id='editedCell' type='number' class='" + inputCss + "' value='" + oldValue + "'>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' type='number' class='" + inputCss + "' value='" + oldValue + "'>" + endWrapperHtml;
             break;
         case "number-confirm":
-            input.html = startWrapperHtml + "<input data-id='editedCell' type='number' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' type='number' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         default: // text input
-            input.html = startWrapperHtml + "<input data-id='editedCell' class='" + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'>" + endWrapperHtml;
             break;
     }
     return input;
