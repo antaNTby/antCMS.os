@@ -8,9 +8,6 @@ $department        = $Departments[$current_dpt_index];
 $department_sub    = $department['sub_departments'][$current_sub_index];
 
 
-dump($department_sub["name"] );
-dump ("by default_template");
-
 $admin_page       = $department_sub['admin_page'];
 $table_name       = $department_sub['table_name'];
 $table_columns    = $department_sub['table_columns'];

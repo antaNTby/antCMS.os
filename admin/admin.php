@@ -97,13 +97,10 @@ if (in_array($dpt, $plucked_dpt_ids))
             $sub_processor    = $department['sub_departments'][$current_sub_index]['sub_processor'];
             $sub_template     = $department['sub_departments'][$current_sub_index]['sub_template'];
 
-            $fullPathToProcessor = 'http:\\\\antcms.os\admin\core\includes\\' . $admin_page . '.php';
-                dump($fullPathToProcessor);
 
-            if (file_exists($fullPathToProcessor))
+            if (file_exists($sub_processor))
             {
-                require $fullPathToProcessor;
-                require PATH_INCLUDES . $sub_processor;
+                require  $sub_processor;
                 $smarty->assign('admin_main_content_template', $sub_template);
             }
             else
