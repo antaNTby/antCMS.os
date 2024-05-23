@@ -25,7 +25,6 @@ include_once PATH_CORE . 'departments.php';
 //define start smarty template
 $smarty->assign('admin_main_content_template', 'start.tpl.html');
 
-
 //show department if it is being selected
 if (!isset($_GET['dpt']))
 {
@@ -91,20 +90,26 @@ if (in_array($dpt, $plucked_dpt_ids))
             // $smarty->assign('plucked_sub_ids', $plucked_sub_ids);
             // $smarty->assign('plucked_sub_names', $plucked_sub_names);
 
-            $smarty->assign('admin_main_content_template', 'default_dpt.tpl.html');
-
-            $admin_page    = $department['sub_departments'][$current_sub_index]['admin_page'];
-            $table_name         = $department['sub_departments'][$current_sub_index]['table_name'];
-            $table_columns = $department['sub_departments'][$current_sub_index]['table_columns'];
+            $admin_page       = $department['sub_departments'][$current_sub_index]['admin_page'];
+            $table_name       = $department['sub_departments'][$current_sub_index]['table_name'];
+            $table_columns    = $department['sub_departments'][$current_sub_index]['table_columns'];
             $table_primaryKey = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
-            $sub_processor = $department['sub_departments'][$current_sub_index]['sub_processor'];
-            $sub_template  = $department['sub_departments'][$current_sub_index]['sub_template'];
+            $sub_processor    = $department['sub_departments'][$current_sub_index]['sub_processor'];
+            $sub_template     = $department['sub_departments'][$current_sub_index]['sub_template'];
 
-            if (file_exists($sub_processor))
+            $fullPathToProcessor = 'http:\\\\antcms.os\admin\core\includes\\' . $admin_page . '.php';
+                dump($fullPathToProcessor);
+
+            if (file_exists($fullPathToProcessor))
             {
-                include $sub_processor;
-            } else{
-                require PATH_INCLUDES."default_dpt.php";
+                require $fullPathToProcessor;
+                require PATH_INCLUDES . $sub_processor;
+                $smarty->assign('admin_main_content_template', $sub_template);
+            }
+            else
+            {
+                require PATH_INCLUDES . 'default_dpt.php';
+                $smarty->assign('admin_main_content_template', 'default_dpt.tpl.html');
             }
 
             $smarty->assign('admin_page', $admin_page);
@@ -143,8 +148,6 @@ if (!is_null($route_message))
 
 // $book = R::dispense("ant_companies");
 // dd($book);
-
-
 
 // $post            = R::xdispense('ant_ippost');
 // $post->timeStamp = addslashes(time());

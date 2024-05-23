@@ -9082,7 +9082,7 @@
 	],
 	"find":
 	{
-		"height": 27.3333333333
+		"height": 31.3333333333
 	},
 	"find_in_files":
 	{
@@ -9498,7 +9498,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1026.0,
+						"translation.y": 1254.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -9564,7 +9564,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1243.33333333,
+						"translation.y": 1519.33333333,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -9731,7 +9731,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.3333333333
+		"height": 31.3333333333
 	},
 	"input":
 	{
@@ -9779,7 +9779,7 @@
 	"project": "PROJECT_antCMS.sublime-project",
 	"replace":
 	{
-		"height": 50.6666666667
+		"height": 58.6666666667
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -41,8 +41,9 @@ const UI_DEPARTMENTS = array(
             array('id' => 'currencies', 'name' => LANG_CURRENCY_TYPES, 'default' => true),
             array('id' => 'admin_edit', 'name' => LANG_CONF_ADMINS),
             array('id' => 'settings', 'name' => LANG_SETTINGS_GENERAL),
+            array('id' => 'columns', 'name' => 'Конфигуратор колонок'),
             array('id' => 'shipping', 'name' => LANG_SHIPPING_TYPE),
-            array('id' => 'payment', 'name' => LANG_PAYMENT_TYPE)
+            array('id' => 'payment', 'name' => LANG_PAYMENT_TYPE),
         )
     )
 

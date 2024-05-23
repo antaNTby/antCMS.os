@@ -64,7 +64,7 @@ if (0 or ADMIN_SMARTY_LOG_VARS)
 {
     // dump($flatDepartments);
     // dump($smarty->getTemplateVars('flatDepartments'));
-    dumpADMIN_CONTAINER_WIDTH($smarty->getTemplateVars());
+    dump($smarty->getTemplateVars());
     // $all_tpl_vars = $smarty->getTemplateVars();
     // smartylog($all_tpl_vars);
 }
