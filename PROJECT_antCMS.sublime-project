@@ -44,7 +44,9 @@
             // "url": "http://nix.os/admin.php",
             "url": "http://antCMS.os/admin/admin.php",
         },
-        "color_scheme": "Mariana.sublime-color-scheme",
-        // "color_scheme": "Packages/Color Scheme — Default/Monokai.sublime-color-scheme",
+        // "color_scheme": "Mariana.sublime-color-scheme",
+        // "color_scheme": "Breakers.sublime-color-scheme",
+        // "color_scheme": "Monokai.sublime-color-scheme",
+        // "color_scheme": "Sixteen.sublime-color-scheme",
     }
 }

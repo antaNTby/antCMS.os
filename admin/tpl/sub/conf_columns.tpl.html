@@ -1,28 +1,40 @@
-<table id="columnsConfigurator" class="table table-striped table-bordered table-sm" style="width:100%">
-    <thead class="table-dark">
+<table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm" style="width:100%">
+    <thead class="table-secondary">
+        <tr class="ant-text-rotated align-bottom">
+            <th>#</th>
+            <th>db</th>
+            <th>dt</th>
+            <th>data</th>
+            <th>title</th>
+            <th>visible</th>
+            <th>searchable</th>
+            <th>orderable</th>
+            <th>editable</th>
+            <th>sort order</th>
+            <th>enable</th>
+            <th>actions</th>
+        </tr>
     </thead>
     <tbody>
         <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+            <td>#</td>
+            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td class="ant-text-rotated">название</td>
+            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td>o</td>
+            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td>o</td>
+
+            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p2 label=" CG:GO"}</td>
+            <td>o</td>
+            <td>o</td>
         </tr>
     </tbody>
     <tfoot class="table-dark">
     </tfoot>
 </table>
-
-
-
-
-
-
-
 
 
 

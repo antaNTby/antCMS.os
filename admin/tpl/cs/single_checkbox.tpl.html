@@ -1,0 +1,41 @@
+{* single_checkbox.tpl.html *}
+{if isset($params)}
+<pre class="d-none">
+{$params.class_div}
+{$params.id}
+{$params.class_add}
+{$params.name}
+{$params.value}
+{$params.aria_label}
+{$params.disabled}
+{$params.checked}
+{$params.datasetA}
+{$params.datasetB}
+{$params.datasetC}
+{$params.indeterminate}
+</pre>
+{strip}
+{if $label}
+<div class="form-check{if isset($params.class_div)} {$params.class_div}{/if}">
+{else}
+<div{if isset($params.class_div)} class="{$params.class_div}"{/if}>
+{/if}
+  <input type="checkbox"
+  class="form-check-input{if isset($params.class_add)} {$params.class_add}{/if}{if isset($params.indeterminate)} indeterminate{/if}"
+  {if isset($params.id)} id="checkbox_{$params.id}"{/if}
+  {if isset($params.name)} name="checkbox_{$params.name}"{/if}
+  {if isset($params.value)} value="{$params.value}"{/if}
+  {if isset($params.datasetA)} data-a="{$params.datasetA}"{/if}
+  {if isset($params.datasetB)} data-b="{$params.datasetB}"{/if}
+  {if isset($params.datasetC)} data-c="{$params.datasetC}"{/if}
+  {if isset($params.value)} value="{$params.value}"{/if}
+  aria-label="{$params.name}"
+  {if isset($params.disabled)} disabled{/if}
+  {if isset($params.checked)} checked{/if}>
+{if $label}<label class="form-check-label{if isset($params.class_add_label)} {$params.class_add_label}{/if}" for="checkbox_{$params.id}">{$label}</label>{/if}
+
+</div>
+{/strip}
+{else}
+@
+{/if}

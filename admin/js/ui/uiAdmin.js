@@ -6,7 +6,7 @@ export const arrowDown = document.querySelectorAll("[name='arrowDown']");
 export const elOffcanvasMenu = document.querySelector('div#offcanvasMenu');
 export const bsOffcanvasMenu = new bootstrap.Offcanvas(elOffcanvasMenu);
 export const btnCloseMenu = document.querySelector('button#btnCloseMenu');
-export const btnOpenMenu =document.querySelector('a[data-bs-toggle="offcanvas"][data-bs-target="#offcanvasMenu"]');
+export const btnOpenMenu = document.querySelector('a[data-bs-toggle="offcanvas"][data-bs-target="#offcanvasMenu"]');
 
 export const switcherMenuOnLoad = document.querySelector('input#switcherMenuOnLoad');
 export const switcherMenuPosition = document.querySelector('input#switcherMenuPosition');
@@ -19,3 +19,13 @@ export const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bo
 
 // <a class="navbar-brand" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
 // <img alt="nix.by logo" src="/media/logo64.png" height="32"> antCMS.os</a>
+
+// Indeterminate checkbox example in docs and StackBlitz
+// для неопределенных чекбоксов добавляем класс indeterminate-checkbox и Indeterminate в аттрибут шв
+export const indeterminate = document.querySelectorAll('input.indeterminate[type="checkbox"]')
+    .forEach(checkbox => {
+        // if (checkbox.id.includes('Indeterminate')) {
+            checkbox.indeterminate = true
+            console.log("indeterminate")
+        // }
+    })
