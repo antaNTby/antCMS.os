@@ -18,17 +18,17 @@
     <tbody>
         <tr>
             <td>#</td>
-            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
-            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
-            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p toggle="1" label="HI"}</td>
             <td class="ant-text-rotated">название</td>
-            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
             <td>o</td>
-            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p}</td>
-            <td>o</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p}</td>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2}</td>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2}</td>
 
-            <td>{include file="cs/single_checkbox.tpl.html" params=$db_check_p2 label=" CG:GO"}</td>
-            <td>o</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p2 label="CG:GO"}</td>
             <td>o</td>
         </tr>
     </tbody>

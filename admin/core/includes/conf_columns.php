@@ -17,36 +17,38 @@ $smarty->assign('php_department', $department);
 
 $smarty->assign('php_sub', $department_sub);
 
+$attributes = array(
+    'a'  => 111,
+    'ab' => 222,
+    'ac' => 'dd'
+);
+$smarty->assign('attributes', $attributes);
+
 $db_check_p = array(
 
     'class_div'     => 'p-1 d-flex justify-content-center',
     'id'            => 'is',
-    'class_add'     => 'text=bg-danger',
+    'class_add'     => 'h5',
     'name'          => 'test0',
-    'value'         => 0,
-    'aria_label' => 0,
-    'disabled'      => 0,
-    'checked'       => 0,
-    'datasetA'      => 0,
-    'datasetB'      => 10,
-    'datasetC'      => 1000,
-    'indeterminate' => 1
+    'value'         => 1,
+    'aria_label'    => 0,
+    'isDisabled'      => 0,
+    'isChecked'       => 1,
+    'isIndeterminate' => 0
 
 );
 $db_check_p2 = array(
 
-    'class_div'     => 'p-1 d-flex justify-content-center',
-    'id'            => 'ijjs',
-    'class_add'     => 'text=bg-danger',
-    'name'          => 'test0',
-    'value'         => 0,
-    'aria_label' => 0,
-    'disabled'      => 0,
-    'checked'       => 0,
-    'datasetA'      => 0,
-    'datasetB'      => 10,
-    'datasetC'      => 1000,
-    'indeterminate' => 1
+    'class_div'       => 'p-1 d-flex justify-content-center',
+    'id'              => 'ijjs',
+    'class_add'       => 'h4',
+    'class_add_label' => 'h4',
+    'name'            => 'test01',
+    'value'           => 0,
+    'aria_label'      => 0,
+    'isDisabled'        => 0,
+    'isChecked'         => 0,
+    'isIndeterminate'   => 1
 
 );
 $smarty->assign('db_check_p', $db_check_p);
