@@ -1,6 +1,5 @@
 {* single_checkbox.tpl.html *}
 {if isset($p) && is_array($p)}
-{strip}
 {if $label}
   {if $toggle}
 <div class="form-check form-switch{if isset($p.class_div)} {$p.class_div}{/if}">
@@ -26,9 +25,8 @@ data-{$key}="{$item}"
   aria-label="{$p.name}"
   {if isset($p.isDisabled) && $p.isDisabled eq 1} disabled{/if}
   {if isset($p.isChecked) && $p.isChecked eq 1} checked{/if}>
-{if $label}<label class="form-check-label text-nowrap{if isset($p.class_add_label)} {$p.class_add_label}{/if}" for="checkbox_{$p.id}">&nbsp;{$label}</label>{/if}
+{if $label}<label class="form-check-label text-nowrap{if isset($p.class_add_label)} {$p.class_add_label}{/if}" for="checkbox_{$p.id}">&nbsp;{$label}</label> {/if}
 </div>
-{/strip}
 {else}
 @
 {/if}

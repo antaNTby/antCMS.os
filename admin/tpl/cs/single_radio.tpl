@@ -1,7 +1,6 @@
 {* single_checkbox.tpl.html *}
 {if isset($p) && is_array($p)}
 
-{strip}
 {if $label}
 <div class="form-check{if isset($p.class_div)} {$p.class_div}{/if}">
 {else}
@@ -27,7 +26,6 @@
   </label>
   {/if}
 </div>
-{/strip}
 {else}
 @
 {/if}

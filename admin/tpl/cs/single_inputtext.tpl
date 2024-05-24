@@ -2,7 +2,6 @@
 {if isset($p) && is_array($p)}
 
 
-{strip}
 
 
 
@@ -36,7 +35,6 @@
 
 
 
-{/strip}
 {else}
 @
 {/if}
