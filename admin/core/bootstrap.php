@@ -85,6 +85,7 @@ $smarty->setConfigDir('../admin/tpl/smarty_config/'); // незнаю
 $smarty->setCacheDir('../admin/core/cache/');
 $smarty->compile_id    = 'ant';
 $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
+$smarty->setEscapeHtml(true); //Enable auto-escaping for HTML as follows:
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
 // $smarty->testInstall();

@@ -1,17 +1,5 @@
 {* single_checkbox.tpl.html *}
 {if isset($p) && is_array($p)}
-<pre class="d-none">
-{$p.class_div}
-{$p.id}
-{$p.class_add}
-{$p.name}
-{$p.value}
-{$p.aria_label}
-{$p.isDisabled}
-{$p.isChecked}
-{$p.isIndeterminate}
-</pre>
-
 {strip}
 {if $label}
   {if $toggle}
@@ -44,3 +32,15 @@ data-{$key}="{$item}"
 {else}
 @
 {/if}
+
+<pre class="d-none">
+{$p.class_div}
+{$p.id}
+{$p.class_add}
+{$p.name}
+{$p.value}
+{$p.aria_label}
+{$p.isDisabled}
+{$p.isChecked}
+{$p.isIndeterminate}
+</pre>

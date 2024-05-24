@@ -16,27 +16,42 @@
         </tr>
     </thead>
     <tbody>
+{section name=ii loop=5}
+        <tr class="ant-text-no-rotated align-items-center">
+            {* <td>{include file="cs/single_radio.tpl" p=$db_check_p2 toggle="1" label="HI"}</td> *}
+            <th>#</th>
+            <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 label="database" dataset=$attributes datalist=$attributes}</td>
+            <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 label="database" dataset=$attributes}</td>
+            <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 label="database" dataset=$attributes}</td>
+            <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 label="database"}</td>
+            <td>{include file="cs/single_checkbox.tpl" p=$db_check_p dataset=$attributes}</td>
+            <td>{include file="cs/single_checkbox.tpl" p=$db_check_p dataset=$attributes}</td>
+            <td>{include file="cs/single_checkbox.tpl" p=$db_check_p dataset=$attributes}</td>
+            <td>{include file="cs/single_checkbox.tpl" p=$db_check_p dataset=$attributes}</td>
+            <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 label="database" dataset=$attributes}</td>
+            <td>{include file="cs/single_checkbox.tpl" p=$db_check_p dataset=$attributes}</td>
+            <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 label="database"  dataset=$attributes}</td>
+        </tr>
+{sectionelse}
         <tr class="ant-text-no-rotated align-items-center">
             <th>#</th>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
-            <td>название</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
-            <td>o o o o</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
         </tr>
+{/section}
     </tbody>
     <tfoot class="table-dark">
     </tfoot>
 </table>
-
-
-
 <div class="shadow p-3 mb-5 mt-3 bg-body-tertiary rounded border border-1">
     <form class="p-3" action="save_defaultForm1">
         <input type="text" id="jsonFN" value="{$table_columns}">

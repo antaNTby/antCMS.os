@@ -26,12 +26,12 @@ $smarty->assign('attributes', $attributes);
 
 $db_check_p = array(
 
-    'class_div'     => 'p-1 d-flex justify-content-center',
-    'id'            => 'is',
-    'class_add'     => 'h5',
-    'name'          => 'test0',
-    'value'         => 1,
-    'aria_label'    => 0,
+    'class_div'       => 'p-1 d-flex justify-content-center',
+    'id'              => 'is',
+    'class_add'       => 'h5',
+    'name'            => 'test0',
+    'value'           => 1,
+    'aria_label'      => 0,
     'isDisabled'      => 0,
     'isChecked'       => 1,
     'isIndeterminate' => 0
@@ -46,10 +46,24 @@ $db_check_p2 = array(
     'name'            => 'test01',
     'value'           => 0,
     'aria_label'      => 0,
-    'isDisabled'        => 0,
-    'isChecked'         => 0,
-    'isIndeterminate'   => 1
+    'isDisabled'      => 0,
+    'isChecked'       => 0,
+    'isIndeterminate' => 1
 
 );
 $smarty->assign('db_check_p', $db_check_p);
 $smarty->assign('db_check_p2', $db_check_p2);
+
+
+// create template object with its private variable scope
+$tpl = $smarty->createTemplate('cs/single_inputtext.tpl');
+
+$tpl->assign('label', "Бабель");
+$tpl->assign('p',$db_check_p2);
+$tpl->assign('dataset',$attributes);
+
+// display the template
+$tpl->display();
+
+// $myTestControlSnippet = $tpl->fetch('cs/single_inputtext.tpl.html');
+// dump($myTestControlSnippet);
