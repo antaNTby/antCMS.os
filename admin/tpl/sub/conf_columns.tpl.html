@@ -1,35 +1,34 @@
-<table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm" style="width:100%">
+<table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm">
     <thead class="table-secondary">
-        <tr class="ant-text-rotated align-bottom">
-            <th>#</th>
+        <tr class="ant-text-rotated align-self-center align-middle text-center">
+            <th class="ant-text-no-rotated">#</th>
             <th>db</th>
             <th>dt</th>
             <th>data</th>
-            <th>title</th>
+            <th class="ant-text-no-rotated">title</th>
             <th>visible</th>
             <th>searchable</th>
             <th>orderable</th>
             <th>editable</th>
             <th>sort order</th>
             <th>enable</th>
-            <th>actions</th>
+            <th class="ant-text-no-rotated">actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>#</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p}</td>
+        <tr class="ant-text-no-rotated align-items-center">
+            <th>#</th>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
+            <td>название</td>
             <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p toggle="1" label="HI"}</td>
-            <td class="ant-text-rotated">название</td>
             <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
-            <td>o</td>
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p}</td>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2}</td>
-            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2}</td>
-
-            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p2 label="CG:GO"}</td>
-            <td>o</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
+            <td>{include file="cs/single_checkbox.tpl.html" p=$db_check_p  dataset=$attributes}</td>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
+            <td>{include file="cs/single_radio.tpl.html" p=$db_check_p2 toggle="1" label="HI"}</td>
+            <td>o o o o</td>
         </tr>
     </tbody>
     <tfoot class="table-dark">

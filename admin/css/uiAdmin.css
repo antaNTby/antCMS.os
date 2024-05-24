@@ -1,0 +1,18 @@
+/*uiAdmin.css*/
+
+.btn-xs {
+    --bs-btn-padding-y: .05rem;
+    --bs-btn-padding-x: .25rem;
+    --bs-btn-font-size: .5rem;
+    border-radius: .1rem;
+}
+:root {
+    --dt-row-selected: 191, 191, 209;
+}
+tr.ant-text-rotated th, tr.ant-text-rotated td, th.ant-text-rotated, td.ant-text-rotated {
+    writing-mode: sideways-lr;
+}
+
+th.ant-text-no-rotated, td.ant-text-no-rotated {
+    writing-mode: horizontal-tb!important;
+}
