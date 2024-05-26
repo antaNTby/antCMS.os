@@ -48,6 +48,7 @@ export const table = new DataTable('#defaultDataTable', {
     scrollX: true,
     autowidth: true,
     // select: true,
+    rowId: 'id',
 });
 //
 //

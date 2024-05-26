@@ -43,7 +43,12 @@ const layoutDefault = {
     top2End: null,
     //
     top: {
-        buttons: [btnColVis,btnExportsMenu]
+        buttons: [
+                  btnColVis,
+                  btnExportsMenu,
+                  'savedStates',
+                  'createState',
+                                    ]
     },
 
     topStart: "info",

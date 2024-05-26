@@ -31,6 +31,22 @@ const KatzapskayaMova = {
             "1": " Выбрана одна строка "
         }
     },
+
+
+        "buttons": {
+            savedStates: {
+                0: '<i class="bi bi-bookmarks"></i>',
+                _: '<i class="bi bi-bookmarks"></i> [%d]'
+            }
+        },
+
+
+
+
+
+
+
+
     "searchBuilder": {
         "add": "Добавить условие",
         "button": {

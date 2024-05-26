@@ -2,16 +2,39 @@
 
 $.fn.dataTable.ext.buttons.separator = {
     text: '',
-    attr: {style: 'width: 5px; height: 5px; ' +
-            'padding-left: 0px; padding-right: 0px; cursor: auto;'},
-    action: function () {
+    attr: {
+        style: 'width: 5px; height: 5px; ' +
+            'padding-left: 0px; padding-right: 0px; cursor: auto;'
+    },
+    action: function() {}
+};
+
+
+export const btnNewState = {
+    extend: 'createState',
+    text: '<i class="bi bi-bookmark-plus"></i>',
+    // title: 'Сохранть состояние таблицы',
+    className: 'text-bg-success',
+    config: {
+        creationModal: true,
+        toggle: {
+            length: true,
+            order: true,
+            paging: true,
+            search: false,
+            // searchBuilder: true,
+            // searchPanes: true,
+            scroller: false,
+            select: false
+        },
     }
 };
 
+
 export const btnColVis = {
+    extend: 'colvis',
     text: 'Показать столбцы',
     className: 'text-bg-danger',
-    extend: 'colvis',
     // columns: 'th:nth-child(n+2)',
     columnText: function(dt, idx, title) {
         return idx + 1 + ' ' + title;
@@ -19,9 +42,9 @@ export const btnColVis = {
 };
 
 export const btnExportPDF = {
+    extend: 'pdfHtml5',
     text: 'PDF',
     className: 'text-danger',
-    extend: 'pdfHtml5',
     filename: 'dtExport ' + formatNowToFileName(),
     pageSize: 'A4',
     orientation: 'landscape',
@@ -38,9 +61,9 @@ export const btnExportPDF = {
 };
 
 export const btnExportExcel = {
+    extend: 'excelHtml5',
     text: 'XLS',
     className: 'text-success',
-    extend: 'excelHtml5',
     filename: 'dtExport ' + formatNowToFileName(),
     // pageSize: 'A4',
     // orientation: 'landscape',
@@ -68,6 +91,7 @@ export const btnExportJSON = {
 };
 
 export const btnExportCSV = {
+    extend: 'csv',
     text: 'CSV ;',
     fieldSeparator: ";",
     escapeChar: "&quot;",
@@ -75,7 +99,6 @@ export const btnExportCSV = {
     newline: "\r\n",
     charset: "utf-8",
     className: 'text-dark',
-    extend: 'csv',
     filename: 'dtExport ' + formatNowToFileName(),
     exportOptions: {
         columns: ':visible',
@@ -102,6 +125,7 @@ export const btnExportsMenu = {
 };
 
 const standartButtons = [
+btnNewState,
     //
     {
         text: 'Select filter applied - object',
