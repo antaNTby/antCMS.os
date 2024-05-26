@@ -37,7 +37,10 @@ const KatzapskayaMova = {
             savedStates: {
                 0: '<i class="bi bi-bookmarks"></i>',
                 _: '<i class="bi bi-bookmarks"></i> [%d]'
-            }
+            },
+            // createState:{
+            //     text:'gggg <i class="bi bi-bookmark-plus"></i>'
+            // }
         },
 
 

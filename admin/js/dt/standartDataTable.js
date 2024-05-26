@@ -167,3 +167,4 @@ function destroyTable() {
         table.MakeCellsEditable("destroy");
     }
 }
+

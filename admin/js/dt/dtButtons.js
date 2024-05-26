@@ -21,7 +21,7 @@ export const btnNewState = {
             length: true,
             order: true,
             paging: true,
-            search: false,
+            search: true,
             // searchBuilder: true,
             // searchPanes: true,
             scroller: false,
