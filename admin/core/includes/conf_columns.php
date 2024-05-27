@@ -28,7 +28,7 @@ $db_check_p = array(
 
     'class_div'       => 'p-1 d-flex justify-content-center',
     'id'              => 'is',
-    'class_add'       => 'h5',
+    // 'class_add'       => 'h5',
     'name'            => 'test0',
     'value'           => 1,
     'aria_label'      => 0,
@@ -41,8 +41,8 @@ $db_check_p2 = array(
 
     'class_div'       => 'p-1 d-flex justify-content-center',
     'id'              => 'ijjs',
-    'class_add'       => 'h4',
-    'class_add_label' => 'h4',
+    // 'class_add'       => 'h4',
+    // 'class_add_label' => 'h4',
     'name'            => 'test01',
     'value'           => 0,
     'aria_label'      => 0,
