@@ -17,11 +17,30 @@ $smarty->assign('php_department', $department);
 
 $smarty->assign('php_sub', $department_sub);
 
+
+$allTablesNames=db_get_all_tables();
+
+
+dump ($allTablesNames);
+$smarty->assign('allTablesNames', $allTablesNames);
+$smarty->assign('tableSelectedIndex',2);
+
+
+
+
+
+
+
+
+
+
+/*
 $attributes = array(
     'a'  => 111,
     'ab' => 222,
     'ac' => 'dd'
 );
+
 $smarty->assign('attributes', $attributes);
 
 $db_check_p = array(
@@ -64,6 +83,6 @@ $tpl->assign('dataset',$attributes);
 
 // display the template
 $tpl->display();
-
+*/
 // $myTestControlSnippet = $tpl->fetch('cs/single_inputtext.tpl.html');
 // dump($myTestControlSnippet);
