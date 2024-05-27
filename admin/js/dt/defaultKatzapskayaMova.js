@@ -32,23 +32,14 @@ const KatzapskayaMova = {
         }
     },
 
-
-        "buttons": {
-            savedStates: {
-                0: '<i class="bi bi-bookmarks"></i>',
-                _: '<i class="bi bi-bookmarks"></i> [%d]'
-            },
-            // createState:{
-            //     text:'gggg <i class="bi bi-bookmark-plus"></i>'
-            // }
+    "buttons": {
+        savedStates: {
+            0: '<i class="bi bi-bookmarks"></i>',
+            _: '<i class="bi bi-bookmarks"></i><span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">%d</span>'
         },
-
-
-
-
-
-
-
+        createState: '<i class="bi bi-bookmark"></i> Добавить',
+        removeAllStates: '<i class="bi bi-bookmark-x-fill"></i> Удалить все '
+    },
 
     "searchBuilder": {
         "add": "Добавить условие",

@@ -30,10 +30,38 @@ export const btnNewState = {
     }
 };
 
+export const btnSavedStates = {
+    extend: 'savedStates',
+    // buttons: [
+    //     'createState',
+    //     'removeAllStates'
+    // ]
+    buttons: [
+
+        // 'createState',
+        // {
+        //     extend: 'spacer',
+        //     style: 'bar'
+        // },
+        'removeAllStates',
+        {
+            extend: 'spacer',
+            style: 'bar'
+        },
+        'separator',
+    ],
+    className: 'class="btn btn-primary position-relative"',
+};
+
+export const btnRemoveAllStates = {
+    extend: 'removeAllStates',
+    className: 'btn btn-danger'
+};
+
 
 export const btnColVis = {
     extend: 'colvis',
-    text: 'Показать столбцы',
+    text: '<i class="bi bi-table"></i> ',
     className: 'text-bg-danger',
     // columns: 'th:nth-child(n+2)',
     columnText: function(dt, idx, title) {
@@ -125,7 +153,7 @@ export const btnExportsMenu = {
 };
 
 const standartButtons = [
-btnNewState,
+    btnNewState,
     //
     {
         text: 'Select filter applied - object',

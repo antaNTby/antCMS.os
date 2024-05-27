@@ -1,14 +1,22 @@
 // dtButtons.js
-import {btnColVis,btnNewState,btnExportsMenu} from "./dtButtons.js";
+import {
+    //
+    btnColVis,
+    btnNewState,
+    btnSavedStates,
+    // btnRemoveAllStates,
+    btnExportsMenu
+    //
+} from "./dtButtons.js";
 // import {btnExportsMenu} from "./dtButtons.js";
 // import {btnExportJSON} from "./dtButtons.js";
 import myButtons from "./dtButtons.js";
 
 // console.log(btnExportsMenu)
 
-DataTable.ext.buttons.createState.text = function (e, dt, node, config) {
-    return '<i class="bi bi-bookmark-plus"></i>';
-};
+// DataTable.ext.buttons.createState.text = function(e, dt, node, config) {
+//     return '<i class="bi bi-bookmark-plus"></i>';
+// };
 
 const layoutDefault = {
 
@@ -41,17 +49,19 @@ const layoutDefault = {
     // top2: {
     //     buttons: myButtons,
     // },
-    top2:null,
+    top2: null,
     top2Start: null,
     top2End: null,
     //
     top: {
         buttons: [
-                  btnColVis,
-                  btnExportsMenu,
-                  'savedStates',
-                  btnNewState
-                                    ]
+            btnColVis,
+            btnExportsMenu,
+            btnSavedStates,
+            'createState',
+            // btnNewState,
+            // btnRemoveAllStates
+        ]
     },
 
     topStart: "info",
