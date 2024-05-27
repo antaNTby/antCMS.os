@@ -75,10 +75,11 @@ export const table = new DataTable('#defaultDataTable'+'_'+current_sub_id, {
                 // Create input element
                 let input = document.createElement('input');
                 input.setAttribute('type', 'search');
-                input.setAttribute('class', 'form-control form-control-sm text-bg-light bg-warning-subtle');
                 let input_id = 'colSearch_' + title.replace(' ', '');
                 input.id = input_id;
-                input.placeholder = '...'+ title;
+                input.setAttribute('name', 'colSearch_' + title.replace(' ', ''));
+                input.placeholder = 'Type ...';
+                input.setAttribute('class', 'form-control form-control-sm bg-warning-subtle');
 
                 // let inputColumnSearchHtml = ' <input type="search" class="form-control" id="colSearch_' + input_id + '" placeholder="' + title + '">'
                     // let btnDropdown = ' <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" ' +
