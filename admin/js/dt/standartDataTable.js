@@ -49,11 +49,71 @@ export const table = new DataTable('#defaultDataTable', {
     autowidth: true,
     // select: true,
     rowId: 'id',
+
+    initComplete: function() {
+        this.api()
+            .columns()
+            .every(function() {
+                let column = this;
+
+                let startWrapperHtml = '';
+                let endWrapperHtml = '';
+
+                let wrapper = '<div class="dropdown">{content}</div>'
+
+                let elements = wrapper.split('{content}');
+                if (elements.length === 2) {
+                    startWrapperHtml = elements[0];
+                    endWrapperHtml = elements[1];
+                }
+
+                let title = column.footer().textContent;
+
+                // Create input element
+                let input = document.createElement('input');
+                input.setAttribute('type', 'search');
+                input.setAttribute('class', 'form-control form-control-sm text-bg-light bg-warning-subtle');
+                let input_id = 'colSearch_' + title.replace(' ', '');
+                input.id = input_id;
+                input.placeholder = '...'+ title;
+
+                // let inputColumnSearchHtml = ' <input type="search" class="form-control" id="colSearch_' + input_id + '" placeholder="' + title + '">'
+                // let btnDropdown = ' <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" ' +
+                //     ' aria-expanded="false" data-bs-auto-close="outside">' +
+                //     'Dropdown form' +
+                //     '</button>';
+                // let _form =
+                //     '<form class="dropdown-menu p-1">' +
+                //     '<div class="my-1 parent" >' +
+                //     '<label for="colSearch_' + input_id + '" class="form-label">' + title + '</label>' +
+                //     '</div>'+'</form>';
+                // let out = startWrapperHtml + btnDropdown + _form + endWrapperHtml;
+                // console.log(column.footer())
+
+                // column.footer().innerHtml=out;
+                // let fff=document.createElement('out');
+                // column.footer().appendChild(input);
+
+                column.footer().replaceChildren(input);
+                // Event listener for user input
+                input.addEventListener('keyup', () => {
+                    if (column.search() !== this.value) {
+                        column.search(input.value).draw();
+                    }
+                });
+            });
+    }
 });
 //
 //
 //
-// standartEvents.tdBodyDtDblClick(table);
+standartEvents.tdBodyDtDblClick(table);
+standartEvents.changeVisibility(table);
+
+//
+//
+//
+//
 table.MakeCellsEditable(
     //
     {
@@ -134,6 +194,7 @@ table.MakeCellsEditable(
     }
     //
 );
+
 async function dtDefaultCallbackFunction(updatedCell, updatedRow, oldValue, columnIndex) {
     let url = checkOnUrl(document.location.href) + '&operation=editCell';
     let editID = updatedRow.data().companyID;
@@ -167,4 +228,3 @@ function destroyTable() {
         table.MakeCellsEditable("destroy");
     }
 }
-

@@ -5,6 +5,7 @@
         "db": "companyID",
         "dt": "companyID",
         "title": "title companyID",
+        "footer": "footer 0",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -15,6 +16,7 @@
         "db": "company_title",
         "dt": "company_title",
         "title": "title company_title",
+        "footer": "footer 1",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -25,6 +27,7 @@
         "db": "company_name",
         "dt": "company_name",
         "title": "title company_name",
+        "footer": "footer 2",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -35,6 +38,7 @@
         "db": "company_unp",
         "dt": "company_unp",
         "title": "title company_unp",
+        "footer": "footer 3",
         "orderable": true,
         "visible": true,
         "searchable": true
@@ -45,8 +49,9 @@
         "db": "company_okpo",
         "dt": "company_okpo",
         "title": "title company_okpo",
+        "footer": "footer 4",
         "orderable": true,
-        "visible": true,
+        "visible": false,
         "searchable": true
     },
     {
@@ -55,8 +60,9 @@
         "db": "company_adress",
         "dt": "company_adress",
         "title": "title company_adress",
+        "footer": "footer 5",
         "orderable": true,
-        "visible": true,
+        "visible": false,
         "searchable": true
     },
     {
@@ -65,8 +71,9 @@
         "db": "company_bank",
         "dt": "company_bank",
         "title": "title company_bank",
+        "footer": "footer 6",
         "orderable": true,
-        "visible": true,
+        "visible": false,
         "searchable": true
     },
     {
@@ -75,6 +82,7 @@
         "db": "company_contacts",
         "dt": "company_contacts",
         "title": "title company_contacts",
+        "footer": "footer 7",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -85,6 +93,7 @@
         "db": "company_email",
         "dt": "company_email",
         "title": "title company_email",
+        "footer": "footer 8",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -95,6 +104,7 @@
         "db": "company_director",
         "dt": "company_director",
         "title": "title company_director",
+        "footer": "footer 9",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -105,6 +115,7 @@
         "db": "company_data",
         "dt": "company_data",
         "title": "title company_data",
+        "footer": "footer 10",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -115,6 +126,7 @@
         "db": "company_admin",
         "dt": "company_admin",
         "title": "title company_admin",
+        "footer": "footer 11",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -125,6 +137,7 @@
         "db": "read_only",
         "dt": "read_only",
         "title": "title read_only",
+        "footer": "footer 12",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -135,6 +148,7 @@
         "db": "creation_time",
         "dt": "creation_time",
         "title": "title creation_time",
+        "footer": "footer 13",
         "orderable": true,
         "visible": false,
         "searchable": true
@@ -145,6 +159,7 @@
         "db": "update_time",
         "dt": "update_time",
         "title": "title update_time",
+        "footer": "footer 14",
         "orderable": true,
         "visible": false,
         "searchable": true

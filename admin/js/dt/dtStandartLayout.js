@@ -1,15 +1,16 @@
 // dtButtons.js
-import {
-    //
-    btnColVis,
-    btnNewState,
-    btnSavedStates,
-    btnRemoveAllStates,
-    btnExportsMenu,
-    createStateShort
-    //
-} from "./dtButtons.js";
-// import {btnExportsMenu} from "./dtButtons.js";
+// import {
+//     //
+//     dtb.btnColVis,
+//     btnNewState,
+//     btnSavedStates,
+//     btnRemoveAllStates,
+//     btnExportsMenu,
+//     createStateShort
+//     //
+// } from "./dtButtons.js";
+
+import * as dtb from "./dtButtons.js";
 // import {btnExportJSON} from "./dtButtons.js";
 import myButtons from "./dtButtons.js";
 
@@ -56,12 +57,12 @@ const layoutDefault = {
     //
     top: {
         buttons: [
-            btnColVis,
-            btnExportsMenu,
-            btnSavedStates,
-            createStateShort,
-            // btnNewState,
-            // btnRemoveAllStates
+            dtb.btnColVis,
+            dtb.btnExportsMenu,
+            dtb.btnSavedStates,
+            dtb.createStateShort,
+            // dtb.btnNewState,
+            // dtb.btnRemoveAllStates
         ]
     },
 
@@ -81,8 +82,8 @@ const layoutDefault = {
     bottomStart: {
         pageLength: {
             menu: [
-                [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16], //
-                [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`] //
+                [16 / 4, 16 / 2, 16, 16 * 2, 16 * 4, 16 * 8, 16 * 16, -1], //
+                [16 / 4 + ` строки/стр`, 16 / 2 + ` строк/стр`, 16 + ` строк/стр`, 16 * 2 + ` строки/стр`, 16 * 4 + ` строки/стр`, 16 * 8 + ` строк/стр`, 16 * 16 + ` строк/стр`, `Все`] //
             ],
         },
     },

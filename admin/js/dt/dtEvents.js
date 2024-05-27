@@ -7,3 +7,17 @@ export const tdBodyDtDblClick = (table) => {
         console.info(data);
     });
 };
+
+
+export const changeVisibility = (table) => {
+    table.on('column-visibility.dt', function(e, settings, column, state) {
+        console.log(
+            'Column ' + column + ' has changed to ' + (state ? 'visible' : 'hidden')
+        );
+        // table.state.save();
+        // console.log(table.state())
+
+        let newState= table.stateRestore;
+         console.log(newState(),table.state())
+    });
+};

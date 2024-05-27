@@ -33,7 +33,7 @@ export const createStateShort = {
     extend: 'createState',
     text: '<i class="bi bi-bookmark"></i>',
     // title: 'Сохранть состояние таблицы',
-    className: 'text-bg-success',
+    className: 'btn btn-light',
 };
 
 export const btnSavedStates = {
@@ -42,31 +42,31 @@ export const btnSavedStates = {
     //     'createState',
     //     'removeAllStates'
     // ]
-    buttons: [
+    // buttons: [
 
-        // 'createState',
-        // {
-        //     extend: 'spacer',
-        //     style: 'bar'
-        // },
-        'removeAllStates', {
-            extend: 'spacer',
-            style: 'bar'
-        },
-    ],
-    className: 'class="btn btn-primary position-relative"',
+    //     // 'createState',
+    //     // {
+    //     //     extend: 'spacer',
+    //     //     style: 'bar'
+    //     // },
+    //     'removeAllStates', {
+    //         extend: 'spacer',
+    //         style: 'bar'
+    //     },
+    // ],
+    className: 'class="btn btn-light position-relative"',
 };
 
 export const btnRemoveAllStates = {
     extend: 'removeAllStates',
-    className: 'btn btn-danger'
+    className: 'btn btn-light'
 };
 
 
 export const btnColVis = {
     extend: 'colvis',
     text: '<i class="bi bi-table"></i> ',
-    className: 'text-bg-danger',
+    className: 'btn btn-light',
     // columns: 'th:nth-child(n+2)',
     columnText: function(dt, idx, title) {
         return idx + 1 + ' ' + title;
@@ -142,7 +142,7 @@ export const btnExportCSV = {
 
 export const btnExportsMenu = {
     text: 'Export',
-    className: 'text-bg-light',
+    className: 'btn btn-light',
     extend: 'collection',
     buttons: [
         btnExportExcel,
@@ -158,6 +158,7 @@ export const btnExportsMenu = {
 
 const standartButtons = [
     btnNewState,
+    btnRemoveAllStates,
     //
     {
         text: 'Select filter applied - object',

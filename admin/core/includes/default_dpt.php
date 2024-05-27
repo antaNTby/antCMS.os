@@ -26,7 +26,7 @@ if (!is_null($table_name))
         if (file_exists($table_columns))
         {
             $jsonColumns  = file_get_contents($table_columns);
-            $page_message = 'datatables columns <strong>loaded from: ' . $table_columns . '</strong>';
+            $page_message = 'datatables columns loaded from: ' . $table_columns . '';
         }
         else
         {
@@ -34,7 +34,7 @@ if (!is_null($table_name))
             $dbTableFieldNames  = array_keys($dbTableFields); // выводим в логг все названия полей
             $dtColumnFieldNames = $dbTableFieldNames;
 
-            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 7);
+            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit =4);
             $isSaved           = file_put_contents($table_columns, $jsonColumns);
             $page_message      = $table_columns . ' Is saved size: ' . format_size((int) $isSaved);
             $page_message_type = 'warning';
