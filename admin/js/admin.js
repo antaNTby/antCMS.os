@@ -1,5 +1,15 @@
 // admin.js
 // глобальные функции, объекты и константы
+
+
+function delay( ms ) {
+    return new Promise( resolve => setTimeout( resolve, ms ) );
+}
+
+function setSelectValue(id, val) {
+    document.getElementById(id).value = val;
+}
+
 function zeroPad(num, numZeros) {
     if (num == 0) return "0"
     let an = Math.abs(num);
@@ -101,3 +111,33 @@ function scrolToMyTop() {
 function scrolToMyBottom() {
     window.scrollTo(0, document.body.scrollHeight);
 };
+
+// функция раскодирования адресной строки
+// query string: ?foo=lorem&bar=&baz
+// let foo = getUrlComponent('foo'); // "lorem"
+// let bar = getUrlComponent('bar'); // "" (present with empty value)
+// let baz = getUrlComponent('baz'); // "" (present with no value)
+// let qux = getUrlComponent('qux'); // null (absent)
+function getUrlComponent(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function deleteUrlComponent(name, url) {
+    let new_url;
+    if (!url) {
+        new_url = new URL(window.location.href);
+    } else {
+        new_url = new URL(url);
+    }
+    if (!name) {
+        name = 'no_time_filter';
+    }
+    new_url.searchParams.delete(name);
+    return window.history.pushState({}, document.title, new_url);
+}

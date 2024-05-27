@@ -6,6 +6,8 @@ const fn = document.getElementById('jsonFN').value;
 // console.log('FN=' + fn);
 const res = await fetch(checkOnUrl('admin/' + fn));
 const dataJsonFile = await res.json();
+
+const current_sub_id=getUrlComponent('sub', checkOnUrl(document.location.href));
 // console.log(dataJsonFile)
 //
 const orderBy = [
@@ -15,7 +17,8 @@ const orderBy = [
 export function reloadTable(e, dt, button, config) {
     dt.ajax.reload();
 }
-export const table = new DataTable('#defaultDataTable', {
+
+export const table = new DataTable('#defaultDataTable'+'_'+current_sub_id, {
     ajax: {
         url: checkOnUrl(document.location.href) + '&operation=initDefaultDataTable',
         type: 'POST',
@@ -78,20 +81,20 @@ export const table = new DataTable('#defaultDataTable', {
                 input.placeholder = '...'+ title;
 
                 // let inputColumnSearchHtml = ' <input type="search" class="form-control" id="colSearch_' + input_id + '" placeholder="' + title + '">'
-                // let btnDropdown = ' <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" ' +
-                //     ' aria-expanded="false" data-bs-auto-close="outside">' +
-                //     'Dropdown form' +
-                //     '</button>';
-                // let _form =
-                //     '<form class="dropdown-menu p-1">' +
-                //     '<div class="my-1 parent" >' +
-                //     '<label for="colSearch_' + input_id + '" class="form-label">' + title + '</label>' +
-                //     '</div>'+'</form>';
-                // let out = startWrapperHtml + btnDropdown + _form + endWrapperHtml;
-                // console.log(column.footer())
+                    // let btnDropdown = ' <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" ' +
+                    //     ' aria-expanded="false" data-bs-auto-close="outside">' +
+                    //     'Dropdown form' +
+                    //     '</button>';
+                    // let _form =
+                    //     '<form class="dropdown-menu p-1">' +
+                    //     '<div class="my-1 parent" >' +
+                    //     '<label for="colSearch_' + input_id + '" class="form-label">' + title + '</label>' +
+                    //     '</div>'+'</form>';
+                    // let out = startWrapperHtml + btnDropdown + _form + endWrapperHtml;
+                    // console.log(column.footer())
 
-                // column.footer().innerHtml=out;
-                // let fff=document.createElement('out');
+                    // column.footer().innerHtml=out;
+                    // let fff=document.createElement('out');
                 // column.footer().appendChild(input);
 
                 column.footer().replaceChildren(input);
@@ -102,7 +105,9 @@ export const table = new DataTable('#defaultDataTable', {
                     }
                 });
             });
-    }
+    },
+
+
 });
 //
 //
