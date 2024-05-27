@@ -1,25 +1,25 @@
 <table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm">
     <thead class="table-secondary">
         <tr class="ant-text-rotated align-self-center align-middle text-center">
-            <th class="ant-text-no-rotated">#</th>
-            <th>db</th>
-            <th>dt</th>
+            <td class="ant-text-no-rotated">#</td>
             <th>data</th>
+            <td>db</td>
+            <td>dt</td>
             <th class="ant-text-no-rotated">title</th>
-            <th>visible</th>
-            <th>searchable</th>
-            <th>orderable</th>
-            <th>editable</th>
-            <th>sort order</th>
+            <td>visible</td>
+            <td>searchable</td>
+            <td>orderable</td>
+            <td>editable</td>
+            <td>sort order</td>
             <th>enable</th>
-            <th class="ant-text-no-rotated">actions</th>
+            <td class="ant-text-no-rotated">actions</td>
         </tr>
     </thead>
     <tbody>
 {section name=ii loop=5}
         <tr class="ant-text-no-rotated align-items-center">
             {* <td>{include file="cs/single_radio.tpl" p=$db_check_p2 toggle="1" label="HI"}</td> *}
-            <th>#</th>
+            <th>{$smarty.section.ii.index}</th>
             <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 dataset=$attributes datalist=$attributes}</td>
             <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 dataset=$attributes}</td>
             <td>{include file="cs/single_inputtext.tpl" p=$db_check_p2 dataset=$attributes}</td>
