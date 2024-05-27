@@ -29,6 +29,12 @@ export const btnNewState = {
         },
     }
 };
+export const createStateShort = {
+    extend: 'createState',
+    text: '<i class="bi bi-bookmark"></i>',
+    // title: 'Сохранть состояние таблицы',
+    className: 'text-bg-success',
+};
 
 export const btnSavedStates = {
     extend: 'savedStates',
@@ -43,12 +49,10 @@ export const btnSavedStates = {
         //     extend: 'spacer',
         //     style: 'bar'
         // },
-        'removeAllStates',
-        {
+        'removeAllStates', {
             extend: 'spacer',
             style: 'bar'
         },
-        'separator',
     ],
     className: 'class="btn btn-primary position-relative"',
 };

@@ -4,8 +4,9 @@ import {
     btnColVis,
     btnNewState,
     btnSavedStates,
-    // btnRemoveAllStates,
-    btnExportsMenu
+    btnRemoveAllStates,
+    btnExportsMenu,
+    createStateShort
     //
 } from "./dtButtons.js";
 // import {btnExportsMenu} from "./dtButtons.js";
@@ -58,7 +59,7 @@ const layoutDefault = {
             btnColVis,
             btnExportsMenu,
             btnSavedStates,
-            'createState',
+            createStateShort,
             // btnNewState,
             // btnRemoveAllStates
         ]

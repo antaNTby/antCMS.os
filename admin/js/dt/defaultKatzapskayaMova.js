@@ -38,6 +38,7 @@ const KatzapskayaMova = {
             _: '<i class="bi bi-bookmarks"></i><span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">%d</span>'
         },
         createState: '<i class="bi bi-bookmark"></i> Добавить',
+        createStateShort: '<i class="bi bi-bookmark"></i>',
         removeAllStates: '<i class="bi bi-bookmark-x-fill"></i> Удалить все '
     },
 
