@@ -7,7 +7,7 @@
 <div{if isset($p.class_div)} class="{$p.class_div}"{/if}>
 {/if}
   <input type="radio"
-  class="form-check-input{if isset($p.class_add)} {$p.class_add}{/if}{if isset($p.isIndeterminate) && $p.isIndeterminate eq 1} indeterminate{/if}"
+  class="form-check-input  bg-opacity-25 bg-body-tertiary{if isset($p.class_add)} {$p.class_add}{/if}{if isset($p.isIndeterminate) && $p.isIndeterminate eq 1} indeterminate{/if}"
   {if isset($p.id)} id="radio_{$p.id}"{/if}
   {if isset($p.name)} name="radio_{$p.name}"{/if}
   {if isset($p.value)} value="{$p.value}"{/if}

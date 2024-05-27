@@ -9,7 +9,7 @@
 <label for="input_{$p.id}" class="form-label{if isset($p.class_add_label)} {$p.class_add_label}{/if}">{$label}</label>
 {/if}
 <input  type="text"
- class="form-control{if isset($p.class_add)} {$p.class_add}{/if}"
+ class="form-control  bg-opacity-25 bg-body-tertiary{if isset($p.class_add)} {$p.class_add}{/if}"
  {if isset($p.id)} id="input_{$p.id}"{/if}
  {if isset($datalist) && is_array($datalist)} list="datalistOptions_{$p.id}"{/if}
  {if isset($dataset) && is_array($dataset)}

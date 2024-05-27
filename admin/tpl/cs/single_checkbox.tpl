@@ -10,7 +10,7 @@
 <div{if isset($p.class_div)} class="{$p.class_div}"{/if}>
 {/if}
   <input type="checkbox"{if $toggle} role="switch"{/if}
-  class="form-check-input{if isset($p.class_add)} {$p.class_add}{/if}{if isset($p.isIndeterminate) && $p.isIndeterminate eq 1} indeterminate{/if}"
+  class="form-check-input {if isset($p.class_add)} {$p.class_add}{/if}{if isset($p.isIndeterminate) && $p.isIndeterminate eq 1} indeterminate{/if}"
   {if isset($p.id)} id="checkbox_{$p.id}"{/if}
   {if isset($p.name)} name="checkbox_{$p.name}"{/if}
   {if isset($p.value)} value="{$p.value}"{/if}
