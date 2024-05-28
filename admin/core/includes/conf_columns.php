@@ -21,7 +21,7 @@ $smarty->assign('php_sub', $department_sub);
 $allTablesNames=db_get_all_tables();
 
 
-dump ($allTablesNames);
+// dump ($allTablesNames);
 $smarty->assign('allTablesNames', $allTablesNames);
 $smarty->assign('tableSelectedIndex',2);
 

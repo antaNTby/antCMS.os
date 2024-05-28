@@ -1,5 +1,8 @@
 import * as ui from './uiAdmin.js';
+// alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 // События
+
+//offcanvas menu
 ui.switcherMenuOnLoad.addEventListener('change', function(e) {
     // console.log(e);
     if (e.target.checked) {
@@ -19,7 +22,7 @@ ui.switcherMenuPosition.addEventListener('change', function(e) {
 ui.btnCloseMenu.addEventListener('click', () => {
     ui.bsOffcanvasMenu.hide();
 });
-// alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
+
 document.addEventListener("DOMContentLoaded", function() {
     // console.log(ui)
     let switcherMenuOnLoad = localStorage.getItem('switcherMenuOnLoad');
@@ -43,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// скролл страницы
 window.addEventListener('scroll', function() {
     [].forEach.call(ui.arrowUp, function(El) {
         El.disabled = (pageYOffset < 100);
@@ -52,8 +56,6 @@ window.addEventListener('scroll', function() {
     });
     // console.log(pageYOffset)
 });
-
-
 [].forEach.call(ui.arrowUp, function(El) {
     El.onclick = scrolToMyTop;
     El.disabled = (pageYOffset < 100);
