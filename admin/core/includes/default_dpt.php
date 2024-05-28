@@ -7,7 +7,6 @@ $page_message_type = 'success';
 $department        = $Departments[$current_dpt_index];
 $department_sub    = $department['sub_departments'][$current_sub_index];
 
-
 $admin_page       = $department_sub['admin_page'];
 $table_name       = $department_sub['table_name'];
 $table_columns    = $department_sub['table_columns'];
@@ -34,9 +33,9 @@ if (!is_null($table_name))
             $dbTableFieldNames  = array_keys($dbTableFields); // выводим в логг все названия полей
             $dtColumnFieldNames = $dbTableFieldNames;
 
-            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit =4);
+            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
             $isSaved           = file_put_contents($table_columns, $jsonColumns);
-            $page_message      = $table_columns . ' Is saved size: ' . format_size((int) $isSaved);
+            $page_message      = $table_columns . ' Is saved size: ' . format_size((int)$isSaved);
             $page_message_type = 'warning';
         }
 
@@ -88,7 +87,7 @@ if ($OK && isset($_GET['operation']))
             'index' => $dtColumns[$columnIndex]['index'],
             'data'  => $dtColumns[$columnIndex]['data'],
             'db'    => $dtColumns[$columnIndex]['db'],
-            'dt'    => $dtColumns[$columnIndex]['dt']
+            'dt'    => $dtColumns[$columnIndex]['dt'],
         );
 
         if ($OK)
@@ -121,7 +120,7 @@ if ($OK && isset($_GET['operation']))
             'Column'       => $Column,
             'sql'          => $sql,
                                      // "editedID"=> (int)$editedID,
-            'phpDATA'      => $DATA //as array
+             'phpDATA'      => $DATA, //as array
         )));
     }
 

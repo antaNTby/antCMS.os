@@ -17,13 +17,60 @@ $smarty->assign('php_department', $department);
 
 $smarty->assign('php_sub', $department_sub);
 
+$allTablesNames = db_get_all_tables();
 
-$allTablesNames=db_get_all_tables();
+$tableSelectedIndex = 2;
 
-
-// dump ($allTablesNames);
 $smarty->assign('allTablesNames', $allTablesNames);
-$smarty->assign('tableSelectedIndex',2);
+$smarty->assign('tableSelectedIndex', $tableSelectedIndex);
+
+$table_name    = $allTablesNames[$tableSelectedIndex];
+$table_columns    = PATH_CONFIGS . 'trade_companies' . '__columns.json';
+$table_primaryKey = 'companyID';
+
+if (!is_null($table_name))
+{
+    $dbTableFields = db_getColumnNames($table_name);
+// dump($dbTableFields);
+
+    if (!is_null($table_columns))
+    {
+        if (file_exists($table_columns))
+        {
+            $jsonColumns  = file_get_contents($table_columns);
+            $page_message = 'datatables columns loaded from: ' . $table_columns . '';
+        }
+        else
+        {
+                                                              // d('NO FILE');
+            $dbTableFieldNames  = array_keys($dbTableFields); // выводим в логг все названия полей
+            $dtColumnFieldNames = $dbTableFieldNames;
+
+            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
+            $isSaved           = file_put_contents($table_columns, $jsonColumns);
+            $page_message      = $table_columns . ' Is saved size: ' . format_size((int)$isSaved);
+            $page_message_type = 'warning';
+        }
+
+        $dtColumns = json_decode($jsonColumns, true); //as array
+
+        if (!is_null($table_primaryKey))
+        {
+            $dbTable    = $table_name;
+            $primaryKey = $table_primaryKey;
+            $OK         = 1;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -36,43 +83,42 @@ $smarty->assign('tableSelectedIndex',2);
 
 /*
 $attributes = array(
-    'a'  => 111,
-    'ab' => 222,
-    'ac' => 'dd'
+'a'  => 111,
+'ab' => 222,
+'ac' => 'dd'
 );
 
 $smarty->assign('attributes', $attributes);
 
 $db_check_p = array(
 
-    'class_div'       => 'p-1 d-flex justify-content-center',
-    'id'              => 'is',
-    // 'class_add'       => 'h5',
-    'name'            => 'test0',
-    'value'           => 1,
-    'aria_label'      => 0,
-    'isDisabled'      => 0,
-    'isChecked'       => 1,
-    'isIndeterminate' => 0
+'class_div'       => 'p-1 d-flex justify-content-center',
+'id'              => 'is',
+// 'class_add'       => 'h5',
+'name'            => 'test0',
+'value'           => 1,
+'aria_label'      => 0,
+'isDisabled'      => 0,
+'isChecked'       => 1,
+'isIndeterminate' => 0
 
 );
 $db_check_p2 = array(
 
-    'class_div'       => 'p-1 d-flex justify-content-center',
-    'id'              => 'ijjs',
-    // 'class_add'       => 'h4',
-    // 'class_add_label' => 'h4',
-    'name'            => 'test01',
-    'value'           => 0,
-    'aria_label'      => 0,
-    'isDisabled'      => 0,
-    'isChecked'       => 0,
-    'isIndeterminate' => 1
+'class_div'       => 'p-1 d-flex justify-content-center',
+'id'              => 'ijjs',
+// 'class_add'       => 'h4',
+// 'class_add_label' => 'h4',
+'name'            => 'test01',
+'value'           => 0,
+'aria_label'      => 0,
+'isDisabled'      => 0,
+'isChecked'       => 0,
+'isIndeterminate' => 1
 
 );
 $smarty->assign('db_check_p', $db_check_p);
 $smarty->assign('db_check_p2', $db_check_p2);
-
 
 // create template object with its private variable scope
 $tpl = $smarty->createTemplate('cs/single_inputtext.tpl');
@@ -83,6 +129,6 @@ $tpl->assign('dataset',$attributes);
 
 // display the template
 $tpl->display();
-*/
+ */
 // $myTestControlSnippet = $tpl->fetch('cs/single_inputtext.tpl.html');
 // dump($myTestControlSnippet);
