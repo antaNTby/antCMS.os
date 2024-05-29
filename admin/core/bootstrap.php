@@ -29,6 +29,8 @@ session_cache_expire();
 // composer require datatables.net-searchpanes-bs5
 // composer require datatables.net-select-bs5
 // composer require datatables.net-staterestore-bs5
+//
+// composer require izniburak/pdox
 
 // $ composer self-update
 // Upgrading to version 2.7.6 (stable channel).

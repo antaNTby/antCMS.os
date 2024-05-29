@@ -11,4 +11,5 @@ return array(
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Smarty\\' => array($vendorDir . '/smarty/smarty/src'),
     'RedBeanPHP\\' => array($vendorDir . '/gabordemooij/redbean/RedBeanPHP'),
+    'Buki\\' => array($vendorDir . '/izniburak/pdox/src'),
 );

@@ -1,4 +1,4 @@
->>>>>>>>>> 2024-05-29 15:48:46.821 <<<<<<<<<<<<<<  
+>>>>>>>>>> 2024-05-29 23:13:40.597 <<<<<<<<<<<<<<  
 __array__  ::  
 {
     "id": {
@@ -40,55 +40,85 @@ __array__  ::
     "visible": {
         "index": 6,
         "name": "visible",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+        "sqlType": "tinyint(1) unsigned",
+        "inputType": "single_checkbox.tpl"
     },
     "searchable": {
         "index": 7,
         "name": "searchable",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+        "sqlType": "tinyint(1) unsigned",
+        "inputType": "single_checkbox.tpl"
     },
     "orderable": {
         "index": 8,
         "name": "orderable",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+        "sqlType": "tinyint(1) unsigned",
+        "inputType": "single_checkbox.tpl"
     },
     "editable": {
         "index": 9,
         "name": "editable",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+        "sqlType": "tinyint(1) unsigned",
+        "inputType": "single_checkbox.tpl"
     },
     "sort": {
         "index": 10,
         "name": "sort",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+        "sqlType": "int(11) unsigned",
+        "inputType": "single_inputnumber.tpl"
     },
     "enable": {
         "index": 11,
         "name": "enable",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+        "sqlType": "tinyint(1) unsigned",
+        "inputType": "single_checkbox.tpl"
     },
     "actions": {
         "index": 12,
         "name": "actions",
+        "sqlType": "tinyint(1) unsigned",
+        "inputType": "single_checkbox.tpl"
+    },
+    "sql_type": {
+        "index": 13,
+        "name": "sql_type",
         "sqlType": "varchar(191)",
         "inputType": "single_inputtext.tpl"
     },
     "input_type": {
-        "index": 13,
-        "name": "input_type",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
-    },
-    "sql_type": {
         "index": 14,
-        "name": "sql_type",
+        "name": "input_type",
         "sqlType": "varchar(191)",
         "inputType": "single_inputtext.tpl"
     }
 }
+__integer__  ::  
+98
+__integer__  ::  
+99
+__integer__  ::  
+100
+__integer__  ::  
+101
+__integer__  ::  
+102
+__integer__  ::  
+103
+__integer__  ::  
+104
+__integer__  ::  
+105
+__integer__  ::  
+106
+__integer__  ::  
+107
+__integer__  ::  
+108
+__integer__  ::  
+109
+__integer__  ::  
+110
+__integer__  ::  
+111
+__integer__  ::  
+112

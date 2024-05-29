@@ -103,6 +103,7 @@ if (!is_null($table_name))
 
         $nn++;
         $id = R::store($cd);
+        jlog($id);
     }
 
     // dd($dbTableFields);
