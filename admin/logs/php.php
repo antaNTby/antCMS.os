@@ -10,7 +10,6 @@
 ### $smarty->template_dir = "tpl";
 ### $smarty->compile_id   = "antCMS00"; // у кэш-файлов разных шаблонов будут разные имена (префиксы).
 
-<?php
 ###trade_orders.php
 
 $DPT_SUB = 'trade_orders';
@@ -24,11 +23,11 @@ $whiteList = array(
     'customer_firstname',
     'orderID',
     // 'currency_code',
-    // 'customerID',
-    // 'order_time',
-    // 'shipping_cost',
-    // 'order_discount',
-    'order_amount',
+     // 'customerID',
+     // 'order_time',
+     // 'shipping_cost',
+     // 'order_discount',
+     'order_amount',
     'currency_value',
 );
 
@@ -50,7 +49,7 @@ $blackList = array(
     'cc_expires',
     'cc_cvv',
     'order_aka',
-    'customer_aka'
+    'customer_aka',
 );
 $dt_columns = array();
 // $blackList =[];
@@ -62,18 +61,16 @@ $dt_columns1 = array_diff(array_keys($db_fields[0]), $blackList);
 ## Возвращает массив (array), содержащий все элементы array, отсутствующие в каком-либо из всех остальных массивов.
 // $dt_columns2 = array_diff_ukey(array_keys($db_fields[0]), $whiteList, 'key_compare_func');
 
-
-
 // foreach ($db_fields[0] as $key => $value)
 // {
 //     // echo " $key => $value<br>";
 // }
 
-
 foreach ($dt_columns1 as $key => $value)
 {
-    if (in_array($value,$whiteList)){
-    $dt_columns2[]=$value;
+    if (in_array($value, $whiteList))
+    {
+        $dt_columns2[] = $value;
     }
 }
 
@@ -95,3 +92,46 @@ echo debug(array_values($dt_columns2));
 $smarty->assign('subTables', $subTables);
 $smarty->assign('db_fields', $db_fields);
 showSubSmartyOutput($DPT_SUB);
+
+use RedBeanPHP\R;
+R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+
+// $cd->tableName  = $table_name;
+// $cd->data       = 'data';
+// $cd->db         = 'db';
+// $cd->dt         = 'dt';
+// $cd->title      = 'title';
+// $cd->visible    = 1;
+// $cd->searchable = 1;
+// $cd->orderable  = 1;
+// $cd->editable   = 1;
+// $cd->sort       = 0;
+// $cd->enable     = true;
+// $cd->actions    = 'actions';
+
+$nn = 0;
+foreach ($cortages as $key => $value)
+{
+    // code...
+    // dump("$key => $value");
+    $cd = R::dispense('rbcolumns');
+
+    $cd->tableName  = $table_name;
+    $cd->data       = $key;
+    $cd->db         = $key;
+    $cd->dt         = $key;
+    $cd->title      = "$key in $table_name";
+    $cd->visible    = 1;
+    $cd->searchable = 1;
+    $cd->orderable  = 1;
+    $cd->editable   = 1;
+    $cd->sort       = $nn * 10;
+    $cd->enable     = true;
+    $cd->actions    = null;
+    $cd->sqlType    = $value['sqlType'];
+    $cd->inputType  = $value['inputType'];
+
+    $nn++;
+    $id = R::store($cd);
+    jlog($id);
+}

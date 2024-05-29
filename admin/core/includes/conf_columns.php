@@ -1,7 +1,6 @@
 <?php
 ###default_dpt.php
-use RedBeanPHP\R;
-R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+
 
 $page_message      = '';
 $page_message_type = 'success';
@@ -39,18 +38,7 @@ $rbcolumnsDefault = array(
     'actions'    => 'Действия'
 );
 
-// $cd->tableName  = $table_name;
-// $cd->data       = 'data';
-// $cd->db         = 'db';
-// $cd->dt         = 'dt';
-// $cd->title      = 'title';
-// $cd->visible    = 1;
-// $cd->searchable = 1;
-// $cd->orderable  = 1;
-// $cd->editable   = 1;
-// $cd->sort       = 0;
-// $cd->enable     = true;
-// $cd->actions    = 'actions';
+
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';

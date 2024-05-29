@@ -36,17 +36,17 @@ session_cache_expire();
 // Upgrading to version 2.7.6 (stable channel).
 //
 #composer
-require_once '../vendor/autoload.php';
+require '../vendor/autoload.php';
 
-include_once 'core/const.php';    // управляющие и служебные константы
+require_once 'core/const.php';    // управляющие и служебные константы
 
-include_once 'core/connect.php';    // DB_CONST
-include_once 'core/errors.php';   // обработка ошибок
-include_once 'core/orklang.php';  // строки текста
-include_once 'core/settings.php'; // настройки
-include_once 'core/functions.php';
-include_once 'core/headers.php';
-include_once 'core/tables.php';
+require_once 'core/connect.php';    // DB_CONST
+require_once 'core/errors.php';   // обработка ошибок
+require_once 'core/orklang.php';  // строки текста
+require_once 'core/settings.php'; // настройки
+require_once 'core/functions.php';
+require_once 'core/headers.php';
+require_once 'core/tables.php';
 
 // какая-то херня для теста производительности  ДБ
 $sc_1 = gmts();
@@ -74,9 +74,33 @@ $pdo_connect = array(
     'pass'           => DB_PASS,
     'db'             => DB_NAME,
     'host'           => DB_HOST,
-    'charset'        => 'utf8mb3',
+    'charset'        => 'utf8',
     'headersCharset' => 'utf8',
 );
+
+// $config = [
+//     'driver'    => 'mysql',
+//     'host'      => 'localhost',
+//     'database'  => 'test',
+//     'username'  => 'root',
+//     'password'  => '',
+//     'charset'   => 'utf8',
+//     'collation' => 'utf8_general_ci',
+//     'prefix'    => ''
+// ];
+$config = [
+    'driver'    => 'mysql',
+    'host'      => DB_HOST,
+    'database'  => DB_NAME,
+    'username'  => DB_USER,
+    'password'  => DB_PASS,
+    'charset'   => 'utf8',
+    'collation' => 'utf8_general_ci',
+    'prefix'    => DB_PRFX,
+];
+
+$db = new \Buki\Pdox($config);
+
 
 ### //init Smarty 5.1
 use Smarty\Smarty;
