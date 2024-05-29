@@ -11,7 +11,7 @@
         {if $smarty.section.tt.index == $tableSelectedIndex}
         {assign var=isSelected value="selected=selected"}{else}{assign var=isSelected value=""}
         {/if}
-        <option {$isSelected} value="{$smarty.section.tt.index}">{$allTablesNames[$smarty.section.tt.index]}</option>
+        <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
         {/section}
     </select>
     <button type="button" class="btn btn-dark w-100">Имортировать из БД<i class="bi bi-db"></i></button>

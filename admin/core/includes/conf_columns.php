@@ -1,7 +1,6 @@
 <?php
 ###default_dpt.php
 
-
 $page_message      = '';
 $page_message_type = 'success';
 $department        = $Departments[$current_dpt_index];
@@ -15,7 +14,9 @@ $smarty->assign('php_sub', $department_sub);
 ##############
 $allTablesNames = db_get_all_tables();
 
-$tableSelectedIndex = count($allTablesNames) - 1; ### -- ВРЕМЕННОО
+$tableSelectedIndex = array_search("ant_rbcolumns", $allTablesNames); ### -- ВРЕМЕННОО
+$tableSelectedIndex = array_search("trade_companies", $allTablesNames); ### -- ВРЕМЕННОО
+$tableSelectedIndex = count($allTablesNames) - 7; ### -- ВРЕМЕННОО
 
 $smarty->assign('allTablesNames', $allTablesNames);
 $smarty->assign('tableSelectedIndex', $tableSelectedIndex);
@@ -35,10 +36,8 @@ $rbcolumnsDefault = array(
     'sort'       => 'sort order',
     'inputType'  => 'DB Type',
     'enable'     => 'Включить',
-    'actions'    => 'Действия'
+    'actions'    => 'Действия',
 );
-
-
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
@@ -59,39 +58,49 @@ if (!is_null($table_name))
     {
         $cortages["{$name}"]['index']     = $ii;
         $cortages["{$name}"]['name']      = $name;
-        $cortages["{$name}"]['sqlType']      = $type;
+        $cortages["{$name}"]['sqlType']   = $type;
         $cortages["{$name}"]['inputType'] = getInputTemplate(strtolower($type));
         $ii++;
     }
 
-    cls();
-    jlog($cortages);
+    // cls();
+    // jlog($cortages);
 
     $nn = 0;
     foreach ($cortages as $key => $value)
     {
-        // code...
-        // dump("$key => $value");
-        $cd = R::dispense('rbcolumns');
 
-        $cd->tableName  = $table_name;
-        $cd->data       = $key;
-        $cd->db         = $key;
-        $cd->dt         = $key;
-        $cd->title      = "$key in $table_name";
-        $cd->visible    = 1;
-        $cd->searchable = 1;
-        $cd->orderable  = 1;
-        $cd->editable   = 1;
-        $cd->sort       = $nn * 10;
-        $cd->enable     = true;
-        $cd->actions    = null;
-        $cd->sqlType  = $value['sqlType'];
-        $cd->inputType  = $value['inputType'];
+        // $db->transaction();
+        $data = [
+            'table_name' => $table_name,
+            'data'       => $value['name'],
+            'db'         =>  $value['name'],
+            'dt'         =>  $value['index'],
+            'title'      => "$key in $table_name",
+            'visible'    => 1,
+            'searchable' => 1,
+            'orderable'  => 1,
+            'editable'   => 1,
+            'sort'       => $nn * 10,
+            'enable'     => true,
+            'actions'    => null,
+            'sql_type'   => $value['sqlType'],
+            'input_type' => $value['inputType'],
+        ];
+        $db->table('ant_rbcolumns')->insert($data);
+        // $db->table('ant_rbcolumns')->where('table_name', $table_name )->update($data);
+        // $db->commit();
 
         $nn++;
-        $id = R::store($cd);
-        jlog($id);
+
+
+        dump(
+            [
+                $db->insertId(),
+                $db->queryCount(),
+                $db->getQuery(),
+            ]
+        );
     }
 
     // dd($dbTableFields);
@@ -110,7 +119,7 @@ if (!is_null($table_name))
 
             $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
             $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
-            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int) $isSaved);
+            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
             $page_message_type = 'warning';
         }
 

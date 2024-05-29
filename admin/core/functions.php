@@ -33,7 +33,7 @@ function db_version()
 function get_microtime()
 {
     $t         = explode(' ', microtime());
-    $timestamp = date('Y-m-d H:i:s', $t[1]) . substr((string) $t[0], 1, 4);
+    $timestamp = date('Y-m-d H:i:s', $t[1]) . substr((string)$t[0], 1, 4);
     return $timestamp;
 }
 
@@ -407,4 +407,19 @@ function pluck(
         $out[] = $a[$i][$prop];
     }
     return $out;
+}
+
+function idxCol(
+    $columns,
+    $needle,
+    $prop = "dt"
+)
+{
+    $keys  = pluck($columns, $prop);
+    $index = 0;
+    if (($i = array_search($needle, ($keys))) !== false)
+    {
+        $index = $i;
+    }
+    return $index;
 }
