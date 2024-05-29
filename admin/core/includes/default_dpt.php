@@ -9,7 +9,7 @@ $department_sub    = $department['sub_departments'][$current_sub_index];
 
 $admin_page       = $department_sub['admin_page'];
 $table_name       = $department_sub['table_name'];
-$table_columns    = $department_sub['table_columns'];
+$columnsJsonFileName    = $department_sub['table_columns'];
 $table_primaryKey = $department_sub['table_primaryKey'];
 
 $OK                 = 0;
@@ -20,12 +20,12 @@ if (!is_null($table_name))
 {
     $dbTableFields = db_getColumnNames($table_name);
 
-    if (!is_null($table_columns))
+    if (!is_null($columnsJsonFileName))
     {
-        if (file_exists($table_columns))
+        if (file_exists($columnsJsonFileName))
         {
-            $jsonColumns  = file_get_contents($table_columns);
-            $page_message = 'datatables columns loaded from: ' . $table_columns . '';
+            $jsonColumns  = file_get_contents($columnsJsonFileName);
+            $page_message = 'datatables columns loaded from: ' . $columnsJsonFileName . '';
         }
         else
         {
@@ -34,8 +34,8 @@ if (!is_null($table_name))
             $dtColumnFieldNames = $dbTableFieldNames;
 
             $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
-            $isSaved           = file_put_contents($table_columns, $jsonColumns);
-            $page_message      = $table_columns . ' Is saved size: ' . format_size((int)$isSaved);
+            $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
+            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
             $page_message_type = 'warning';
         }
 
@@ -134,6 +134,6 @@ $smarty->assign('page_message_type', $page_message_type);
 // d(array(
 //     $admin_page,
 //     $table_name,
-//     $table_columns,
+//     $columnsJsonFileName,
 //     $table_primaryKey
 // ));

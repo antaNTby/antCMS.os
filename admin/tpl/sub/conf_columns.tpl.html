@@ -1,12 +1,12 @@
 <hr>
-<div class="d-flex align-items-center">
-<div class="form-check form-switch" title="Снять запрет">
+<div class="d-flex align-items-center gap-4">
+<div class="form-check form-switch align-items-center" title="Снять запрет">
     <input class="form-check-input" type="checkbox" role="switch" name="switcherFieldsetToggle" id="switcherFieldsetToggle" aria-labelledby="selectTableFieldset">
-    <label class="form-check-label px-3" for="switcherFieldsetToggle"><i class="bi bi-lock-fill text-secondary"></i></label>
+    <label class="form-check-label" for="switcherFieldsetToggle"><i class="bi bi-lock-fill text-secondary"></i></label>
 </div>
-<fieldset class="w-100 d-flex align-items-center" id="selectTableFieldset" disabled>
-    <label for="tableSelector" class="form-check-label text-nowrap me-2">Выбрать таблицу</label>
-    <select name="tableSelector" id="tableSelector" class="form-select me-2">
+<fieldset class="w-100 d-flex flex-column flex-md-row align-items-center gap-2" id="selectTableFieldset" disabled>
+    <label for="tableSelector" class="form-check-label text-nowrap">Выбрать таблицу</label>
+    <select name="tableSelector" id="tableSelector" class="form-select">
         {section name=tt loop=$allTablesNames}
         {if $smarty.section.tt.index == $tableSelectedIndex}
         {assign var=isSelected value="selected=selected"}{else}{assign var=isSelected value=""}
@@ -14,11 +14,12 @@
         <option {$isSelected} value="{$smarty.section.tt.index}">{$allTablesNames[$smarty.section.tt.index]}</option>
         {/section}
     </select>
-    <button type="button" class="btn btn-primary w-100 me-2">Выбрать (из json)<i class="bi bi-edit"></i></button>
+    <button type="button" class="btn btn-primary w-100">Выбрать (из json)<i class="bi bi-edit"></i></button>
     <button type="button" class="btn btn-danger w-100">Пересоздать по умолчанию <i class="bi bi-edit"></i></button>
 </fieldset>
 </div>
 <hr>
+<div class="table-responsive-md mb-4">
 <table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm">
     <thead class="table-secondary">
         <tr class="ant-text-rotated align-self-center align-middle text-center">
@@ -73,9 +74,10 @@
     <tfoot class="table-dark">
     </tfoot>
 </table>
+</div>
 <div class="shadow p-3 mb-5 mt-3 bg-body-tertiary rounded border border-1">
     <form class="p-3" action="save_defaultForm1">
-        <input type="text" id="jsonFN" value="{$table_columns}">
+        <input type="text" id="jsonFN" value="{$columnsJsonFileName}">
         <button class="btn btn-success btn-lg" id="btnSubmit" name="btnSubmit">save</button>
     </form>
 </div>
