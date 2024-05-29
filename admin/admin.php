@@ -92,7 +92,7 @@ if (in_array($dpt, $plucked_dpt_ids))
 
             $admin_page       = $department['sub_departments'][$current_sub_index]['admin_page'];
             $table_name       = $department['sub_departments'][$current_sub_index]['table_name'];
-            $columnsJsonFileName    = $department['sub_departments'][$current_sub_index]['table_columns'];
+            $columnsJsonFileName    = $department['sub_departments'][$current_sub_index]['columnsJsonFileName'];
             $table_primaryKey = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
             $sub_processor    = $department['sub_departments'][$current_sub_index]['sub_processor'];
             $sub_template     = $department['sub_departments'][$current_sub_index]['sub_template'];
@@ -111,7 +111,7 @@ if (in_array($dpt, $plucked_dpt_ids))
 
             $smarty->assign('admin_page', $admin_page);
             $smarty->assign('table_name', $table_name);
-            $smarty->assign('table_columns', $columnsJsonFileName);
+            $smarty->assign('columnsJsonFileName', $columnsJsonFileName);
             $smarty->assign('table_primaryKey', $table_primaryKey);
             $smarty->assign('sub_processor', $sub_processor);
             $smarty->assign('sub_template', $sub_template);

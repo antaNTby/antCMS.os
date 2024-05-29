@@ -13,7 +13,7 @@ switcherFieldsetToggle.addEventListener('change', function(event) {
         ico.className = "bi bi-unlock-fill text-primary";
     } else {
         fieldset.disabled = true;
-        ico.className = "bi bi-lock-fill text-secondary";
+        ico.className = "bi bi-lock-fill text-danger";
     }
 });
 selectEl.onchange = (event) => {

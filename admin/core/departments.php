@@ -36,13 +36,13 @@ foreach ($Departments as $dpt_key => $dep)
         if (array_key_exists($sub_id, $subsTables))
         {
             $value['table_name']       = $subsTables[$sub_id];
-            $value['table_columns']    = PATH_CONFIGS . $value['admin_page'] . '__columns.json';
+            $value['columnsJsonFileName']    = PATH_CONFIGS . $value['admin_page'] . '__columns.json';
             $value['table_primaryKey'] = $tablesPrimaryKeys[$value['table_name']];
         }
         else
         {
             $value['table_name']       = null;
-            $value['table_columns']    = null;
+            $value['columnsJsonFileName']    = null;
             $value['table_primaryKey'] = null;
         }
 

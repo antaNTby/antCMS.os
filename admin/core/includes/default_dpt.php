@@ -9,7 +9,7 @@ $department_sub    = $department['sub_departments'][$current_sub_index];
 
 $admin_page       = $department_sub['admin_page'];
 $table_name       = $department_sub['table_name'];
-$columnsJsonFileName    = $department_sub['table_columns'];
+$columnsJsonFileName    = $department_sub['columnsJsonFileName'];
 $table_primaryKey = $department_sub['table_primaryKey'];
 
 $OK                 = 0;
