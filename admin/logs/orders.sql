@@ -49,3 +49,56 @@ INSERT INTO `ant_orders` (`orderID`, `customerID`, `order_time`, `customer_ip`, 
 (2302,	1,	'2022-09-27 10:21:12',	'86.57.245.171',	NULL,	NULL,	NULL,	3,	0,	0,	200,	'BYN',	2.6,	'ADMIN',	'ADMIN',	'ADMIN',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	NULL,	NULL,	2,	3,	3,	2321,	1062,	'0',	0,	'Admin Order'),
 (2301,	1,	'2022-09-19 14:26:57',	'86.57.245.171',	NULL,	NULL,	NULL,	3,	0,	0,	46.3125,	'BYN',	2.56,	'ADMIN',	'ADMIN',	'ADMIN',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0,	NULL,	NULL,	2,	3,	3,	2548,	NULL,	'',	0,	'Admin Order'),
 (2300,	81467,	'2022-09-19 12:14:16',	'37.214.83.9',	'Бесплатная доставка',	'Счет-фактура и договор',	'',	3,	0,	0,	16.91,	'BYN',	2.56,	'Сергей',	'+375293251027',	'k-serega@yandex.ru',	'Сергей',	'+375293251027',	'Беларусь',	'7. Минск и Минский район',	'Минск',	'Минск, пр-т Партизанский 175а',	'Сергей',	'+375293251027',	'Беларусь',	'7. Минск и Минский район',	'Минск',	'Минск, пр-т Партизанский 175а',	'0',	'0',	'0',	'0',	81377,	'',	'30383be4fcbb3d23c16ccb94f2059a23256',	2,	2,	4,	0,	NULL,	NULL,	NULL,	NULL);
+
+
+-- Adminer 4.8.1 MySQL 5.7.39-log dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+SET NAMES utf8;
+
+DROP  TABLE `rbcolumns`;
+
+CREATE TABLE `rbcolumns` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `variant` int(11) unsigned DEFAULT 0,
+  `table_name` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  `data` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  `db` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  `dt` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  `visible` tinyint(1) unsigned DEFAULT NULL,
+  `searchable` tinyint(1) unsigned DEFAULT NULL,
+  `orderable` tinyint(1) unsigned DEFAULT NULL,
+  `editable` tinyint(1) unsigned DEFAULT NULL,
+  `sort` tinyint(1) unsigned DEFAULT NULL,
+  `enable` tinyint(1) unsigned DEFAULT NULL,
+  `actions` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+ALTER TABLE `rbcolumns`
+CHANGE `id` `id` int(11) unsigned NOT NULL COMMENT 'column_id' AUTO_INCREMENT FIRST,
+CHANGE `table_name` `table_name` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'table_name' AFTER `id`,
+CHANGE `data` `data` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'column name' AFTER `table_name`,
+CHANGE `db` `db` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'DB column name' AFTER `data`,
+CHANGE `dt` `dt` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'DataTables column name' AFTER `db`,
+CHANGE `title` `title` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'Заголовок' AFTER `dt`,
+CHANGE `visible` `visible` tinyint(1) unsigned NULL DEFAULT '1' COMMENT 'is visible' AFTER `title`,
+CHANGE `searchable` `searchable` tinyint(1) unsigned NULL DEFAULT '1' COMMENT 'is searchable' AFTER `visible`,
+CHANGE `orderable` `orderable` tinyint(1) unsigned NULL DEFAULT '1' COMMENT 'is orderable' AFTER `searchable`,
+CHANGE `editable` `editable` tinyint(1) unsigned NULL DEFAULT '0' COMMENT 'is editable' AFTER `orderable`,
+CHANGE `sort` `sort` tinyint(1) unsigned NULL COMMENT 'sort order' AFTER `editable`,
+CHANGE `enable` `enable` tinyint(1) unsigned NULL DEFAULT '1' COMMENT 'Включить' AFTER `sort`,
+CHANGE `actions` `actions` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'Действия' AFTER `enable`;
+
+ALTER TABLE `rbcolumns`
+RENAME TO `RBcolumns`,
+COLLATE 'utf8_general_ci';
+
+ALTER TABLE `rbcolumns`
+AUTO_INCREMENT=1000;

@@ -113,3 +113,35 @@ function showSubSmartyOutput(
         dump($smarty->getTemplateVars());
     }
 }
+
+function getInputTemplate($inputType)
+{
+    $res = 'error_input.tpl';
+
+    if ( str_starts_with ($inputType,"text")  ){
+        $res = 'single_textarea.tpl';
+    }
+    if ( str_starts_with ($inputType,"varchar")  ){
+        $res = 'single_inputtext.tpl';
+    }
+    if ( str_starts_with ($inputType,"int")  ){
+        $res = 'single_inputnumber.tpl';
+    }
+    if ( str_starts_with ($inputType,"tinyint")  ){
+        $res = 'single_inputnumber.tpl';
+    }
+    if ( str_starts_with ($inputType,"int(1)")  ){
+        $res = 'single_checkbox.tpl';
+    }
+    if ( str_starts_with ($inputType,"tinyint(1)")  ){
+        $res = 'single_checkbox.tpl';
+    }
+    if ( str_starts_with ($inputType,"datetime")  ){
+        $res = 'single_datetimepicker.tpl';
+    }
+    if ( str_starts_with ($inputType,"timestamp")  ){
+        $res = 'single_datetimepicker.tpl';
+    }
+
+    return $res;
+}

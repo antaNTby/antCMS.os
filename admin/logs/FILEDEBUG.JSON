@@ -1,152 +1,94 @@
+>>>>>>>>>> 2024-05-29 15:48:46.821 <<<<<<<<<<<<<<  
 __array__  ::  
-[
-    [
-        {
-            "id": "products_categories",
-            "name": "Таблица товаров",
-            "default": true
-        },
-        {
-            "id": "tree",
-            "name": "Дерево jsTREE"
-        }
-    ],
-    [
-        {
-            "id": "orders",
-            "name": "Журнал заказов и счетов"
-        },
-        {
-            "id": "companies",
-            "name": "Реквизиты Организаций"
-        },
-        {
-            "id": "contracts",
-            "name": "Шаблоны договоров"
-        },
-        {
-            "id": "custlist",
-            "name": "Покупатели",
-            "default": true
-        }
-    ],
-    [
-        {
-            "id": "currencies",
-            "name": "Типы валют",
-            "default": true
-        },
-        {
-            "id": "admin_edit",
-            "name": "Администраторы сайта"
-        },
-        {
-            "id": "settings",
-            "name": "Основные параметры"
-        },
-        {
-            "id": "shipping",
-            "name": "Варианты доставки"
-        },
-        {
-            "id": "payment",
-            "name": "Варианты оплаты"
-        }
-    ]
-]
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
-adminSSP:: function sql_exec :: An SQL error:
-SELECT ``
-             FROM `ant_currency_types`
-             
-             
-             
+{
+    "id": {
+        "index": 0,
+        "name": "id",
+        "sqlType": "int(11) unsigned",
+        "inputType": "single_inputnumber.tpl"
+    },
+    "table_name": {
+        "index": 1,
+        "name": "table_name",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "data": {
+        "index": 2,
+        "name": "data",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "db": {
+        "index": 3,
+        "name": "db",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "dt": {
+        "index": 4,
+        "name": "dt",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "title": {
+        "index": 5,
+        "name": "title",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "visible": {
+        "index": 6,
+        "name": "visible",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "searchable": {
+        "index": 7,
+        "name": "searchable",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "orderable": {
+        "index": 8,
+        "name": "orderable",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "editable": {
+        "index": 9,
+        "name": "editable",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "sort": {
+        "index": 10,
+        "name": "sort",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "enable": {
+        "index": 11,
+        "name": "enable",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "actions": {
+        "index": 12,
+        "name": "actions",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "input_type": {
+        "index": 13,
+        "name": "input_type",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    },
+    "sql_type": {
+        "index": 14,
+        "name": "sql_type",
+        "sqlType": "varchar(191)",
+        "inputType": "single_inputtext.tpl"
+    }
+}

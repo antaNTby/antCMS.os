@@ -7,10 +7,10 @@ $page_message_type = 'success';
 $department        = $Departments[$current_dpt_index];
 $department_sub    = $department['sub_departments'][$current_sub_index];
 
-$admin_page       = $department_sub['admin_page'];
-$table_name       = $department_sub['table_name'];
-$columnsJsonFileName    = $department_sub['columnsJsonFileName'];
-$table_primaryKey = $department_sub['table_primaryKey'];
+$admin_page          = $department_sub['admin_page'];
+$table_name          = $department_sub['table_name'];
+$columnsJsonFileName = $department_sub['columnsJsonFileName'];
+$table_primaryKey    = $department_sub['table_primaryKey'];
 
 $OK                 = 0;
 $saveNewJsonColumns = false;
@@ -18,7 +18,10 @@ $dtColumns          = array();
 
 if (!is_null($table_name))
 {
-    $dbTableFields = db_getColumnNames($table_name);
+    $dbTableFields     = db_getColumnNames($table_name);
+    $dbTableFieldNames = array_keys($dbTableFields); // выводим в логг все названия полей
+    $smarty->assign('dbTableFields', $dbTableFields);
+    $smarty->assign('dbTableFieldNames', $dbTableFieldNames);
 
     if (!is_null($columnsJsonFileName))
     {
@@ -29,13 +32,12 @@ if (!is_null($table_name))
         }
         else
         {
-                                                              // d('NO FILE');
-            $dbTableFieldNames  = array_keys($dbTableFields); // выводим в логг все названия полей
+            // d('NO FILE');
             $dtColumnFieldNames = $dbTableFieldNames;
 
             $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
             $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
-            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
+            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int) $isSaved);
             $page_message_type = 'warning';
         }
 
@@ -87,7 +89,7 @@ if ($OK && isset($_GET['operation']))
             'index' => $dtColumns[$columnIndex]['index'],
             'data'  => $dtColumns[$columnIndex]['data'],
             'db'    => $dtColumns[$columnIndex]['db'],
-            'dt'    => $dtColumns[$columnIndex]['dt'],
+            'dt'    => $dtColumns[$columnIndex]['dt']
         );
 
         if ($OK)
@@ -120,7 +122,7 @@ if ($OK && isset($_GET['operation']))
             'Column'       => $Column,
             'sql'          => $sql,
                                      // "editedID"=> (int)$editedID,
-             'phpDATA'      => $DATA, //as array
+            'phpDATA'      => $DATA //as array
         )));
     }
 
