@@ -25,20 +25,21 @@ $smarty->assign('allTablesNames', $allTablesNames);
 $smarty->assign('tableSelectedIndex', $tableSelectedIndex);
 
 $table_name    = $allTablesNames[$tableSelectedIndex];
-$table_columns    = PATH_CONFIGS . 'trade_companies' . '__columns.json';
+$columnsJsonFileName    = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey = 'companyID';
 
 if (!is_null($table_name))
 {
     $dbTableFields = db_getColumnNames($table_name);
-// dump($dbTableFields);
+    $smarty->assign('dbTableFields', $dbTableFields);
+dump($dbTableFields);
 
-    if (!is_null($table_columns))
+    if (!is_null($columnsJsonFileName))
     {
-        if (file_exists($table_columns))
+        if (file_exists($columnsJsonFileName))
         {
-            $jsonColumns  = file_get_contents($table_columns);
-            $page_message = 'datatables columns loaded from: ' . $table_columns . '';
+            $jsonColumns  = file_get_contents($columnsJsonFileName);
+            $page_message = 'datatables columns loaded from: ' . $columnsJsonFileName . '';
         }
         else
         {
@@ -47,8 +48,8 @@ if (!is_null($table_name))
             $dtColumnFieldNames = $dbTableFieldNames;
 
             $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
-            $isSaved           = file_put_contents($table_columns, $jsonColumns);
-            $page_message      = $table_columns . ' Is saved size: ' . format_size((int)$isSaved);
+            $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
+            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
             $page_message_type = 'warning';
         }
 
