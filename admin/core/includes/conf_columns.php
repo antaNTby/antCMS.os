@@ -139,23 +139,27 @@ INSERT|UPDATE
         ];
 // ALTER TABLE `ant_rbcolumns` CHANGE `sort` `sort_order` INT(11) UNSIGNED NULL DEFAULT NULL;
         $r = $db->table('ANT_RBCOLUMNS')->where($where)->orderBy('sort_order')->getAll();
-        // dump([$db->queryCount(), $db->getQuery(), $r]);
+        // dump([$db->queryCount(), $db->getQuery()]);
+        dump($r);
 // теперь нужно какждому полу дать controlSnippet
         $css = [];
         foreach ($r as $key => $value)
         {
-            dump(current($r));
 
-            $obj=
-            $css[$key]['title']           = $value->title;
-            $css[$key]['tpl']             = $value->input_type;
-            $css[$key]['params']['id']    = "{$value->data}_{$value->id}";
-            $css[$key]['params']['name']  = $key;
-            $css[$key]['params']['value'] = $value->data;
+            // $obj=
+            $css[$key]['title'] = $value->title;
+            $css[$key]['tpl']   = $value->input_type;
 
+            foreach ($value as $k => $v)
+            {
+                dump("$k - $v");
+                $css[$key]['params']['id']    = "{$value->$k}_{$value->id}";
+                $css[$key]['params']['name']  = $k;
+                $css[$key]['params']['value'] = $v;
+            }
         }
 
-        // dump($css);
+        dump($css);
     }
 
 /* 2 => {#32 ▼
