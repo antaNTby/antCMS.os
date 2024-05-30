@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ANT_RBCOLUMNS'))
+{
+    define('ANT_RBCOLUMNS', 'ant_rbcolumns');
+}
 if (!defined('SYSTEM_TABLE'))
 {
     define('SYSTEM_TABLE', DB_PRFX . 'system');

@@ -73,7 +73,7 @@ $pdo_connect = [
     'pass'           => DB_PASS,
     'db'             => DB_NAME,
     'host'           => DB_HOST,
-    'charset'        => 'utf8',
+    'charset'        => 'utf8mb4',
     'headersCharset' => 'utf8',
 ];
 
@@ -113,11 +113,13 @@ $config = [
 
 # Database Charset (optional)
      # default value: utf8
-     'charset'   => 'utf8',
+     // 'charset'   => 'utf8',
+     'charset'   => 'utf8mb4',
 
 # Database Charset Collation (optional)
      # default value: utf8_general_ci
-     'collation' => 'utf8_general_ci',
+     // 'collation' => 'utf8_general_ci',
+     'collation' => 'utf8mb4_unicode_ci',
 
 # Database Prefix (optional)
      # default value: null

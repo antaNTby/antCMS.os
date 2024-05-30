@@ -15,7 +15,8 @@ class antDataBase
         @self::$link = mysqli_connect($host, $user, $pass, $db)
         or exit('No connect (' . mysqli_connect_errno() . ') '
             . mysqli_connect_error());
-        mysqli_set_charset(self::$link, 'utf8');
+        // mysqli_set_charset(self::$link, 'utf8');
+        mysqli_set_charset(self::$link, 'utf8mb4');
         return self::$link;
     }
 
@@ -27,7 +28,8 @@ class antDataBase
         }
         else
         {
-            mysqli_set_charset(self::$link, 'utf8');
+            // mysqli_set_charset(self::$link, 'utf8');
+            mysqli_set_charset(self::$link, 'utf8mb4');
             $data = mysqli_real_escape_string(self::$link, $data);
         }
 

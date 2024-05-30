@@ -142,8 +142,8 @@ function db_multiquery(
 {
 // console(  $chunk );
     $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-    $mysqli->set_charset('utf8mb3');
-    // $mysqli->set_charset( "utf8mb4" );
+    // $mysqli->set_charset('utf8mb3');
+    $mysqli->set_charset( "utf8mb4" );
     if (mysqli_connect_errno())
     {
         consolelog('db_multiquery :: connect_error: ' . mysqli_connect_error());

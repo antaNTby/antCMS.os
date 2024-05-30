@@ -5,7 +5,7 @@
     <label class="form-check-label" for="switcherFieldsetToggle"><i class="bi bi-lock-fill text-danger"></i></label>
 </div>
 <fieldset class="w-100 d-flex flex-column flex-md-row align-items-center gap-2" id="selectTableFieldset" disabled>
-    <label for="tableSelector" class="form-check-label text-nowrap">Выбрать таблицу</label>
+    <label for="tableSelector" class="form-check-label text-nowrap">Выбрать таблицу {$tableSelectedIndex}</label>
     <select name="tableSelector" id="tableSelector" class="form-select">
         {section name=tt loop=$allTablesNames}
         {if $smarty.section.tt.index == $tableSelectedIndex}
@@ -14,9 +14,9 @@
         <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
         {/section}
     </select>
-    <button type="button" class="btn btn-dark w-100">Имортировать из БД<i class="bi bi-db"></i></button>
-    <button type="button" class="btn btn-primary w-100">Имортировать из `*__columns.json`<i class="bi bi-edit"></i></button>
-    <button type="button" class="btn btn-danger w-100">Переписать `*__columns.json` <i class="bi bi-edit"></i></button>
+    <button type="button" class="btn btn-dark w-100 text-nowrap">Имортировать из БД<i class="bi bi-db"></i></button>
+    <button type="button" class="btn btn-primary w-100 text-nowrap">Импортировать из `*__columns.json`<i class="bi bi-edit"></i></button>
+    <button type="button" class="btn btn-danger w-100 text-nowrap">Переписать `*__columns.json` <i class="bi bi-edit"></i></button>
 </fieldset>
 </div>
 <hr>
