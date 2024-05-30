@@ -60,9 +60,9 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8;
 
-DROP  TABLE `rbcolumns`;
+DROP  TABLE `ant_rbcolumns`;
 
-CREATE TABLE `rbcolumns` (
+CREATE TABLE `ant_rbcolumns` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `variant` int(11) unsigned DEFAULT 0,
   `table_name` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE `rbcolumns` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
-ALTER TABLE `rbcolumns`
+ALTER TABLE `ant_rbcolumns`
 CHANGE `id` `id` int(11) unsigned NOT NULL COMMENT 'column_id' AUTO_INCREMENT FIRST,
 CHANGE `table_name` `table_name` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'table_name' AFTER `id`,
 CHANGE `data` `data` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'column name' AFTER `table_name`,
@@ -96,9 +96,9 @@ CHANGE `sort` `sort` tinyint(1) unsigned NULL COMMENT 'sort order' AFTER `editab
 CHANGE `enable` `enable` tinyint(1) unsigned NULL DEFAULT '1' COMMENT 'Включить' AFTER `sort`,
 CHANGE `actions` `actions` varchar(255) COLLATE 'utf8_general_ci' NULL COMMENT 'Действия' AFTER `enable`;
 
-ALTER TABLE `rbcolumns`
-RENAME TO `RBcolumns`,
+ALTER TABLE `ant_rbcolumns`
+RENAME TO `ant_RBcolumns`,
 COLLATE 'utf8_general_ci';
 
-ALTER TABLE `rbcolumns`
+ALTER TABLE `ant_rbcolumns`
 AUTO_INCREMENT=1000;

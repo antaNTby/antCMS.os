@@ -74,7 +74,7 @@ $pdo_connect = array(
     'db'             => DB_NAME,
     'host'           => DB_HOST,
     'charset'        => 'utf8',
-    'headersCharset' => 'utf8',
+    'headersCharset' => 'utf8'
 );
 
 // $config = [
@@ -87,47 +87,49 @@ $pdo_connect = array(
 //     'collation' => 'utf8_general_ci',
 //     'prefix'    => ''
 // ];
-$config = [
+$config = array(
     # Database Driver Type (optional)
-     # default value: mysql
-     # values: mysql, pgsql, sqlite, oracle
-     'driver'    => 'mysql',
+    # default value: mysql
+    # values: mysql, pgsql, sqlite, oracle
+    'driver'    => 'mysql',
 
 # Host name or IP Address (optional)
-     # hostname:port (for Port Usage. Example: 127.0.0.1:1010)
-     # default value: localhost
-     'host'      => DB_HOST,
+    # hostname:port (for Port Usage. Example: 127.0.0.1:1010)
+    # default value: localhost
+    'host'      => DB_HOST,
 
 # IP Address for Database Host (optional)
-     # default value: null
-     'port'      => 3306,
+    # default value: null
+    'port'      => 3306,
 
 # Database Name (required)
-     'database'  => DB_NAME,
+    'database'  => DB_NAME,
 
 # Database User Name (required)
-     'username'  => DB_USER,
+    'username'  => DB_USER,
 
 # Database User Password (required)#
-     'password'  => DB_PASS,
+    'password'  => DB_PASS,
 
 # Database Charset (optional)
-     # default value: utf8
-     'charset'   => 'utf8',
+    # default value: utf8
+    'charset'   => 'utf8',
 
 # Database Charset Collation (optional)
-     # default value: utf8_general_ci
-     'collation' => 'utf8_general_ci',
+    # default value: utf8_general_ci
+    'collation' => 'utf8_general_ci',
 
 # Database Prefix (optional)
-     # default value: null
-     // 'prefix'    => DB_PRFX,
-     'prefix'    => null,
+    # default value: null
+    // 'prefix'    => DB_PRFX,
+    'prefix'    => null,
 
 # Cache Directory of the Sql Result (optional)
-     # default value: __DIR__ . '/cache/'
-     'cachedir'  => __DIR__ . '/cache/sql/',
-];
+    # default value: __DIR__ . '/cache/'
+    'cachedir'  => __DIR__ . '/cache/sql/',
+    # default value: true
+    'debug'     => true
+);
 
 $db = new \Buki\Pdox($config);
 
@@ -153,7 +155,7 @@ define('PATH_DELIMITER', isWindows() ? ';' : ':');
 
 $dird = dirname($_SERVER['PHP_SELF']); // "/admin"
                                        // $sourcessrandd = array('//' => '/', '\\' => '/');
-$dird = strtr($dird, ['//' => '/', '\\' => '/']);
+$dird = strtr($dird, array('//' => '/', '\\' => '/'));
 if ($dird != '/')
 {
     $dirf = '/';
@@ -173,7 +175,7 @@ define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 @ini_set('magic_quotes_runtime', 0);
 @ini_set('register_globals', 0);
 @ini_set('display_errors', 0); // вместо этого set_error_handler('errorHandler');
-// error_reporting(1);
+                               // error_reporting(1);
 set_error_handler('errorHandler');
 register_shutdown_function('shutdownHandler');
 error_reporting(E_ALL & ~E_NOTICE);

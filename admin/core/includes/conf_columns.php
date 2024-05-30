@@ -1,10 +1,10 @@
 <?php
 ###default_dpt.php
 
-$page_message      = '';
+$page_message = '';
 $page_message_type = 'success';
-$department        = $Departments[$current_dpt_index];
-$department_sub    = $department['sub_departments'][$current_sub_index];
+$department = $Departments[$current_dpt_index];
+$department_sub = $department['sub_departments'][$current_sub_index];
 
 $smarty->assign('page_message', $page_message);
 $smarty->assign('page_message_type', $page_message_type);
@@ -14,174 +14,145 @@ $smarty->assign('php_sub', $department_sub);
 ##############
 $allTablesNames = db_get_all_tables();
 
-$tableSelectedIndex = array_search("ant_rbcolumns", $allTablesNames); ### -- ВРЕМЕННОО
-$tableSelectedIndex = array_search("trade_companies", $allTablesNames); ### -- ВРЕМЕННОО
-$tableSelectedIndex = count($allTablesNames) - 7; ### -- ВРЕМЕННОО
+// $tableSelectedIndex = array_search('ant_rbcolumns', $allTablesNames); ### -- ВРЕМЕННОО
+
+// $tableSelectedIndex = array_search('trade_companies', $allTablesNames); ### -- ВРЕМЕННОО
+// $tableSelectedIndex = count($allTablesNames) - 7; ### -- ВРЕМЕННОО
+
+$tableSelectedIndex = 0;
+$tableSelectedIndex = $_GET['tableSelector'] ?? 0;
+
+if ($tableSelectedIndex > count($allTablesNames)) {
+    $tableSelectedIndex = 0;}
 
 $smarty->assign('allTablesNames', $allTablesNames);
+
 $smarty->assign('tableSelectedIndex', $tableSelectedIndex);
 
 $table_name = $allTablesNames[$tableSelectedIndex];
 
-$rbcolumnsDefault = array(
+$rbcolumnsDefault = [
     'table_name' => 'table_name',
-    'data'       => 'column name',
-    'db'         => 'DB column name',
-    'dt'         => 'DataTables column name',
-    'title'      => 'Заголовок',
-    'visible'    => 'is visible',
+    'data' => 'column name',
+    'db' => 'DB column name',
+    'dt' => 'DataTables column name',
+    'title' => 'Заголовок',
+    'visible' => 'is visible',
     'searchable' => 'is searchable',
-    'orderable'  => 'is orderable',
-    'editable'   => 'is editable',
-    'sort'       => 'sort order',
-    'inputType'  => 'DB Type',
-    'enable'     => 'Включить',
-    'actions'    => 'Действия',
-);
+    'orderable' => 'is orderable',
+    'editable' => 'is editable',
+    'sort' => 'sort order',
+    'inputType' => 'DB Type',
+    'enable' => 'Включить',
+    'actions' => 'Действия',
+];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
-$table_primaryKey    = 'companyID';
+$table_primaryKey = 'companyID';
 
-if (!is_null($table_name))
-{
-    $dbTableFields     = db_getColumnNames($table_name);
-    $dbTableFieldNames = array_keys($dbTableFields);   // выводим в логг все названия полей
+if (!is_null($table_name)) {
+    $dbTableFields = db_getColumnNames($table_name);
+    $dbTableFieldNames = array_keys($dbTableFields); // выводим в логг все названия полей
     $dbTableFieldTypes = array_values($dbTableFields); // выводим в логг все названия полей
     $smarty->assign('dbTableFields', $dbTableFields);
     $smarty->assign('dbTableFieldNames', $dbTableFieldNames);
     $smarty->assign('dbTableFieldTypes', $dbTableFieldTypes);
 
-    $cortages = array();
-    dump($dbTableFields);
+    $cortages = [];
+    // dump($dbTableFields);
     $ii = 0;
-    foreach ($dbTableFields as $name => $type)
-    {
-        $cortages["{$name}"]['index']     = $ii;
-        $cortages["{$name}"]['name']      = $name;
-        $cortages["{$name}"]['sqlType']   = $type;
+
+    foreach ($dbTableFields as $name => $type) {
+        $cortages["{$name}"]['index'] = $ii;
+        $cortages["{$name}"]['name'] = $name;
+        $cortages["{$name}"]['sqlType'] = $type;
         $cortages["{$name}"]['inputType'] = getInputTemplate(strtolower($type));
         $ii++;
     }
 
-    // cls();
+// cls();
     // jlog($cortages);
 
     $nn = 0;
-    foreach ($cortages as $key => $value)
-    {
 
-        // $db->transaction();
+    foreach ($cortages as $key => $value) {
         $data = [
             'table_name' => $table_name,
-            'data'       => $value['name'],
-            'db'         =>  $value['name'],
-            'dt'         =>  $value['index'],
-            'title'      => "$key in $table_name",
-            'visible'    => 1,
+            'data' => $value['name'],
+            'db' => $value['name'],
+            'dt' => $value['index'],
+            'title' => "$key in $table_name",
+            'visible' => 1,
             'searchable' => 1,
-            'orderable'  => 1,
-            'editable'   => 1,
-            'sort'       => $nn * 10,
-            'enable'     => true,
-            'actions'    => null,
-            'sql_type'   => $value['sqlType'],
+            'orderable' => 0,
+            'editable' => 0,
+            'sort' => $nn * 100,
+            'enable' => true,
+            'actions' => null,
+            'sql_type' => $value['sqlType'],
             'input_type' => $value['inputType'],
         ];
-        $db->table('ant_rbcolumns')->insert($data);
-        // $db->table('ant_rbcolumns')->where('table_name', $table_name )->update($data);
-        // $db->commit();
+
+        $where = [
+            'table_name' => $table_name,
+            'data' => $value['name'],
+        ];
+
+        $r = $db->table('ant_rbcolumns')->count('id', 'ccount')->where($where)->get();
+        $doInsert = $r->ccount;
+
+        if ((int) $doInsert == 0) {
+            $r = $db->table('ant_rbcolumns')->insert($data);
+        } else {
+            $r = $db->table('ant_rbcolumns')->where($where)->update($data);
+        }
 
         $nn++;
 
-
-        dump(
-            [
-                $db->insertId(),
-                $db->queryCount(),
-                $db->getQuery(),
-            ]
-        );
+        // dump(array($db->queryCount(), $db->getQuery()));
     }
 
-    // dd($dbTableFields);
+// dump(
 
-    if (!is_null($columnsJsonFileName))
-    {
-        if (file_exists($columnsJsonFileName))
-        {
-            $jsonColumns  = file_get_contents($columnsJsonFileName);
+//     array(
+
+//         $doInsert,
+
+//         $where,
+
+//         $db->insertId(),
+
+//         $db->queryCount(),
+
+//         $db->getQuery()
+
+//     )
+
+// );
+
+// dd($dbTableFields);
+
+    if (!is_null($columnsJsonFileName)) {
+        if (file_exists($columnsJsonFileName)) {
+            $jsonColumns = file_get_contents($columnsJsonFileName);
             $page_message = 'datatables columns loaded from: ' . $columnsJsonFileName . '';
-        }
-        else
-        {
+        } else {
             // d('NO FILE');
             $dtColumnFieldNames = $dbTableFieldNames;
 
-            $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
-            $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
-            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
+            $jsonColumns = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
+            $isSaved = file_put_contents($columnsJsonFileName, $jsonColumns);
+            $page_message = $columnsJsonFileName . ' Is saved size: ' . format_size((int) $isSaved);
             $page_message_type = 'warning';
         }
 
-        $dtColumns = json_decode($jsonColumns, true); //as array
+        $dtColumns = json_decode($jsonColumns, true);
+//as array
 
-        if (!is_null($table_primaryKey))
-        {
-            $dbTable    = $table_name;
+        if (!is_null($table_primaryKey)) {
+            $dbTable = $table_name;
             $primaryKey = $table_primaryKey;
-            $OK         = 1;
+            $OK = 1;
         }
     }
 }
-
-/*
-$attributes = array(
-'a'  => 111,
-'ab' => 222,
-'ac' => 'dd'
-);
-
-$smarty->assign('attributes', $attributes);
-
-$db_check_p = array(
-
-'class_div'       => 'p-1 d-flex justify-content-center',
-'id'              => 'is',
-// 'class_add'       => 'h5',
-'name'            => 'test0',
-'value'           => 1,
-'aria_label'      => 0,
-'isDisabled'      => 0,
-'isChecked'       => 1,
-'isIndeterminate' => 0
-
-);
-$db_check_p2 = array(
-
-'class_div'       => 'p-1 d-flex justify-content-center',
-'id'              => 'ijjs',
-// 'class_add'       => 'h4',
-// 'class_add_label' => 'h4',
-'name'            => 'test01',
-'value'           => 0,
-'aria_label'      => 0,
-'isDisabled'      => 0,
-'isChecked'       => 0,
-'isIndeterminate' => 1
-
-);
-$smarty->assign('db_check_p', $db_check_p);
-$smarty->assign('db_check_p2', $db_check_p2);
-
-// create template object with its private variable scope
-$tpl = $smarty->createTemplate('cs/single_inputtext.tpl');
-
-$tpl->assign('label', "Бабель");
-$tpl->assign('p',$db_check_p2);
-$tpl->assign('dataset',$attributes);
-
-// display the template
-$tpl->display();
- */
-// $myTestControlSnippet = $tpl->fetch('cs/single_inputtext.tpl.html');
-// dump($myTestControlSnippet);
