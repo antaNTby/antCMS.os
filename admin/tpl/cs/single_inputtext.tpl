@@ -17,6 +17,7 @@
  data-{$key}="{$item}"
  {/foreach}
  {/if}
+ value="{$p.value}"
  placeholder="Type{if isset($datalist) && is_array($datalist)} | Select{/if} ...">
 
 
