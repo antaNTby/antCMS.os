@@ -28,7 +28,7 @@ if (!defined('INVOICES_TABLE'))
 if (!defined('NEWINVOICES_TABLE'))
 {
 
-    define('NEWINVOICES_TABLE', 'nano_'. 'invoices');
+    define('NEWINVOICES_TABLE', 'nano_' . 'invoices');
 }
 
 if (!defined('CATEGORIES_TABLE'))
@@ -55,7 +55,6 @@ if (!defined('CURRENCY_TYPES_TABLE'))
     define('CURRENCY_TYPES_TABLE', DB_PRFX . 'currency_types');
 }
 
-
 if (!defined('ONLINE_TABLE'))
 {
 
@@ -68,13 +67,11 @@ if (!defined('ORDERED_CARTS_TABLE'))
     define('ORDERED_CARTS_TABLE', DB_PRFX . 'ordered_carts');
 }
 
-
 if (!defined('PRODUCTS_TABLE'))
 {
 
     define('PRODUCTS_TABLE', DB_PRFX . 'products');
 }
-
 
 if (!defined('SHOPPING_CARTS_TABLE'))
 {

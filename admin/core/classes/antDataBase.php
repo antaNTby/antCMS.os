@@ -50,7 +50,7 @@ class antDataBase
             $error = mysqli_error(self::$link);
             $trace = debug_backtrace();
 
-            $out = array(1 => '');
+            $out = [1 => ''];
 
             if (!empty($error))
             {

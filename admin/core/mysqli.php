@@ -58,7 +58,7 @@ function db_query(
     }
 
     $scriptv = db_gmts();
-    $res     = array();
+    $res     = [];
     if ($speedtest)
     {
         global $relaccess;
@@ -85,14 +85,14 @@ function db_query(
 
     if (($res['resource'] === false) or $speedtest)
     {
-        $out = array(
+        $out = [
             'ERR_NO' => mysqli_errno($DB->link),
             'SQL'    => $s,
             'ERROR'  => mysqli_error($DB->link),
             'Link'   => str_replace('/', '\\', $_SERVER['REQUEST_URI']),
             'Date'   => date('Y-m-d h:i:s'),
 
-        );
+        ];
         if ($speedtest)
         {
             $out['speedtest'] = $queryTime;
@@ -109,8 +109,8 @@ function db_query(
         // die('Wrong database query!');
     }
 
-    $res['columns'] = array();
-    $column_index = 0;
+    $res['columns'] = [];
+    $column_index   = 0;
 
     if (!is_bool($res["resource"]))
     {
@@ -201,7 +201,7 @@ function db_error()
 function db_get_all_tables()
 {
     $q   = db_query('show tables');
-    $res = array();
+    $res = [];
     while ($row = db_fetch_row($q))
     {
         $res[] = strtolower($row[0]);
@@ -212,7 +212,7 @@ function db_get_all_tables()
 
 function db_get_all_ss_tables($xmlFileName)
 {
-    $res               = array();
+    $res               = [];
     $tables            = db_get_all_tables();
     $xmlNodeTableArray = GetXmlTableNodeArray($xmlFileName);
     foreach ($xmlNodeTableArray as $xmlNodeTable)
@@ -319,7 +319,7 @@ function db_getColumns(
     $lowerCase = false
 )
 {
-    $Columns = array();
+    $Columns = [];
     $sql     = '
                 SHOW COLUMNS FROM `' . $_TableName . '`
         ';
@@ -342,7 +342,7 @@ function db_getColumnNames(
     $lowerCase = false
 )
 {
-    $Columns = array();
+    $Columns = [];
     $sql     = '
                 SHOW COLUMNS FROM `' . $_TableName . '`
         ';

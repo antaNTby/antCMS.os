@@ -401,7 +401,7 @@ function pluck(
     $prop
 )
 {
-    $out = array();
+    $out = [];
     for ($i = 0, $len = count($a); $i < $len; $i++)
     {
         $out[] = $a[$i][$prop];

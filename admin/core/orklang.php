@@ -31,7 +31,7 @@ const LANG_JSTREE               = "Дерево jsTREE";                        
 const LANG_ADMINISTRATE_LINK    = 'Admin';                                       //    {$smarty.const.LANG_ADMINISTRATE_LINK}
 const LANG_ADMIN_BACK_TO_SHOP   = 'Shop';                                        //    {$smarty.const.LANG_ADMIN_BACK_TO_SHOP}
 const LANG_ADMIN_LOGOUT_LINK    = 'Log-out';                                     //    {$smarty.const.LANG_ADMIN_LOGOUT_LINK}
-const LANG_ACCESS_DENY          = 'Доступ запрещен';                                     //    {$smarty.const.LANG_ADMIN_LOGOUT_LINK}
+const LANG_ACCESS_DENY          = 'Доступ запрещен';               //    {$smarty.const.LANG_ADMIN_LOGOUT_LINK}
 
 const LANG_ERROR_CANT_FIND_REQUIRED_PAGE_ADMIN_DES = "Страница не найдена!";               //    {$smarty.const.LANG_ERROR_CANT_FIND_REQUIRED_PAGE_ADMIN_DES}
 const LANG_ERROR_CANT_FIND_REQUIRED_PAGE_ADMIN     = "Перейти на главную страницу"; //    {$smarty.const.LANG_ERROR_CANT_FIND_REQUIRED_PAGE_ADMIN}

@@ -27,7 +27,7 @@ function value($variable)
     elseif (is_int($variable))
     {
         $res .= "<b>integer</b>\n";
-        $res .= (string) $variable;
+        $res .= (string)$variable;
     }
     elseif (is_bool($variable))
     {
@@ -44,12 +44,12 @@ function value($variable)
     elseif (is_string($variable))
     {
         $res .= "<b>string</b>\n";
-        $res .= "'" . (string) $variable . "'";
+        $res .= "'" . (string)$variable . "'";
     }
     elseif (is_float($variable))
     {
         $res .= "<b>float</b>\n";
-        $res .= (string) $variable;
+        $res .= (string)$variable;
     }
 
     return $res;
@@ -167,8 +167,8 @@ function debugfile(
 
 function xHtmlSpecialCharsDecode(
     $_Data,
-    $_Params = array(),
-    $_Key = array()
+    $_Params = [],
+    $_Key = []
 )
 {
     if (is_null($_Data))
@@ -191,7 +191,7 @@ function xHtmlSpecialCharsDecode(
 
     if (!is_array($_Key))
     {
-        $_Key = array($_Key);
+        $_Key = [$_Key];
     }
 
     foreach ($_Data as $__Key => $__Data)

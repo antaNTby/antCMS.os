@@ -90,17 +90,16 @@ if (in_array($dpt, $plucked_dpt_ids))
             // $smarty->assign('plucked_sub_ids', $plucked_sub_ids);
             // $smarty->assign('plucked_sub_names', $plucked_sub_names);
 
-            $admin_page       = $department['sub_departments'][$current_sub_index]['admin_page'];
-            $table_name       = $department['sub_departments'][$current_sub_index]['table_name'];
-            $columnsJsonFileName    = $department['sub_departments'][$current_sub_index]['columnsJsonFileName'];
-            $table_primaryKey = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
-            $sub_processor    = $department['sub_departments'][$current_sub_index]['sub_processor'];
-            $sub_template     = $department['sub_departments'][$current_sub_index]['sub_template'];
-
+            $admin_page          = $department['sub_departments'][$current_sub_index]['admin_page'];
+            $table_name          = $department['sub_departments'][$current_sub_index]['table_name'];
+            $columnsJsonFileName = $department['sub_departments'][$current_sub_index]['columnsJsonFileName'];
+            $table_primaryKey    = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
+            $sub_processor       = $department['sub_departments'][$current_sub_index]['sub_processor'];
+            $sub_template        = $department['sub_departments'][$current_sub_index]['sub_template'];
 
             if (file_exists($sub_processor))
             {
-                require  $sub_processor;
+                require $sub_processor;
                 $smarty->assign('admin_main_content_template', $sub_template);
             }
             else

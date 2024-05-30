@@ -71,7 +71,7 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function(settings) {
                 let oldValue = cell.data();
                 cell.data(newValue);
                 //Return cell & row.
-                settings.onUpdate(cell, row, oldValue,columnIndex);
+                settings.onUpdate(cell, row, oldValue, columnIndex);
             }
 
             // Get current page
@@ -262,7 +262,7 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
                 }
             });
             html = startWrapperHtml;
-            html += "<select data-currentColumnIndex='"+currentColumnIndex+"'ata-id='editedCell' class='" + inputCss + "'" + _onchangeEvent_ + ">"; //
+            html += "<select data-currentColumnIndex='" + currentColumnIndex + "'ata-id='editedCell' class='" + inputCss + "'" + _onchangeEvent_ + ">"; //
             html += htmlOptions;
             html += "</select>";
             html += antToolbar;
@@ -294,25 +294,25 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
             //     }, 100);
             //     break;
         case "text-confirm": // text input w/ confirm
-            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         case "undefined-confirm": // text input w/ confirm
-            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         case "textarea":
-            input.html = startWrapperHtml + "<textarea data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "'" + _onfocusoutEvent_ + ">" + oldValue + "</textarea>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<textarea data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' class='" + inputCss + "'" + _onfocusoutEvent_ + ">" + oldValue + "</textarea>" + endWrapperHtml;
             break;
         case "textarea-confirm":
-            input.html = startWrapperHtml + "<textarea data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "'>" + oldValue + "</textarea>" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<textarea data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' class='" + inputCss + "'>" + oldValue + "</textarea>" + antToolbar + endWrapperHtml;
             break;
         case "number":
-            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' type='number' class='" + inputCss + "' value='" + oldValue + "'>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' type='number' class='" + inputCss + "' value='" + oldValue + "'>" + endWrapperHtml;
             break;
         case "number-confirm":
-            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' type='number' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' type='number' class='" + inputCss + "' value='" + oldValue + "'" + _onKeyupEvent_ + ">" + antToolbar + endWrapperHtml;
             break;
         default: // text input
-            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='"+currentColumnIndex+"' class='" + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'>" + endWrapperHtml;
+            input.html = startWrapperHtml + "<input data-id='editedCell' data-currentColumnIndex='" + currentColumnIndex + "' class='" + inputCss + "' onfocusout='$(this).updateEditableCell(this)' value='" + oldValue + "'>" + endWrapperHtml;
             break;
     }
     return input;

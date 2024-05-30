@@ -4,11 +4,11 @@
 
 require PATH_DESCRIPTIONS . 'adminDepartmensDescription.php';
 
-$ads                   = UI_DEPARTMENTS;
-$subsTables            = UI_TABLES;
+$ads               = UI_DEPARTMENTS;
+$subsTables        = UI_TABLES;
 $tablesPrimaryKeys = TABLES_PRIMARY_KEYS;
 
-$Departments = array();
+$Departments = [];
 foreach ($ads as $key => $department)
 {
     $Departments = sortByField($department, $Departments);
@@ -35,15 +35,15 @@ foreach ($Departments as $dpt_key => $dep)
 
         if (array_key_exists($sub_id, $subsTables))
         {
-            $value['table_name']       = $subsTables[$sub_id];
-            $value['columnsJsonFileName']    = PATH_CONFIGS . $value['admin_page'] . '__columns.json';
-            $value['table_primaryKey'] = $tablesPrimaryKeys[$value['table_name']];
+            $value['table_name']          = $subsTables[$sub_id];
+            $value['columnsJsonFileName'] = PATH_CONFIGS . $value['admin_page'] . '__columns.json';
+            $value['table_primaryKey']    = $tablesPrimaryKeys[$value['table_name']];
         }
         else
         {
-            $value['table_name']       = null;
-            $value['columnsJsonFileName']    = null;
-            $value['table_primaryKey'] = null;
+            $value['table_name']          = null;
+            $value['columnsJsonFileName'] = null;
+            $value['table_primaryKey']    = null;
         }
 
         $sub_departments[$key] = $value;
@@ -54,7 +54,7 @@ foreach ($Departments as $dpt_key => $dep)
 }
 
 // $Departments_count = count($Departments);
-$Departments_type  = gettype($Departments[0]['id']);
+$Departments_type = gettype($Departments[0]['id']);
 
 $smarty->assign('Departments', $Departments);
 // $smarty->assign('Departments_count', $Departments_count);

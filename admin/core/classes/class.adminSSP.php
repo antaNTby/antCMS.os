@@ -33,19 +33,25 @@ class adminSSP
     public static function data_output(
         $columns,
         $data
-    ) {
-        $out = array();
+    )
+    {
+        $out = [];
 
-        for ($i = 0, $ien = count($data); $i < $ien; $i++) {
-            $row = array();
+        for ($i = 0, $ien = count($data); $i < $ien; $i++)
+        {
+            $row = [];
 
-            for ($j = 0, $jen = count($columns); $j < $jen; $j++) {
+            for ($j = 0, $jen = count($columns); $j < $jen; $j++)
+            {
                 $column = $columns[$j];
 
                 // Is there a formatter?
-                if (isset($column['formatter'])) {
+                if (isset($column['formatter']))
+                {
                     $row[$column['dt']] = $column['formatter']($data[$i][$column['db']], $data[$i]);
-                } else {
+                }
+                else
+                {
                     $row[$column['dt']] = $data[$i][$columns[$j]['db']];
                 }
             }
@@ -71,7 +77,8 @@ class adminSSP
      */
     public static function db($conn)
     {
-        if (is_array($conn)) {
+        if (is_array($conn))
+        {
             return self::sql_connect($conn);
         }
 
@@ -90,10 +97,12 @@ class adminSSP
     public static function limit(
         $request,
         $columns
-    ) {
+    )
+    {
         $limit = '';
 
-        if (isset($request['start']) && $request['length'] != -1) {
+        if (isset($request['start']) && $request['length'] != -1)
+        {
             $limit = "LIMIT " . intval($request['start']) . ", " . intval($request['length']);
         }
 
@@ -112,26 +121,31 @@ class adminSSP
     public static function order(
         $request,
         $columns
-    ) {
+    )
+    {
         $order = '';
 
-        if (isset($request['order']) && count($request['order'])) {
-            $orderBy   = array();
+        if (isset($request['order']) && count($request['order']))
+        {
+            $orderBy   = [];
             $dtColumns = self::pluck($columns, 'dt');
-            for ($i = 0, $ien = count($request['order']); $i < $ien; $i++) {
+            for ($i = 0, $ien = count($request['order']); $i < $ien; $i++)
+            {
                 // Convert the column index into the column data property
                 $columnIdx     = intval($request['order'][$i]['column']);
                 $requestColumn = $request['columns'][$columnIdx];
                 $columnIdx     = array_search($requestColumn['data'], $dtColumns);
                 $column        = $columns[$columnIdx];
-                if ($requestColumn['orderable'] == 'true') {
+                if ($requestColumn['orderable'] == 'true')
+                {
                     $dir = $request['order'][$i]['dir'] === 'asc' ?
                     'ASC' :
                     'DESC';
                     $orderBy[] = '`' . $column['db'] . '` ' . $dir;
                 }
             }
-            if (count($orderBy)) {
+            if (count($orderBy))
+            {
                 $order = 'ORDER BY ' . implode(', ', $orderBy);
             }
         }
@@ -157,20 +171,24 @@ class adminSSP
         $request,
         $columns,
         &$bindings
-    ) {
-        $globalSearch = array();
-        $columnSearch = array();
+    )
+    {
+        $globalSearch = [];
+        $columnSearch = [];
         $dtColumns    = self::pluck($columns, 'dt');
 
-        if (isset($request['search']) && $request['search']['value'] != '') {
+        if (isset($request['search']) && $request['search']['value'] != '')
+        {
             $str = $request['search']['value'];
 
-            for ($i = 0, $ien = count($request['columns']); $i < $ien; $i++) {
+            for ($i = 0, $ien = count($request['columns']); $i < $ien; $i++)
+            {
                 $requestColumn = $request['columns'][$i];
                 $columnIdx     = array_search($requestColumn['data'], $dtColumns);
                 $column        = $columns[$columnIdx];
 
-                if ($requestColumn['searchable'] == 'true') {
+                if ($requestColumn['searchable'] == 'true')
+                {
                     $binding        = self::bind($bindings, '%' . $str . '%', PDO::PARAM_STR);
                     $globalSearch[] = "`" . $column['db'] . "` LIKE " . $binding;
                 }
@@ -178,8 +196,10 @@ class adminSSP
         }
 
         // Individual column filtering
-        if (isset($request['columns'])) {
-            for ($i = 0, $ien = count($request['columns']); $i < $ien; $i++) {
+        if (isset($request['columns']))
+        {
+            for ($i = 0, $ien = count($request['columns']); $i < $ien; $i++)
+            {
                 $requestColumn = $request['columns'][$i];
                 $columnIdx     = array_search($requestColumn['data'], $dtColumns);
                 $column        = $columns[$columnIdx];
@@ -187,7 +207,8 @@ class adminSSP
                 $str = $requestColumn['search']['value'];
 
                 if ($requestColumn['searchable'] == 'true' &&
-                    $str != '') {
+                    $str != '')
+                {
                     $binding        = self::bind($bindings, '%' . $str . '%', PDO::PARAM_STR);
                     $columnSearch[] = "`" . $column['db'] . "` LIKE " . $binding;
                 }
@@ -197,17 +218,20 @@ class adminSSP
         // Combine the filters into a single string
         $where = '';
 
-        if (count($globalSearch)) {
+        if (count($globalSearch))
+        {
             $where = '(' . implode(' OR ', $globalSearch) . ')';
         }
 
-        if (count($columnSearch)) {
+        if (count($columnSearch))
+        {
             $where = $where === '' ?
             implode(' AND ', $columnSearch) :
             $where . ' AND ' . implode(' AND ', $columnSearch);
         }
 
-        if ($where !== '') {
+        if ($where !== '')
+        {
             $where = 'WHERE ' . $where;
         }
 
@@ -234,8 +258,9 @@ class adminSSP
         $table,
         $primaryKey,
         $columns
-    ) {
-        $bindings = array();
+    )
+    {
+        $bindings = [];
         $db       = self::db($conn);
 
         // Build the SQL query string from the request
@@ -270,12 +295,12 @@ class adminSSP
         /*
          * Output
          */
-        $result = array(
+        $result = [
             "draw"            => isset($request['draw']) ? intval($request['draw']) : 0,
             "recordsTotal"    => intval($recordsTotal),
             "recordsFiltered" => intval($recordsFiltered),
             "data"            => self::data_output($columns, $data),
-        );
+        ];
         return $result;
     }
 
@@ -309,7 +334,7 @@ class adminSSP
 // global $antcats;
         // $res= $antcats[(int)$id];
         global $fc;
-        $res = $fc[(int) $id]["name"];
+        $res = $fc[(int)$id]["name"];
         return $res;
     }
 
@@ -322,10 +347,12 @@ class adminSSP
         $columns,
         $needle,
         $prop = "dt"
-    ) {
+    )
+    {
         $keys  = pluck($columns, $prop);
         $index = 0;
-        if (($i = array_search($needle, ($keys))) !== false) {
+        if (($i = array_search($needle, ($keys))) !== false)
+        {
             $index = $i;
         }
         return $index;
@@ -340,12 +367,13 @@ class adminSSP
         $whereResult = null,
         $wherePriceLimits = null,
         $whereTotal = null
-    ) {
+    )
+    {
 
-        $bindings         = array();
+        $bindings         = [];
         $db               = self::db($conn);
-        $localWhereResult = array();
-        $localWhereAll    = array();
+        $localWhereResult = [];
+        $localWhereAll    = [];
         $whereTotalSql    = '';
 
         // Build the SQL query string from the request
@@ -356,20 +384,23 @@ class adminSSP
         $whereResult = self::flatten($whereResult);
         $whereTotal  = self::flatten($whereTotal);
 
-        if ($whereResult) {
+        if ($whereResult)
+        {
             $where = $where ?
             $where . ' AND ' . $whereResult :
             'WHERE ' . $whereResult;
         }
 
-        if ($whereTotal) {
+        if ($whereTotal)
+        {
             $where = $where ?
             $where . ' AND ' . $whereTotal :
             'WHERE ' . $whereTotal;
             $whereTotalSql = 'WHERE ' . $whereTotal;
         }
 
-        if ($wherePriceLimits) {
+        if ($wherePriceLimits)
+        {
             $NoPriceLimits_where = $where;
             $where               = $where ?
             $where . ' AND ' . $wherePriceLimits :
@@ -386,7 +417,8 @@ class adminSSP
         $sql_query = VS(RN($sql_query));
         $data      = self::sql_exec($db, $bindings, $sql_query);
 
-        if (isset($request["params"]["categoryID"])) {
+        if (isset($request["params"]["categoryID"]))
+        {
             // Main query to actually get the data.categoryID
             $sql_query2 = "SELECT `categoryID`
              FROM `{$table}`
@@ -394,15 +426,17 @@ class adminSSP
             $data2 = self::sql_exec($db, $bindings, $sql_query2);
             $catsA = self::pluck($data2, 'categoryID');
             $catsB = array_unique($catsA);
-            $cats  = array();
+            $cats  = [];
             $ii    = 0;
-            foreach ($catsB as $key => $value) {
+            foreach ($catsB as $key => $value)
+            {
                 $ii++;
                 $cats["{$value}"] = catname($value);
             }
         }
 
-        if ($NoPriceLimits_where) {
+        if ($NoPriceLimits_where)
+        {
 
             $priceLimits = self::getPriceLimits($db, $bindings, $table, $request["params"]["tpl_currency_value"], $NoPriceLimits_where);
         }
@@ -427,7 +461,7 @@ class adminSSP
          * Output
          */
 
-        $res = array(
+        $res = [
             "sql_query"       => $sql_query,
             "count_of_data"   => count($data),
             "start"           => $request['start'],
@@ -448,7 +482,7 @@ class adminSSP
             // "whereTotal"        => $whereTotal,
             // "POST" =>consolelog($request['order']),
             // "POST_col" =>consolelog($request['columns']),
-        );
+        ];
 
         return $res;
 
@@ -460,8 +494,9 @@ class adminSSP
         $table,
         $currency_value,
         $where_clause
-    ) {
-        $priceLimits = array();
+    )
+    {
+        $priceLimits = [];
 
         $sql_query = "SELECT
             MIN(Price) AS price_from,
@@ -513,11 +548,13 @@ class adminSSP
                 "mysql:host={$sql_details['host']};dbname={$sql_details['db']};charset=UTF8",
                 $sql_details['user'],
                 $sql_details['pass'],
-                array(
+                [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                )
+                ]
             );
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e)
+        {
             self::fatal(
                 "An error occurred while connecting to the database. " .
                 "The error reported by the server was: " . $e->getMessage()
@@ -542,17 +579,21 @@ class adminSSP
         $db,
         $bindings,
         $sql = null
-    ) {
+    )
+    {
         // Argument shifting
-        if ($sql === null) {
+        if ($sql === null)
+        {
             $sql = $bindings;
         }
 
         $stmt = $db->prepare($sql); #3  Error: Call to a member function prepare() on null
 
         // Bind parameters
-        if (is_array($bindings)) {
-            for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+        if (is_array($bindings))
+        {
+            for ($i = 0, $ien = count($bindings); $i < $ien; $i++)
+            {
                 $binding = $bindings[$i];
                 $stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
             }
@@ -561,7 +602,9 @@ class adminSSP
         // Execute
         try {
             $stmt->execute();
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e)
+        {
             directlog("adminSSP:: function sql_exec :: An SQL error:");
             directlog($sql);
             self::fatal("adminSSP:: function sql_exec :: An SQL error occurred: " . $e->getMessage());
@@ -576,9 +619,11 @@ class adminSSP
         $db,
         $bindings,
         $sql = null
-    ) {
+    )
+    {
         // Argument shifting
-        if ($sql === null) {
+        if ($sql === null)
+        {
             $sql = $bindings;
         }
 
@@ -586,8 +631,10 @@ class adminSSP
         //echo $sql;
 
         // Bind parameters
-        if (is_array($bindings)) {
-            for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+        if (is_array($bindings))
+        {
+            for ($i = 0, $ien = count($bindings); $i < $ien; $i++)
+            {
                 $binding = $bindings[$i];
                 $stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
             }
@@ -596,7 +643,9 @@ class adminSSP
         // Execute
         try {
             $stmt->execute();
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e)
+        {
             directlog("adminSSP:: function sql_exec :: An SQL error:");
             directlog($sql);
             self::fatal("adminSSP:: function sql_exec_assoc :: An SQL error occurred: " . $e->getMessage());
@@ -617,7 +666,8 @@ class adminSSP
         $bindings,
         $sql = null,
         $queryType = 0
-    ) {
+    )
+    {
 
         $db_conn = self::db($PDO_connect);
         $db      = self::db($db_conn);
@@ -625,15 +675,18 @@ class adminSSP
         // $sql = VS(RN($sql));
 
         // Argument shifting
-        if ($sql === null) {
+        if ($sql === null)
+        {
             $sql = $bindings;
         }
 
         $stmt = $db->prepare($sql);
 
         // Bind parameters
-        if (is_array($bindings)) {
-            for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+        if (is_array($bindings))
+        {
+            for ($i = 0, $ien = count($bindings); $i < $ien; $i++)
+            {
                 $binding = $bindings[$i];
                 $stmt->bindValue($binding['key'], $binding['val'], $binding['type']);
             }
@@ -642,14 +695,18 @@ class adminSSP
         // Execute
         try {
             $stmt->execute();
-            if ($queryType == 2) {
+            if ($queryType == 2)
+            {
                 $lastInsertedID = $db->lastInsertId();
             }
 
-        } catch (PDOException $e) {
+        }
+        catch (PDOException $e)
+        {
             directlog($e->getMessage(), 1);
             directlog($sql);
-            for ($i = 0, $ien = count($bindings); $i < $ien; $i++) {
+            for ($i = 0, $ien = count($bindings); $i < $ien; $i++)
+            {
                 directlog("{$bindings[$i]['key']} => {$bindings[$i]['val']} :: {$bindings[$i]['type']}");
             }
 
@@ -660,7 +717,8 @@ class adminSSP
         // Return all
         // return $stmt->fetchAll( PDO::FETCH_ASSOC );
 
-        switch ($queryType) {
+        switch ($queryType)
+        {
             case 0:
                 //SELECT
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -701,9 +759,9 @@ class adminSSP
      */
     public static function fatal($msg)
     {
-        echo json_encode(array(
+        echo json_encode([
             "error" => $msg,
-        ));
+        ]);
         exit(0);
     }
 
@@ -722,14 +780,15 @@ class adminSSP
         &$a,
         $val,
         $type
-    ) {
+    )
+    {
         $key = ':binding_' . count($a);
 
-        $a[] = array(
+        $a[] = [
             'key'  => $key,
             'val'  => $val,
             'type' => $type,
-        );
+        ];
         return $key;
     }
 
@@ -745,22 +804,28 @@ class adminSSP
     public static function pluck(
         $a,
         $prop
-    ) {
-        $out = array();
-        for ($i = 0, $len = count($a); $i < $len; $i++) {
+    )
+    {
+        $out = [];
+        for ($i = 0, $len = count($a); $i < $len; $i++)
+        {
             $out[] = $a[$i][$prop];
         }
         return $out;
     }
 
-    public static function pluckFromObject($a, $prop)
+    public static function pluckFromObject(
+        $a,
+        $prop
+    )
     {
-        $out = array();
+        $out = [];
 
-        $ii=0;
-        foreach ($a as $key => $value) {
+        $ii = 0;
+        foreach ($a as $key => $value)
+        {
             // $out[] = $a->$key[$prop];
-            $out[$value->index]= $value->$prop;
+            $out[$value->index] = $value->$prop;
         }
         // dump($out);
         return $out;
@@ -776,10 +841,14 @@ class adminSSP
     public static function flatten(
         $a,
         $join = ' AND '
-    ) {
-        if (!$a) {
+    )
+    {
+        if (!$a)
+        {
             return '';
-        } elseif ($a && is_array($a)) {
+        }
+        elseif ($a && is_array($a))
+        {
             return implode($join, $a);
         }
         return $a;
@@ -808,7 +877,8 @@ class adminSSP
         $table,
         $primaryKey,
         $columns
-    ) {
+    )
+    {
 
         $request     = $this->params['request'];
         $sql_details = $this->params['sql_details'];
@@ -817,7 +887,7 @@ class adminSSP
         $columns     = $this->params['columns'];
         $selectWhere = $this->params['selectWhere'];
 
-        $bindings = array();
+        $bindings = [];
         $db       = self::sql_connect($sql_details);
 
         // Build the SQL query string from the request
@@ -827,14 +897,17 @@ class adminSSP
 
         // Determine primary key, requested as column or not
         $cols = $columns;
-        foreach ($cols as &$c) {
-            if ($c['db'] == $primaryKey) {
+        foreach ($cols as &$c)
+        {
+            if ($c['db'] == $primaryKey)
+            {
                 $c['db']      = 't.' . $c['db'];
                 $is_requested = true;
                 $pk           = "";
             }
         }
-        if (!isset($is_requested)) {
+        if (!isset($is_requested))
+        {
             $pk = $primaryKey;
         }
 
@@ -868,14 +941,14 @@ class adminSSP
         /*
          * Output
          */
-        return array(
+        return [
             "sql_query"       => $sql_query,
             // "draw"            => intval( $request['draw'] ),
-            "draw"            => isset($request['draw']) ? intval($request['draw']) : 0,
+             "draw"            => isset($request['draw']) ? intval($request['draw']) : 0,
             "recordsTotal"    => intval($recordsTotal),
             "recordsFiltered" => intval($recordsFiltered),
             "data"            => self::data_output($columns, $data),
-        );
+        ];
     }
 
     /**
@@ -901,12 +974,13 @@ class adminSSP
         $whereAll = null,
         $joinCondition = null,
         $selectQuery = null
-    ) {
+    )
+    {
         //echo $whereCondition;
-        $bindings         = array();
+        $bindings         = [];
         $db               = self::db($conn);
-        $localWhereResult = array();
-        $localWhereAll    = array();
+        $localWhereResult = [];
+        $localWhereAll    = [];
         $whereAllSql      = '';
         // Build the SQL query string from the request
         $limit = self::limit($request, $columns);
@@ -916,12 +990,14 @@ class adminSSP
         $whereResult = self::flatten($whereResult);
         // $whereAll    = self::_flatten( $whereAll );
         $whereAll = self::flatten($whereAll);
-        if ($whereResult) {
+        if ($whereResult)
+        {
             $where = $where ?
             $where . ' AND ' . $whereResult :
             'WHERE ' . $whereResult;
         }
-        if ($whereAll) {
+        if ($whereAll)
+        {
             $where = $where ?
             $where . ' AND ' . $whereAll :
             'WHERE ' . $whereAll;
@@ -932,9 +1008,12 @@ class adminSSP
         // Main query to actually get the data
         //echo $where;
         //$query = "SELECT ".implode(", ", self::pluck($columns, 'db'))." FROM `$table` $joinCondition $whereCondition $order $limit";
-        if (isset($selectQuery)) {
+        if (isset($selectQuery))
+        {
             $query = "$selectQuery FROM `$table` $joinCondition $whereCondition $order $limit";
-        } else {
+        }
+        else
+        {
             $query = "SELECT " . implode(", ", self::pluck($columns, 'db')) . " FROM `$table` $joinCondition $whereCondition $order $limit";
         }
         //echo $query;
@@ -955,14 +1034,14 @@ class adminSSP
         /*
          * Output
          */
-        return array(
+        return [
             "draw"            => isset($request['draw']) ?
             intval($request['draw']) :
             0,
             "recordsTotal"    => intval($recordsTotal),
             "recordsFiltered" => intval($recordsFiltered),
             "data"            => self::data_output($columns, $data),
-        );
+        ];
     }
 
     /**
@@ -996,11 +1075,12 @@ class adminSSP
         $columns,
         $whereResult = null,
         $whereAll = null
-    ) {
-        $bindings         = array();
+    )
+    {
+        $bindings         = [];
         $db               = self::db($conn);
-        $localWhereResult = array();
-        $localWhereAll    = array();
+        $localWhereResult = [];
+        $localWhereAll    = [];
         $whereAllSql      = '';
 
         // Build the SQL query string from the request
@@ -1011,13 +1091,15 @@ class adminSSP
         $whereResult = self::flatten($whereResult);
         $whereAll    = self::flatten($whereAll);
 
-        if ($whereResult) {
+        if ($whereResult)
+        {
             $where = $where ?
             $where . ' AND ' . $whereResult :
             'WHERE ' . $whereResult;
         }
 
-        if ($whereAll) {
+        if ($whereAll)
+        {
             $where = $where ?
             $where . ' AND ' . $whereAll :
             'WHERE ' . $whereAll;
@@ -1056,16 +1138,16 @@ class adminSSP
          * Output
          */
 
-        return array(
+        return [
             "data"            => self::data_output($columns, $data),
             "sql_query"       => $sql_query,
             // "whereResult"     => $whereResult,
-            "bindings"        => $bindings,
+             "bindings"        => $bindings,
             "whereAll"        => $whereAll,
             "draw"            => isset($request['draw']) ? intval($request['draw']) : 0,
             "recordsTotal"    => intval($recordsTotal),
             "recordsFiltered" => intval($recordsFiltered),
 
-        );
+        ];
     }
 }

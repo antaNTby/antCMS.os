@@ -2,11 +2,11 @@
 ### КОНСТАНТЫ
 
 // FROM connect.inc.php
-const SLASH              = '/';                        //   {$smarty.const.SLASH}
-const SITE_URL           = 'antCMS.os';                //    {$smarty.const.SITE_URL}
-// const CONF_FULL_SHOP_URL = 'antCMS.os/admin';                //    {$smarty.const.CONF_FULL_SHOP_URL}
-const ADMIN_FILE         = '/admin/admin.php';         //    {$smarty.const.ADMIN_FILE}
-const ADMIN_LOGOUT_LINK  = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN_LOGOUT_LINK}
+const SLASH    = '/';                                 //   {$smarty.const.SLASH}
+const SITE_URL = 'antCMS.os';                         //    {$smarty.const.SITE_URL}
+                                                      // const CONF_FULL_SHOP_URL = 'antCMS.os/admin';                //    {$smarty.const.CONF_FULL_SHOP_URL}
+const ADMIN_FILE        = '/admin/admin.php';         //    {$smarty.const.ADMIN_FILE}
+const ADMIN_LOGOUT_LINK = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN_LOGOUT_LINK}
 
 const FILEDEBUGJSON         = 'logs/FILEDEBUG.JSON';   //  {$smarty.const.FILEDEBUGJSON}
 const SQLDEBUG              = 'logs/SQLDEBUG.JSON';    //  {$smarty.const.SQLDEBUG}
@@ -15,21 +15,19 @@ const ADMIN_SMARTY_LOG_VARS = 0;                       //   {$smarty.const.ADMIN
 
 const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {$smarty.const.ERROR_DB_INIT} database system
 
-
 const LOGO256 = '/media/logo256.jpg';
 const LOGO64  = '/media/logo64.jpg';
 
-const PATH_CORE = 'core/';
+const PATH_CORE     = 'core/';
 const PATH_INCLUDES = 'core/includes/';
 
-const PATH_CONFIGS='core/configs/';
-const PATH_DESCRIPTIONS='core/descriptions/';
+const PATH_CONFIGS      = 'core/configs/';
+const PATH_DESCRIPTIONS = 'core/descriptions/';
 
-
-const PATH_TPL = 'tpl/';
+const PATH_TPL     = 'tpl/';
 const PATH_TPL_SUB = 'tpl/sub/';
 
-const EXT_TPL ='.tpl.html';
+const EXT_TPL = '.tpl.html';
 
 const ERROR_FORBIDDEN = '<!doctype html>
 <html lang="ru">

@@ -21,7 +21,7 @@ function set_cookie(
 
 function checklogin()
 {
-    $rls = array();
+    $rls = [];
     if (isset($_SESSION['log'])) //look for user in the database
     {
         $q   = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
@@ -38,7 +38,7 @@ function checklogin()
             # fix log errors WARNING: in_array() expects parameter 2 to be array, boolean given
             if (!is_array($rls))
             {
-                $rls = array();
+                $rls = [];
             }
         }
     }
@@ -114,7 +114,7 @@ function set_query(
         return $_request . '#' . $_anchor;
     }
 
-    $_rvars  = array();
+    $_rvars  = [];
     $tr_vars = explode('&', strpos($_request, '?') !== false ? preg_replace('|.*\?|', '', $_request) :
         '');
     foreach ($tr_vars as $_var)
@@ -125,7 +125,7 @@ function set_query(
             $_rvars[$_t[0]] = $_t[1];
         }
     }
-    $tr_vars = explode('&', preg_replace(array('|^\&|', '|^\?|'), '', $_vars));
+    $tr_vars = explode('&', preg_replace(['|^\&|', '|^\?|'], '', $_vars));
     foreach ($tr_vars as $_var)
     {
         $_t = explode('=', $_var);
@@ -138,7 +138,7 @@ function set_query(
             $_rvars[$_t[0]] = $_t[1];
         }
     }
-    $tr_vars = array();
+    $tr_vars = [];
     foreach ($_rvars as $_var => $_val)
     {
         $tr_vars[] = "$_var=$_val";

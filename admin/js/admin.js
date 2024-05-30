@@ -2,8 +2,8 @@
 // глобальные функции, объекты и константы
 
 
-function delay( ms ) {
-    return new Promise( resolve => setTimeout( resolve, ms ) );
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function setSelectValue(id, val) {

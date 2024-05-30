@@ -60,7 +60,7 @@ function regRegisterAdmin(
 function regRegisterAdminSlave(
     $admin_login,
     $admin_pass,
-    $actions = array()
+    $actions = []
 )
 {
     $actions[] = 100;
@@ -264,7 +264,7 @@ function regIsAdminiatrator($login)
     $relaccess = false;
 # WARNING: in_array() expects parameter 2 to be array, boolean given
     # Line: 219
-    $n = array();
+    $n = [];
 # Line: 219
     if (isset($_SESSION["log"]))
     {
@@ -410,7 +410,7 @@ function regEmailNotification(
     $updateOperation
 )
 {
-    $user = array();
+    $user = [];
     $smarty_mail->assign("login", $login);
     $smarty_mail->assign("cust_password", $cust_password);
     $smarty_mail->assign("first_name", $first_name);
@@ -670,7 +670,7 @@ function regGetAllAddressesByLogin($log)
 
     $q = db_query("select addressID, first_name, last_name, countryID, zoneID, state, city, address " .
         " from " . CUSTOMER_ADDRESSES_TABLE . " where customerID=" . (int)$customerID);
-    $data = array();
+    $data = [];
     while ($row = db_fetch_row($q))
     {
 
@@ -873,7 +873,7 @@ function regVerifyContactInfo(
     $error = "";
     if (
         !_testStrArrayInvalidSymbol(
-            array($login, $cust_password1, $cust_password2)
+            [$login, $cust_password1, $cust_password2]
         )
     )
     {
@@ -1203,7 +1203,7 @@ FROM " . CUSTOMERS_TABLE . " " . $where_clause . " " . $order_clause;
 
     $q = db_query($sql_customers);
 
-    $data = array();
+    $data = [];
     $i    = 0; //var_dump ($navigatorParams);
     while ($row = db_fetch_row($q))
     {

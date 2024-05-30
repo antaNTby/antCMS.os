@@ -1,0 +1,90 @@
+[
+    {
+        "index": 0,
+        "data": "CID",
+        "db": "CID",
+        "dt": "CID",
+        "title": "title CID",
+        "footer": "footer 0",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 1,
+        "data": "Name",
+        "db": "Name",
+        "dt": "Name",
+        "title": "title Name",
+        "footer": "footer 1",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 2,
+        "data": "code",
+        "db": "code",
+        "dt": "code",
+        "title": "title code",
+        "footer": "footer 2",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 3,
+        "data": "currency_value",
+        "db": "currency_value",
+        "dt": "currency_value",
+        "title": "title currency_value",
+        "footer": "footer 3",
+        "orderable": true,
+        "visible": true,
+        "searchable": true
+    },
+    {
+        "index": 4,
+        "data": "where2show",
+        "db": "where2show",
+        "dt": "where2show",
+        "title": "title where2show",
+        "footer": "footer 4",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 5,
+        "data": "sort_order",
+        "db": "sort_order",
+        "dt": "sort_order",
+        "title": "title sort_order",
+        "footer": "footer 5",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 6,
+        "data": "currency_iso_3",
+        "db": "currency_iso_3",
+        "dt": "currency_iso_3",
+        "title": "title currency_iso_3",
+        "footer": "footer 6",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    },
+    {
+        "index": 7,
+        "data": "roundval",
+        "db": "roundval",
+        "dt": "roundval",
+        "title": "title roundval",
+        "footer": "footer 7",
+        "orderable": true,
+        "visible": false,
+        "searchable": true
+    }
+]

@@ -6,39 +6,42 @@ function d($var)
     return dump($var);
 }
 
-function exportColumnsToJson($dtColumnFieldNames, $limit = 5)
+function exportColumnsToJson(
+    $dtColumnFieldNames,
+    $limit = 5
+)
 {
     $ii      = 0;
-    $Columns = array();
+    $Columns = [];
     foreach ($dtColumnFieldNames as $key => $value)
     {
         if ($ii < $limit)
         {
-            $newColumnItem = array(
+            $newColumnItem = [
                 'index'      => $key,
                 'data'       => $value,
                 'db'         => $value,
                 'dt'         => $value,
                 'title'      => 'title ' . $value,
-                'footer'      => 'footer ' . $ii,
+                'footer'     => 'footer ' . $ii,
                 'orderable'  => true,
                 'visible'    => true,
-                'searchable' => true
-            );
+                'searchable' => true,
+            ];
         }
         else
         {
-            $newColumnItem = array(
+            $newColumnItem = [
                 'index'      => $key,
                 'data'       => $value,
                 'db'         => $value,
                 'dt'         => $value,
                 'title'      => 'title ' . $value,
-                'footer'      => 'footer ' . $ii,
+                'footer'     => 'footer ' . $ii,
                 'orderable'  => true,
                 'visible'    => false,
-                'searchable' => true
-            );
+                'searchable' => true,
+            ];
         }
 
         $Columns[] = $newColumnItem;
@@ -52,7 +55,11 @@ function exportColumnsToJson($dtColumnFieldNames, $limit = 5)
 }
 
 //adds new $department to departments list
-function sortByField($item, $items, $sortField = 'sort_order')
+function sortByField(
+    $item,
+    $items,
+    $sortField = 'sort_order'
+)
 {
     $i = 0;
     while ($i < count($items) && $items[$i][$sortField] < $item[$sortField])
@@ -118,28 +125,36 @@ function getInputTemplate($inputType)
 {
     $res = 'error_input.tpl';
 
-    if ( str_starts_with ($inputType,"text")  ){
+    if (str_starts_with($inputType, "text"))
+    {
         $res = 'single_textarea.tpl';
     }
-    if ( str_starts_with ($inputType,"varchar")  ){
+    if (str_starts_with($inputType, "varchar"))
+    {
         $res = 'single_inputtext.tpl';
     }
-    if ( str_starts_with ($inputType,"int")  ){
+    if (str_starts_with($inputType, "int"))
+    {
         $res = 'single_inputnumber.tpl';
     }
-    if ( str_starts_with ($inputType,"tinyint")  ){
+    if (str_starts_with($inputType, "tinyint"))
+    {
         $res = 'single_inputnumber.tpl';
     }
-    if ( str_starts_with ($inputType,"int(1)")  ){
+    if (str_starts_with($inputType, "int(1)"))
+    {
         $res = 'single_checkbox.tpl';
     }
-    if ( str_starts_with ($inputType,"tinyint(1)")  ){
+    if (str_starts_with($inputType, "tinyint(1)"))
+    {
         $res = 'single_checkbox.tpl';
     }
-    if ( str_starts_with ($inputType,"datetime")  ){
+    if (str_starts_with($inputType, "datetime"))
+    {
         $res = 'single_datetimepicker.tpl';
     }
-    if ( str_starts_with ($inputType,"timestamp")  ){
+    if (str_starts_with($inputType, "timestamp"))
+    {
         $res = 'single_datetimepicker.tpl';
     }
 

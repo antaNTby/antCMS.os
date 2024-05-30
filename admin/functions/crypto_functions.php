@@ -5,14 +5,17 @@ class DWord
 
     public function __construct()
     {
-        $this->bitArray = array();
+        $this->bitArray = [];
         for ($i = 1; $i <= 32; $i++)
         {
             $this->bitArray[$i - 1] = 0;
         }
     }
 
-    public function _setByte($byte, $displacement)
+    public function setByte(
+        $byte,
+        $displacement
+    )
     {
         // 00000001 = 1
         $this->bitArray[$displacement + 0] = (($byte & 1) != 0) ? 1 : 0;
@@ -32,7 +35,7 @@ class DWord
         $this->bitArray[$displacement + 7] = (($byte & 128) != 0) ? 1 : 0;
     }
 
-    public function _getByte($displacement)
+    public function getByte($displacement)
     {
         return $this->bitArray[$displacement + 0] * 1 +
         $this->bitArray[$displacement + 1] * 2 +
@@ -44,7 +47,12 @@ class DWord
         $this->bitArray[$displacement + 7] * 128;
     }
 
-    public function SetValue($byte1, $byte2, $byte3, $byte4)
+    public function SetValue(
+        $byte1,
+        $byte2,
+        $byte3,
+        $byte4
+    )
     {
         $this->_setByte($byte1, 0);
         $this->_setByte($byte2, 8);
@@ -52,7 +60,12 @@ class DWord
         $this->_setByte($byte4, 24);
     }
 
-    public function GetValue(&$byte1, &$byte2, &$byte3, &$byte4)
+    public function GetValue(
+        &$byte1,
+        &$byte2,
+        &$byte3,
+        &$byte4
+    )
     {
         $byte1 = $this->_getByte(0);
         $byte2 = $this->_getByte(8);
@@ -72,7 +85,10 @@ class DWord
         return $res;
     }
 
-    public function SetBit($bitValue, $bitIndex)
+    public function SetBit(
+        $bitValue,
+        $bitIndex
+    )
     {
         $this->bitArray[$bitIndex] = $bitValue;
     }
@@ -220,7 +236,10 @@ class DWord
 // Inputs
 // Remarks
 // Returns
-function cryptCCNumberCrypt($cc_number, $key)
+function cryptCCNumberCrypt(
+    $cc_number,
+    $key
+)
 {
     return base64_encode($cc_number);
 /*
@@ -272,7 +291,10 @@ return $res;
 // Inputs
 // Remarks
 // Returns
-function cryptCCNumberDeCrypt($cifer, $key)
+function cryptCCNumberDeCrypt(
+    $cifer,
+    $key
+)
 {
     return base64_decode($cifer);
 /*
@@ -325,7 +347,10 @@ return $res;
 // Inputs
 // Remarks
 // Returns
-function cryptCCHoldernameCrypt($cc_holdername, $key)
+function cryptCCHoldernameCrypt(
+    $cc_holdername,
+    $key
+)
 {
     return base64_encode($cc_holdername);
 }
@@ -335,7 +360,10 @@ function cryptCCHoldernameCrypt($cc_holdername, $key)
 // Inputs
 // Remarks
 // Returns
-function cryptCCHoldernameDeCrypt($cifer, $key)
+function cryptCCHoldernameDeCrypt(
+    $cifer,
+    $key
+)
 {
     return base64_decode($cifer);
 }
@@ -345,7 +373,10 @@ function cryptCCHoldernameDeCrypt($cifer, $key)
 // Inputs
 // Remarks
 // Returns
-function cryptCCExpiresCrypt($cc_expires, $key)
+function cryptCCExpiresCrypt(
+    $cc_expires,
+    $key
+)
 {
     return base64_encode($cc_expires);
 }
@@ -355,7 +386,10 @@ function cryptCCExpiresCrypt($cc_expires, $key)
 // Inputs
 // Remarks
 // Returns
-function cryptCCExpiresDeCrypt($cifer, $key)
+function cryptCCExpiresDeCrypt(
+    $cifer,
+    $key
+)
 {
     return base64_decode($cifer);
 }
@@ -366,7 +400,10 @@ function cryptCCExpiresDeCrypt($cifer, $key)
 // Inputs
 // Remarks
 // Returns
-function cryptPasswordCrypt($password, $key)
+function cryptPasswordCrypt(
+    $password,
+    $key
+)
 {
     return base64_encode($password);
 }
@@ -376,7 +413,10 @@ function cryptPasswordCrypt($password, $key)
 // Inputs
 // Remarks
 // Returns
-function cryptPasswordDeCrypt($cifer, $key)
+function cryptPasswordDeCrypt(
+    $cifer,
+    $key
+)
 {
     return base64_decode($cifer);
 }
@@ -386,7 +426,10 @@ function cryptPasswordDeCrypt($cifer, $key)
 // Inputs
 // Remarks        see also get_file.php
 // Returns
-function cryptFileParamCrypt($getFileParam, $key)
+function cryptFileParamCrypt(
+    $getFileParam,
+    $key
+)
 {
     return base64_encode($getFileParam);
 }
@@ -396,7 +439,10 @@ function cryptFileParamCrypt($getFileParam, $key)
 // Inputs
 // Remarks        see also get_file.php
 // Returns
-function cryptFileParamDeCrypt($cifer, $key)
+function cryptFileParamDeCrypt(
+    $cifer,
+    $key
+)
 {
     return base64_decode($cifer);
 }
@@ -405,20 +451,20 @@ function cryptFileParamDeCrypt($cifer, $key)
 // initialize
 
 // it is single byte values
-$bK8 = array(14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7);
-$bK7 = array(15, 1, 8, 14, 6, 11, 3, 4, 9, 7, 2, 13, 12, 0, 5, 10);
-$bK6 = array(10, 0, 9, 14, 6, 3, 15, 5, 1, 13, 12, 7, 11, 4, 2, 8);
-$bK5 = array(7, 13, 14, 3, 0, 6, 9, 10, 1, 2, 8, 5, 11, 12, 4, 15);
-$bK4 = array(2, 12, 4, 1, 7, 10, 11, 6, 8, 5, 3, 15, 13, 0, 14, 9);
-$bK3 = array(12, 1, 10, 15, 9, 2, 6, 8, 0, 13, 3, 4, 14, 7, 5, 11);
-$bK2 = array(4, 11, 2, 14, 15, 0, 8, 13, 3, 12, 9, 7, 5, 10, 6, 1);
-$bK1 = array(13, 2, 8, 4, 6, 15, 11, 1, 10, 9, 3, 14, 5, 0, 12, 7);
+$bK8 = [14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7];
+$bK7 = [15, 1, 8, 14, 6, 11, 3, 4, 9, 7, 2, 13, 12, 0, 5, 10];
+$bK6 = [10, 0, 9, 14, 6, 3, 15, 5, 1, 13, 12, 7, 11, 4, 2, 8];
+$bK5 = [7, 13, 14, 3, 0, 6, 9, 10, 1, 2, 8, 5, 11, 12, 4, 15];
+$bK4 = [2, 12, 4, 1, 7, 10, 11, 6, 8, 5, 3, 15, 13, 0, 14, 9];
+$bK3 = [12, 1, 10, 15, 9, 2, 6, 8, 0, 13, 3, 4, 14, 7, 5, 11];
+$bK2 = [4, 11, 2, 14, 15, 0, 8, 13, 3, 12, 9, 7, 5, 10, 6, 1];
+$bK1 = [13, 2, 8, 4, 6, 15, 11, 1, 10, 9, 3, 14, 5, 0, 12, 7];
 
 // it is single byte values
-$bK87 = array();
-$bK65 = array();
-$bK43 = array();
-$bK21 = array();
+$bK87 = [];
+$bK65 = [];
+$bK43 = [];
+$bK21 = [];
 
 for ($i = 0; $i < 256; $i++)
 {
@@ -438,7 +484,7 @@ function _f($x)
     // $bK87[$x>>24 & 255] << 24
     $x1   = $x->ShiftToRight(24);
     $x1   = $x1->BitwiseAND(255);
-    $temp = $bK87[(int) $x1->GetCount()];
+    $temp = $bK87[(int)$x1->GetCount()];
     $x1   = new DWord();
     $x1->SetValue($temp, 0, 0, 0);
     $x1->ShiftToLeft(24);
@@ -481,7 +527,10 @@ function _f($x)
 //                                $key        - 8 item of 32 values ( key to encrypted )
 // Remarks
 // Returns        cyfered data
-function _gostCrypt($in, $key)
+function _gostCrypt(
+    $in,
+    $key
+)
 {
     $n1 = $in[0];
     $n2 = $in[1];
@@ -541,14 +590,17 @@ function _gostCrypt($in, $key)
     $n2 = $n2->BitwiseXOR(_f($n1->Plus($key[1])));
     $n1 = $n1->BitwiseXOR(_f($n2->Plus($key[0])));
 
-    $out    = array();
+    $out    = [];
     $out[0] = $n2;
     $out[1] = $n1;
 
     return $out;
 }
 
-function _gostDeCrypt($out, $key)
+function _gostDeCrypt(
+    $out,
+    $key
+)
 {
     $n1 = $in[0];
     $n2 = $in[1];
@@ -590,7 +642,7 @@ function _gostDeCrypt($out, $key)
     $n2 = $n2->BitwiseXOR(_f($n1->Plus($key[1])));
     $n1 = $n1->BitwiseXOR(_f($n2->Plus($key[0])));
 
-    $out    = array();
+    $out    = [];
     $out[0] = $n2;
     $out[1] = $n1;
 

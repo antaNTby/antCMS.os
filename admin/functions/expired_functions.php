@@ -1,19 +1,17 @@
 <?php
 
-
-
 function flatAdminDepartments(
     $departments,
     $subsTables
 ): array
 {
 
-    $res = array();
+    $res = [];
     if (!is_array($departments))
     {
         return $res;
     }
-    $menu = array();
+    $menu = [];
     foreach ($departments as $dpt_key => $ad)
     {
         $dpt_id   = $ad['id'];
