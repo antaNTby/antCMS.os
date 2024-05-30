@@ -138,8 +138,9 @@ INSERT|UPDATE
             'table_name' => $table_name,
         ];
 
-        $r = $db->table('ANT_RBCOLUMNS')->where($where)->getAll();
+        $r = $db->table('ANT_RBCOLUMNS')->where($where)->orderBy('sort_order')->getAll();
             dump([$db->queryCount(), $db->getQuery(),$r]);
+
 
     }
 
