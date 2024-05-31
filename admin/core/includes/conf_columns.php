@@ -28,7 +28,7 @@ $table_name = $allTablesNames[$tableSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
-$rbcolumnsDefault = [
+$rbcolumnsDefault = array(
     'table_name' => 'table_name',
     'data'       => 'column name',
     'db'         => 'DB column name',
@@ -41,8 +41,8 @@ $rbcolumnsDefault = [
     'sort_order' => 'sort order',
     'inputType'  => 'DB Type',
     'enable'     => 'Включить',
-    'actions'    => 'Действия',
-];
+    'actions'    => 'Действия'
+);
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
@@ -65,14 +65,15 @@ INSERT|UPDATE
  */
     if (($operation == 'addNewDataTable') || ($operation == 'updateDataTable'))
     {
-
-        $cortages = [];
+        $cortages = array();
         // dump($dbTableFields);
         $ii = 0;
         foreach ($dbTableFields as $name => $type)
         {
-            $cortages["{$name}"]['index']     = $ii;
+            $cortages["{$name}"]['ind']     = $ii;
             $cortages["{$name}"]['name']      = $name;
+            $cortages["{$name}"]['db']        = $name;
+            $cortages["{$name}"]['dt']        = $name;
             $cortages["{$name}"]['sqlType']   = $type;
             $cortages["{$name}"]['inputType'] = getInputTemplate(strtolower($type));
             $ii++;
@@ -81,11 +82,12 @@ INSERT|UPDATE
         $cc = 0;
         foreach ($cortages as $key => $value)
         {
-            $data = [
+            $data = array(
                 'table_name' => $table_name,
+                'ind'      => $value['ind'],
                 'data'       => $value['name'],
                 'db'         => $value['name'],
-                'dt'         => $value['index'],
+                'dt'         => $value['dt'],
                 'title'      => "$key @ $table_name",
                 'visible'    => 1,
                 'searchable' => 1,
@@ -95,18 +97,18 @@ INSERT|UPDATE
                 'enable'     => true,
                 'actions'    => null,
                 'sql_type'   => $value['sqlType'],
-                'input_type' => $value['inputType'],
-            ];
+                'input_type' => $value['inputType']
+            );
 
-            $where = [
+            $where = array(
                 'table_name' => $table_name,
-                'data'       => $value['name'],
-            ];
+                'data'       => $value['name']
+            );
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int)$doInsert == 0)
+            if ((int) $doInsert == 0)
             {
                 $r = $db->table(ANT_RBCOLUMNS)->insert($data);
             }
@@ -115,50 +117,38 @@ INSERT|UPDATE
                 $r = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
             }
             $cc++;
-            dump([$db->queryCount(), $db->getQuery()]);
+            dump(array($db->queryCount(), $db->getQuery()));
         }
-
     }
-    // dump(
-    //     [
-    //         $doInsert,
-    //         $where,
-    //         $db->insertId(),
-    //         $db->queryCount(),
-    //         $db->getQuery(),
-    //     ]
-    // );
-
-// dd($dbTableFields);
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
-
-        $where = [
-            'table_name' => $table_name,
-        ];
-// ALTER TABLE `ant_rbcolumns` CHANGE `sort` `sort_order` INT(11) UNSIGNED NULL DEFAULT NULL;
-        $r = $db->table('ANT_RBCOLUMNS')->where($where)->orderBy('sort_order')->getAll();
+        $where = array(
+            'table_name' => $table_name
+        );
+        $dataFromRBC = $db->table('ANT_RBCOLUMNS')->where($where)->orderBy('sort_order')->getAll();
         // dump([$db->queryCount(), $db->getQuery()]);
-        dump($r);
-// теперь нужно какждому полу дать controlSnippet
-        $css = [];
-        foreach ($r as $key => $value)
+        // dump(["dataFromRBC"=>$dataFromRBC]);
+        // теперь нужно какждому полу дать controlSnippet
+        $css   = array();
+        $index = 0;
+        foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-
             // $obj=
-            $css[$key]['title'] = $value->title;
-            $css[$key]['tpl']   = $value->input_type;
+            $css[$keyRBC]['title'] = $rowRBC->title;
+            $css[$keyRBC]['tpl']   = $rowRBC->input_type;
 
-            foreach ($value as $k => $v)
+            // dump($rowRBC);
+            $tableData = array();
+            foreach ($rowRBC as $fieldName => $fieldData)
             {
-                dump("$k - $v");
-                $css[$key]['params']['id']    = "{$value->$k}_{$value->id}";
-                $css[$key]['params']['name']  = $k;
-                $css[$key]['params']['value'] = $v;
+                $tableData[][$fieldName]                = $fieldData;
+                $css[$keyRBC]['table_data']['ind']    = $index;
+                $css[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
             }
+            $index++;
         }
-
+        $smarty->assign('staticTable', $css);
         dump($css);
     }
 
@@ -207,5 +197,4 @@ INSERT|UPDATE
     //         $OK         = 1;
     //     }
     // }
-
 }

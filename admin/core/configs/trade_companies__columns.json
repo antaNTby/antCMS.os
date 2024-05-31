@@ -1,7 +1,7 @@
 [
     {
-        "index": 0,
         "data": "companyID",
+        "ind": 0,
         "db": "companyID",
         "dt": "companyID",
         "title": "title companyID",
@@ -11,8 +11,8 @@
         "searchable": true
     },
     {
-        "index": 1,
         "data": "company_title",
+        "ind": 1,
         "db": "company_title",
         "dt": "company_title",
         "title": "title company_title",
@@ -22,8 +22,8 @@
         "searchable": true
     },
     {
-        "index": 2,
         "data": "company_name",
+        "ind": 2,
         "db": "company_name",
         "dt": "company_name",
         "title": "title company_name",
@@ -33,8 +33,8 @@
         "searchable": true
     },
     {
-        "index": 3,
         "data": "company_unp",
+        "ind": 3,
         "db": "company_unp",
         "dt": "company_unp",
         "title": "title company_unp",
@@ -44,8 +44,8 @@
         "searchable": true
     },
     {
-        "index": 4,
         "data": "company_okpo",
+        "ind": 4,
         "db": "company_okpo",
         "dt": "company_okpo",
         "title": "title company_okpo",
@@ -55,8 +55,8 @@
         "searchable": true
     },
     {
-        "index": 5,
         "data": "company_adress",
+        "ind": 5,
         "db": "company_adress",
         "dt": "company_adress",
         "title": "title company_adress",
@@ -66,8 +66,8 @@
         "searchable": true
     },
     {
-        "index": 6,
         "data": "company_bank",
+        "ind": 6,
         "db": "company_bank",
         "dt": "company_bank",
         "title": "title company_bank",
@@ -77,8 +77,8 @@
         "searchable": true
     },
     {
-        "index": 7,
         "data": "company_contacts",
+        "ind": 7,
         "db": "company_contacts",
         "dt": "company_contacts",
         "title": "title company_contacts",
@@ -88,8 +88,8 @@
         "searchable": true
     },
     {
-        "index": 8,
         "data": "company_email",
+        "ind": 8,
         "db": "company_email",
         "dt": "company_email",
         "title": "title company_email",
@@ -99,8 +99,8 @@
         "searchable": true
     },
     {
-        "index": 9,
         "data": "company_director",
+        "ind": 9,
         "db": "company_director",
         "dt": "company_director",
         "title": "title company_director",
@@ -110,8 +110,8 @@
         "searchable": true
     },
     {
-        "index": 10,
         "data": "company_data",
+        "ind": 10,
         "db": "company_data",
         "dt": "company_data",
         "title": "title company_data",
@@ -121,8 +121,8 @@
         "searchable": true
     },
     {
-        "index": 11,
         "data": "company_admin",
+        "ind": 11,
         "db": "company_admin",
         "dt": "company_admin",
         "title": "title company_admin",
@@ -132,8 +132,8 @@
         "searchable": true
     },
     {
-        "index": 12,
         "data": "read_only",
+        "ind": 12,
         "db": "read_only",
         "dt": "read_only",
         "title": "title read_only",
@@ -143,8 +143,8 @@
         "searchable": true
     },
     {
-        "index": 13,
         "data": "creation_time",
+        "ind": 13,
         "db": "creation_time",
         "dt": "creation_time",
         "title": "title creation_time",
@@ -154,8 +154,8 @@
         "searchable": true
     },
     {
-        "index": 14,
         "data": "update_time",
+        "ind": 14,
         "db": "update_time",
         "dt": "update_time",
         "title": "title update_time",

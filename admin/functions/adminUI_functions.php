@@ -18,8 +18,8 @@ function exportColumnsToJson(
         if ($ii < $limit)
         {
             $newColumnItem = [
-                'index'      => $key,
                 'data'       => $value,
+                'ind'      => $key,
                 'db'         => $value,
                 'dt'         => $value,
                 'title'      => 'title ' . $value,
@@ -32,8 +32,8 @@ function exportColumnsToJson(
         else
         {
             $newColumnItem = [
-                'index'      => $key,
                 'data'       => $value,
+                'ind'      => $key,
                 'db'         => $value,
                 'dt'         => $value,
                 'title'      => 'title ' . $value,

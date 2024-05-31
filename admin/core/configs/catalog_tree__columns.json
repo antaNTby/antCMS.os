@@ -1,7 +1,7 @@
 [
     {
-        "index": 0,
         "data": "categoryID",
+        "ind": 0,
         "db": "categoryID",
         "dt": "categoryID",
         "title": "title categoryID",
@@ -11,8 +11,8 @@
         "searchable": true
     },
     {
-        "index": 1,
         "data": "name",
+        "ind": 1,
         "db": "name",
         "dt": "name",
         "title": "title name",
@@ -22,8 +22,8 @@
         "searchable": true
     },
     {
-        "index": 2,
         "data": "parent",
+        "ind": 2,
         "db": "parent",
         "dt": "parent",
         "title": "title parent",
@@ -33,8 +33,8 @@
         "searchable": true
     },
     {
-        "index": 3,
         "data": "products_count",
+        "ind": 3,
         "db": "products_count",
         "dt": "products_count",
         "title": "title products_count",
@@ -44,8 +44,8 @@
         "searchable": true
     },
     {
-        "index": 4,
         "data": "description",
+        "ind": 4,
         "db": "description",
         "dt": "description",
         "title": "title description",
@@ -55,8 +55,8 @@
         "searchable": true
     },
     {
-        "index": 5,
         "data": "picture",
+        "ind": 5,
         "db": "picture",
         "dt": "picture",
         "title": "title picture",
@@ -66,8 +66,8 @@
         "searchable": true
     },
     {
-        "index": 6,
         "data": "products_count_admin",
+        "ind": 6,
         "db": "products_count_admin",
         "dt": "products_count_admin",
         "title": "title products_count_admin",
@@ -77,8 +77,8 @@
         "searchable": true
     },
     {
-        "index": 7,
         "data": "sort_order",
+        "ind": 7,
         "db": "sort_order",
         "dt": "sort_order",
         "title": "title sort_order",
@@ -88,8 +88,8 @@
         "searchable": true
     },
     {
-        "index": 8,
         "data": "viewed_times",
+        "ind": 8,
         "db": "viewed_times",
         "dt": "viewed_times",
         "title": "title viewed_times",
@@ -99,8 +99,8 @@
         "searchable": true
     },
     {
-        "index": 9,
         "data": "allow_products_comparison",
+        "ind": 9,
         "db": "allow_products_comparison",
         "dt": "allow_products_comparison",
         "title": "title allow_products_comparison",
@@ -110,8 +110,8 @@
         "searchable": true
     },
     {
-        "index": 10,
         "data": "allow_products_search",
+        "ind": 10,
         "db": "allow_products_search",
         "dt": "allow_products_search",
         "title": "title allow_products_search",
@@ -121,8 +121,8 @@
         "searchable": true
     },
     {
-        "index": 11,
         "data": "show_subcategories_products",
+        "ind": 11,
         "db": "show_subcategories_products",
         "dt": "show_subcategories_products",
         "title": "title show_subcategories_products",
@@ -132,8 +132,8 @@
         "searchable": true
     },
     {
-        "index": 12,
         "data": "meta_description",
+        "ind": 12,
         "db": "meta_description",
         "dt": "meta_description",
         "title": "title meta_description",
@@ -143,8 +143,8 @@
         "searchable": true
     },
     {
-        "index": 13,
         "data": "meta_keywords",
+        "ind": 13,
         "db": "meta_keywords",
         "dt": "meta_keywords",
         "title": "title meta_keywords",
@@ -154,8 +154,8 @@
         "searchable": true
     },
     {
-        "index": 14,
         "data": "title",
+        "ind": 14,
         "db": "title",
         "dt": "title",
         "title": "title title",
@@ -165,8 +165,8 @@
         "searchable": true
     },
     {
-        "index": 15,
         "data": "subcount",
+        "ind": 15,
         "db": "subcount",
         "dt": "subcount",
         "title": "title subcount",
@@ -176,8 +176,8 @@
         "searchable": true
     },
     {
-        "index": 16,
         "data": "enabled",
+        "ind": 16,
         "db": "enabled",
         "dt": "enabled",
         "title": "title enabled",

@@ -1,7 +1,7 @@
 [
     {
-        "index": 0,
         "data": "orderID",
+        "ind": 0,
         "db": "orderID",
         "dt": "orderID",
         "title": "title orderID",
@@ -11,8 +11,8 @@
         "searchable": true
     },
     {
-        "index": 1,
         "data": "customerID",
+        "ind": 1,
         "db": "customerID",
         "dt": "customerID",
         "title": "title customerID",
@@ -22,8 +22,8 @@
         "searchable": true
     },
     {
-        "index": 2,
         "data": "order_time",
+        "ind": 2,
         "db": "order_time",
         "dt": "order_time",
         "title": "title order_time",
@@ -33,8 +33,8 @@
         "searchable": true
     },
     {
-        "index": 3,
         "data": "customer_ip",
+        "ind": 3,
         "db": "customer_ip",
         "dt": "customer_ip",
         "title": "title customer_ip",
@@ -44,8 +44,8 @@
         "searchable": true
     },
     {
-        "index": 4,
         "data": "shipping_type",
+        "ind": 4,
         "db": "shipping_type",
         "dt": "shipping_type",
         "title": "title shipping_type",
@@ -55,8 +55,8 @@
         "searchable": true
     },
     {
-        "index": 5,
         "data": "payment_type",
+        "ind": 5,
         "db": "payment_type",
         "dt": "payment_type",
         "title": "title payment_type",
@@ -66,8 +66,8 @@
         "searchable": true
     },
     {
-        "index": 6,
         "data": "customers_comment",
+        "ind": 6,
         "db": "customers_comment",
         "dt": "customers_comment",
         "title": "title customers_comment",
@@ -77,8 +77,8 @@
         "searchable": true
     },
     {
-        "index": 7,
         "data": "statusID",
+        "ind": 7,
         "db": "statusID",
         "dt": "statusID",
         "title": "title statusID",
@@ -88,8 +88,8 @@
         "searchable": true
     },
     {
-        "index": 8,
         "data": "shipping_cost",
+        "ind": 8,
         "db": "shipping_cost",
         "dt": "shipping_cost",
         "title": "title shipping_cost",
@@ -99,8 +99,8 @@
         "searchable": true
     },
     {
-        "index": 9,
         "data": "order_discount",
+        "ind": 9,
         "db": "order_discount",
         "dt": "order_discount",
         "title": "title order_discount",
@@ -110,8 +110,8 @@
         "searchable": true
     },
     {
-        "index": 10,
         "data": "order_amount",
+        "ind": 10,
         "db": "order_amount",
         "dt": "order_amount",
         "title": "title order_amount",
@@ -121,8 +121,8 @@
         "searchable": true
     },
     {
-        "index": 11,
         "data": "currency_code",
+        "ind": 11,
         "db": "currency_code",
         "dt": "currency_code",
         "title": "title currency_code",
@@ -132,8 +132,8 @@
         "searchable": true
     },
     {
-        "index": 12,
         "data": "currency_value",
+        "ind": 12,
         "db": "currency_value",
         "dt": "currency_value",
         "title": "title currency_value",
@@ -143,8 +143,8 @@
         "searchable": true
     },
     {
-        "index": 13,
         "data": "customer_firstname",
+        "ind": 13,
         "db": "customer_firstname",
         "dt": "customer_firstname",
         "title": "title customer_firstname",
@@ -154,8 +154,8 @@
         "searchable": true
     },
     {
-        "index": 14,
         "data": "customer_lastname",
+        "ind": 14,
         "db": "customer_lastname",
         "dt": "customer_lastname",
         "title": "title customer_lastname",
@@ -165,8 +165,8 @@
         "searchable": true
     },
     {
-        "index": 15,
         "data": "customer_email",
+        "ind": 15,
         "db": "customer_email",
         "dt": "customer_email",
         "title": "title customer_email",
@@ -176,8 +176,8 @@
         "searchable": true
     },
     {
-        "index": 16,
         "data": "shipping_firstname",
+        "ind": 16,
         "db": "shipping_firstname",
         "dt": "shipping_firstname",
         "title": "title shipping_firstname",
@@ -187,8 +187,8 @@
         "searchable": true
     },
     {
-        "index": 17,
         "data": "shipping_lastname",
+        "ind": 17,
         "db": "shipping_lastname",
         "dt": "shipping_lastname",
         "title": "title shipping_lastname",
@@ -198,8 +198,8 @@
         "searchable": true
     },
     {
-        "index": 18,
         "data": "shipping_country",
+        "ind": 18,
         "db": "shipping_country",
         "dt": "shipping_country",
         "title": "title shipping_country",
@@ -209,8 +209,8 @@
         "searchable": true
     },
     {
-        "index": 19,
         "data": "shipping_state",
+        "ind": 19,
         "db": "shipping_state",
         "dt": "shipping_state",
         "title": "title shipping_state",
@@ -220,8 +220,8 @@
         "searchable": true
     },
     {
-        "index": 20,
         "data": "shipping_city",
+        "ind": 20,
         "db": "shipping_city",
         "dt": "shipping_city",
         "title": "title shipping_city",
@@ -231,8 +231,8 @@
         "searchable": true
     },
     {
-        "index": 21,
         "data": "shipping_address",
+        "ind": 21,
         "db": "shipping_address",
         "dt": "shipping_address",
         "title": "title shipping_address",
@@ -242,8 +242,8 @@
         "searchable": true
     },
     {
-        "index": 22,
         "data": "billing_firstname",
+        "ind": 22,
         "db": "billing_firstname",
         "dt": "billing_firstname",
         "title": "title billing_firstname",
@@ -253,8 +253,8 @@
         "searchable": true
     },
     {
-        "index": 23,
         "data": "billing_lastname",
+        "ind": 23,
         "db": "billing_lastname",
         "dt": "billing_lastname",
         "title": "title billing_lastname",
@@ -264,8 +264,8 @@
         "searchable": true
     },
     {
-        "index": 24,
         "data": "billing_country",
+        "ind": 24,
         "db": "billing_country",
         "dt": "billing_country",
         "title": "title billing_country",
@@ -275,8 +275,8 @@
         "searchable": true
     },
     {
-        "index": 25,
         "data": "billing_state",
+        "ind": 25,
         "db": "billing_state",
         "dt": "billing_state",
         "title": "title billing_state",
@@ -286,8 +286,8 @@
         "searchable": true
     },
     {
-        "index": 26,
         "data": "billing_city",
+        "ind": 26,
         "db": "billing_city",
         "dt": "billing_city",
         "title": "title billing_city",
@@ -297,8 +297,8 @@
         "searchable": true
     },
     {
-        "index": 27,
         "data": "billing_address",
+        "ind": 27,
         "db": "billing_address",
         "dt": "billing_address",
         "title": "title billing_address",
@@ -308,8 +308,8 @@
         "searchable": true
     },
     {
-        "index": 28,
         "data": "cc_number",
+        "ind": 28,
         "db": "cc_number",
         "dt": "cc_number",
         "title": "title cc_number",
@@ -319,8 +319,8 @@
         "searchable": true
     },
     {
-        "index": 29,
         "data": "cc_holdername",
+        "ind": 29,
         "db": "cc_holdername",
         "dt": "cc_holdername",
         "title": "title cc_holdername",
@@ -330,8 +330,8 @@
         "searchable": true
     },
     {
-        "index": 30,
         "data": "cc_expires",
+        "ind": 30,
         "db": "cc_expires",
         "dt": "cc_expires",
         "title": "title cc_expires",
@@ -341,8 +341,8 @@
         "searchable": true
     },
     {
-        "index": 31,
         "data": "cc_cvv",
+        "ind": 31,
         "db": "cc_cvv",
         "dt": "cc_cvv",
         "title": "title cc_cvv",
@@ -352,8 +352,8 @@
         "searchable": true
     },
     {
-        "index": 32,
         "data": "affiliateID",
+        "ind": 32,
         "db": "affiliateID",
         "dt": "affiliateID",
         "title": "title affiliateID",
@@ -363,8 +363,8 @@
         "searchable": true
     },
     {
-        "index": 33,
         "data": "shippingServiceInfo",
+        "ind": 33,
         "db": "shippingServiceInfo",
         "dt": "shippingServiceInfo",
         "title": "title shippingServiceInfo",
@@ -374,8 +374,8 @@
         "searchable": true
     },
     {
-        "index": 34,
         "data": "custlink",
+        "ind": 34,
         "db": "custlink",
         "dt": "custlink",
         "title": "title custlink",
@@ -385,8 +385,8 @@
         "searchable": true
     },
     {
-        "index": 35,
         "data": "currency_round",
+        "ind": 35,
         "db": "currency_round",
         "dt": "currency_round",
         "title": "title currency_round",
@@ -396,8 +396,8 @@
         "searchable": true
     },
     {
-        "index": 36,
         "data": "shippmethod",
+        "ind": 36,
         "db": "shippmethod",
         "dt": "shippmethod",
         "title": "title shippmethod",
@@ -407,8 +407,8 @@
         "searchable": true
     },
     {
-        "index": 37,
         "data": "paymethod",
+        "ind": 37,
         "db": "paymethod",
         "dt": "paymethod",
         "title": "title paymethod",
@@ -418,8 +418,8 @@
         "searchable": true
     },
     {
-        "index": 38,
         "data": "companyID",
+        "ind": 38,
         "db": "companyID",
         "dt": "companyID",
         "title": "title companyID",
@@ -429,8 +429,8 @@
         "searchable": true
     },
     {
-        "index": 39,
         "data": "contractID",
+        "ind": 39,
         "db": "contractID",
         "dt": "contractID",
         "title": "title contractID",
@@ -440,8 +440,8 @@
         "searchable": true
     },
     {
-        "index": 40,
         "data": "order_aka",
+        "ind": 40,
         "db": "order_aka",
         "dt": "order_aka",
         "title": "title order_aka",
@@ -451,8 +451,8 @@
         "searchable": true
     },
     {
-        "index": 41,
         "data": "customer_aka",
+        "ind": 41,
         "db": "customer_aka",
         "dt": "customer_aka",
         "title": "title customer_aka",
@@ -462,8 +462,8 @@
         "searchable": true
     },
     {
-        "index": 42,
         "data": "admin_comment",
+        "ind": 42,
         "db": "admin_comment",
         "dt": "admin_comment",
         "title": "title admin_comment",

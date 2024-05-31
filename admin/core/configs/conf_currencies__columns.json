@@ -1,7 +1,7 @@
 [
     {
-        "index": 0,
         "data": "CID",
+        "ind": 0,
         "db": "CID",
         "dt": "CID",
         "title": "title CID",
@@ -11,8 +11,8 @@
         "searchable": true
     },
     {
-        "index": 1,
         "data": "Name",
+        "ind": 1,
         "db": "Name",
         "dt": "Name",
         "title": "title Name",
@@ -22,8 +22,8 @@
         "searchable": true
     },
     {
-        "index": 2,
         "data": "code",
+        "ind": 2,
         "db": "code",
         "dt": "code",
         "title": "title code",
@@ -33,8 +33,8 @@
         "searchable": true
     },
     {
-        "index": 3,
         "data": "currency_value",
+        "ind": 3,
         "db": "currency_value",
         "dt": "currency_value",
         "title": "title currency_value",
@@ -44,8 +44,8 @@
         "searchable": true
     },
     {
-        "index": 4,
         "data": "where2show",
+        "ind": 4,
         "db": "where2show",
         "dt": "where2show",
         "title": "title where2show",
@@ -55,8 +55,8 @@
         "searchable": true
     },
     {
-        "index": 5,
         "data": "sort_order",
+        "ind": 5,
         "db": "sort_order",
         "dt": "sort_order",
         "title": "title sort_order",
@@ -66,8 +66,8 @@
         "searchable": true
     },
     {
-        "index": 6,
         "data": "currency_iso_3",
+        "ind": 6,
         "db": "currency_iso_3",
         "dt": "currency_iso_3",
         "title": "title currency_iso_3",
@@ -77,8 +77,8 @@
         "searchable": true
     },
     {
-        "index": 7,
         "data": "roundval",
+        "ind": 7,
         "db": "roundval",
         "dt": "roundval",
         "title": "title roundval",
