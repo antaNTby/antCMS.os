@@ -1,94 +1,52 @@
->>>>>>>>>> 2024-05-30 00:06:33.807 <<<<<<<<<<<<<<  
+>>>>>>>>>> 2024-06-01 10:24:52.973 <<<<<<<<<<<<<<  
 __array__  ::  
-{
-    "id": {
-        "index": 0,
-        "name": "id",
-        "sqlType": "int(11) unsigned",
-        "inputType": "single_inputnumber.tpl"
+[
+    {
+        "Tables_in_db_antcms": "ant_categories"
     },
-    "table_name": {
-        "index": 1,
-        "name": "table_name",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_category_product"
     },
-    "data": {
-        "index": 2,
-        "name": "data",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_companies"
     },
-    "db": {
-        "index": 3,
-        "name": "db",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_currency_types"
     },
-    "dt": {
-        "index": 4,
-        "name": "dt",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_customers"
     },
-    "title": {
-        "index": 5,
-        "name": "title",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_invoices"
     },
-    "visible": {
-        "index": 6,
-        "name": "visible",
-        "sqlType": "tinyint(1) unsigned",
-        "inputType": "single_checkbox.tpl"
+    {
+        "Tables_in_db_antcms": "ant_invoices_nano"
     },
-    "searchable": {
-        "index": 7,
-        "name": "searchable",
-        "sqlType": "tinyint(1) unsigned",
-        "inputType": "single_checkbox.tpl"
+    {
+        "Tables_in_db_antcms": "ant_ippost"
     },
-    "orderable": {
-        "index": 8,
-        "name": "orderable",
-        "sqlType": "tinyint(1) unsigned",
-        "inputType": "single_checkbox.tpl"
+    {
+        "Tables_in_db_antcms": "ant_online"
     },
-    "editable": {
-        "index": 9,
-        "name": "editable",
-        "sqlType": "tinyint(1) unsigned",
-        "inputType": "single_checkbox.tpl"
+    {
+        "Tables_in_db_antcms": "ant_ordered_carts"
     },
-    "sort": {
-        "index": 10,
-        "name": "sort",
-        "sqlType": "int(11) unsigned",
-        "inputType": "single_inputnumber.tpl"
+    {
+        "Tables_in_db_antcms": "ant_orders"
     },
-    "enable": {
-        "index": 11,
-        "name": "enable",
-        "sqlType": "tinyint(1) unsigned",
-        "inputType": "single_checkbox.tpl"
+    {
+        "Tables_in_db_antcms": "ant_products"
     },
-    "actions": {
-        "index": 12,
-        "name": "actions",
-        "sqlType": "tinyint(1) unsigned",
-        "inputType": "single_checkbox.tpl"
+    {
+        "Tables_in_db_antcms": "ant_rbcolumns"
     },
-    "sql_type": {
-        "index": 13,
-        "name": "sql_type",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_session"
     },
-    "input_type": {
-        "index": 14,
-        "name": "input_type",
-        "sqlType": "varchar(191)",
-        "inputType": "single_inputtext.tpl"
+    {
+        "Tables_in_db_antcms": "ant_shopping_carts"
+    },
+    {
+        "Tables_in_db_antcms": "ant_system"
     }
-}
+]

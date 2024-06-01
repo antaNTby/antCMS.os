@@ -44,10 +44,10 @@
         <tbody>
             {section name=row loop=$dbTableFields|@count}
             <tr class="ant-text-no-rotated align-items-center">
-                {if $staticTable}
-                {assign var ="rowData" value=$staticTable[$smarty.section.row.index]}
+                {if $iuConfigs}
+                {assign var ="rowData" value=$iuConfigs[$smarty.section.row.index]}
                 {assign var ="colData" value=$rowData.table_data}
-                <td>{$smarty.section.row.index} <sub><span class="badge text-bg-light">{$colData.id}</span></sub></td>
+                <td>{$smarty.section.row.index}&nbsp;<sub><span class="badge text-bg-light">{$colData.id}</span></sub></td>
                 <td>{$colData.data}</td>
                 <td>{$colData.ind}</td>
                 <td>{$colData.db}</td>

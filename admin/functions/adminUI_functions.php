@@ -19,7 +19,7 @@ function exportColumnsToJson(
         {
             $newColumnItem = [
                 'data'       => $value,
-                'ind'      => $key,
+                'ind'        => $key,
                 'db'         => $value,
                 'dt'         => $value,
                 'title'      => 'title ' . $value,
@@ -33,7 +33,7 @@ function exportColumnsToJson(
         {
             $newColumnItem = [
                 'data'       => $value,
-                'ind'      => $key,
+                'ind'        => $key,
                 'db'         => $value,
                 'dt'         => $value,
                 'title'      => 'title ' . $value,
@@ -158,5 +158,22 @@ function getInputTemplate($inputType)
         $res = 'single_datetimepicker.tpl';
     }
 
+    return $res;
+}
+
+function uiGetAllTables($db)
+{
+
+    $rq  = $db->query('SHOW TABLES')->fetchAll('array');
+    $res = [];
+    foreach ($rq as $key => $value)
+    {
+        array_push($res, array_values($value)[0]);
+    }
+    return $res;
+}
+
+function uiGetColumns($config_name)
+{
     return $res;
 }

@@ -12,7 +12,10 @@ $smarty->assign('php_department', $department);
 $smarty->assign('php_sub', $department_sub);
 
 ##############
-$allTablesNames = db_get_all_tables();
+
+// $allTablesNames = db_get_all_tables();
+$allTablesNames = uiGetAllTables($db);
+
 
 $tableSelectedIndex = 0;
 $tableSelectedIndex = $_GET['tableSelectedIndex'] ?? 0;
@@ -139,9 +142,7 @@ INSERT|UPDATE
             }
             $index++;
         }
-        $smarty->assign('staticTable', $css);
-        // dump($css);
-                dump($tableData);
+        $smarty->assign('iuConfigs', $css);
     }
 
 /* 2 => {#32 ▼

@@ -824,8 +824,9 @@ class Pdox implements PdoxInterface
             }
 
             $msg = '<h1>Database Error</h1>';
-            $msg .= '<h4>Query: <em style="font-weight:normal;">"' . $this->query . '"</em></h4>';
-            $msg .= '<h4>Error: <em style="font-weight:normal;">' . $this->error . '</em></h4>';
+            $msg .= '<h4>Query: <span style="font-weight:normal;">"' . $this->query . '"</span></h4>';
+            $msg .= '<h4>Error: <span style="font-weight:normal;">' . $this->error . '</span></h4>';
+            // dump($this->query, $this->error);
             die($msg);
         }
 
