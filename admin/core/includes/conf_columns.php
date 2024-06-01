@@ -65,15 +65,12 @@ INSERT|UPDATE
  */
     if (($operation == 'addNewDataTable') || ($operation == 'updateDataTable'))
     {
-        $cortages = [];
         // dump($dbTableFields);
+        $cortages = [];
         $ii = 0;
         foreach ($dbTableFields as $name => $type)
         {
             $cortages["{$name}"]['ind']       = $ii;
-            $cortages["{$name}"]['name']      = $name;
-            $cortages["{$name}"]['db']        = $name;
-            $cortages["{$name}"]['dt']        = $name;
             $cortages["{$name}"]['sqlType']   = $type;
             $cortages["{$name}"]['inputType'] = getInputTemplate(strtolower($type));
             $ii++;
@@ -84,15 +81,15 @@ INSERT|UPDATE
         {
             $data = [
                 'config_name' => $config_name,
-                'data'       => $value['name'],
-                'ind'        => $value['ind'],
-                'db'         => $value['name'],
-                'dt'         => $value['dt'],
+                'data'       => $key ,
+                'ind'        => $cc,
+                'db'         => $key ,
+                'dt'         => $key,
                 'title'      => "$key @ $config_name",
                 'visible'    => 1,
                 'searchable' => 1,
-                'orderable'  => 0,
-                'editable'   => 0,
+                'orderable'  => 1,
+                'editable'   => 1,
                 'sort_order' => $cc * 10,
                 'enable'     => true,
                 'actions'    => null,
@@ -102,7 +99,7 @@ INSERT|UPDATE
 
             $where = [
                 'config_name' => $config_name,
-                'data'       => $value['name'],
+                'data'       => $key ,
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
@@ -136,7 +133,7 @@ INSERT|UPDATE
             $tableData = [];
             foreach ($rowRBC as $fieldName => $fieldData)
             {
-                $tableData[][$fieldName]                = $fieldData;
+                $tableData[$fieldName]                = $fieldData;
                 $css[$keyRBC]['table_data']['ind']      = $index;
                 $css[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
             }

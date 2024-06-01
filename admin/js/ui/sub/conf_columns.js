@@ -1,8 +1,8 @@
 // conf_columns.js
 import * as ui from '.././uiAdmin.js';
 const switcherFieldsetToggle = document.querySelector('[name="switcherFieldsetToggle"]');
-const selectEl = document.querySelector('select[name="tableSelector"]');
-const fieldset = document.querySelector("#selectTableFieldset");
+const selectEl = document.querySelector('select[name="configSelector"]');
+const fieldset = document.querySelector("#selectConfigFieldset");
 //conf_columns
 switcherFieldsetToggle.addEventListener('change', function(event) {
     let switcher = event.target;

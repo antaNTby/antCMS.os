@@ -1,14 +1,14 @@
 <hr>
 <div class="d-flex align-items-center gap-4">
     <div class="form-check form-switch align-items-center" title="Снять запрет">
-        <input class="form-check-input" type="checkbox" role="switch" name="switcherFieldsetToggle" id="switcherFieldsetToggle" aria-labelledby="selectTableFieldset">
+        <input class="form-check-input" type="checkbox" role="switch" name="switcherFieldsetToggle" id="switcherFieldsetToggle" aria-labelledby="selectConfigFieldset">
         <label class="form-check-label" for="switcherFieldsetToggle"><i class="bi bi-lock-fill text-danger"></i></label>
     </div>
-    <fieldset class="w-100 d-flex flex-column flex-md-row align-items-center gap-2" id="selectTableFieldset" disabled>
-        <label for="tableSelector" class="form-check-label text-nowrap">Выбрать таблицу {$tableSelectedIndex}</label>
-        <select name="tableSelector" id="tableSelector" class="form-select">
+    <fieldset class="w-100 d-flex flex-column flex-md-row align-items-center gap-2" id="selectConfigFieldset" disabled>
+        <label for="configSelector" class="form-check-label text-nowrap">Выбрать конфигурацию {$configSelectedIndex}</label>
+        <select name="configSelector" id="configSelector" class="form-select">
             {section name=tt loop=$allTablesNames}
-            {if $smarty.section.tt.index == $tableSelectedIndex}
+            {if $smarty.section.tt.index == $configSelectedIndex}
             {assign var=isSelected value="selected=selected"}{else}{assign var=isSelected value=""}
             {/if}
             <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
@@ -44,6 +44,7 @@
         <tbody>
             {section name=row loop=$dbTableFields|@count}
             <tr class="ant-text-no-rotated align-items-center">
+                {if $staticTable}
                 {assign var ="rowData" value=$staticTable[$smarty.section.row.index]}
                 {assign var ="colData" value=$rowData.table_data}
                 <td>{$smarty.section.row.index} <sub><span class="badge text-bg-light">{$colData.id}</span></sub></td>
@@ -61,6 +62,7 @@
                 <td>{$colData.actions}</td>
                 <td>{$colData.sql_type}</td>
                 <td>{$colData.input_type}</td>
+                {/if}
             </tr>
             {/section}
         </tbody>
