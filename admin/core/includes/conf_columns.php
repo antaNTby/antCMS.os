@@ -24,12 +24,12 @@ if ($tableSelectedIndex > count($allTablesNames))
 
 $smarty->assign('allTablesNames', $allTablesNames);
 $smarty->assign('tableSelectedIndex', $tableSelectedIndex);
-$table_name = $allTablesNames[$tableSelectedIndex];
+$config_name = $allTablesNames[$tableSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
 $rbcolumnsDefault = [
-    'table_name' => 'table_name',
+    'config_name' => 'config_name',
     'data'       => 'column name',
     'db'         => 'DB column name',
     'dt'         => 'DataTables column name',
@@ -47,9 +47,9 @@ $rbcolumnsDefault = [
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
 
-if (!is_null($table_name))
+if (!is_null($config_name))
 {
-    $dbTableFields     = db_getColumnNames($table_name);
+    $dbTableFields     = db_getColumnNames($config_name);
     $dbTableFieldNames = array_keys($dbTableFields);   // выводим в логг все названия полей
     $dbTableFieldTypes = array_values($dbTableFields); // выводим в логг все названия полей
     $smarty->assign('dbTableFields', $dbTableFields);
@@ -83,12 +83,12 @@ INSERT|UPDATE
         foreach ($cortages as $key => $value)
         {
             $data = [
-                'table_name' => $table_name,
-                'ind'        => $value['ind'],
+                'config_name' => $config_name,
                 'data'       => $value['name'],
+                'ind'        => $value['ind'],
                 'db'         => $value['name'],
                 'dt'         => $value['dt'],
-                'title'      => "$key @ $table_name",
+                'title'      => "$key @ $config_name",
                 'visible'    => 1,
                 'searchable' => 1,
                 'orderable'  => 0,
@@ -101,7 +101,7 @@ INSERT|UPDATE
             ];
 
             $where = [
-                'table_name' => $table_name,
+                'config_name' => $config_name,
                 'data'       => $value['name'],
             ];
 
@@ -124,20 +124,15 @@ INSERT|UPDATE
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'table_name' => $table_name,
+            'config_name' => $config_name,
         ];
-        $dataFromRBC = $db->table('ANT_RBCOLUMNS')->where($where)->orderBy('sort_order')->getAll();
+        $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
         $css   = [];
         $index = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            // $obj=
-            // $css[$keyRBC]['title'] = $rowRBC->title;
-            // $css[$keyRBC]['tpl']   = $rowRBC->input_type;
-
-            // dump($rowRBC);
             $tableData = [];
             foreach ($rowRBC as $fieldName => $fieldData)
             {
@@ -154,7 +149,7 @@ INSERT|UPDATE
 
 /* 2 => {#32 ▼
 +"id": "13"
-+"table_name": "ant_categories"
++"config_name": "ant_categories"
 +"data": "name"
 +"db": "name"
 +"dt": "1"
@@ -192,7 +187,7 @@ INSERT|UPDATE
 
     //     if (!is_null($table_primaryKey))
     //     {
-    //         $dbTable    = $table_name;
+    //         $dbTable    = $config_name;
     //         $primaryKey = $table_primaryKey;
     //         $OK         = 1;
     //     }
