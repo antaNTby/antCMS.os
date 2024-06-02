@@ -7,7 +7,6 @@ const fn = document.getElementById('jsonFN').value;
 const res = await fetch(checkOnUrl('admin/' + fn));
 const dataJsonFile = await res.json();
 
-const current_sub_id = getUrlComponent('sub', checkOnUrl(document.location.href));
 // console.log(dataJsonFile)
 //
 const orderBy = [
@@ -18,7 +17,7 @@ export function reloadTable(e, dt, button, config) {
     dt.ajax.reload();
 }
 
-export const table = new DataTable('#defaultDataTable' + '_' + current_sub_id, {
+export const table = new DataTable('#defaultDataTable' + '_' + ui.current_sub_id, {
     ajax: {
         url: checkOnUrl(document.location.href) + '&operation=initDefaultDataTable',
         type: 'POST',

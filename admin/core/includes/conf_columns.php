@@ -17,17 +17,17 @@ $smarty->assign('php_sub', $department_sub);
 $allTablesNames = uiGetAllTables($db);
 
 
-$tableSelectedIndex = 0;
-$tableSelectedIndex = $_GET['tableSelectedIndex'] ?? 0;
+$configSelectedIndex = 0;
+$configSelectedIndex = $_GET['configSelectedIndex'] ?? 0;
 
-if ($tableSelectedIndex > count($allTablesNames))
+if ($configSelectedIndex > count($allTablesNames))
 {
-    $tableSelectedIndex = 0;
+    $configSelectedIndex = 0;
 }
 
 $smarty->assign('allTablesNames', $allTablesNames);
-$smarty->assign('tableSelectedIndex', $tableSelectedIndex);
-$config_name = $allTablesNames[$tableSelectedIndex];
+$smarty->assign('configSelectedIndex', $configSelectedIndex);
+$config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
@@ -66,7 +66,7 @@ INSERT|UPDATE
 ##########################
 ##########################
  */
-    if (($operation == 'addNewDataTable') || ($operation == 'updateDataTable'))
+    if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
     {
         // dump($dbTableFields);
         $cortages = [];

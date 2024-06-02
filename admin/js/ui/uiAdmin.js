@@ -11,6 +11,8 @@ export const btnOpenMenu = document.querySelector('a[data-bs-toggle="offcanvas"]
 export const switcherMenuOnLoad = document.querySelector('input#switcherMenuOnLoad');
 export const switcherMenuPosition = document.querySelector('input#switcherMenuPosition');
 
+export const current_sub_id = getUrlComponent('sub', checkOnUrl(document.location.href));
+export const current_dpt_id = getUrlComponent('dpt', checkOnUrl(document.location.href));
 
 
 export const offcanvasElementList = document.querySelectorAll('.offcanvas')
@@ -30,3 +32,5 @@ export const indeterminate = document.querySelectorAll('input.indeterminate[type
             console.log("indeterminate")
         // }
     })
+
+    console.log([current_dpt_id,current_sub_id])

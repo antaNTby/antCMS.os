@@ -14,9 +14,9 @@
             <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
             {/section}
         </select>
-        <button type="button" class="btn btn-dark w-100 text-nowrap">Имортировать из БД<i class="bi bi-db"></i></button>
-        <button type="button" class="btn btn-primary w-100 text-nowrap">Импортировать из `*__columns.json`<i class="bi bi-edit"></i></button>
-        <button type="button" class="btn btn-danger w-100 text-nowrap">Переписать `*__columns.json` <i class="bi bi-edit"></i></button>
+        <button type="button" class="btn btn-dark w-100 text-nowrap" data-operation="addNewConfig">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
+        <button type="button" class="btn btn-primary w-100 text-nowrap" data-operation="ssss">Импортировать из `*__columns.json`<i class="bi bi-edit"></i></button>
+        <button type="button" class="btn btn-danger w-100 text-nowrap" data-operation="ssss">Переписать `*__columns.json` <i class="bi bi-edit"></i></button>
     </fieldset>
 </div>
 <hr>
