@@ -1,4 +1,5 @@
 import * as bsToast from '../../apps/Toasts/appToasts.js';
+import * as ui from '../../js/ui/uiAdmin.js';
 import katzapskayaMova from './defaultKatzapskayaMova.js';
 import * as standartEvents from './dtEvents.js';
 import layoutDefault from './dtStandartLayout.js';

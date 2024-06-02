@@ -16,7 +16,6 @@ $smarty->assign('php_sub', $department_sub);
 // $allTablesNames = db_get_all_tables();
 $allTablesNames = uiGetAllTables($db);
 
-
 $configSelectedIndex = 0;
 $configSelectedIndex = $_GET['configSelectedIndex'] ?? 0;
 
@@ -31,21 +30,21 @@ $config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
-$rbcolumnsDefault = [
+$rbcolumnsDefault = array(
     'config_name' => 'config_name',
-    'data'       => 'column name',
-    'db'         => 'DB column name',
-    'dt'         => 'DataTables column name',
-    'title'      => 'Заголовок',
-    'visible'    => 'is visible',
-    'searchable' => 'is searchable',
-    'orderable'  => 'is orderable',
-    'editable'   => 'is editable',
-    'sort_order' => 'sort order',
-    'inputType'  => 'DB Type',
-    'enable'     => 'Включить',
-    'actions'    => 'Действия',
-];
+    'data'        => 'column name',
+    'db'          => 'DB column name',
+    'dt'          => 'DataTables column name',
+    'title'       => 'Заголовок',
+    'visible'     => 'is visible',
+    'searchable'  => 'is searchable',
+    'orderable'   => 'is orderable',
+    'editable'    => 'is editable',
+    'sort_order'  => 'sort order',
+    'inputType'   => 'DB Type',
+    'enable'      => 'Включить',
+    'actions'     => 'Действия'
+);
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
@@ -69,8 +68,8 @@ INSERT|UPDATE
     if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
     {
         // dump($dbTableFields);
-        $cortages = [];
-        $ii = 0;
+        $cortages = array();
+        $ii       = 0;
         foreach ($dbTableFields as $name => $type)
         {
             $cortages["{$name}"]['ind']       = $ii;
@@ -82,33 +81,33 @@ INSERT|UPDATE
         $cc = 0;
         foreach ($cortages as $key => $value)
         {
-            $data = [
+            $data = array(
                 'config_name' => $config_name,
-                'data'       => $key ,
-                'ind'        => $cc,
-                'db'         => $key ,
-                'dt'         => $key,
-                'title'      => "$key @ $config_name",
-                'visible'    => 1,
-                'searchable' => 1,
-                'orderable'  => 1,
-                'editable'   => 1,
-                'sort_order' => $cc * 10,
-                'enable'     => true,
-                'actions'    => null,
-                'sql_type'   => $value['sqlType'],
-                'input_type' => $value['inputType'],
-            ];
+                'data'        => $key,
+                'ind'         => $cc,
+                'db'          => $key,
+                'dt'          => $key,
+                'title'       => "$key @ $config_name",
+                'visible'     => 1,
+                'searchable'  => 1,
+                'orderable'   => 1,
+                'editable'    => 1,
+                'sort_order'  => $cc * 10,
+                'enable'      => true,
+                'actions'     => null,
+                'sql_type'    => $value['sqlType'],
+                'input_type'  => $value['inputType']
+            );
 
-            $where = [
+            $where = array(
                 'config_name' => $config_name,
-                'data'       => $key ,
-            ];
+                'data'        => $key
+            );
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int)$doInsert == 0)
+            if ((int) $doInsert == 0)
             {
                 $r = $db->table(ANT_RBCOLUMNS)->insert($data);
             }
@@ -117,35 +116,34 @@ INSERT|UPDATE
                 $r = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
             }
             $cc++;
-            dump([$db->queryCount(), $db->getQuery()]);
+            // dump([$db->queryCount(), $db->getQuery()]);
         }
 
-        $btnRedirectToeEdit=<<<HTML
-
+        $btnRedirectToeEdit = <<<HTML
    <button type="button" class="btn btn-dark w-100 text-nowrap" data-operation="redirect">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
-
 HTML;
 
-
-        $smarty->assign('btnRedirectToeEdit',$btnRedirectToeEdit);
+        $smarty->assign('btnRedirectToeEdit', $btnRedirectToeEdit);
+         $noty = new Noty();
+        $noty::run('success', 'Name does not exist', 1000, 'topRight');
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
-        $where = [
-            'config_name' => $config_name,
-        ];
+        $where = array(
+            'config_name' => $config_name
+        );
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
-        $css   = [];
+        $css   = array();
         $index = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            $tableData = [];
+            $tableData = array();
             foreach ($rowRBC as $fieldName => $fieldData)
             {
-                $tableData[$fieldName]                = $fieldData;
+                $tableData[$fieldName]                  = $fieldData;
                 $css[$keyRBC]['table_data']['ind']      = $index;
                 $css[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
             }

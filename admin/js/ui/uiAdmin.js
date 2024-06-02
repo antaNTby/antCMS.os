@@ -28,9 +28,25 @@ export const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bo
 export const indeterminate = document.querySelectorAll('input.indeterminate[type="checkbox"]')
     .forEach(checkbox => {
         // if (checkbox.id.includes('Indeterminate')) {
-            checkbox.indeterminate = true
-            console.log("indeterminate")
+        checkbox.indeterminate = true
+        console.log("indeterminate")
         // }
     })
 
-    console.log([current_dpt_id,current_sub_id])
+console.log([current_dpt_id, current_sub_id])
+
+import Noty from '../../../vendor/needim/noty/lib/noty.js';
+
+// new Noty({
+//     // theme: 'metro',
+//     text: 'Notification text',
+
+// }).show();
+
+// or
+
+// const Noty = require('noty');
+
+// new Noty({
+//     text: 'Notification text'
+// }).show();
