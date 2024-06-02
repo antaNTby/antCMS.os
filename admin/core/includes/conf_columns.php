@@ -115,27 +115,18 @@ INSERT|UPDATE
             else
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
-                $text = "Новая конфигурация обновлена";
+                $message = "Новая конфигурация обновлена";
             }
             $cc++;
             // dump([$db->queryCount(), $db->getQuery()]);
         }
 
-        $btnRedirectToEdit = <<<HTML
-   <button type="button" class="btnbtn-dark w-100 text-nowrap" data-operation="redirect">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
-HTML;
-
-        $smarty->assign('btnRedirectToEdit', $btnRedirectToEdit);
-        // header("Content-Type: text/javascript; charset=utf-8");
-        // header('Content-Type: application/json; charset=utf-8');
         header("Content-Type: text/html; charset=utf8");
+        $phpToast = new Toasts();
+        $urlToRedirect= ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex;
+        $phpToast::run('success', $message,$urlToRedirect);
+        // echo '<meta http-equiv="refresh" content="2;URL=https://ida-freewares.ru">';
 
-        $noty = new Noty();
-        $noty::run('success',$text, 1000, 'topRight');
-
-        // echo "<script>alert('$message');</script>";
-// echo '<meta http-equiv="refresh" content="5;URL=https://ida-freewares.ru">';
-        // RedirectJavaScript(ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
@@ -161,6 +152,7 @@ HTML;
         }
         $smarty->assign('iuConfigs', $css);
     }
+
 
 /* 2 => {#32 ▼
 +"id": "13"

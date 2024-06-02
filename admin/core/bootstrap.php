@@ -135,7 +135,7 @@ $config = [
 
 $db = new \Buki\Pdox($config);
 
-require_once 'core/classes/class.Noty.php'; //load php class
+require_once 'core/classes/class.Toasts.php'; //load php class
 
 ### //init Smarty 5.1
 use Smarty\Smarty;
