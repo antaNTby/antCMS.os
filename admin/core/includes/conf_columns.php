@@ -30,7 +30,7 @@ $config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
-$rbcolumnsDefault = array(
+$rbcolumnsDefault = [
     'config_name' => 'config_name',
     'data'        => 'column name',
     'db'          => 'DB column name',
@@ -43,8 +43,8 @@ $rbcolumnsDefault = array(
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия'
-);
+    'actions'     => 'Действия',
+];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
@@ -68,7 +68,7 @@ INSERT|UPDATE
     if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
     {
         // dump($dbTableFields);
-        $cortages = array();
+        $cortages = [];
         $ii       = 0;
         foreach ($dbTableFields as $name => $type)
         {
@@ -81,7 +81,7 @@ INSERT|UPDATE
         $cc = 0;
         foreach ($cortages as $key => $value)
         {
-            $data = array(
+            $data = [
                 'config_name' => $config_name,
                 'data'        => $key,
                 'ind'         => $cc,
@@ -96,24 +96,26 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType']
-            );
+                'input_type'  => $value['inputType'],
+            ];
 
-            $where = array(
+            $where = [
                 'config_name' => $config_name,
-                'data'        => $key
-            );
+                'data'        => $key,
+            ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int) $doInsert == 0)
+            if ((int)$doInsert == 0)
             {
-                $r = $db->table(ANT_RBCOLUMNS)->insert($data);
+                $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
+                $message = "Новая конфигурация создана";
             }
             else
             {
-                $r = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
+                $r       = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
+                $text = "Новая конфигурация обновлена";
             }
             $cc++;
             // dump([$db->queryCount(), $db->getQuery()]);
@@ -124,24 +126,31 @@ INSERT|UPDATE
 HTML;
 
         $smarty->assign('btnRedirectToEdit', $btnRedirectToEdit);
-        // $noty = new Noty();
-        // $noty::run('success'," ::conf_columns.php", 1000, 'topRight');
-        RedirectJavaScript(ADMIN_FILE.'?dpt=conf&sub=columns&configSelectedIndex='.$configSelectedIndex);
+        // header("Content-Type: text/javascript; charset=utf-8");
+        // header('Content-Type: application/json; charset=utf-8');
+        header("Content-Type: text/html; charset=utf8");
+
+        $noty = new Noty();
+        $noty::run('success',$text, 1000, 'topRight');
+
+        // echo "<script>alert('$message');</script>";
+// echo '<meta http-equiv="refresh" content="5;URL=https://ida-freewares.ru">';
+        // RedirectJavaScript(ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
-        $where = array(
-            'config_name' => $config_name
-        );
+        $where = [
+            'config_name' => $config_name,
+        ];
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
-        $css   = array();
+        $css   = [];
         $index = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            $tableData = array();
+            $tableData = [];
             foreach ($rowRBC as $fieldName => $fieldData)
             {
                 $tableData[$fieldName]                  = $fieldData;

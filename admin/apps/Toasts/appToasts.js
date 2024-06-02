@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     btnShowToast.addEventListener("click", function() {
-        showToast('function showToast (text) ', 'ssssss serfw34t '+'<i class="bi bi-bug-fill"></i>');
+        showToast('function showToast (text) ', ' пример сообщения '+'<i class="bi bi-bug-fill"></i>');
     });
 
     /* выводим СВОЁ время выполнения для всех toastElList*/
