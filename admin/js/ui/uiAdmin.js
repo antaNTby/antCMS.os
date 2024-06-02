@@ -35,15 +35,10 @@ export const indeterminate = document.querySelectorAll('input.indeterminate[type
 
 console.log([current_dpt_id, current_sub_id])
 
-const Noty = require("noty");
+
 
 // import Noty from '../../../vendor/needim/noty/lib/noty.js';
 
-// new Noty({
-//     // theme: 'metro',
-//     text: 'Notification text',
-
-// }).show();
 
 // or
 

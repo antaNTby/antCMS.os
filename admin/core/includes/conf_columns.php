@@ -119,13 +119,14 @@ INSERT|UPDATE
             // dump([$db->queryCount(), $db->getQuery()]);
         }
 
-        $btnRedirectToeEdit = <<<HTML
-   <button type="button" class="btn btn-dark w-100 text-nowrap" data-operation="redirect">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
+        $btnRedirectToEdit = <<<HTML
+   <button type="button" class="btnbtn-dark w-100 text-nowrap" data-operation="redirect">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
 HTML;
 
-        $smarty->assign('btnRedirectToeEdit', $btnRedirectToeEdit);
-         $noty = new Noty();
-        $noty::run('success', $btnRedirectToeEdit, 1000, 'topRight');
+        $smarty->assign('btnRedirectToEdit', $btnRedirectToEdit);
+        // $noty = new Noty();
+        // $noty::run('success'," ::conf_columns.php", 1000, 'topRight');
+        RedirectJavaScript(ADMIN_FILE.'?dpt=conf&sub=columns&configSelectedIndex='.$configSelectedIndex);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))

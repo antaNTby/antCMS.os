@@ -1,0 +1,1181 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cu",
+				"current_sub_id"
+			],
+			[
+				"do",
+				"doInsert"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"dbt",
+				"dbTable"
+			],
+			[
+				"script",
+				"script"
+			],
+			[
+				"que",
+				"querySelector"
+			],
+			[
+				"is",
+				"is_array"
+			],
+			[
+				"ea",
+				"foreach\tsmarty foreach"
+			],
+			[
+				"th",
+				"th"
+			],
+			[
+				"ht",
+				"htmlspecialchars()"
+			],
+			[
+				"js",
+				"jsColumnIndex"
+			],
+			[
+				"dt",
+				"dtColumns"
+			],
+			[
+				"JS",
+				"JSON_stringify"
+			],
+			[
+				"consol",
+				"console.log"
+			],
+			[
+				"bag",
+				"background-color"
+			],
+			[
+				"btn",
+				"btn-danger"
+			],
+			[
+				"console",
+				"console.log"
+			],
+			[
+				"AD",
+				"ADMIN_FILE"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"sta",
+				"standartDataTable.js"
+			],
+			[
+				"my",
+				"myDumper"
+			],
+			[
+				"is_a",
+				"is_array()"
+			],
+			[
+				"D",
+				"Departments"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"de",
+				"default_dpt"
+			],
+			[
+				"is_n",
+				"is_null()"
+			],
+			[
+				"t",
+				"timestamp_"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"jq",
+				"jquery"
+			],
+			[
+				"gett",
+				"gettype()"
+			],
+			[
+				"vl",
+				"value"
+			],
+			[
+				"c",
+				"columns"
+			],
+			[
+				"show",
+				"showMenuOnLoad"
+			],
+			[
+				"da",
+				"database_install/"
+			],
+			[
+				"json",
+				"jsonColumns"
+			],
+			[
+				"dtC",
+				"dtColumnFieldNames"
+			],
+			[
+				"db",
+				"dbTableFields"
+			],
+			[
+				"whi",
+				"whiteList"
+			],
+			[
+				"var",
+				"var_dump()"
+			],
+			[
+				"text",
+				"text-body"
+			],
+			[
+				"ad",
+				"adminDepartmens.php"
+			],
+			[
+				"d",
+				"darkgoldenrod"
+			],
+			[
+				"ba",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "vendor/needim/noty/demo/index.html",
+			"settings":
+			{
+				"buffer_size": 13367,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"d",
+				"Package Control: Disable Package"
+			],
+			[
+				"inpa",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"inp",
+				"Package Control: Install Package"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"listpa",
+				"Package Control: List Packages"
+			],
+			[
+				"listp",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"fix",
+				"PHP CS Fixer: format this file"
+			],
+			[
+				"php",
+				"PHP CS Fixer: format this file"
+			],
+			[
+				"fo",
+				"Formatter: Show Version"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade All Packages"
+			],
+			[
+				"fmt",
+				"phpfmt: toggle additional transformations"
+			],
+			[
+				"phpfm",
+				"phpfmt: format now"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal ",
+				"Package Control: Install Package"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"inspa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac ci",
+				"Package Control: Advanced Install Packages"
+			],
+			[
+				"merge",
+				"Set Syntax: Git Blame Ignore Revisions"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 143.0,
+		"history":
+		[
+			"composer require smarty/smarty",
+			"git branch"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/OSPanel/domains/antCMS.os",
+		"/D/OSPanel/domains/antCMS.os/vendor",
+		"/D/OSPanel/domains/antCMS.os/vendor/needim",
+		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty",
+		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty/demo",
+		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty/lib"
+	],
+	"file_history":
+	[
+		"/D/OSPanel/domains/antCMS.os/admin/core/includes/conf_columns.php",
+		"/D/OSPanel/domains/antCMS.os/admin/functions/adminUI_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/js/ui/sub/conf_columns.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/dataTables.cellEdit.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/ui/uiAdmin.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/standartDataTable.js",
+		"/D/OSPanel/domains/antCMS.os/PROJECT_antCMS.sublime-project",
+		"/D/OSPanel/domains/antCMS.os/admin/js/admin.js",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/sub/conf_columns.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/cs/error_input.tpl",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/cs/single_radio.tpl",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/PDOx.md",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/sub/conf_columnsOLD.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/core/configs/catalog_products_categories__columns.json",
+		"/W/domains/antCMS.os/admin/core/cache/php/ant^19333a446345888c47c24a4f5188e268fde2f60c_2.file_conf_columns.tpl.html.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/includes/default_dpt.php",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/ant^19333a446345888c47c24a4f5188e268fde2f60c_2.file_conf_columns.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/core/configs/catalog_tree__columns.json",
+		"/D/OSPanel/domains/antCMS.os/admin/core/departments.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/mysqli.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/bootstrap.php",
+		"/D/tempTelegram/CodeFormatter.sublime-settings",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/sub/default_sub.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/admin.php",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/md.md",
+		"/D/OSPanel/domains/antCMS.os/vendor/izniburak/pdox/example.php",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/FILEDEBUG.JSON",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/orders.sql",
+		"/C/Users/antaNT64pro/AppData/Roaming/Sublime Text/Packages/CodeFormatter/README.md",
+		"/C/Users/antaNT64pro/AppData/Roaming/Sublime Text/Packages/User/CodeFormatter.sublime-settings",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/php.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/configs/trade_orders__columns.json",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/cs/single_inputtext.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/admin.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/css/uiAdmin.css",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/cs/single_checkbox.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/cs/single_radio.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/vendor/twbs/bootstrap/site/assets/js/snippets.js",
+		"/D/OSPanel/domains/antCMS.os/vendor/gabordemooij/redbean/testing/RedUNIT/Base/Xnull.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/admin_end.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/descriptions/adminDepartmensDescription.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/classes/class.adminSSP.php",
+		"/D/OSPanel/domains/antCMS.os/admin/js/ui/uiHotKeys.js",
+		"/D/OSPanel/domains/antCMS.os/.gitignore",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/dtEvents.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/dtStandartLayout.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/dtEditExample.js",
+		"/D/OSPanel/domains/antCMS.os/lib/datatables/datatables.css",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/default_dpt.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/atoms/aPageH1.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/atoms/aBreadcrump.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/js/ui/uiEvents.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/index.js",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/admin__menu_offcanvas.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/atoms/aDivDropdownContainerSize.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/apps/Toasts/appToasts.js",
+		"/D/OSPanel/domains/antCMS.os/vendor/twbs/bootstrap/site/content/docs/5.3/examples/offcanvas-navbar/offcanvas-navbar.css",
+		"/D/OSPanel/domains/antCMS.os/vendor/twbs/bootstrap/site/content/docs/5.3/examples/offcanvas-navbar/index.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/admin__navbar.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/composer.lock",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/admin__footer.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/core/authentication.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/settings.php",
+		"/D/OSPanel/domains/antCMS.os/composer.txt",
+		"/D/OSPanel/domains/antCMS.os/admin/functions/admin_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/const.php",
+		"/D/OSPanel/domains/antCMS.os/admin/functions/registration_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/orklang.php",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dt/dtButtons.js",
+		"/C/Users/antaNT64pro/3D Objects/admin antCMS.os antCMS v00 alpha.csv-2.csv",
+		"/C/Users/antaNT64pro/3D Objects/admin antCMS.os antCMS v00 alpha.csv-1.csv",
+		"/C/Users/antaNT64pro/AppData/Roaming/Sublime Merge/Packages/User/Commit Message.sublime-settings",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dtEvents.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/dtButtons.js",
+		"/D/OSPanel/domains/antCMS.os/admin/core/configs/trade_companies__columns.json",
+		"/D/OSPanel/domains/antCMS.os/vendor/symfony/var-dumper/Dumper/HtmlDumper.php",
+		"/D/OSPanel/domains/antCMS.os/admin/js/standartDataTable.js",
+		"/D/OSPanel/domains/antCMS.os/admin/core/errors.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/configs/conf_currencies__columns.json",
+		"/D/OSPanel/domains/antCMS.os/admin/core/tables.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/dtGenerateColumns.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/includes/trade_companies.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/configs/conf_currencies__columnsffff.json",
+		"/D/OSPanel/domains/antCMS.os/admin/core/includes/conf_currencies.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/dtInit.php",
+		"/D/OSPanel/domains/antCMS.os/admin/functions/session_functions.php",
+		"/D/OSPanel/domains/antCMS.os/vendor/autoload.php",
+		"/C/Users/antaNT64pro/AppData/Roaming/Sublime Text/Packages/Composer/composer-sublime.sublime-settings",
+		"/C/Users/antaNT64pro/AppData/Roaming/Sublime Text/Packages/User/composer-sublime.sublime-settings",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/notfound.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/sub/trade_orders.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/core/includes/trade_orders.php",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/trash.js",
+		"/D/OSPanel/domains/antCMS.os/admin/json/trade_orders__columns.json",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/admin__menu_accordion.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/start.tpl.html",
+		"/C/Users/antaNT64pro/AppData/Roaming/Sublime Text/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/D/OSPanel/domains/antCMS.os/admin/core/adminDepartmensDescription.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/functions/adminUI_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/functions/admin_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/standartdpt.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/vendor/smarty/smarty/src/Data.php",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/default.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/megamenu.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/logs/SMARTYDEBUG.JSON",
+		"/D/OSPanel/domains/antCMS.os/vendor/smarty/smarty/docs/designers/language-builtin-functions/language-function-assign.md",
+		"/D/OSPanel/domains/antCMS.os/admin/js/node_modules/datatables.net-bs5/js/dataTables.bootstrap5.js",
+		"/D/OSPanel/domains/antCMS.os/admin/js/node_modules/datatables.net-bs5/js/dataTables.bootstrap5.mjs",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/admin__head.tpl.html",
+		"/D/OSPanel/domains/antCMS.os/admin/core/cache/php/ant^44b82ce2cc28876d82816adb008d1dfc53395b58_0.file_trade_orders.tpl.html.php",
+		"/D/OSPanel/domains/antCMS.os/lib/DataTables/datatables.js",
+		"/D/OSPanel/domains/antCMS.os/composer.json",
+		"/D/OSPanel/domains/antCMS.os/admin/core/functions/debug_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/classes/class.SSP.php",
+		"/D/OSPanel/domains/antCMS.os/admin/tpl/sub/trade_orders__columns.json",
+		"/D/OSPanel/domains/antCMS.os/admin/core/functions/session_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/core/functions/registration_functions.php",
+		"/D/OSPanel/domains/antCMS.os/admin/rbAdmin.php",
+		"/D/OSPanel/domains/antCMS.os/RedBeanPHP5_7_4-mysql.tgz",
+		"/D/OSPanel/domains/antCMS/admin/tpl/admin__footer.tpl.html",
+		"/D/OSPanel/domains/antCMS/admin/js/index.js",
+		"/D/OSPanel/domains/antCMS/admin/tpl/admin.tpl.html",
+		"/D/OSPanel/domains/antCMS/admin/admin.php",
+		"/D/OSPanel/domains/antCMS/admin/js/ui/uiAdmin.js",
+		"/D/OSPanel/domains/antCMS/admin/apps/Toasts/appToasts.tpl.html",
+		"/D/OSPanel/domains/antCMS/admin/apps/Toasts/appToasts.js",
+		"/D/OSPanel/domains/antCMS/admin/js/admin.js"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 128.0,
+		"where_history":
+		[
+			"<project filters>, <open files>",
+			"<project filters>, *.js",
+			"<project filters>, *.php",
+			"<project filters>, *.php,<open files>",
+			"<project filters>, *.php",
+			"<project filters>",
+			"",
+			"\"",
+			"<project filters>, *.js",
+			"<project filters>",
+			"<project filters>, *.js",
+			"<project filters>",
+			"<project filters>, *.php",
+			"<project filters>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<<<",
+			"DataTable",
+			"configSelectedIndex",
+			"current_sub_id",
+			"tableSelectedIndex",
+			"getUrlComponent",
+			"index",
+			"'index'",
+			"index",
+			"dt",
+			"th",
+			">\n",
+			"i",
+			"columnsFromRBC",
+			"$value",
+			"$key",
+			"$r",
+			"r",
+			"c:/OSP",
+			"allTablesNames",
+			"rbcolumns",
+			"debug",
+			",$db->error()",
+			"commit",
+			"q",
+			"count",
+			"where",
+			"Type",
+			"$1",
+			"value",
+			"$value",
+			"$cd->",
+			"visible",
+			"cdFields",
+			"cd",
+			"columns",
+			"data",
+			"vv",
+			"columns",
+			"191",
+			"utf8mb4",
+			"utf8mb4_unicode_520_ci",
+			",",
+			", `",
+			"), `",
+			"R::",
+			"<td>",
+			"th",
+			"strstr",
+			"inputType",
+			".",
+			"db_getColumnNames",
+			"Загрузить состояние",
+			"'table_columns'",
+			"$table_columns",
+			" ms-2",
+			" me-2",
+			"me",
+			"switcherFieldsetToggle",
+			"e",
+			"isTrusted",
+			"switcherMenuPosition",
+			"switcherEnableFieldset",
+			" aria",
+			"switcherEnableEdit",
+			"switcherMenuOnLoad",
+			"switcher",
+			".tpl.html",
+			"smarty",
+			");",
+			"->fetch",
+			"{section name",
+			"dataset",
+			"datalistOptions",
+			"dataset",
+			" class=\"ant-text-no-rotated\"",
+			"ant-text-rotated",
+			"checkbox_",
+			" eq \"switch\"",
+			"\"}",
+			"$switch",
+			"text-bg-danger",
+			"text=b",
+			"attributes",
+			"php_sub",
+			"isIndeterminate",
+			".ind",
+			".checked",
+			"checked",
+			"p.disabled",
+			"p.disabled}",
+			"disabled",
+			"p.dataset",
+			"params",
+			"$params",
+			"db_check_p",
+			"if $params",
+			"class_add",
+			"indeterminate",
+			"datasetA",
+			"class_add",
+			"  document.querySelectorAll('.bd-example-indeterminate [type=\"checkbox\"]')\n",
+			"checked",
+			"<td>",
+			"th",
+			"admin_main_content_template",
+			"default_dpt.tpl.html",
+			"ADMIN_CONTAINER_WIDTH",
+			"dumpADMIN_CONTAINER_WIDTH",
+			"jsColumnIndex",
+			"data-id='editedCell'",
+			"json_decode",
+			"editedID",
+			"page_message",
+			"ssp_message",
+			"response",
+			"                ",
+			"initDefaultDataTable",
+			"_update",
+			"cancelEditableCell",
+			"cell",
+			"foreach",
+			"each",
+			"lg",
+			"console.info",
+			"console",
+			"updateEditableCell",
+			" id='editedCell'"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"configSelectedIndex",
+			"'columnsJsonFileName'",
+			"$columnsJsonFileName",
+			"\"",
+			"{$container_width}",
+			"ADMIN_CONTAINER_WIDTH",
+			"default_dpt.tpl.html",
+			"sub_hrefs",
+			"sub_href",
+			"sub_names",
+			"sub_ids",
+			"department",
+			"flatDepartments",
+			"PATH_JSON",
+			"JSON_PATH"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "vendor/needim/noty/demo/index.html",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2287,
+								2226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 565.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.composer":
+	{
+		"height": 132.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "testNoty.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"uijs",
+				"admin\\js\\ui\\uiAdmin.js"
+			],
+			[
+				".js",
+				"admin\\js\\admin.js"
+			],
+			[
+				"confcolj",
+				"admin\\js\\ui\\sub\\conf_columns.js"
+			],
+			[
+				"__C",
+				"admin\\core\\configs\\catalog_tree__columns.json"
+			],
+			[
+				"__col",
+				"admin\\core\\configs\\catalog_tree__columns.json"
+			],
+			[
+				"confcotp",
+				"admin\\tpl\\sub\\conf_columns.tpl.html"
+			],
+			[
+				"boot",
+				"admin\\core\\bootstrap.php"
+			],
+			[
+				"php.",
+				"admin\\logs\\php.php"
+			],
+			[
+				".md",
+				"admin\\logs\\md.md"
+			],
+			[
+				"JSO",
+				"admin\\logs\\FILEDEBUG.JSON"
+			],
+			[
+				"sql",
+				"admin\\logs\\orders.sql"
+			],
+			[
+				"FIL",
+				"admin\\logs\\FILEDEBUG.JSON"
+			],
+			[
+				"adm",
+				"admin\\admin.php"
+			],
+			[
+				"admtpl",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"admin",
+				"admin\\core\\admin_end.php"
+			],
+			[
+				"dataedi",
+				"admin\\js\\dt\\dataTables.cellEdit.js"
+			],
+			[
+				"ev",
+				"admin\\js\\ui\\uiEvents.js"
+			],
+			[
+				"ui",
+				"admin\\js\\ui\\uiAdmin.js"
+			],
+			[
+				"admtp",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"admt",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"conf_columns.php",
+				"admin\\core\\includes\\conf_columns.php"
+			],
+			[
+				"admin_end",
+				"admin\\core\\admin_end.php"
+			],
+			[
+				"departme",
+				"admin\\core\\descriptions\\adminDepartmensDescription.php"
+			],
+			[
+				"hotke",
+				"admin\\js\\ui\\uiHotKeys.js"
+			],
+			[
+				"apmintp",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"layoutjs",
+				"admin\\js\\dt\\dtStandartLayout.js"
+			],
+			[
+				"defsub",
+				"admin\\tpl\\sub\\default_sub.tpl.html"
+			],
+			[
+				"uie",
+				"admin\\js\\ui\\uiEvents.js"
+			],
+			[
+				"adrtp",
+				"admin\\tpl\\atoms\\aDivDropdownContainerSize.tpl.html"
+			],
+			[
+				"admjs",
+				"admin\\js\\admin.js"
+			],
+			[
+				"uiev",
+				"admin\\js\\ui\\uiEvents.js"
+			],
+			[
+				"admitp",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"navtp",
+				"admin\\tpl\\admin__navbar.tpl.html"
+			],
+			[
+				"",
+				"composer.lock"
+			],
+			[
+				"off",
+				"vendor\\twbs\\bootstrap\\site\\content\\docs\\5.3\\examples\\offcanvas-navbar\\offcanvas-navbar.css"
+			],
+			[
+				"dtl",
+				"admin\\js\\dt\\dtStandartLayout.js"
+			],
+			[
+				"tablejs",
+				"admin\\js\\dt\\standartDataTable.js"
+			],
+			[
+				"defsubt",
+				"admin\\tpl\\sub\\default_sub.tpl.html"
+			],
+			[
+				"sett",
+				"admin\\core\\settings.php"
+			],
+			[
+				"foote",
+				"admin\\tpl\\admin__footer.tpl.html"
+			],
+			[
+				"abre",
+				"admin\\tpl\\atoms\\aBreadcrump.tpl.html"
+			],
+			[
+				"offctpl",
+				"admin\\tpl\\admin__menu_offcanvas.tpl.html"
+			],
+			[
+				"foo",
+				"admin\\tpl\\admin__footer.tpl.html"
+			],
+			[
+				"admin__navbar",
+				"admin\\tpl\\admin__navbar.tpl.html"
+			],
+			[
+				"endph",
+				"admin\\core\\admin_end.php"
+			],
+			[
+				"boo",
+				"admin\\core\\bootstrap.php"
+			],
+			[
+				"admin.php",
+				"admin\\admin.php"
+			],
+			[
+				"const",
+				"admin\\core\\const.php"
+			],
+			[
+				"trade_companies__columns.json",
+				"admin\\core\\configs\\trade_companies__columns.json"
+			],
+			[
+				"js",
+				"admin\\js\\standartDataTable.js"
+			],
+			[
+				"defsutp",
+				"admin\\tpl\\sub\\default_sub.tpl.html"
+			],
+			[
+				"tables",
+				"admin\\core\\tables.php"
+			],
+			[
+				"defdpt",
+				"admin\\core\\includes\\default_dpt.php"
+			],
+			[
+				"defdp",
+				"admin\\tpl\\default_dpt.tpl.html"
+			],
+			[
+				"sesss",
+				"admin\\functions\\session_functions.php"
+			],
+			[
+				"autoload.php",
+				"vendor\\autoload.php"
+			],
+			[
+				"trade_orders.tpl.html ",
+				"admin\\tpl\\sub\\trade_orders.tpl.html"
+			],
+			[
+				"standartdpt",
+				"admin\\tpl\\standartdpt.tpl.html"
+			],
+			[
+				"offc",
+				"admin\\tpl\\admin__menu_offcanvas.tpl.html"
+			],
+			[
+				"men",
+				"admin\\tpl\\admin__menu_accordion.tpl.html"
+			],
+			[
+				"notfound.tpl.html",
+				"admin\\tpl\\notfound.tpl.html"
+			],
+			[
+				"dep",
+				"admin\\core\\adminDepartmensDescription.php"
+			],
+			[
+				"admintpl",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"functions",
+				"admin\\core\\functions.php"
+			],
+			[
+				"st",
+				"admin\\tpl\\standartdpt.tpl.html"
+			],
+			[
+				"trade",
+				"admin\\core\\includes\\trade_orders.php"
+			],
+			[
+				".bootstrap5.js",
+				"admin\\js\\node_modules\\datatables.net-bs5\\js\\dataTables.bootstrap5.js"
+			],
+			[
+				"standartDataTable.js",
+				"admin\\js\\standartDataTable.js"
+			],
+			[
+				"stand",
+				"admin\\tpl\\standartdpt.tpl.html"
+			],
+			[
+				"standphp",
+				"admin\\core\\includes\\trade_companies.php"
+			],
+			[
+				"tra",
+				"admin\\core\\includes\\trade_orders.php"
+			],
+			[
+				"defa",
+				"admin\\tpl\\default.tpl.html"
+			],
+			[
+				"index",
+				"admin\\js\\index.js"
+			],
+			[
+				"deb",
+				"admin\\core\\functions\\debug_functions.php"
+			],
+			[
+				"admijs",
+				"admin\\js\\admin.js"
+			],
+			[
+				"footer",
+				"admin\\tpl\\admin__footer.tpl.html"
+			],
+			[
+				"json",
+				"admin\\tpl\\sub\\trade_orders__columns.json"
+			],
+			[
+				"fun",
+				"admin\\core\\functions.php"
+			],
+			[
+				"debu",
+				"admin\\core\\functions\\debug_functions.php"
+			],
+			[
+				"smade",
+				"admin\\logs\\SMARTYDEBUG.JSON"
+			],
+			[
+				"admiphp",
+				"admin\\admin.php"
+			],
+			[
+				"standatp",
+				"admin\\tpl\\standartdpt.tpl.html"
+			],
+			[
+				"admitpl",
+				"admin\\tpl\\admin.tpl.html"
+			],
+			[
+				"footr",
+				"admin\\tpl\\admin__footer.tpl.html"
+			],
+			[
+				"my",
+				"admin\\core\\mysqli.php"
+			],
+			[
+				"ant",
+				"admin\\core\\classes\\antDataBase.php"
+			],
+			[
+				"lang",
+				"admin\\core\\orklang.php"
+			],
+			[
+				"cons",
+				"admin\\core\\const.php"
+			],
+			[
+				"admin__menu_accordion",
+				"admin\\tpl\\admin__menu_accordion.tpl.html"
+			],
+			[
+				"notfound",
+				"admin\\tpl\\notfound.tpl.html"
+			],
+			[
+				"admfoo",
+				"admin\\tpl\\admin__footer.tpl.html"
+			],
+			[
+				"tradephp",
+				"admin\\core\\includes\\trade_orders.php"
+			],
+			[
+				"adminphp",
+				"admin\\admin.php"
+			],
+			[
+				"smarty",
+				"logs\\SMARTYDEBUG.JSON"
+			],
+			[
+				"tables.inc",
+				"core\\config\\tables.inc.php"
+			],
+			[
+				"conn",
+				"core\\config\\connect.inc.php"
+			],
+			[
+				"gi",
+				".gitignore"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				"invojs",
+				"core\\tpl\\user\\nano\\js\\invoice_functions.js"
+			],
+			[
+				"invo",
+				"core\\modules\\payment\\invoice_2024.php"
+			],
+			[
+				"invoi",
+				"core\\modules\\payment\\invoice_2024.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\OSPanel\\domains\\nixminsk_private\\VH87_nixminsk.by.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 337.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
