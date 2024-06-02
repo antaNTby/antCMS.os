@@ -125,7 +125,7 @@ HTML;
 
         $smarty->assign('btnRedirectToeEdit', $btnRedirectToeEdit);
          $noty = new Noty();
-        $noty::run('success', 'Name does not exist', 1000, 'topRight');
+        $noty::run('success', $btnRedirectToeEdit, 1000, 'topRight');
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
