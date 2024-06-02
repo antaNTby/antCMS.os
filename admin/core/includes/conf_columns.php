@@ -119,6 +119,15 @@ INSERT|UPDATE
             $cc++;
             dump([$db->queryCount(), $db->getQuery()]);
         }
+
+        $btnRedirectToeEdit=<<<HTML
+
+   <button type="button" class="btn btn-dark w-100 text-nowrap" data-operation="redirect">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
+
+HTML;
+
+
+        $smarty->assign('btnRedirectToeEdit',$btnRedirectToeEdit);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
