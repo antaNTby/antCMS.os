@@ -29,31 +29,40 @@
     {/section}
 </tr>
 {/section}
-
-
 {literal}
-
 <script>
+
 
 let divProgress = document.querySelector("div[data-progress]");
 let timerEl = document.querySelector('input[name="toastTimer"]');
-const iterationCount = 10;
+
+const iterationCount = 5;
+
 let startPercent = 0;
-let toastSeconds = timerEl.value; // 100 sec
+
+let toastSeconds = 10; // 100 sec
+if (timerEl && timerEl.value > 0) {
+    toastSeconds = timerEl.value; // 100 sec
+}
+console.log("toastSeconds " + toastSeconds);
 let increment = 0; // счетчик
-let timeValue = Math.ceil(+toastSeconds / +iterationCount); //10 sec
+let pixelValue = Math.ceil(toastSeconds / iterationCount); //10 sec
+console.log("pixelValue " + pixelValue);
 
 function doProgress() {
-    increment = increment + 1;
+
     if (increment <= iterationCount) {
-        let Percent = startPercent + (timeValue * increment); //  10s*0 //+10s*1 //10*2 // 10*3
+        let Percent = startPercent + (pixelValue * increment); //  10s*0 //+10s*1 //10*2 // 10*3
         divProgress.style.width = Percent + "%";
-        console.log(divProgress.style.width);
+        console.log(Percent,divProgress.style.width);
+    increment = increment + 1;
     }
+    return false;
 }
+
 setInterval(doProgress, 1000);
 doProgress();
-    
-</script>
 
+
+</script>
 {/literal}

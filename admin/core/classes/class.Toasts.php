@@ -21,7 +21,7 @@ class Toasts
     {
 
         $script = <<<text
-<input id="toastTimer" name="toastTimer" type=hidden value={$timerSec}>
+<input id="toastTimer" name="toastTimer" type="number" value={$timerSec}>
 
 <script type='module'>
 
@@ -33,7 +33,7 @@ document.getElementById('toast-container').innerHtml=phpToast;
  </script>
 text;
         echo $script;
-        RedirectMetaRefresh($urlToRedirect, $timer=$timerSec);
+        RedirectMetaRefresh($urlToRedirect, $timerSec);
     }
 
 }

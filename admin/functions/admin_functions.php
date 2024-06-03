@@ -21,7 +21,7 @@ function set_cookie(
 
 function checklogin()
 {
-    $rls = [];
+    $rls = array();
     if (isset($_SESSION['log'])) //look for user in the database
     {
         $q   = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
@@ -38,25 +38,25 @@ function checklogin()
             # fix log errors WARNING: in_array() expects parameter 2 to be array, boolean given
             if (!is_array($rls))
             {
-                $rls = [];
+                $rls = array();
             }
         }
     }
     return $rls;
 }
 
-
-function correct_URL( $url, $mode = "http" ) //converts
+function correct_URL($url, $mode = 'http') //converts
 
 {
-    $URLprefix = trim( $url );
-    $URLprefix = str_replace( "http://", "", $URLprefix );
-    $URLprefix = str_replace( "https://", "", $URLprefix );
-    $URLprefix = str_replace( "index.php", "", $URLprefix );
-    if ( $URLprefix[strlen( $URLprefix ) - 1] == '/' ) {
-        $URLprefix = substr( $URLprefix, 0, strlen( $URLprefix ) - 1 );
+    $URLprefix = trim($url);
+    $URLprefix = str_replace('http://', '', $URLprefix);
+    $URLprefix = str_replace('https://', '', $URLprefix);
+    $URLprefix = str_replace('index.php', '', $URLprefix);
+    if ($URLprefix[strlen($URLprefix) - 1] == '/')
+    {
+        $URLprefix = substr($URLprefix, 0, strlen($URLprefix) - 1);
     }
-    return ( $mode . "://" . $URLprefix . "/" );
+    return ($mode . '://' . $URLprefix . '/');
 }
 
 // *****************************************************************************
@@ -70,19 +70,18 @@ function Redirect($url)
     exit();
 }
 
-function RedirectMetaRefresh($url, $timer=1)
+function RedirectMetaRefresh($url, $timer = 1)
 {
-
     if (CONF_PROTECTED_CONNECTION == '1')
     {
-        $urlToRedirect=(correct_URL(CONF_FULL_SHOP_URL, 'https') . $url); //redirect to HTTPS part of the website
+        $urlToRedirect = (correct_URL(CONF_FULL_SHOP_URL, 'https') . $url); //redirect to HTTPS part of the website
     }
     else
     {
-        $urlToRedirect=($url);
+        $urlToRedirect = ($url);
     }
 
-        echo ( '<meta http-equiv="refresh" content="' . (int)$timer . ';URL=' . $urlToRedirect . '">');
+    echo ('<meta http-equiv="refresh" content="' . (int) $timer . ';URL=' . $urlToRedirect . '">');
 }
 // *****************************************************************************
 // Purpose        redirects to other PHP page specified URL ( $url )
@@ -143,7 +142,7 @@ function set_query(
         return $_request . '#' . $_anchor;
     }
 
-    $_rvars  = [];
+    $_rvars  = array();
     $tr_vars = explode('&', strpos($_request, '?') !== false ? preg_replace('|.*\?|', '', $_request) :
         '');
     foreach ($tr_vars as $_var)
@@ -154,7 +153,7 @@ function set_query(
             $_rvars[$_t[0]] = $_t[1];
         }
     }
-    $tr_vars = explode('&', preg_replace(['|^\&|', '|^\?|'], '', $_vars));
+    $tr_vars = explode('&', preg_replace(array('|^\&|', '|^\?|'), '', $_vars));
     foreach ($tr_vars as $_var)
     {
         $_t = explode('=', $_var);
@@ -167,7 +166,7 @@ function set_query(
             $_rvars[$_t[0]] = $_t[1];
         }
     }
-    $tr_vars = [];
+    $tr_vars = array();
     foreach ($_rvars as $_var => $_val)
     {
         $tr_vars[] = "$_var=$_val";
