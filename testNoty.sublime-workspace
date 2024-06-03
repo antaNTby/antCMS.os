@@ -179,17 +179,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "vendor/needim/noty/demo/index.html",
-			"settings":
-			{
-				"buffer_size": 13367,
-				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -318,14 +307,11 @@
 	"expanded_folders":
 	[
 		"/D/OSPanel/domains/antCMS.os",
-		"/D/OSPanel/domains/antCMS.os/vendor",
-		"/D/OSPanel/domains/antCMS.os/vendor/needim",
-		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty",
-		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty/demo",
-		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty/lib"
+		"/D/OSPanel/domains/antCMS.os/vendor"
 	],
 	"file_history":
 	[
+		"/D/OSPanel/domains/antCMS.os/vendor/needim/noty/demo/index.html",
 		"/D/OSPanel/domains/antCMS.os/admin/core/includes/conf_columns.php",
 		"/D/OSPanel/domains/antCMS.os/admin/functions/adminUI_functions.php",
 		"/D/OSPanel/domains/antCMS.os/admin/js/ui/sub/conf_columns.js",
@@ -452,8 +438,7 @@
 		"/D/OSPanel/domains/antCMS/admin/admin.php",
 		"/D/OSPanel/domains/antCMS/admin/js/ui/uiAdmin.js",
 		"/D/OSPanel/domains/antCMS/admin/apps/Toasts/appToasts.tpl.html",
-		"/D/OSPanel/domains/antCMS/admin/apps/Toasts/appToasts.js",
-		"/D/OSPanel/domains/antCMS/admin/js/admin.js"
+		"/D/OSPanel/domains/antCMS/admin/apps/Toasts/appToasts.js"
 	],
 	"find":
 	{
@@ -649,38 +634,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "vendor/needim/noty/demo/index.html",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13367,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2287,
-								2226
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],

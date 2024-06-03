@@ -15,18 +15,25 @@ class Toasts
     public static function run(
         $type,
         $text,
-        $urlToRedirect
+        $urlToRedirect,
+        $timerSec=100
     )
     {
 
         $script = <<<text
-<script  type='module'>
+<input id="toastTimer" name="toastTimer" type=hidden value={$timerSec}>
+
+<script type='module'>
+
 import * as bsToast from "../admin/apps/Toasts/appToasts.js";
-bsToast.showToast('{$text}','{$type}');
+const phpToast = bsToast.showToast('{$text}','{$type}');
+document.getElementById('toast-container').innerHtml=phpToast;
+
+
  </script>
 text;
         echo $script;
-        echo '<meta http-equiv="refresh" content="2;URL=' . $urlToRedirect . '">';
+        RedirectMetaRefresh($urlToRedirect, $timer=$timerSec);
     }
 
 }

@@ -45,6 +45,20 @@ function checklogin()
     return $rls;
 }
 
+
+function correct_URL( $url, $mode = "http" ) //converts
+
+{
+    $URLprefix = trim( $url );
+    $URLprefix = str_replace( "http://", "", $URLprefix );
+    $URLprefix = str_replace( "https://", "", $URLprefix );
+    $URLprefix = str_replace( "index.php", "", $URLprefix );
+    if ( $URLprefix[strlen( $URLprefix ) - 1] == '/' ) {
+        $URLprefix = substr( $URLprefix, 0, strlen( $URLprefix ) - 1 );
+    }
+    return ( $mode . "://" . $URLprefix . "/" );
+}
+
 // *****************************************************************************
 // Purpose        redirects to other PHP page specified URL ( $url )
 // Inputs           $url
@@ -54,6 +68,21 @@ function Redirect($url)
 {
     header('Location: ' . $url);
     exit();
+}
+
+function RedirectMetaRefresh($url, $timer=1)
+{
+
+    if (CONF_PROTECTED_CONNECTION == '1')
+    {
+        $urlToRedirect=(correct_URL(CONF_FULL_SHOP_URL, 'https') . $url); //redirect to HTTPS part of the website
+    }
+    else
+    {
+        $urlToRedirect=($url);
+    }
+
+        echo ( '<meta http-equiv="refresh" content="' . (int)$timer . ';URL=' . $urlToRedirect . '">');
 }
 // *****************************************************************************
 // Purpose        redirects to other PHP page specified URL ( $url )

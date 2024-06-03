@@ -1,27 +1,30 @@
-<hr>
+{include file="atoms/aBreadcrump.tpl.html"}
+{include file="atoms/aPageH1.tpl.html"}
 <div class="d-flex align-items-center gap-4">
-    <label for="configSelector" class="form-check-label text-nowrap">Выбрать конфигурацию</label>
-    <select name="configSelector" id="configSelector" class="form-select">
-        {section name=tt loop=$allTablesNames}
-        {if $smarty.section.tt.index == $configSelectedIndex}
-        {assign var=isSelected value="selected=selected"}{else}{assign var=isSelected value=""}
-        {/if}
-        <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
-        {/section}
-    </select>
-    <div class="form-check form-switch align-items-center" title="Снять запрет">
-        <input class="form-check-input" type="checkbox" role="switch" name="switcherFieldsetToggle" id="switcherFieldsetToggle" aria-labelledby="selectConfigFieldset">
-        <label class="form-check-label" for="switcherFieldsetToggle"><i class="bi bi-lock-fill text-danger"></i></label>
+    <div class="w-50 d-flex flex-column flex-md-row align-items-center gap-2">
+        <label for="configSelector" class="form-check-label text-nowrap">Выбрать конфигурацию</label>
+        <select name="configSelector" id="configSelector" class="form-select">
+            {section name=tt loop=$allTablesNames}
+            {if $smarty.section.tt.index == $configSelectedIndex}
+            {assign var=isSelected value="selected=selected"}{else}{assign var=isSelected value=""}
+            {/if}
+            <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
+            {/section}
+        </select>
+        <div class="form-check form-switch align-items-center" title="Снять запрет">
+            <input class="form-check-input" type="checkbox" role="switch" name="switcherFieldsetToggle" id="switcherFieldsetToggle" aria-labelledby="selectConfigFieldset">
+            <label class="form-check-label" for="switcherFieldsetToggle"><i class="bi bi-lock-fill text-danger"></i></label>
+        </div>
     </div>
-    <fieldset class="w-100 d-flex flex-column flex-md-row align-items-center gap-2" id="selectConfigFieldset" disabled>
+    <fieldset class="w-50 d-flex flex-column flex-md-row align-items-center gap-2" id="selectConfigFieldset" disabled>
         <button type="button" class="btn btn-dark w-100 text-nowrap" data-operation="addNewConfig">Создать/Обновить конфиг <i class="bi bi-database-add"></i></button>
         <button type="button" class="btn btn-primary w-100 text-nowrap" data-operation="ssss">Импортировать из `*__columns.json`<i class="bi bi-edit"></i></button>
         <button type="button" class="btn btn-danger w-100 text-nowrap" data-operation="ssss">Переписать `*__columns.json` <i class="bi bi-edit"></i></button>
     </fieldset>
 </div>
 <hr>
-{if $iuConfigs}
 <div class="table-responsive-xl mb-4">
+    {assign var ="countTD" value=11}
     <table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm">
         <thead class="table-secondary">
             <tr class="ant-text-rotated align-self-center align-middle text-center">
@@ -43,7 +46,9 @@
             </tr>
         </thead>
         <tbody>
-            {section name=row loop=$dbTableFields|@count}
+            {assign var ="FieldsCount" value=$dbTableFields|@count}
+            {if $iuConfigs}
+            {section name=row loop=$FieldsCount}
             <tr class="ant-text-no-rotated align-items-center">
                 {assign var ="rowData" value=$iuConfigs[$smarty.section.row.index]}
                 {assign var ="colData" value=$rowData.table_data}
@@ -64,18 +69,14 @@
                 {* <td>{$colData.input_type}</td> *}
             </tr>
             {/section}
+            {else}
+            {include file="atoms/aEmptyTableBodyWithPlaceholders.tpl.html"  progressPercent="50" countTD=$countTD|default:11}
+            {/if}
         </tbody>
         <tfoot class="table-dark">
         </tfoot>
     </table>
 </div>
-{else}
-
-<div class="progress" role="progressbar" aria-label="Animated striped" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
-    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 75%">Пожалуйста, подождите ...</div>
-</div>
-
-{/if}
 <div class="shadow p-3 mb-5 mt-3 bg-body-tertiary rounded border border-1">
     <form class="p-3" action="save_defaultForm1">
         <input type="text" id="jsonFN" value="{$columnsJsonFileName}">

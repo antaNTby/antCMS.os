@@ -10,7 +10,8 @@
     }
 
     div.offcanvas-header {
-        background-color: #222222;S
+        background-color: #222222;
+        S
     }
 
     div#uiControl {
@@ -45,7 +46,6 @@
     </h6>
     {/if}
     <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
-        {include file="../apps/Toasts/appToasts.tpl.html"}
         <div class="{$container_width}">
             {* <div class="row" data-bs-theme="dark"> *}
                 {include file="admin__menu_offcanvas.tpl.html"}
@@ -57,6 +57,9 @@
                 {* </div> *}
         </div>
     </main>
+    <div id="toast-container">
+        {include file="../apps/Toasts/appToasts.tpl.html"}
+    </div>
     <footer class="text-bg-dark d-block mt-auto">
         <div class="{$container_width}">
             {include file="admin__footer.tpl.html"}

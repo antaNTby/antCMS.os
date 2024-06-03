@@ -1,0 +1,59 @@
+{section name=upR loop=3}
+<tr class="ant-text-no-rotated align-items-center">
+    <td>{$smarty.section.upR.index}</td>
+    {section name=tdP loop=$countTD-1}
+    <td>
+        <p class="placeholder-wave">
+            <span class="placeholder col-12"></span>
+        </p>
+    </td>
+    {/section}
+</tr>
+{/section}
+<tr class="ant-text-no-rotated align-items-center">
+    <td colspan={$countTD}>
+        <div class="progress" role="progressbar" aria-label="Animated striped" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
+            <div data-progress="{$progressPercent}" class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: {$progressPercent}%">Пожалуйста, подождите ...</div>
+        </div>
+    </td>
+</tr>
+{section name=lowR start=4 loop=7}
+<tr class="ant-text-no-rotated align-items-center">
+    <td>{$smarty.section.lowR.index}</td>
+    {section name=tdP loop=$countTD-1}
+    <td>
+        <p class="placeholder-glow">
+            <span class="placeholder col-12"></span>
+        </p>
+    </td>
+    {/section}
+</tr>
+{/section}
+
+
+{literal}
+
+<script>
+
+let divProgress = document.querySelector("div[data-progress]");
+let timerEl = document.querySelector('input[name="toastTimer"]');
+const iterationCount = 10;
+let startPercent = 0;
+let toastSeconds = timerEl.value; // 100 sec
+let increment = 0; // счетчик
+let timeValue = Math.ceil(+toastSeconds / +iterationCount); //10 sec
+
+function doProgress() {
+    increment = increment + 1;
+    if (increment <= iterationCount) {
+        let Percent = startPercent + (timeValue * increment); //  10s*0 //+10s*1 //10*2 // 10*3
+        divProgress.style.width = Percent + "%";
+        console.log(divProgress.style.width);
+    }
+}
+setInterval(doProgress, 1000);
+doProgress();
+    
+</script>
+
+{/literal}
