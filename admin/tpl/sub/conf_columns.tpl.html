@@ -49,7 +49,7 @@
             {assign var ="FieldsCount" value=$dbTableFields|@count}
             {if $iuConfigs}
             {section name=row loop=$FieldsCount}
-            <tr class="ant-text-no-rotated align-items-center">
+            <tr class="align-items-center">
                 {assign var ="rowData" value=$iuConfigs[$smarty.section.row.index]}
                 {assign var ="colData" value=$rowData.table_data}
                 <td>{$smarty.section.row.index}&nbsp;<sub><span class="badge text-bg-light">{$colData.id}</span></sub></td>

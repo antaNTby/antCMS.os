@@ -46,6 +46,11 @@
     </h6>
     {/if}
     <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
+        <div aria-live="polite" aria-atomic="true" class="position-relative">
+            <div class="toast-container  top-0 end-0 p-5" id="toast-container">
+                {include file="../apps/Toasts/appToasts.tpl.html"}
+            </div>
+        </div>
         <div class="{$container_width}">
             {* <div class="row" data-bs-theme="dark"> *}
                 {include file="admin__menu_offcanvas.tpl.html"}
@@ -57,9 +62,6 @@
                 {* </div> *}
         </div>
     </main>
-    <div id="toast-container">
-        {include file="../apps/Toasts/appToasts.tpl.html"}
-    </div>
     <footer class="text-bg-dark d-block mt-auto">
         <div class="{$container_width}">
             {include file="admin__footer.tpl.html"}

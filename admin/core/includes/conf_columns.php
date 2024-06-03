@@ -30,7 +30,7 @@ $config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
-$rbcolumnsDefault = [
+$rbcolumnsDefault = array(
     'config_name' => 'config_name',
     'data'        => 'column name',
     'db'          => 'DB column name',
@@ -43,8 +43,8 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия',
-];
+    'actions'     => 'Действия'
+);
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
@@ -68,7 +68,7 @@ INSERT|UPDATE
     if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
     {
         // dump($dbTableFields);
-        $cortages = [];
+        $cortages = array();
         $ii       = 0;
         foreach ($dbTableFields as $name => $type)
         {
@@ -81,7 +81,7 @@ INSERT|UPDATE
         $cc = 0;
         foreach ($cortages as $key => $value)
         {
-            $data = [
+            $data = array(
                 'config_name' => $config_name,
                 'data'        => $key,
                 'ind'         => $cc,
@@ -96,52 +96,53 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType'],
-            ];
+                'input_type'  => $value['inputType']
+            );
 
-            $where = [
+            $where = array(
                 'config_name' => $config_name,
-                'data'        => $key,
-            ];
+                'data'        => $key
+            );
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int)$doInsert == 0)
+            if ((int) $doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
-                $message = "Новая конфигурация создана";
+                $message = 'Новая конфигурация создана';
             }
             else
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
-                $message = "Новая конфигурация обновлена";
+                $message = 'Новая конфигурация обновлена';
             }
             $cc++;
             // dump([$db->queryCount(), $db->getQuery()]);
         }
 
-        header("Content-Type: text/html; charset=utf8");
-        $phpToast = new Toasts();
-        $urlToRedirect= ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex;
-        $phpToast::run('success', $message,$urlToRedirect,1);
-        // echo '<meta http-equiv="refresh" content="2;URL=https://ida-freewares.ru">';
-
+        $timerSec = 1; // задержка для обработки страницы
+        $smarty->assign('timerSec', $timerSec);
+        header('Content-Type: text/html; charset=utf8');
+        $phpToast      = new Toasts();
+        $urlToRedirect = ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex;
+        $phpToast::run('success', $message, $urlToRedirect, $timerSec);
+        RedirectMetaRefresh($urlToRedirect, $timerSec);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
-        $where = [
-            'config_name' => $config_name,
-        ];
+        $where = array(
+            'config_name' => $config_name
+        );
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
-        $css   = [];
+        $css   = array();
         $index = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            $tableData = [];
+            $tableData = array();
             foreach ($rowRBC as $fieldName => $fieldData)
             {
                 $tableData[$fieldName]                  = $fieldData;
@@ -152,7 +153,6 @@ INSERT|UPDATE
         }
         $smarty->assign('iuConfigs', $css);
     }
-
 
 /* 2 => {#32 ▼
 +"id": "13"

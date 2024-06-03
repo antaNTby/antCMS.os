@@ -20,20 +20,14 @@ class Toasts
     )
     {
 
-        $script = <<<text
-<input id="toastTimer" name="toastTimer" type="number" value={$timerSec}>
-
+        $script = <<<js
 <script type='module'>
-
 import * as bsToast from "../admin/apps/Toasts/appToasts.js";
 const phpToast = bsToast.showToast('{$text}','{$type}');
-document.getElementById('toast-container').innerHtml=phpToast;
-
-
+// document.getElementById('toast-container').innerHtml=phpToast;
  </script>
-text;
+js;
         echo $script;
-        RedirectMetaRefresh($urlToRedirect, $timerSec);
     }
 
 }

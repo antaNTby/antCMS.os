@@ -4,31 +4,40 @@
     {section name=tdP loop=$countTD-1}
     <td>
         <p class="placeholder-wave">
-            <span class="placeholder col-12"></span>
+            <span class="placeholder col-12  placeholder-lg"></span>
         </p>
     </td>
     {/section}
 </tr>
 {/section}
-<tr class="ant-text-no-rotated align-items-center">
+{if $smarty.get.operation|isset}
+<tr class="align-items-center">
     <td colspan={$countTD}>
         <div class="progress" role="progressbar" aria-label="Animated striped" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
             <div data-progress="{$progressPercent}" class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: {$progressPercent}%">Пожалуйста, подождите ...</div>
         </div>
     </td>
 </tr>
+{/if}
+
 {section name=lowR start=4 loop=7}
 <tr class="ant-text-no-rotated align-items-center">
     <td>{$smarty.section.lowR.index}</td>
     {section name=tdP loop=$countTD-1}
     <td>
         <p class="placeholder-glow">
-            <span class="placeholder col-12"></span>
+            <span class="placeholder col-12  placeholder-lg"></span>
         </p>
     </td>
     {/section}
 </tr>
 {/section}
+
+
+
+{if $smarty.get.operation|isset}
+<input id="toastTimer" name="toastTimer" type="hidden" value={$timerSec}>
+
 {literal}
 <script>
 
@@ -61,3 +70,4 @@ doProgress();
 
 </script>
 {/literal}
+{/if}
