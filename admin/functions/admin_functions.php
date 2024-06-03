@@ -70,7 +70,7 @@ function Redirect($url)
     exit();
 }
 
-function RedirectMetaRefresh($url, $timer = 1)
+function RedirectMetaRefresh($url, $timer = 5)
 {
     if (CONF_PROTECTED_CONNECTION == '1')
     {

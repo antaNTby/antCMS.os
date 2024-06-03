@@ -16,7 +16,7 @@ class Toasts
         $type,
         $text,
         $urlToRedirect,
-        $timerSec=100
+        $timerSec=30
     )
     {
 

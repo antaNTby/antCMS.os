@@ -32,37 +32,32 @@
 {literal}
 <script>
 
+const iterationCount = 10;
 
 let divProgress = document.querySelector("div[data-progress]");
 let timerEl = document.querySelector('input[name="toastTimer"]');
 
-const iterationCount = 5;
-
-let startPercent = 0;
-
-let toastSeconds = 10; // 100 sec
+let time = 10; // 30 sec
 if (timerEl && timerEl.value > 0) {
-    toastSeconds = timerEl.value; // 100 sec
+    time = timerEl.value; // 30 sec
 }
-console.log("toastSeconds " + toastSeconds);
+let step = 100/iterationCount; //0.3 sec
 let increment = 0; // счетчик
-let pixelValue = Math.ceil(toastSeconds / iterationCount); //10 sec
-console.log("pixelValue " + pixelValue);
 
 function doProgress() {
 
     if (increment <= iterationCount) {
-        let Percent = startPercent + (pixelValue * increment); //  10s*0 //+10s*1 //10*2 // 10*3
-        divProgress.style.width = Percent + "%";
-        console.log(Percent,divProgress.style.width);
+        let percentCss =  (step * increment); //  10s*0 //+10s*1 //10*2 // 10*3
+        divProgress.style.width = percentCss + "%";
+        // console.log(percentCss,increment,divProgress.style.width);
     increment = increment + 1;
     }
-    return false;
+
+return false;
 }
 
-setInterval(doProgress, 1000);
+setInterval(doProgress, Math.ceil(time*1000/(iterationCount)));
 doProgress();
-
 
 </script>
 {/literal}

@@ -124,7 +124,7 @@ INSERT|UPDATE
         header("Content-Type: text/html; charset=utf8");
         $phpToast = new Toasts();
         $urlToRedirect= ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex;
-        $phpToast::run('success', $message,$urlToRedirect);
+        $phpToast::run('success', $message,$urlToRedirect,1);
         // echo '<meta http-equiv="refresh" content="2;URL=https://ida-freewares.ru">';
 
     }
