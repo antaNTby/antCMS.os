@@ -46,10 +46,14 @@
     </h6>
     {/if}
     <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
-        <div aria-live="polite" aria-atomic="true" class="position-relative">
-            <div class="toast-container  top-0 end-0 p-5" id="toast-container">
-                {include file="../apps/Toasts/appToasts.tpl.html"}
-            </div>
+        <div aria-live="polite" aria-atomic="true" class="position-relative" id="toast-area">
+            <!-- Position it: -->
+            <!-- - `.toast-container` for spacing between toasts -->
+            <!-- - `top-0` & `end-0` to position the toasts in the upper right corner -->
+            <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+
+                {include file="../apps/Toasts/appToasts.tpl.html" position=0}
+
         </div>
         <div class="{$container_width}">
             {* <div class="row" data-bs-theme="dark"> *}

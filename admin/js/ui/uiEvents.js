@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.elOffcanvasMenu.classList.remove('offcanvas-end');
         ui.switcherMenuPosition.checked = undefined;
     }
+
+
+const tp = ui.allowedToastPlacementsList;
+const childrenTp =tp.children;
+console.log(tp,childrenTp)
+
+
 });
 
 

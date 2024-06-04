@@ -15,8 +15,8 @@ export const current_sub_id = getUrlComponent('sub', checkOnUrl(document.locatio
 export const current_dpt_id = getUrlComponent('dpt', checkOnUrl(document.location.href));
 
 
-export const offcanvasElementList = document.querySelectorAll('.offcanvas')
-export const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
+export const offcanvasElementList = document.querySelectorAll('.offcanvas');
+export const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl));
 
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 
@@ -31,9 +31,17 @@ export const indeterminate = document.querySelectorAll('input.indeterminate[type
         checkbox.indeterminate = true
         console.log("indeterminate")
         // }
-    })
+    });
 
 console.log([current_dpt_id, current_sub_id])
+
+
+export const allowedToastPlacementsList = document.querySelector('ul#allowedToastPlacementsList');
+
+
+
+
+
 
 
 
