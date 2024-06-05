@@ -31,6 +31,7 @@
 {/foreach}
   <option value="#formatter">
   <option value="#null">
+  <option value="#custom">
 </datalist>
 {/if}
 
