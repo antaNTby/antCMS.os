@@ -42,7 +42,7 @@
                 <th>enable</th>
                 {* <td class="ant-text-no-rotated">actions</td> *}
                 {* <td class="ant-text-no-rotated">sql_type</td> *}
-                {* <td class="ant-text-no-rotated">input_type</td> *}
+                <td class="ant-text-no-rotated">input_type</td>
             </tr>
         </thead>
         <tbody>
@@ -52,21 +52,22 @@
             <tr class="align-items-center">
                 {assign var ="rowData" value=$iuConfigs[$smarty.section.row.index]}
                 {assign var ="colData" value=$rowData.table_data}
+                {assign var ="p" value=$rowData.p}
                 <td>{$smarty.section.row.index}&nbsp;<sub><span class="badge text-bg-light">{$colData.id}</span></sub></td>
-                <td>{$colData.data}</td>
-                <td>{$colData.ind}</td>
-                <td>{$colData.db}</td>
-                <td>{$colData.dt}</td>
-                <td>{$colData.title}</td>
-                <td>{$colData.visible}</td>
-                <td>{$colData.searchable}</td>
-                <td>{$colData.orderable}</td>
-                {* <td>{$colData.editable}</td> *}
-                <td>{$colData.sort_order}</td>
-                <td>{$colData.enable}</td>
-                {* <td>{$colData.actions}</td> *}
-                {* <td>{$colData.sql_type}</td> *}
-                {* <td>{$colData.input_type}</td> *}
+                <td><small class="opacity-25">{$colData.data}</small>{include file="cs/single_inputtext.tpl" p=$p.data}</td>
+                <td><small class="opacity-25">{$colData.ind}</small>{include file="cs/single_inputtext.tpl" p=$p.ind}</td>
+                <td><small class="opacity-25">{$colData.db}</small>{include file="cs/single_inputtext.tpl" p=$p.db}</td>
+                <td><small class="opacity-25">{$colData.dt}</small>{include file="cs/single_inputtext.tpl" p=$p.dt}</td>
+                <td><small class="opacity-25">{$colData.title}</small>{include file="cs/single_inputtext.tpl" p=$p.title}</td>
+                <td><small class="opacity-25">{$colData.visible}</small>{include file="cs/single_checkbox.tpl" p=$p.visible}</td>
+                <td><small class="opacity-25">{$colData.searchable}</small>{include file="cs/single_checkbox.tpl" p=$p.searchable}</td>
+                <td><small class="opacity-25">{$colData.orderable}</small>{include file="cs/single_checkbox.tpl" p=$p.orderable}</td>
+                {* <td><small class="opacity-25">{$colData.editable}</small>{include file="cs/single_checkbox.tpl" p=$p.editable}</td> *}
+                <td><small class="opacity-25">{$colData.sort_order}</small>{include file="cs/single_inputtext.tpl" p=$p.sort_order}</td>
+                <td><small class="opacity-25">{$colData.enable}</small>{include file="cs/single_checkbox.tpl" p=$p.enable}</td>
+                {* <td><small class="opacity-25">{$colData.actions}</small>{include file="cs/single_checkbox.tpl" p=$p.actions}</td> *}
+                {* <td><small class="opacity-25">{$colData.sql_type}</small>{include file="cs/single_checkbox.tpl" p=$p.sql_type}</td> *}
+                <td><small class="opacity-25">{$colData.input_type}</small>{include file="cs/single_inputtext.tpl" p=$p.input_type}</td>
             </tr>
             {/section}
             {else}

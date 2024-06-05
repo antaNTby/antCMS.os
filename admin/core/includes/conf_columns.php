@@ -30,7 +30,7 @@ $config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
-$rbcolumnsDefault = array(
+$rbcolumnsDefault = [
     'config_name' => 'config_name',
     'data'        => 'column name',
     'db'          => 'DB column name',
@@ -43,8 +43,8 @@ $rbcolumnsDefault = array(
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия'
-);
+    'actions'     => 'Действия',
+];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 $table_primaryKey    = 'companyID';
@@ -68,7 +68,7 @@ INSERT|UPDATE
     if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
     {
         // dump($dbTableFields);
-        $cortages = array();
+        $cortages = [];
         $ii       = 0;
         foreach ($dbTableFields as $name => $type)
         {
@@ -81,7 +81,7 @@ INSERT|UPDATE
         $cc = 0;
         foreach ($cortages as $key => $value)
         {
-            $data = array(
+            $data = [
                 'config_name' => $config_name,
                 'data'        => $key,
                 'ind'         => $cc,
@@ -96,18 +96,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType']
-            );
+                'input_type'  => $value['inputType'],
+            ];
 
-            $where = array(
+            $where = [
                 'config_name' => $config_name,
-                'data'        => $key
-            );
+                'data'        => $key,
+            ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int) $doInsert == 0)
+            if ((int)$doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -132,27 +132,63 @@ INSERT|UPDATE
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
-        $where = array(
-            'config_name' => $config_name
-        );
+        $where = [
+            'config_name' => $config_name,
+        ];
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
-        $css   = array();
-        $index = 0;
+        $iuConfigs = [];
+        $index     = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            $tableData = array();
+            $tableData = [];
             foreach ($rowRBC as $fieldName => $fieldData)
             {
-                $tableData[$fieldName]                  = $fieldData;
-                $css[$keyRBC]['table_data']['ind']      = $index;
-                $css[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
+                $tableData[$fieldName]                        = $fieldData;
+                $iuConfigs[$keyRBC]['table_data']['ind']      = $index;
+                $iuConfigs[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
+                $p                                            = [
+
+                    // "class_div"=>AAA,
+                     "id"        => "{$fieldName}_{$index}",
+                    "class_add" => "text-danger",
+                    "name"      => $fieldName,
+                    "value"     => $rowRBC->$fieldName,
+                    // "aria_label" => "AAA",
+                    // "isDisabled"=>AAA,
+                    // "isChecked"=>AAA,
+                    // "isIndeterminate"=>AAA,
+                ];
+
+
+                ## ставим checked для чекбоксов с value="1"
+                $p["isChecked"]  = ($p["value"] == 1) ? 1 : 0;
+                ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
+                if ($rowRBC->enable != 1){
+                    $p["class_add"]="opacity-50";
+                    $p["isDisabled"] =1;
+                    $p["isReadonly"] =1;
+                }
+                ## отменяем предыдущее действи для самого столбца enable и id
+                if ($fieldName === "enable" || $fieldName === "id"){
+                  $p["class_add"]="text-dark";
+                  $p["isDisabled"] =0;
+                  $p["isReadonly"] =0;
+                }
+
+
+                $iuConfigs[$keyRBC]['p'][$fieldName] = $p;
+
+
+                // dump($p);
             }
             $index++;
         }
-        $smarty->assign('iuConfigs', $css);
+        $smarty->assign('iuConfigs', $iuConfigs);
     }
+
+    // dump($iuConfigs);
 
 /* 2 => {#32 ▼
 +"id": "13"
