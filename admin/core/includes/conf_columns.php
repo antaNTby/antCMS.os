@@ -161,34 +161,55 @@ INSERT|UPDATE
                     // "isIndeterminate"=>AAA,
                 ];
 
-
                 ## ставим checked для чекбоксов с value="1"
-                $p["isChecked"]  = ($p["value"] == 1) ? 1 : 0;
+                $p["isChecked"] = ($p["value"] == 1) ? 1 : 0;
                 ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
-                if ($rowRBC->enable != 1){
-                    $p["class_add"]="opacity-50";
-                    $p["isDisabled"] =1;
-                    $p["isReadonly"] =1;
+                if ($rowRBC->enable != 1)
+                {
+                    $p["class_add"]  = "opacity-50";
+                    $p["isDisabled"] = 1;
+                    $p["isReadonly"] = 1;
                 }
                 ## отменяем предыдущее действи для самого столбца enable и id
-                if ($fieldName === "enable" || $fieldName === "id"){
-                  $p["class_add"]="text-dark";
-                  $p["isDisabled"] =0;
-                  $p["isReadonly"] =0;
+                if ($fieldName === "enable" || $fieldName === "id")
+                {
+                    $p["class_add"]  = "text-dark";
+                    $p["isDisabled"] = 0;
+                    $p["isReadonly"] = 0;
                 }
-
+                ## data и ind только для чтения
+                if ($fieldName === "data" || $fieldName === "ind")
+                {
+                    $p["class_add"]  = "text-primary";
+                    $p["isDisabled"] = 0;
+                    $p["isReadonly"] = 1;
+                }
 
                 $iuConfigs[$keyRBC]['p'][$fieldName] = $p;
 
+                ## написать функцию возвращающую список полей для db и для dt в виде массива
+                if ($fieldName === "db" || $fieldName === "dt")
+                {
+                    $fieldArr = db_getColumnNames($config_name);
+                    $iuConfigs[$keyRBC]["datalist"][$fieldName] = array_keys($fieldArr);
+                }
+                // $iuConfigs[$keyRBC]["datalist"][$fieldName] = [
+                //     "one-{$fieldName}",
+                //     "two-{$fieldName}",
+                //     "three-{$fieldName}",
+                //     "four-{$fieldName}",
+
+                // ];
 
                 // dump($p);
+                // dump("$keyRBC", "=>", $iuConfigs[$keyRBC]["datalist"]);
             }
             $index++;
         }
         $smarty->assign('iuConfigs', $iuConfigs);
     }
 
-    // dump($iuConfigs);
+    // dump($iuConfigs["0"]);
 
 /* 2 => {#32 ▼
 +"id": "13"

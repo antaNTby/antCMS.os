@@ -1,4 +1,4 @@
-{* single_checkbox.tpl.html debug_print_var *}
+{* single_checkbox.tpl.html *}
 {if isset($p) && is_array($p)}
 
 
@@ -8,7 +8,7 @@
 {if $label}
 <label for="input_{$p.id}" class="form-label{if isset($p.class_add_label)} {$p.class_add_label}{/if}">{$label}</label>
 {/if}
-<input  type="text"
+<input  type="number"
  class="form-control bg-white{if isset($p.class_add)} {$p.class_add}{/if}"
  {if isset($p.id)} id="input_{$p.id}"{/if}
  {if isset($datalist) && is_array($datalist)} list="datalistOptions_{$p.id}"{/if}
@@ -29,8 +29,11 @@
 {foreach $datalist as $key=>$item}
 <option value="{$item}">
 {/foreach}
-  <option value="#formatter">
-  <option value="#null">
+  <option value="San Francisco">
+  <option value="New York">
+  <option value="Seattle">
+  <option value="Los Angeles">
+  <option value="Chicago">
 </datalist>
 {/if}
 
@@ -52,4 +55,3 @@ isReadonly => {if isset($p.isReadonly)}{$p.isReadonly}{else}null{/if}<br>
 isChecked => {if isset($p.isChecked)}{$p.isChecked}{else}null{/if}<br>
 isIndeterminate => {if isset($p.isIndeterminate)}{$p.isIndeterminate}{else}null{/if}<br>
 </pre>
-
