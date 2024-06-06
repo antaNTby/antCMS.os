@@ -29,11 +29,9 @@
 {foreach $datalist as $key=>$item}
 <option value="{$item}">
 {/foreach}
-  <option value="San Francisco">
-  <option value="New York">
-  <option value="Seattle">
-  <option value="Los Angeles">
-  <option value="Chicago">
+  <option value="#formatter">
+  <option value="#null">
+  <option value="#custom">
 </datalist>
 {/if}
 

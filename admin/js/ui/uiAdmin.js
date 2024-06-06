@@ -33,9 +33,6 @@ export const indeterminate = document.querySelectorAll('input.indeterminate[type
         // }
     });
 
-console.log([current_dpt_id, current_sub_id])
-
-
 export const allowedToastPlacementsList = document.querySelector('ul#allowedToastPlacementsList');
 
 

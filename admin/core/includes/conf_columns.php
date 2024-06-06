@@ -43,7 +43,7 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия',
+    'actions'     => 'Действия'
 ];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
@@ -96,18 +96,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType'],
+                'input_type'  => $value['inputType']
             ];
 
             $where = [
                 'config_name' => $config_name,
-                'data'        => $key,
+                'data'        => $key
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int)$doInsert == 0)
+            if ((int) $doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -133,7 +133,7 @@ INSERT|UPDATE
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'config_name' => $config_name,
+            'config_name' => $config_name
         ];
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
@@ -142,19 +142,30 @@ INSERT|UPDATE
         $index     = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            $tableData = [];
+            $colInd = 0;
             foreach ($rowRBC as $fieldName => $fieldData)
             {
-                $tableData[$fieldName]                        = $fieldData;
                 $iuConfigs[$keyRBC]['table_data']['ind']      = $index;
                 $iuConfigs[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
-                $p                                            = [
+
+                $data_set = [
+                    'field-name' => $fieldName,
+                    'row'        => $index,
+                    'col'        => $colInd
+                ];
+
+                // dump($data_set);
+                $iuConfigs[$keyRBC]['dataset'][$fieldName]=$data_set;
+                dump($iuConfigs[$keyRBC]);
+
+
+                $p = [
 
                     // "class_div"=>AAA,
-                     "id"        => "{$fieldName}_{$index}",
-                    "class_add" => "text-danger",
-                    "name"      => $fieldName,
-                    "value"     => $rowRBC->$fieldName,
+                    'id'        => "{$fieldName}_{$index}",
+                    'class_add' => 'text-danger',
+                    'name'      => $fieldName,
+                    'value'     => $rowRBC->$fieldName
                     // "aria_label" => "AAA",
                     // "isDisabled"=>AAA,
                     // "isChecked"=>AAA,
@@ -162,47 +173,39 @@ INSERT|UPDATE
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
-                $p["isChecked"] = ($p["value"] == 1) ? 1 : 0;
+                $p['isChecked'] = ($p['value'] == 1) ? 1 : 0;
                 ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
                 if ($rowRBC->enable != 1)
                 {
-                    $p["class_add"]  = "opacity-50";
-                    $p["isDisabled"] = 1;
-                    $p["isReadonly"] = 1;
+                    $p['class_add']  = 'opacity-50';
+                    $p['isDisabled'] = 1;
+                    $p['isReadonly'] = 1;
                 }
                 ## отменяем предыдущее действи для самого столбца enable и id
-                if ($fieldName === "enable" || $fieldName === "id")
+                if ($fieldName === 'enable' || $fieldName === 'id')
                 {
-                    $p["class_add"]  = "text-dark";
-                    $p["isDisabled"] = 0;
-                    $p["isReadonly"] = 0;
+                    $p['class_add']  = 'text-dark';
+                    $p['isDisabled'] = 0;
+                    $p['isReadonly'] = 0;
                 }
                 ## data и ind только для чтения
-                if ($fieldName === "data" || $fieldName === "ind")
+                if ($fieldName === 'data' || $fieldName === 'ind')
                 {
-                    $p["class_add"]  = "text-primary";
-                    $p["isDisabled"] = 0;
-                    $p["isReadonly"] = 1;
+                    $p['class_add']  = 'text-primary';
+                    $p['isDisabled'] = 0;
+                    $p['isReadonly'] = 1;
                 }
 
                 $iuConfigs[$keyRBC]['p'][$fieldName] = $p;
 
                 ## написать функцию возвращающую список полей для db и для dt в виде массива
-                if ($fieldName === "db" || $fieldName === "dt")
+                if ($fieldName === 'db' || $fieldName === 'dt')
                 {
-                    $fieldArr = db_getColumnNames($config_name);
-                    $iuConfigs[$keyRBC]["datalist"][$fieldName] = array_keys($fieldArr);
+                    $fieldArr                                   = db_getColumnNames($config_name);
+                    $iuConfigs[$keyRBC]['datalist'][$fieldName] = array_keys($fieldArr);
                 }
-                // $iuConfigs[$keyRBC]["datalist"][$fieldName] = [
-                //     "one-{$fieldName}",
-                //     "two-{$fieldName}",
-                //     "three-{$fieldName}",
-                //     "four-{$fieldName}",
 
-                // ];
-
-                // dump($p);
-                // dump("$keyRBC", "=>", $iuConfigs[$keyRBC]["datalist"]);
+                $colInd++;
             }
             $index++;
         }
