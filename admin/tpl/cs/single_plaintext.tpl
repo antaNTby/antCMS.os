@@ -11,7 +11,6 @@
 <input  type="text"
  class="form-control-plaintext{if isset($p.class_add)} {$p.class_add}{/if}"
  {if isset($p.id)} id="input_{$p.id}"{/if}
- {if isset($datalist) && is_array($datalist)} list="datalistOptions_{$p.id}"{/if}
  {if isset($dataset) && is_array($dataset)}
  {foreach $dataset as $key=>$item}
  data-{$key}="{$item}"
@@ -20,8 +19,7 @@
  value="{$p.value}"
  {if isset($p.isDisabled) && $p.isDisabled eq 1} disabled{/if}
  readonly
-
- placeholder="Type{if isset($datalist) && is_array($datalist)} | Select{/if} ...">
+>
 
 
 

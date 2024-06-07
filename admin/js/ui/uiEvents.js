@@ -44,12 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.switcherMenuPosition.checked = undefined;
     }
 
-
-const tp = ui.allowedToastPlacementsList;
-const childrenTp =tp.children;
-console.log(tp,childrenTp)
-
-
 });
 
 

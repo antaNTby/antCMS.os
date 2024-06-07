@@ -1,5 +1,6 @@
 // conf_columns.js
 import * as ui from '.././uiAdmin.js';
+import * as csEvents from '../../../js/cs/csEvents.js';
 const legalOperations=['addNewConfig','updateConfig'];
 
 const switcherFieldsetToggle = document.querySelector('[name="switcherFieldsetToggle"]');

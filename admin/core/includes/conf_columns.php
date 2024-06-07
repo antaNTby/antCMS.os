@@ -156,7 +156,7 @@ INSERT|UPDATE
 
                 // dump($data_set);
                 $iuConfigs[$keyRBC]['dataset'][$fieldName]=$data_set;
-                dump($iuConfigs[$keyRBC]);
+                // dump($iuConfigs[$keyRBC]);
 
 
                 $p = [
@@ -182,9 +182,15 @@ INSERT|UPDATE
                     $p['isReadonly'] = 1;
                 }
                 ## отменяем предыдущее действи для самого столбца enable и id
-                if ($fieldName === 'enable' || $fieldName === 'id')
+                if ($fieldName === 'enable')
                 {
                     $p['class_add']  = 'text-dark';
+                    $p['isDisabled'] = 0;
+                    $p['isReadonly'] = 0;
+                }
+                if ($fieldName === 'id')
+                {
+                    $p['class_add']  = 'text-bg-dark';
                     $p['isDisabled'] = 0;
                     $p['isReadonly'] = 0;
                 }
