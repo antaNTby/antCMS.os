@@ -39,7 +39,7 @@ const showInvalid = function(text) {
     if (IS_ALLOW) myInvalidForm.show();
 }
 
-function showToast(text, headerText = "") {
+function showToast(text, headerText = "", style = "") {
 
     let toastEl = document.createElement('div');
     toastEl.classList.add('toast');
@@ -50,7 +50,17 @@ function showToast(text, headerText = "") {
     if (headerText) {
         let toastHeader = document.createElement('div');
         toastHeader.classList.add('toast-header');
-        toastHeader.classList.add('text-bg-dark');
+
+
+        if (style = "success") {
+            toastHeader.classList.add('text-bg-success');
+        } else if (style = "danger") {
+            toastHeader.classList.add('text-bg-danger');
+        } else {
+            toastHeader.classList.add('text-bg-dark');
+        }
+
+
         let strongEl = document.createElement('strong');
         // <strong class="me-auto">Bootstrap</strong>
         strongEl.classList.add('me-auto');
@@ -97,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     btnShowToast.addEventListener("click", function() {
-        showToast('function showToast (text) ', ' пример сообщения '+'<i class="bi bi-bug-fill"></i>');
+        showToast('function showToast (text) ', ' пример сообщения ' + '<i class="bi bi-bug-fill"></i>');
     });
 
     /* выводим СВОЁ время выполнения для всех toastElList*/

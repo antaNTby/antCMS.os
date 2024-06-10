@@ -1,76 +1,104 @@
 import * as ui from './uiCS.js';
+import * as bsToast from '../../apps/Toasts/appToasts.js';
 console.log(ui)
+
+// для "enable" чекбоксов
 export const onEnableChange = (e) => {
     // console.log(e)
-    const row = e.target.dataset.row;
-    const ControlSnippetsToEnable = document.querySelectorAll('[data-row="' + row + '"]:not([name="checkbox_enable"])');
+    const row = e.target.dataset.rowNumber;
+    const ControlSnippetsToEnable = document.querySelectorAll('[data-row-number="' + row + '"]:not([name="checkbox_enable"])');
     console.log(ControlSnippetsToEnable)
     if (e.target.checked) {
         [].forEach.call(ControlSnippetsToEnable, function(el) {
-            unblockCS(el);
+            ui.unblockCS(el);
         });
     } else {
         [].forEach.call(ControlSnippetsToEnable, function(el) {
-            blockCS(el);
+            ui.blockCS(el);
         });
     }
 };
-[].forEach.call(ui.enableCheckboxes, function(el) {
-    el.onchange = onEnableChange;
-});
-export const onControlSnippetChange = (e) => {
-    let el = e.target;
-    // console.log(el);
-    blockCS(el);
-    csDefaultCallbackFunction(e);
-    // unblockCS(el)
-};
-[].forEach.call(ui.allControlSnippets, function(el) {
-    el.onchange = onControlSnippetChange;
+ui.enableCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', onEnableChange);
 });
 
-function blockCS(el) {
-    el.classList.add('opacity-50');
-    el.classList.remove('text-danger');
-    el.setAttribute('disabled', '1');
-    el.setAttribute('readonly', '1');
-}
-
-function unblockCS(el) {
-    el.classList.remove('opacity-50');
-    el.classList.add('text-danger');
-    el.removeAttribute('disabled');
-    el.removeAttribute('readonly');
-}
-async function csDefaultCallbackFunction(e) {
-    let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
+// для ВСЕХ чекбоксов
+export const onCheckboxChange = (e) => {
     const el = e.target;
+    if (el.checked) {
+        el.value = 1;
+    } else {
+        el.value = 0;
+    }
 
-    const parentTD = el.closest('td');
-    const parentTR = el.closest('tr');
-    const editID = parentTR.dataset.id;
+};
+ui.allCheckBoxes.forEach(checkbox => {
+    checkbox.addEventListener('change', onCheckboxChange);
+});
 
+
+
+
+// для ВСЕХ ControlSnippet
+export const onControlSnippetChange = (e) => {
+    const el = e.target;
+    // ui.blockCS(el);
+    csDefaultCallbackFunction(el);
+    // ui.unblockCS(el)
+};
+ui.allControlSnippets.forEach(cs => {
+    cs.addEventListener('change', onControlSnippetChange);
+});
+// [].forEach.call(ui.allControlSnippets, function(el) {
+//     el.onchange = onControlSnippetChange;
+// });
+
+
+
+async function csDefaultCallbackFunction(el) {
+    // let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
+    let url = 'admin/admin.php'+'?app=controlSnippetsProcessor' + '&operation=updateCSValue';
+
+    const primaryID = el.dataset.primaryId;
+
+    const configName = el.dataset.configName;
     const fieldName = el.dataset.fieldName;
     const newValue = el.value;
-    const oldValue = parentTD.dataset.value;
+    // const oldValue = parentTD.dataset.value;
+    const oldValue = el.dataset.oldValue;;
     const rowNumber = el.dataset.rowNumber;
+
+
     const DATA = {
-        "editID": editID,
+        "primaryID": primaryID,
+        "configName": configName,
         "fieldName": fieldName,
         "newValue": newValue,
         "oldValue": oldValue,
-
         "rowNumber": rowNumber,
     };
-    let defaultResponse = await fetch(url, {
+
+    let myResponse = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify(DATA)
     });
-    let result = await defaultResponse.json();
+
+
+    let result = await myResponse.json();
+
+
+
     // alert(result.message);
+
     console.log("result", result)
+    console.log("typeof result", typeof (result))
     // console.log("myAjax", myAjax)
+
+    if (result.message ){
+        bsToast.showToast(result.message, "Удачно","success" );
+    }
+
 }

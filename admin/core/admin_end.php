@@ -91,6 +91,11 @@ $smarty->assign('mver', $rd);
 $phpver = phpversion();
 $smarty->assign('pver', $phpver);
 
+
+
+include_once 'core/controlSnippetsProcessor.php';
+
+
 //show Smarty output
 try
 {
@@ -105,6 +110,19 @@ catch (SmartyException $e)
     $smarty->assign('smarty_error_message', $e->getMessage());
     dump($smarty->getTemplateVars());
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if (0 or ADMIN_SMARTY_LOG_VARS)
 {

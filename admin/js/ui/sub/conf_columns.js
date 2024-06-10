@@ -35,7 +35,7 @@ selectEl.onchange = (event) => {
     deleteUrlComponent('configSelectedIndex');
     deleteUrlComponent('operation');
     let url = checkOnUrl(document.location.href) + '&configSelectedIndex='+sender.value;
-    console.log(sender.value,url)
+    // console.log(sender.value,url)
     window.location = url;
 }
 
@@ -44,6 +44,6 @@ btnOperationAddNew.addEventListener('click', function(event){
     deleteUrlComponent('operation');
     deleteUrlComponent('configSelectedIndex');
     let url = checkOnUrl(document.location.href) + '&configSelectedIndex='+selectEl.value+'&operation='+'addNewConfig';
-    console.log(selectEl.value,url)
+    // console.log(selectEl.value,url)
     window.location = url;
 })

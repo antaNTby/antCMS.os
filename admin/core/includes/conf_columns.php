@@ -31,7 +31,7 @@ $config_name = $allTablesNames[$configSelectedIndex];
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
 $rbcolumnsDefault = [
-    'config_name' => 'config_name',
+    'config_name' => 'Конфигурация',
     'data'        => 'column name',
     'db'          => 'DB column name',
     'dt'          => 'DataTables column name',
@@ -43,11 +43,13 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия'
+    'actions'     => 'Действия',
 ];
 
+
+
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
-$table_primaryKey    = 'companyID';
+// $table_primaryKey    = 'companyID';
 
 if (!is_null($config_name))
 {
@@ -65,6 +67,7 @@ INSERT|UPDATE
 ##########################
 ##########################
  */
+
     if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
     {
         // dump($dbTableFields);
@@ -96,18 +99,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType']
+                'input_type'  => $value['inputType'],
             ];
 
             $where = [
                 'config_name' => $config_name,
-                'data'        => $key
+                'data'        => $key,
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int) $doInsert == 0)
+            if ((int)$doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -127,13 +130,14 @@ INSERT|UPDATE
         $phpToast      = new Toasts();
         $urlToRedirect = ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex;
         $phpToast::run('success', $message, $urlToRedirect, $timerSec);
+        $phpToast::success('successsuccesssuccesssuccess');
         RedirectMetaRefresh($urlToRedirect, $timerSec);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'config_name' => $config_name
+            'config_name' => $config_name,
         ];
 
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
@@ -149,9 +153,12 @@ INSERT|UPDATE
                 $iuConfigs[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
 
                 $data_set = [
-                    'field-name' => $fieldName,
-                    'row-number'        => $index,
-                    'type'       => 'control-snippet'
+                    'config-name' => $config_name,
+                    'primary-id'  => $rowRBC->id,
+                    'field-name'  => $fieldName,
+                    'row-number'  => $index,
+                    'old-value'   => $rowRBC->$fieldName,
+                    'type'        => 'control-snippet',
                 ];
 
                 // dump($data_set);
@@ -160,11 +167,11 @@ INSERT|UPDATE
 
                 $p = [
 
-                    // "class_div"=>AAA,
                     'id'        => "{$fieldName}_{$index}",
                     'class_add' => 'text-danger',
                     'name'      => $fieldName,
-                    'value'     => $rowRBC->$fieldName
+                    'value'     => $rowRBC->$fieldName,
+                    // "class_div"=>AAA,
                     // "aria_label" => "AAA",
                     // "isDisabled"=>AAA,
                     // "isChecked"=>AAA,

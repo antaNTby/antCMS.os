@@ -8,7 +8,7 @@
             {if $smarty.section.tt.index == $configSelectedIndex}
             {assign var=isSelected value="selected=selected"}{else}{assign var=isSelected value=""}
             {/if}
-            <option {$isSelected} value="{$smarty.section.tt.index}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
+            <option {$isSelected} value="{$smarty.section.tt.index}" data-value="{$allTablesNames[$smarty.section.tt.index]}">{$smarty.section.tt.index} - {$allTablesNames[$smarty.section.tt.index]}</option>
             {/section}
         </select>
         <div class="form-check form-switch align-items-center" title="Снять запрет">
@@ -61,23 +61,23 @@
             {assign var ="p" value=$rowData.p}
             {assign var ="datalist" value=$rowData.datalist}
             {assign var ="data_set" value=$rowData.dataset}
-            <tr class="align-items-center" data-row="{$smarty.section.row.index}" data-id="{$colData.id}">
-                <td>{$smarty.section.row.index}{include file="cs/single_badge.tpl" p=$p.config_name dataset=$data_set.config_name}</td>
-                <td data-value="{$colData.id}">{include file="cs/single_badge.tpl" p=$p.id dataset=$data_set.id}</td>
-                <td data-value="{$colData.data}">{include file="cs/single_plaintext.tpl" p=$p.data dataset=$data_set.data}</td>
-                <td data-value="{$colData.ind}">{include file="cs/single_plaintext.tpl" p=$p.ind dataset=$data_set.ind}</td>
-                <td data-value="{$colData.db}">{include file="cs/single_inputtext.tpl" p=$p.db datalist=$datalist.db dataset=$data_set.db}</td>
-                <td data-value="{$colData.dt}">{include file="cs/single_inputtext.tpl" p=$p.dt datalist=$datalist.dt dataset=$data_set.dt}</td>
-                <td data-value="{$colData.title}">{include file="cs/single_inputtext.tpl" p=$p.title dataset=$data_set.title}</td>
-                <td data-value="{$colData.visible}">{include file="cs/single_checkbox.tpl" p=$p.visible dataset=$data_set.visible}</td>
-                <td data-value="{$colData.searchable}">{include file="cs/single_checkbox.tpl" p=$p.searchable dataset=$data_set.searchable}</td>
-                <td data-value="{$colData.orderable}">{include file="cs/single_checkbox.tpl" p=$p.orderable dataset=$data_set.orderable}</td>
-                {* <td data-value="{$colData.editable}">{include file="cs/single_checkbox.tpl" p=$p.editable dataset=$data_set.editable}</td> *}
-                <td data-value="{$colData.sort_order}">{include file="cs/single_inputnumber.tpl" p=$p.sort_order dataset=$data_set.sort_order}</td>
-                <td data-value="{$colData.enable}">{include file="cs/single_checkbox.tpl" p=$p.enable dataset=$data_set.enable label="" toggle=true}</td>
-                {* <td data-value="{$colData.actions}">{include file="cs/single_checkbox.tpl" p=$p.actions dataset=$data_set.actions}</td> *}
-                {* <td data-value="{$colData.sql_type}">{include file="cs/single_checkbox.tpl" p=$p.sql_type dataset=$data_set.sql_type}</td> *}
-                <td data-value="{$colData.input_type}">{include file="cs/single_inputtext.tpl" p=$p.input_type dataset=$data_set.input_type}</td>
+            <tr class="align-items-center">
+                <td>{$smarty.section.row.index}</td>
+                <td data-old-value="{$colData.id}">{include file="cs/single_badge.tpl" p=$p.id dataset=$data_set.id}</td>
+                <td data-old-value="{$colData.data}">{include file="cs/single_plaintext.tpl" p=$p.data dataset=$data_set.data}</td>
+                <td data-old-value="{$colData.ind}">{include file="cs/single_plaintext.tpl" p=$p.ind dataset=$data_set.ind}</td>
+                <td data-old-value="{$colData.db}">{include file="cs/single_inputtext.tpl" p=$p.db datalist=$datalist.db dataset=$data_set.db}</td>
+                <td data-old-value="{$colData.dt}">{include file="cs/single_inputtext.tpl" p=$p.dt datalist=$datalist.dt dataset=$data_set.dt}</td>
+                <td data-old-value="{$colData.title}">{include file="cs/single_inputtext.tpl" p=$p.title dataset=$data_set.title}</td>
+                <td data-old-value="{$colData.visible}">{include file="cs/single_checkbox.tpl" p=$p.visible dataset=$data_set.visible}</td>
+                <td data-old-value="{$colData.searchable}">{include file="cs/single_checkbox.tpl" p=$p.searchable dataset=$data_set.searchable}</td>
+                <td data-old-value="{$colData.orderable}">{include file="cs/single_checkbox.tpl" p=$p.orderable dataset=$data_set.orderable}</td>
+                {* <td data-old-value="{$colData.editable}">{include file="cs/single_checkbox.tpl" p=$p.editable dataset=$data_set.editable}</td> *}
+                <td data-old-value="{$colData.sort_order}">{include file="cs/single_inputnumber.tpl" p=$p.sort_order dataset=$data_set.sort_order}</td>
+                <td data-old-value="{$colData.enable}">{include file="cs/single_checkbox.tpl" p=$p.enable dataset=$data_set.enable label="" toggle=true}</td>
+                {* <td data-old-value="{$colData.actions}">{include file="cs/single_checkbox.tpl" p=$p.actions dataset=$data_set.actions}</td> *}
+                {* <td data-old-value="{$colData.sql_type}">{include file="cs/single_checkbox.tpl" p=$p.sql_type dataset=$data_set.sql_type}</td> *}
+                <td data-old-value="{$colData.input_type}">{include file="cs/single_inputtext.tpl" p=$p.input_type dataset=$data_set.input_type}</td>
             </tr>
             {/section}
             {else}

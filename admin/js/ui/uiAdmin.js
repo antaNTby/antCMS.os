@@ -29,7 +29,7 @@ export const indeterminate = document.querySelectorAll('input.indeterminate[type
     .forEach(checkbox => {
         // if (checkbox.id.includes('Indeterminate')) {
         checkbox.indeterminate = true
-        console.log("indeterminate")
+        console.log("indeterminate");
         // }
     });
 
