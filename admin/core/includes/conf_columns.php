@@ -151,13 +151,13 @@ INSERT|UPDATE
                 $data_set = [
                     'field-name' => $fieldName,
                     'row'        => $index,
-                    'col'        => $colInd
+                    'col'        => $colInd,
+                    'type'       => 'control-snippet'
                 ];
 
                 // dump($data_set);
-                $iuConfigs[$keyRBC]['dataset'][$fieldName]=$data_set;
+                $iuConfigs[$keyRBC]['dataset'][$fieldName] = $data_set;
                 // dump($iuConfigs[$keyRBC]);
-
 
                 $p = [
 

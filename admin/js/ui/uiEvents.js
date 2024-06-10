@@ -2,6 +2,7 @@ import * as ui from './uiAdmin.js';
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 // События
 
+
 //offcanvas menu
 ui.switcherMenuOnLoad.addEventListener('change', function(e) {
     // console.log(e);
