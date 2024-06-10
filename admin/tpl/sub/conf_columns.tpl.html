@@ -24,9 +24,15 @@
 </div>
 <hr>
 <div class="table-responsive-xl mb-4">
-    {assign var ="countTD" value=11}
-    <table id="columnsConfiguratorTable" class="table table-striped table-bordered table-sm">
+    {assign var ="countTD" value=12}
+    <table id="columnsConfiguratorTable" class="table table-hover">
         <thead class="table-secondary">
+            <tr class="align-self-center align-middle text-center">
+                <th>\</th>
+                {section name=cnt loop=$countTD}
+                <th>{$smarty.section.cnt.index}</th>
+                {/section}
+            </tr>
             <tr class="ant-text-rotated align-self-center align-middle text-center">
                 <td class="ant-text-no-rotated">#</td>
                 <th>id</th>

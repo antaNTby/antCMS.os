@@ -1,7 +1,7 @@
-{section name=upR loop=3}
+{section name=upR loop=5}
 <tr class="ant-text-no-rotated align-items-center">
     <td>{$smarty.section.upR.index}</td>
-    {section name=tdP loop=$countTD-1}
+    {section name=tdP loop=$countTD}
     <td>
         <p class="placeholder-wave">
             <span class="placeholder col-12  placeholder-lg"></span>
@@ -20,10 +20,10 @@
 </tr>
 {/if}
 
-{section name=lowR start=4 loop=7}
+{section name=lowR start=6 loop=9}
 <tr class="ant-text-no-rotated align-items-center">
     <td>{$smarty.section.lowR.index}</td>
-    {section name=tdP loop=$countTD-1}
+    {section name=tdP loop=$countTD}
     <td>
         <p class="placeholder-glow">
             <span class="placeholder col-12  placeholder-lg"></span>
