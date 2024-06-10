@@ -20,9 +20,9 @@ export const onEnableChange = (e) => {
 });
 export const onControlSnippetChange = (e) => {
     let el = e.target;
-    console.log(el);
+    // console.log(el);
     blockCS(el);
-    csDefaultCallbackFunction(e, el);
+    csDefaultCallbackFunction(e);
     // unblockCS(el)
 };
 [].forEach.call(ui.allControlSnippets, function(el) {
@@ -42,26 +42,25 @@ function unblockCS(el) {
     el.removeAttribute('disabled');
     el.removeAttribute('readonly');
 }
-async function csDefaultCallbackFunction(e, el) {
+async function csDefaultCallbackFunction(e) {
     let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
-    let editID = e.target.id;
+    const el = e.target;
 
+    const parentTD = el.closest('td');
+    const parentTR = el.closest('tr');
+    const editID = parentTR.dataset.id;
 
-    let parentTD = e.target.closest('td');
-    let parentTR = e.target.closest('tr');
-
-
-    console.log(parentTD,parentTR)
-    let newValue = e.target.value;
-    let oldValue = parentTD.dataset.value;
-    let rowIndex = e.target.dataset.row;
-    let columnIndex = e.target.dataset.col-2;
-    let DATA = {
-        "editID": +editID,
+    const fieldName = el.dataset.fieldName;
+    const newValue = el.value;
+    const oldValue = parentTD.dataset.value;
+    const rowNumber = el.dataset.rowNumber;
+    const DATA = {
+        "editID": editID,
+        "fieldName": fieldName,
         "newValue": newValue,
         "oldValue": oldValue,
-        "rowIndex": rowIndex,
-        "columnIndex": columnIndex,
+
+        "rowNumber": rowNumber,
     };
     let defaultResponse = await fetch(url, {
         method: 'POST',

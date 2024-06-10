@@ -135,6 +135,7 @@ INSERT|UPDATE
         $where = [
             'config_name' => $config_name
         ];
+
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
@@ -142,7 +143,6 @@ INSERT|UPDATE
         $index     = 0;
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
-            $colInd = 0;
             foreach ($rowRBC as $fieldName => $fieldData)
             {
                 $iuConfigs[$keyRBC]['table_data']['ind']      = $index;
@@ -150,8 +150,7 @@ INSERT|UPDATE
 
                 $data_set = [
                     'field-name' => $fieldName,
-                    'row'        => $index,
-                    'col'        => $colInd,
+                    'row-number'        => $index,
                     'type'       => 'control-snippet'
                 ];
 
@@ -211,7 +210,6 @@ INSERT|UPDATE
                     $iuConfigs[$keyRBC]['datalist'][$fieldName] = array_keys($fieldArr);
                 }
 
-                $colInd++;
             }
             $index++;
         }
