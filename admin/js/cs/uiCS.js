@@ -10,14 +10,14 @@ export const allControlSnippets = document.querySelectorAll('[data-type="control
 
 export function blockCS(el) {
     el.classList.add('opacity-50');
-    el.classList.remove('text-danger');
+    // el.classList.remove('text-danger');
     el.setAttribute('disabled', '1');
     el.setAttribute('readonly', '1');
 }
 
 export function unblockCS(el) {
     el.classList.remove('opacity-50');
-    el.classList.add('text-danger');
+    // el.classList.add('text-danger');
     el.removeAttribute('disabled');
     el.removeAttribute('readonly');
 }

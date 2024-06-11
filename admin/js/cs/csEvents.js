@@ -94,7 +94,7 @@ async function csDefaultCallbackFunction(el) {
     // alert(result.message);
 
     console.log("result", result)
-    console.log("typeof result", typeof(result))
+    // console.log("typeof result", typeof(result))
     // console.log("myAjax", myAjax)
 
     if (result.message) {

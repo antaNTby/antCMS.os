@@ -1,13 +1,14 @@
 // conf_columns.js
 import * as ui from '.././uiAdmin.js';
+import * as cs from '../../../js/cs/uiCS.js';
 import * as csEvents from '../../../js/cs/csEvents.js';
-const legalOperations=['addNewConfig','updateConfig'];
+const legalOperations = ['addNewConfig', 'updateConfig'];
 
 const switcherFieldsetToggle = document.querySelector('[name="switcherFieldsetToggle"]');
 const selectEl = document.querySelector('select[name="configSelector"]');
 const fieldset = document.querySelector("#selectConfigFieldset");
 
-const btnOperationAddNew =document.querySelector('button[data-operation="addNewConfig"]');
+const btnOperationAddNew = document.querySelector('button[data-operation="addNewConfig"]');
 
 // const current_sub_id = getUrlComponent('sub', checkOnUrl(document.location.href));
 // const current_dpt_id = getUrlComponent('dpt', checkOnUrl(document.location.href));
@@ -25,25 +26,41 @@ switcherFieldsetToggle.addEventListener('change', function(event) {
     if (switcher.checked) {
         fieldset.disabled = false;
         ico.className = "bi bi-unlock-fill text-primary";
+        cs.allControlSnippets.forEach(el => {
+            const rowNumber = el.dataset.rowNumber;
+            const switcherEnable = document.querySelector('input[type="checkbox"][data-row-number="' + rowNumber + '"][data-field-name="enable"]');
+            if (switcherEnable.checked) {
+                cs.unblockCS(el);
+            }
+
+            switcherEnable.classList.remove('opacity-50');
+            switcherEnable.removeAttribute('disabled');
+            switcherEnable.removeAttribute('readonly');
+
+        });
     } else {
         fieldset.disabled = true;
         ico.className = "bi bi-lock-fill text-danger";
+
+        cs.allControlSnippets.forEach(el => {
+            cs.blockCS(el);
+        });
     }
 });
 selectEl.onchange = (event) => {
     let sender = event.target;
     deleteUrlComponent('configSelectedIndex');
     deleteUrlComponent('operation');
-    let url = checkOnUrl(document.location.href) + '&configSelectedIndex='+sender.value;
+    let url = checkOnUrl(document.location.href) + '&configSelectedIndex=' + sender.value;
     // console.log(sender.value,url)
     window.location = url;
 }
 
-btnOperationAddNew.addEventListener('click', function(event){
-     let sender = event.target;
+btnOperationAddNew.addEventListener('click', function(event) {
+    let sender = event.target;
     deleteUrlComponent('operation');
     deleteUrlComponent('configSelectedIndex');
-    let url = checkOnUrl(document.location.href) + '&configSelectedIndex='+selectEl.value+'&operation='+'addNewConfig';
+    let url = checkOnUrl(document.location.href) + '&configSelectedIndex=' + selectEl.value + '&operation=' + 'addNewConfig';
     // console.log(selectEl.value,url)
     window.location = url;
 })

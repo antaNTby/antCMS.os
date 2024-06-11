@@ -46,8 +46,6 @@ $rbcolumnsDefault = [
     'actions'     => 'Действия',
 ];
 
-
-
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
 // $table_primaryKey    = 'companyID';
 
@@ -161,25 +159,18 @@ INSERT|UPDATE
                     'type'        => 'control-snippet',
                 ];
 
-                // dump($data_set);
                 $iuConfigs[$keyRBC]['dataset'][$fieldName] = $data_set;
-                // dump($iuConfigs[$keyRBC]);
 
                 $p = [
 
-                    'id'        => "{$fieldName}_{$index}",
-                    'class_add' => 'text-danger',
-                    'name'      => $fieldName,
-                    'value'     => $rowRBC->$fieldName,
-                    // "class_div"=>AAA,
-                    // "aria_label" => "AAA",
-                    // "isDisabled"=>AAA,
-                    // "isChecked"=>AAA,
-                    // "isIndeterminate"=>AAA,
+                    'id'    => "{$fieldName}_{$index}",
+                    'name'  => $fieldName,
+                    'value' => $rowRBC->$fieldName,
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
                 $p['isChecked'] = ($p['value'] == 1) ? 1 : 0;
+
                 ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
                 if ($rowRBC->enable != 1)
                 {
@@ -187,26 +178,19 @@ INSERT|UPDATE
                     $p['isDisabled'] = 1;
                     $p['isReadonly'] = 1;
                 }
+                ## ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+                $p['class_add']  = 'opacity-50';
+                $p['isDisabled'] = 1;
+                $p['isReadonly'] = 1;
+
                 ## отменяем предыдущее действи для самого столбца enable и id
                 if ($fieldName === 'enable')
                 {
-                    $p['class_add']  = 'text-dark';
+
                     $p['isDisabled'] = 0;
                     $p['isReadonly'] = 0;
                 }
-                if ($fieldName === 'id')
-                {
-                    $p['class_add']  = 'text-bg-dark';
-                    $p['isDisabled'] = 0;
-                    $p['isReadonly'] = 0;
-                }
-                ## data и ind только для чтения
-                if ($fieldName === 'data' || $fieldName === 'ind')
-                {
-                    $p['class_add']  = 'text-primary';
-                    $p['isDisabled'] = 0;
-                    $p['isReadonly'] = 1;
-                }
+
 
                 $iuConfigs[$keyRBC]['p'][$fieldName] = $p;
 

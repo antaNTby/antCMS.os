@@ -42,9 +42,6 @@ if (isset($_GET['app']) && isset($_GET['operation']) && ($_GET['app'] == 'contro
             }
         }
 
-        // dump($_GET);
-        // dump($requestData);
-
         if ($errors === [])
         {
             $errors = false;

@@ -3,7 +3,7 @@
 
 
 
-<span class="badge{if isset($p.class_add)} {$p.class_add}{else} text-bg-secondary{/if}"
+<span class="badge text-bg-secondary{if isset($p.class_add)} {$p.class_add}{/if}"
  {if isset($dataset) && is_array($dataset)}
  {foreach $dataset as $key=>$item}
  data-{$key}="{$item}"
