@@ -4,15 +4,12 @@
 // $phpToast      = new Toasts();
 
 $exampleData = [
-    "primaryID"    => 11,
-    "configName"   => PRODUCTS_TABLE,
-    "fieldName"    => 'name',
-    "newValue"     => "мыло",
-    "oldValue"     => "шило",
-    "rowNumber"    => 9,
-    "newValueEEE"  => "мыло",
-    "oldValueEEE"  => "шило",
-    "rowNumberEEE" => 9,
+    "primaryID"  => 11,
+    "configName" => PRODUCTS_TABLE,
+    "fieldName"  => 'name',
+    "newValue"   => "мыло",
+    "oldValue"   => "шило",
+    "rowNumber"  => 9,
 ];
 
 if (isset($_GET['app']) && isset($_GET['operation']) && ($_GET['app'] == 'controlSnippetsProcessor'))
@@ -51,6 +48,13 @@ if (isset($_GET['app']) && isset($_GET['operation']) && ($_GET['app'] == 'contro
         if ($errors === [])
         {
             $errors = false;
+
+            $data = [
+                $requestData["fieldName"] => $requestData["newValue"],
+            ];
+
+            $db->table(ANT_RBCOLUMNS)->where('id', $requestData["primaryID"])->update($data);
+
         }
         header('Content-Type: application/json; charset=utf-8');
         exit(json_encode(
@@ -60,6 +64,9 @@ if (isset($_GET['app']) && isset($_GET['operation']) && ($_GET['app'] == 'contro
                 'message'     => 'Усё нармальна мама , трын-дын-дым, дын-дын-дым!',
                 'requestData' => $requestData,
                 'result'      => $result,
+                'numRows'     => $db->numRows(),
+                'getQuery'    => $db->getQuery(),
+                'queryCount'  => $db->queryCount(),
 
             ]
 
