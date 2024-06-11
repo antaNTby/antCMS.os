@@ -3,9 +3,21 @@
 // require_once '/admin/core/classes/class.Toasts.php'; //load php class
 // $phpToast      = new Toasts();
 
+$exampleData = [
+    "primaryID"    => 11,
+    "configName"   => PRODUCTS_TABLE,
+    "fieldName"    => 'name',
+    "newValue"     => "мыло",
+    "oldValue"     => "шило",
+    "rowNumber"    => 9,
+    "newValueEEE"  => "мыло",
+    "oldValueEEE"  => "шило",
+    "rowNumberEEE" => 9,
+];
+
 if (isset($_GET['app']) && isset($_GET['operation']) && ($_GET['app'] == 'controlSnippetsProcessor'))
 {
-
+    $errors    = [];
     $operation = $_GET['operation'] ?? 'missedOperation';
 
     if (($operation == 'updateCSValue'))
@@ -15,16 +27,39 @@ if (isset($_GET['app']) && isset($_GET['operation']) && ($_GET['app'] == 'contro
 
         $result = false;
 
+        if ($requestData["newValue"] == $requestData["oldValue"])
+        {
+            $errors[] = "Значение не менялось";
+        }
+
+        if (!isset($requestData["primaryID"]))
+        {
+            $errors[] = "Нет первичного ключа";
+        }
+
+        foreach ($exampleData as $key => $value)
+        {
+            if (!isset($requestData[$key]))
+            {
+                $errors[] = "Нет `{$key}` ";
+            }
+        }
+
         // dump($_GET);
         // dump($requestData);
 
+        if ($errors === [])
+        {
+            $errors = false;
+        }
         header('Content-Type: application/json; charset=utf-8');
         exit(json_encode(
             [
 
+                'errors'      => $errors,
+                'message'     => 'Усё нармальна мама , трын-дын-дым, дын-дын-дым!',
                 'requestData' => $requestData,
-                'result' => $result,
-                'message'=>'Усё нармальна мама , трын-дын-дым, дын-дын-дым!'
+                'result'      => $result,
 
             ]
 

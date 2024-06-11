@@ -39,7 +39,7 @@ const showInvalid = function(text) {
     if (IS_ALLOW) myInvalidForm.show();
 }
 
-function showToast(text, headerText = "", style = "") {
+function showToast(text="ok", headerText = "", style = "") {
 
     let toastEl = document.createElement('div');
     toastEl.classList.add('toast');
@@ -52,9 +52,9 @@ function showToast(text, headerText = "", style = "") {
         toastHeader.classList.add('toast-header');
 
 
-        if (style = "success") {
+        if (style == "success") {
             toastHeader.classList.add('text-bg-success');
-        } else if (style = "danger") {
+        } else if (style == "danger") {
             toastHeader.classList.add('text-bg-danger');
         } else {
             toastHeader.classList.add('text-bg-dark');
@@ -69,7 +69,7 @@ function showToast(text, headerText = "", style = "") {
 
         let btnClose = document.createElement('button');
 
-        btnClose.classList.add('btn-close');
+        btnClose.classList.add('btn-close', 'btn-close-white', 'me-2', 'm-auto');
         btnClose.setAttribute('type', 'button');
         btnClose.setAttribute('data-bs-dismiss', 'toast');
         btnClose.setAttribute('aria-label', 'Close');
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     btnShowToast.addEventListener("click", function() {
-        showToast('function showToast (text) ', ' пример сообщения ' + '<i class="bi bi-bug-fill"></i>');
+        showToast('function showToast (text) ', ' пример сообщения ' + '<i class="bi bi-bug-fill"></i>','danger');
     });
 
     /* выводим СВОЁ время выполнения для всех toastElList*/

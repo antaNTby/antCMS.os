@@ -57,7 +57,7 @@ ui.allControlSnippets.forEach(cs => {
 
 async function csDefaultCallbackFunction(el) {
     // let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
-    let url = 'admin/admin.php'+'?app=controlSnippetsProcessor' + '&operation=updateCSValue';
+    let url = 'admin/admin.php' + '?app=controlSnippetsProcessor' + '&operation=updateCSValue';
 
     const primaryID = el.dataset.primaryId;
 
@@ -94,11 +94,17 @@ async function csDefaultCallbackFunction(el) {
     // alert(result.message);
 
     console.log("result", result)
-    console.log("typeof result", typeof (result))
+    console.log("typeof result", typeof(result))
     // console.log("myAjax", myAjax)
 
-    if (result.message ){
-        bsToast.showToast(result.message, "Удачно","success" );
+    if (result.message) {
+        if (result.errors === false) {
+            bsToast.showToast(result.message, "Удачно", "success");
+        } else {
+            result.errors.forEach(e => {
+                bsToast.showToast(e, "Ошибка", "danger");
+            })
+        }
     }
 
 }
