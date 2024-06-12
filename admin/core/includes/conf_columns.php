@@ -239,8 +239,15 @@ dump($Row);
                     }
                 }
                 // dump($options);
+                if (is_array($options)  && count($options))
+                {
 
-                $Configurations[$rowIndex]['fieldOptions'][$fieldName] = $options;
+                    $Configurations[$rowIndex]['fieldOptions'][$fieldName] = $options;
+                }
+                else
+                {
+                    $Configurations[$rowIndex]['fieldOptions'][$fieldName] = null;
+                }
 
 ############ /options
 
@@ -249,7 +256,7 @@ dump($Row);
         }
         $smarty->assign('Configurations', $Configurations);
 
-dump($Configurations[0]);
+        dump($Configurations[0]);
 /*
 ^ array:4 [▼
 "fieldValues" => array:16 [▼
