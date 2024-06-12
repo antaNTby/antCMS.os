@@ -11,7 +11,7 @@
 <input  type="number"
  class="form-control bg-white{if isset($p.class_add)} {$p.class_add}{/if}"
  {if isset($p.id)} id="input_{$p.id}"{/if}
- {if isset($datalist) && is_array($datalist)} list="datalistOptions_{$p.id}"{/if}
+ {if isset($options) && is_array($options)} list="datalistOptions_{$p.id}"{/if}
  {if isset($dataset) && is_array($dataset)}
  {foreach $dataset as $key=>$item}
  data-{$key}="{$item}"
@@ -21,12 +21,12 @@
  {if isset($p.isDisabled) && $p.isDisabled eq 1} disabled{/if}
  {if isset($p.isReadonly) && $p.isReadonly eq 1} readonly{/if}
 
- placeholder="Type{if isset($datalist) && is_array($datalist)} | Select{/if} ...">
+ placeholder="Type{if isset($options) && is_array($options)} | Select{/if} ...">
 
 
-{if isset($datalist) && is_array($datalist)}
+{if isset($options) && is_array($options)}
 <datalist id="datalistOptions_{$p.id}">
-{foreach $datalist as $key=>$item}
+{foreach $options as $key=>$item}
 <option value="{$item}">
 {/foreach}
   <option value="#formatter">

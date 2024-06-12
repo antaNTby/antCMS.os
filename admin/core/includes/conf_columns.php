@@ -43,7 +43,7 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия',
+    'actions'     => 'Действия'
 ];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
@@ -97,18 +97,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType'],
+                'input_type'  => $value['inputType']
             ];
 
             $where = [
                 'config_name' => $config_name,
-                'data'        => $key,
+                'data'        => $key
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int)$doInsert == 0)
+            if ((int) $doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -116,7 +116,7 @@ INSERT|UPDATE
             else
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->where($where)->update($data);
-                $message = 'Новая конфигурация обновлена';
+                $message = 'Конфигурация сброшена в исходное состояние';
             }
             $cc++;
             // dump([$db->queryCount(), $db->getQuery()]);
@@ -135,7 +135,7 @@ INSERT|UPDATE
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'config_name' => $config_name,
+            'config_name' => $config_name
         ];
 
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
@@ -143,69 +143,76 @@ INSERT|UPDATE
         // теперь нужно какждому полу дать controlSnippet
         $iuConfigs = [];
         $index     = 0;
+
         foreach ($dataFromRBC as $keyRBC => $rowRBC)
         {
+// dd($rowRBC);
             foreach ($rowRBC as $fieldName => $fieldData)
             {
-                $iuConfigs[$keyRBC]['table_data']['ind']      = $index;
-                $iuConfigs[$keyRBC]['table_data'][$fieldName] = $rowRBC->$fieldName;
+                $iuConfigs[$keyRBC]['fieldValues']['ind']      = $index;
+                $iuConfigs[$keyRBC]['fieldValues'][$fieldName] = $rowRBC->$fieldName;
 
-                $data_set = [
+############ atributes
+                $atributes = [
                     'config-name' => $config_name,
                     'primary-id'  => $rowRBC->id,
                     'field-name'  => $fieldName,
                     'row-number'  => $index,
                     'old-value'   => $rowRBC->$fieldName,
-                    'type'        => 'control-snippet',
+                    'type'        => 'control-snippet'
                 ];
 
-                $iuConfigs[$keyRBC]['dataset'][$fieldName] = $data_set;
+                $iuConfigs[$keyRBC]['fieldAtributes'][$fieldName] = $atributes;
 
-                $p = [
+############ params
+                $params = [
 
                     'id'    => "{$fieldName}_{$index}",
                     'name'  => $fieldName,
-                    'value' => $rowRBC->$fieldName,
+                    'value' => $rowRBC->$fieldName
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
-                $p['isChecked'] = ($p['value'] == 1) ? 1 : 0;
+                $params['isChecked'] = ($params['value'] == 1) ? 1 : 0;
 
                 ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
                 if ($rowRBC->enable != 1)
                 {
-                    $p['class_add']  = 'opacity-50';
-                    $p['isDisabled'] = 1;
-                    $p['isReadonly'] = 1;
+                    $params['class_add']  = 'opacity-50';
+                    $params['isDisabled'] = 1;
+                    $params['isReadonly'] = 1;
                 }
 
                 ## ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
-                $p['class_add']  = 'opacity-50';
-                $p['isDisabled'] = 1;
-                $p['isReadonly'] = 1;
+                $params['class_add']  = 'opacity-50';
+                $params['isDisabled'] = 1;
+                $params['isReadonly'] = 1;
 
                 ## отменяем предыдущее действи для самого столбца enable
                 // if ($fieldName === 'enable')
                 // {
-                //     $p['isDisabled'] = 0;
-                //     $p['isReadonly'] = 0;
+                //     $params['isDisabled'] = 0;
+                //     $params['isReadonly'] = 0;
                 // }
 
-                $iuConfigs[$keyRBC]['p'][$fieldName] = $p;
-                 $iuConfigs[$keyRBC]['datalist']=array();
+                $iuConfigs[$keyRBC]['fieldParams'][$fieldName] = $params;
 
+############ options
                 ## написать функцию возвращающую список полей для db и для dt в виде массива
+                $iuConfigs[$keyRBC]['fieldOptions'][$fieldName] = [];
                 if ($fieldName === 'db' || $fieldName === 'dt')
                 {
                     $fieldArr = db_getColumnNames($config_name);
                     if (is_array($fieldArr) && !empty($fieldArr))
                     {
-                        $iuConfigs[$keyRBC]['datalist'][$fieldName]=array();
-                        $iuConfigs[$keyRBC]['datalist'][$fieldName] = array_keys($fieldArr);
-                    // dump(array_keys($fieldArr));
-                    // dd( $iuConfigs[$keyRBC]['datalist'][$fieldName]);
+                        $iuConfigs[$keyRBC]['fieldOptions'][$fieldName] = array_keys($fieldArr);
+                        // dump(array_keys($fieldArr));
+                        // dd( $iuConfigs[$keyRBC]['fieldOptions'][$fieldName]);
                     }
                 }
+############ /options
+
+
 
             }
             $index++;
@@ -213,7 +220,8 @@ INSERT|UPDATE
         $smarty->assign('iuConfigs', $iuConfigs);
     }
 
-    // dump($iuConfigs["0"]);
+    cls();
+    jlog($iuConfigs);
 
 /* 2 => {#32 ▼
 +"id": "13"
