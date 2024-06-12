@@ -9,7 +9,7 @@
  data-{$key}="{$item}"
  {/foreach}
  {/if}>
-{$colData.id}
+{$content}
 </span>
 
 {else}

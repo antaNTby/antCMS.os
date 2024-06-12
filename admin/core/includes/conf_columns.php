@@ -43,7 +43,7 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия'
+    'actions'     => 'Действия',
 ];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
@@ -97,18 +97,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType']
+                'input_type'  => $value['inputType'],
             ];
 
             $where = [
                 'config_name' => $config_name,
-                'data'        => $key
+                'data'        => $key,
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int) $doInsert == 0)
+            if ((int)$doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -128,14 +128,14 @@ INSERT|UPDATE
         $phpToast      = new Toasts();
         $urlToRedirect = ADMIN_FILE . '?dpt=conf&sub=columns&configSelectedIndex=' . $configSelectedIndex;
         $phpToast::run('success', $message, $urlToRedirect, $timerSec);
-        $phpToast::success('successsuccesssuccesssuccess');
+        // $phpToast::success('successsuccesssuccesssuccess');
         RedirectMetaRefresh($urlToRedirect, $timerSec);
     }
 
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'config_name' => $config_name
+            'config_name' => $config_name,
         ];
 
         $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
@@ -159,7 +159,7 @@ INSERT|UPDATE
                     'field-name'  => $fieldName,
                     'row-number'  => $index,
                     'old-value'   => $rowRBC->$fieldName,
-                    'type'        => 'control-snippet'
+                    'type'        => 'control-snippet',
                 ];
 
                 $iuConfigs[$keyRBC]['fieldAtributes'][$fieldName] = $atributes;
@@ -169,7 +169,7 @@ INSERT|UPDATE
 
                     'id'    => "{$fieldName}_{$index}",
                     'name'  => $fieldName,
-                    'value' => $rowRBC->$fieldName
+                    'value' => $rowRBC->$fieldName,
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
@@ -199,29 +199,33 @@ INSERT|UPDATE
 
 ############ options
                 ## написать функцию возвращающую список полей для db и для dt в виде массива
-                $iuConfigs[$keyRBC]['fieldOptions'][$fieldName] = [];
+                #
+                #
+
+                $options = [];
+
                 if ($fieldName === 'db' || $fieldName === 'dt')
                 {
                     $fieldArr = db_getColumnNames($config_name);
+                    $fieldsInTable =[];
                     if (is_array($fieldArr) && !empty($fieldArr))
                     {
-                        $iuConfigs[$keyRBC]['fieldOptions'][$fieldName] = array_keys($fieldArr);
-                        // dump(array_keys($fieldArr));
-                        // dd( $iuConfigs[$keyRBC]['fieldOptions'][$fieldName]);
+                        $fieldsInTable = array_keys($fieldArr);
+                        // dd($fieldsInTable);
+                        $options[] = $fieldsInTable;
                     }
                 }
+                dump($options);
+
+                $iuConfigs[$keyRBC]['fieldOptions'][$fieldName] = $options;
+
 ############ /options
-
-
 
             }
             $index++;
         }
         $smarty->assign('iuConfigs', $iuConfigs);
     }
-
-    cls();
-    jlog($iuConfigs);
 
 /* 2 => {#32 ▼
 +"id": "13"

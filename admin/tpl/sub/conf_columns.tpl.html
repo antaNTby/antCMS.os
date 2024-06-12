@@ -66,7 +66,7 @@
             {assign var ="atributes" value=$rowData.fieldAtributes}
             <tr class="align-items-center">
                 <td class="align-middle">{$smarty.section.row.index}</td>
-                <td class="align-middle"  data-old-value="{$values.id}">{include file="cs/single_badge.tpl" p=$p.id dataset=$atributes.id}</td>
+                <td class="align-middle"  data-old-value="{$values.id}">{include file="cs/single_badge.tpl" content=$values.id dataset=$atributes.id}</td>
                 <td class="align-middle" data-old-value="{$values.data}">{include file="cs/single_plaintext.tpl" p=$p.data dataset=$atributes.data}</td>
                 <td class="align-middle" data-old-value="{$values.ind}">{include file="cs/single_plaintext.tpl" p=$p.ind dataset=$atributes.ind}</td>
                 <td class="align-middle" data-old-value="{$values.db}">{include file="cs/single_inputtext.tpl" p=$p.db options=$options.db dataset=$atributes.db}</td>

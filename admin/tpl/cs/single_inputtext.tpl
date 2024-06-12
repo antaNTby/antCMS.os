@@ -23,17 +23,16 @@
 
  placeholder="Type{if isset($options) && is_array($options)} | Select{/if} ...">
 
-
-{if isset($options) && is_array($options)}
 <datalist id="datalistOptions_{$p.id}">
+{if isset($options) && is_array($options)}
 {foreach $options as $key=>$item}
 <option value="{$item}">
 {/foreach}
+{/if}
   <option value="#formatter">
   <option value="#null">
   <option value="#custom">
 </datalist>
-{/if}
 
 
 
