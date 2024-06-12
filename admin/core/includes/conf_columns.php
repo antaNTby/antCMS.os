@@ -66,7 +66,7 @@ INSERT|UPDATE
 ##########################
  */
 
-    if (($operation == 'addNewConfig') || ($operation == 'updateConfig'))
+    if (($operation == 'addNewConfig') || ($operation == 'resetConfig'))
     {
         // dump($dbTableFields);
         $cortages = [];
@@ -178,27 +178,33 @@ INSERT|UPDATE
                     $p['isDisabled'] = 1;
                     $p['isReadonly'] = 1;
                 }
+
                 ## ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
                 $p['class_add']  = 'opacity-50';
                 $p['isDisabled'] = 1;
                 $p['isReadonly'] = 1;
 
-                ## отменяем предыдущее действи для самого столбца enable и id
-                if ($fieldName === 'enable')
-                {
-
-                    $p['isDisabled'] = 0;
-                    $p['isReadonly'] = 0;
-                }
-
+                ## отменяем предыдущее действи для самого столбца enable
+                // if ($fieldName === 'enable')
+                // {
+                //     $p['isDisabled'] = 0;
+                //     $p['isReadonly'] = 0;
+                // }
 
                 $iuConfigs[$keyRBC]['p'][$fieldName] = $p;
+                 $iuConfigs[$keyRBC]['datalist']=array();
 
                 ## написать функцию возвращающую список полей для db и для dt в виде массива
                 if ($fieldName === 'db' || $fieldName === 'dt')
                 {
-                    $fieldArr                                   = db_getColumnNames($config_name);
-                    $iuConfigs[$keyRBC]['datalist'][$fieldName] = array_keys($fieldArr);
+                    $fieldArr = db_getColumnNames($config_name);
+                    if (is_array($fieldArr) && !empty($fieldArr))
+                    {
+                        $iuConfigs[$keyRBC]['datalist'][$fieldName]=array();
+                        $iuConfigs[$keyRBC]['datalist'][$fieldName] = array_keys($fieldArr);
+                    // dump(array_keys($fieldArr));
+                    // dd( $iuConfigs[$keyRBC]['datalist'][$fieldName]);
+                    }
                 }
 
             }

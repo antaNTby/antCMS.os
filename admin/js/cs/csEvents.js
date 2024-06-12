@@ -4,10 +4,8 @@ console.log(ui)
 
 // для "enable" чекбоксов
 export const onEnableChange = (e) => {
-    // console.log(e)
     const row = e.target.dataset.rowNumber;
     const ControlSnippetsToEnable = document.querySelectorAll('[data-row-number="' + row + '"]:not([name="checkbox_enable"])');
-    console.log(ControlSnippetsToEnable)
     if (e.target.checked) {
         [].forEach.call(ControlSnippetsToEnable, function(el) {
             ui.unblockCS(el);
@@ -36,24 +34,19 @@ ui.allCheckBoxes.forEach(checkbox => {
     checkbox.addEventListener('change', onCheckboxChange);
 });
 
-
-
-
 // для ВСЕХ ControlSnippet
 export const onControlSnippetChange = (e) => {
     const el = e.target;
-    // ui.blockCS(el);
+    ui.blockCS(el);
     csDefaultCallbackFunction(el);
-    // ui.unblockCS(el)
 };
 ui.allControlSnippets.forEach(cs => {
     cs.addEventListener('change', onControlSnippetChange);
 });
+
 // [].forEach.call(ui.allControlSnippets, function(el) {
 //     el.onchange = onControlSnippetChange;
 // });
-
-
 
 async function csDefaultCallbackFunction(el) {
     // let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
@@ -64,10 +57,8 @@ async function csDefaultCallbackFunction(el) {
     const configName = el.dataset.configName;
     const fieldName = el.dataset.fieldName;
     const newValue = el.value;
-    // const oldValue = parentTD.dataset.value;
-    const oldValue = el.dataset.oldValue;;
+    const oldValue = el.dataset.oldValue;
     const rowNumber = el.dataset.rowNumber;
-
 
     const DATA = {
         "primaryID": primaryID,
@@ -86,16 +77,10 @@ async function csDefaultCallbackFunction(el) {
         body: JSON.stringify(DATA)
     });
 
-
     let result = await myResponse.json();
 
-
-
-    // alert(result.message);
-
-    console.log("result", result)
-    // console.log("typeof result", typeof(result))
-    // console.log("myAjax", myAjax)
+    ui.unblockCS(el);
+    el.dataset.oldValue=newValue;
 
     if (result.message) {
         if (result.errors === false) {

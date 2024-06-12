@@ -2,7 +2,7 @@
 import * as ui from '.././uiAdmin.js';
 import * as cs from '../../../js/cs/uiCS.js';
 import * as csEvents from '../../../js/cs/csEvents.js';
-const legalOperations = ['addNewConfig', 'updateConfig'];
+const legalOperations = ['addNewConfig', 'resetConfig'];
 
 const switcherFieldsetToggle = document.querySelector('[name="switcherFieldsetToggle"]');
 const selectEl = document.querySelector('select[name="configSelector"]');
@@ -10,13 +10,9 @@ const fieldset = document.querySelector("#selectConfigFieldset");
 
 const btnOperationAddNew = document.querySelector('button[data-operation="addNewConfig"]');
 
-// const current_sub_id = getUrlComponent('sub', checkOnUrl(document.location.href));
-// const current_dpt_id = getUrlComponent('dpt', checkOnUrl(document.location.href));
 const configSelectedIndex = getUrlComponent('configSelectedIndex', checkOnUrl(document.location.href));
 const operation = getUrlComponent('operation', checkOnUrl(document.location.href));
 
-
-// console.log([ui.current_dpt_id,ui.current_sub_id,configSelectedIndex])
 
 //conf_columns
 switcherFieldsetToggle.addEventListener('change', function(event) {
