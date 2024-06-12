@@ -24,14 +24,16 @@
  placeholder="Type{if isset($options) && is_array($options)} | Select{/if} ...">
 
 <datalist id="datalistOptions_{$p.id}">
-{if isset($options) && is_array($options)}
-{foreach $options as $key=>$item}
-<option value="{$item}">
-{/foreach}
-{/if}
   <option value="#formatter">
   <option value="#null">
   <option value="#custom">
+
+    {if isset($options) && is_array($options)}
+    {foreach $options as $key=>$item}
+    <option value="{$item}">
+    {/foreach}
+    {/if}
+
 </datalist>
 
 
@@ -39,17 +41,3 @@
 {else}
 @
 {/if}
-
-<pre class="d-none">
-class_div => {if isset($p.class_div)}{$p.class_div}{else}null{/if}<br>
-id => {if isset($p.id)}{$p.id}{else}null{/if}<br>
-class_add => {if isset($p.class_add)}{$p.class_add}{else}null{/if}<br>
-name => {if isset($p.name)}{$p.name}{else}null{/if}<br>
-value => {if isset($p.value)}{$p.value}{else}null{/if}<br>
-aria_label => {if isset($p.aria_label)}{$p.aria_label}{else}null{/if}<br>
-isDisabled => {if isset($p.isDisabled)}{$p.isDisabled}{else}null{/if}<br>
-isReadonly => {if isset($p.isReadonly)}{$p.isReadonly}{else}null{/if}<br>
-isChecked => {if isset($p.isChecked)}{$p.isChecked}{else}null{/if}<br>
-isIndeterminate => {if isset($p.isIndeterminate)}{$p.isIndeterminate}{else}null{/if}<br>
-</pre>
-

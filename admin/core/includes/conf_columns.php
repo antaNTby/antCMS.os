@@ -138,45 +138,68 @@ INSERT|UPDATE
             'config_name' => $config_name,
         ];
 
-        $dataFromRBC = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
+        $Rows = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
 
         // теперь нужно какждому полу дать controlSnippet
-        $iuConfigs = [];
-        $index     = 0;
+        $Configurations = [];
 
-        foreach ($dataFromRBC as $keyRBC => $rowRBC)
+        foreach ($Rows as $rowIndex => $Row)
         {
-// dd($rowRBC);
-            foreach ($rowRBC as $fieldName => $fieldData)
-            {
-                $iuConfigs[$keyRBC]['fieldValues']['ind']      = $index;
-                $iuConfigs[$keyRBC]['fieldValues'][$fieldName] = $rowRBC->$fieldName;
+/*
+dump($Row);
+^ {#32 ▼
++"id": 141
++"config_name": "ant_category_product"
++"data": "productID"
++"ind": 0
++"db": "productID"
++"dt": "productID"
++"title": "ant_category_product"
++"visible": 0
++"searchable": 0
++"orderable": 1
++"editable": 1
++"sort_order": 0
++"enable": 1
++"actions": null
++"sql_type": "int(11)"
++"input_type": "single_inputnumber.tpl"
+}
+ */
 
-############ atributes
-                $atributes = [
-                    'config-name' => $config_name,
-                    'primary-id'  => $rowRBC->id,
-                    'field-name'  => $fieldName,
-                    'row-number'  => $index,
-                    'old-value'   => $rowRBC->$fieldName,
-                    'type'        => 'control-snippet',
+            foreach ($Row as $fieldName => $fieldData)
+            {
+
+                $Configurations[$rowIndex]['fieldValues']['ind']      = $rowIndex;
+                $Configurations[$rowIndex]['fieldValues'][$fieldName] = $Row->$fieldName;
+
+############ attributes
+                $attributes = [
+                    'config-name'  => $config_name,
+                    'config-name2' => $Row->config_name,
+                    'primary-id'   => $Row->id,
+                    'field-name'   => $fieldName,
+                    'row-number'   => $rowIndex,
+                    'old-value'    => $Row->$fieldName,
+                    'old-value2'   => $fieldData,
+                    'class'        => 'control-snippet',
                 ];
 
-                $iuConfigs[$keyRBC]['fieldAtributes'][$fieldName] = $atributes;
+                $Configurations[$rowIndex]['fieldAttributes'][$fieldName] = $attributes;
 
 ############ params
                 $params = [
 
-                    'id'    => "{$fieldName}_{$index}",
+                    'id'    => "{$fieldName}_{$rowIndex}",
                     'name'  => $fieldName,
-                    'value' => $rowRBC->$fieldName,
+                    'value' => $Row->$fieldName,
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
                 $params['isChecked'] = ($params['value'] == 1) ? 1 : 0;
 
                 ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
-                if ($rowRBC->enable != 1)
+                if ($Row->enable != 1)
                 {
                     $params['class_add']  = 'opacity-50';
                     $params['isDisabled'] = 1;
@@ -195,7 +218,7 @@ INSERT|UPDATE
                 //     $params['isReadonly'] = 0;
                 // }
 
-                $iuConfigs[$keyRBC]['fieldParams'][$fieldName] = $params;
+                $Configurations[$rowIndex]['fieldParams'][$fieldName] = $params;
 
 ############ options
                 ## написать функцию возвращающую список полей для db и для dt в виде массива
@@ -204,72 +227,116 @@ INSERT|UPDATE
 
                 $options = [];
 
-                if ($fieldName === 'db' || $fieldName === 'dt')
+                if ($fieldName === 'db' || $fieldName === 'dt' || $fieldName === 'title')
                 {
-                    $fieldArr = db_getColumnNames($config_name);
-                    $fieldsInTable =[];
+                    $fieldArr      = db_getColumnNames($config_name);
+                    $fieldsInTable = [];
                     if (is_array($fieldArr) && !empty($fieldArr))
                     {
                         $fieldsInTable = array_keys($fieldArr);
                         // dd($fieldsInTable);
-                        $options[] = $fieldsInTable;
+                        $options = $fieldsInTable;
                     }
                 }
-                dump($options);
+                // dump($options);
 
-                $iuConfigs[$keyRBC]['fieldOptions'][$fieldName] = $options;
+                $Configurations[$rowIndex]['fieldOptions'][$fieldName] = $options;
 
 ############ /options
 
             }
-            $index++;
+
         }
-        $smarty->assign('iuConfigs', $iuConfigs);
+        $smarty->assign('Configurations', $Configurations);
+
+dump($Configurations[0]);
+/*
+^ array:4 [▼
+"fieldValues" => array:16 [▼
+"ind" => 0
+"id" => 141
+"config_name" => "ant_category_product"
+"data" => "productID"
+"db" => "productID"
+"dt" => "productID"
+"title" => "ant_category_product"
+"visible" => 0
+"searchable" => 0
+"orderable" => 1
+"editable" => 1
+"sort_order" => 0
+"enable" => 1
+"actions" => null
+"sql_type" => "int(11)"
+"input_type" => "single_inputnumber.tpl"
+]
+"fieldAttributes" => array:16 [▼
+"id" => array:8 [▶]
+"config_name" => array:8 [▶]
+"data" => array:8 [▶]
+"ind" => array:8 [▶]
+"db" => array:8 [▶]
+"dt" => array:8 [▶]
+"title" => array:8 [▶]
+"visible" => array:8 [▶]
+"searchable" => array:8 [▶]
+"orderable" => array:8 [▶]
+"editable" => array:8 [▶]
+"sort_order" => array:8 [▶]
+"enable" => array:8 [▶]
+"actions" => array:8 [▶]
+"sql_type" => array:8 [▶]
+"input_type" => array:8 [▶]
+]
+"fieldParams" => array:16 [▼
+"id" => array:7 [▶]
+"config_name" => array:7 [▶]
+"data" => array:7 [▶]
+"ind" => array:7 [▶]
+"db" => array:7 [▶]
+"dt" => array:7 [▶]
+"title" => array:7 [▶]
+"visible" => array:7 [▶]
+"searchable" => array:7 [▶]
+"orderable" => array:7 [▶]
+"editable" => array:7 [▶]
+"sort_order" => array:7 [▶]
+"enable" => array:7 [▶]
+"actions" => array:7 [▶]
+"sql_type" => array:7 [▶]
+"input_type" => array:7 [▶]
+]
+"fieldOptions" => array:16 [▼
+"id" => []
+"config_name" => []
+"data" => []
+"ind" => []
+"db" => array:1 [▼
+0 => array:2 [▼
+0 => "productID"
+1 => "categoryID"
+]
+]
+"dt" => array:1 [▼
+0 => array:2 [▼
+0 => "productID"
+1 => "categoryID"
+]
+]
+"title" => []
+"visible" => []
+"searchable" => []
+"orderable" => []
+"editable" => []
+"sort_order" => []
+"enable" => []
+"actions" => []
+"sql_type" => []
+"input_type" => []
+]
+]
+ */
+
     }
 
-/* 2 => {#32 ▼
-+"id": "13"
-+"config_name": "ant_categories"
-+"data": "name"
-+"db": "name"
-+"dt": "1"
-+"title": "name in ant_categories"
-+"visible": "1"
-+"searchable": "1"
-+"orderable": "0"
-+"editable": "0"
-+"sort_order": "10"
-+"enable": "1"
-+"actions": null
-+"sql_type": "varchar(255)"
-+"input_type": "single_inputtext.tpl"
-}*/
-
-    // if (!is_null($columnsJsonFileName))
-    // {
-    //     if (file_exists($columnsJsonFileName))
-    //     {
-    //         $jsonColumns  = file_get_contents($columnsJsonFileName);
-    //         $page_message = 'datatables columns loaded from: ' . $columnsJsonFileName . '';
-    //     }
-    //     else
-    //     {
-    //         // d('NO FILE');
-    //         $dtColumnFieldNames = $dbTableFieldNames;
-
-    //         $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
-    //         $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
-    //         $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
-    //         $page_message_type = 'warning';
-    //     }
-
-    //     $dtColumns = json_decode($jsonColumns, true);//as array
-
-    //     if (!is_null($table_primaryKey))
-    //     {
-    //         $dbTable    = $config_name;
-    //         $primaryKey = $table_primaryKey;
-    //         $OK         = 1;
-    //     }
-    // }
 }
