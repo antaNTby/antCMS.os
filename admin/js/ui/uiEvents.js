@@ -20,6 +20,16 @@ ui.switcherMenuPosition.addEventListener('change', function(e) {
         localStorage.setItem('switcherMenuPosition', "0");
     }
 });
+
+ui.switcherOnlyErrorsToastShow.addEventListener('change', function(e) {
+    // console.log(e);
+    if (e.target.checked) {
+        localStorage.setItem('switcherOnlyErrorsToastShow', "1");
+    } else {
+        localStorage.setItem('switcherOnlyErrorsToastShow', "0");
+    }
+});
+
 ui.btnCloseMenu.addEventListener('click', () => {
     ui.bsOffcanvasMenu.hide();
 });
@@ -34,6 +44,14 @@ document.addEventListener("DOMContentLoaded", function() {
         ui.bsOffcanvasMenu.hide();
         ui.switcherMenuOnLoad.checked = undefined;
     }
+
+    let switcherOnlyErrorsToastShow = localStorage.getItem('switcherOnlyErrorsToastShow');
+    if (switcherOnlyErrorsToastShow === "1") {
+        ui.switcherOnlyErrorsToastShow.checked = true;
+    } else {
+        ui.switcherOnlyErrorsToastShow.checked = undefined;
+    }
+
     let switcherMenuPosition = localStorage.getItem('switcherMenuPosition');
     if (switcherMenuPosition === "1") {
         ui.elOffcanvasMenu.classList.remove('offcanvas-start');

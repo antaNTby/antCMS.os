@@ -1,4 +1,5 @@
-// import * as a from '../.././js/adminFunctions.js';
+// import { getAllowToShowSuccessToasts() } from '../../../admin/js/ui/uiAdmin.js';
+
 const btnSuccess = document.getElementById("btnSuccess");
 const btnDanger = document.getElementById("btnDanger");
 const btnShowToast = document.getElementById("btnShowToast");
@@ -12,7 +13,21 @@ const toastElList = document.querySelectorAll('.toast'); //  все html кла�
 const timeElements = document.querySelectorAll('.showTime');
 
 
-const IS_ALLOW = true;
+const getAllowToShowSuccessToasts = () => {
+
+    let res = false;
+    // const switcherOnlyErrorsToastShow = document.querySelector('input#switcherOnlyErrorsToastShow');
+    // const res = (!switcherOnlyErrorsToastShow.checked) ? true : false;
+    let switcherOnlyErrorsToastShow = localStorage.getItem('switcherOnlyErrorsToastShow');
+    if (switcherOnlyErrorsToastShow === "1") {
+        res = false;
+    } else {
+        res = true;
+    }
+
+    return res;
+}
+
 const IS_ALLOW_DANGER = true;
 
 let htmlMessage = '';
@@ -32,14 +47,14 @@ const showError = function(text) {
 }
 const showSuccess = function(text) {
     htmlMessage = text;
-    if (IS_ALLOW) mySuccess.show();
+    if (getAllowToShowSuccessToasts()) mySuccess.show();
 }
 const showInvalid = function(text) {
     htmlMessage = text;
-    if (IS_ALLOW) myInvalidForm.show();
+    if (getAllowToShowSuccessToasts()) myInvalidForm.show();
 }
 
-function showToast(text="ok", headerText = "", style = "") {
+function showToast(text = "ok", headerText = "", style = "") {
 
     let toastEl = document.createElement('div');
     toastEl.classList.add('toast');
@@ -89,11 +104,11 @@ function showToast(text="ok", headerText = "", style = "") {
     toastContainer.appendChild(toastEl);
 
     let bootstrapToast = new bootstrap.Toast(toastEl);
-    bootstrapToast.show();
+    if (getAllowToShowSuccessToasts()) bootstrapToast.show();
 }
 
 
-// const IS_ALLOW = false;
+// const  getAllowToShowSuccessToasts()  = false;
 document.addEventListener("DOMContentLoaded", function() {
 
     btnDanger.addEventListener("click", function() {
@@ -107,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     btnShowToast.addEventListener("click", function() {
-        showToast('function showToast (text) ', ' пример сообщения ' + '<i class="bi bi-bug-fill"></i>','danger');
+        showToast('function showToast (text) ', ' пример сообщения ' + '<i class="bi bi-bug-fill"></i>', 'danger');
     });
 
     /* выводим СВОЁ время выполнения для всех toastElList*/

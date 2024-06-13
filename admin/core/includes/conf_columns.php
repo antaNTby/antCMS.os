@@ -43,7 +43,7 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия'
+    'actions'     => 'Действия',
 ];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
@@ -97,18 +97,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType']
+                'input_type'  => $value['inputType'],
             ];
 
             $where = [
                 'config_name' => $config_name,
-                'data'        => $key
+                'data'        => $key,
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int) $doInsert == 0)
+            if ((int)$doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -135,7 +135,7 @@ INSERT|UPDATE
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'config_name' => $config_name
+            'config_name' => $config_name,
         ];
 
         $Rows = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
@@ -174,14 +174,14 @@ dump($Row);
 
 ############ attributes
                 $attributes = [
-                    'config-name'  => $config_name,
+                    'config-name' => $config_name,
                     // 'config-name2' => $Row->config_name,
-                    'primary-id'   => $Row->id,
-                    'field-name'   => $fieldName,
-                    'row-number'   => $rowIndex,
+                     'primary-id'  => $Row->id,
+                    'field-name'  => $fieldName,
+                    'row-number'  => $rowIndex,
                     // 'old-value'    => $Row->$fieldName,
-                    'old-value'   => $fieldData,
-                    'class'        => 'control-snippet'
+                     'old-value'   => $fieldData,
+                    'class'       => 'control-snippet',
                 ];
 
                 // $Configurations[$rowIndex]['fieldAttributes'][$fieldName] = $attributes;
@@ -192,7 +192,7 @@ dump($Row);
                     'dataset' => $attributes,
                     'id'      => "{$fieldName}_{$rowIndex}",
                     'name'    => $fieldName,
-                    'value'   => $Row->$fieldName
+                    'value'   => $Row->$fieldName,
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
@@ -253,92 +253,6 @@ dump($Row);
         }
         $smarty->assign('Configurations', $Configurations);
 
-        dump($Configurations[0]);
-/*
-^ array:4 [▼
-"fieldValues" => array:16 [▼
-"ind" => 0
-"id" => 141
-"config_name" => "ant_category_product"
-"data" => "productID"
-"db" => "productID"
-"dt" => "productID"
-"title" => "ant_category_product"
-"visible" => 0
-"searchable" => 0
-"orderable" => 1
-"editable" => 1
-"sort_order" => 0
-"enable" => 1
-"actions" => null
-"sql_type" => "int(11)"
-"input_type" => "single_inputnumber.tpl"
-]
-"fieldAttributes" => array:16 [▼
-"id" => array:8 [▶]
-"config_name" => array:8 [▶]
-"data" => array:8 [▶]
-"ind" => array:8 [▶]
-"db" => array:8 [▶]
-"dt" => array:8 [▶]
-"title" => array:8 [▶]
-"visible" => array:8 [▶]
-"searchable" => array:8 [▶]
-"orderable" => array:8 [▶]
-"editable" => array:8 [▶]
-"sort_order" => array:8 [▶]
-"enable" => array:8 [▶]
-"actions" => array:8 [▶]
-"sql_type" => array:8 [▶]
-"input_type" => array:8 [▶]
-]
-"fieldParams" => array:16 [▼
-"id" => array:7 [▶]
-"config_name" => array:7 [▶]
-"data" => array:7 [▶]
-"ind" => array:7 [▶]
-"db" => array:7 [▶]
-"dt" => array:7 [▶]
-"title" => array:7 [▶]
-"visible" => array:7 [▶]
-"searchable" => array:7 [▶]
-"orderable" => array:7 [▶]
-"editable" => array:7 [▶]
-"sort_order" => array:7 [▶]
-"enable" => array:7 [▶]
-"actions" => array:7 [▶]
-"sql_type" => array:7 [▶]
-"input_type" => array:7 [▶]
-]
-"fieldOptions" => array:16 [▼
-"id" => []
-"config_name" => []
-"data" => []
-"ind" => []
-"db" => array:1 [▼
-0 => array:2 [▼
-0 => "productID"
-1 => "categoryID"
-]
-]
-"dt" => array:1 [▼
-0 => array:2 [▼
-0 => "productID"
-1 => "categoryID"
-]
-]
-"title" => []
-"visible" => []
-"searchable" => []
-"orderable" => []
-"editable" => []
-"sort_order" => []
-"enable" => []
-"actions" => []
-"sql_type" => []
-"input_type" => []
-]
-]
- */
+        dump($Configurations[1]);
     }
 }

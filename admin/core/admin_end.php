@@ -27,8 +27,8 @@ if (isset($_GET['change_template_width']))
     $new_template_width = $_GET['change_template_width'];
 
     $container_width = (in_array($new_template_width, $allowedContainerWidths))
-        ? $new_template_width
-        : ADMIN_CONTAINER_WIDTH;
+    ? $new_template_width
+    : ADMIN_CONTAINER_WIDTH;
     set_cookie('TEMPLATE_WIDTH', $container_width);
 
     Redirect(ADMIN_FILE);
@@ -43,7 +43,7 @@ $allowedToastPlacements = [
     'top-50 end-0 translate-middle-y',
     'bottom-0 start-0',
     'bottom-0 start-50 translate-middle-x',
-    'bottom-0 end-0'
+    'bottom-0 end-0',
 ];
 
 $allowedToastPlacementNames = [
@@ -55,7 +55,7 @@ $allowedToastPlacementNames = [
     'Middle right',
     'Bottom left',
     'Bottom center',
-    'Bottom right'
+    'Bottom right',
 ];
 
 $smarty->assign('allowedToastPlacements', $allowedToastPlacements);
@@ -72,7 +72,9 @@ if (isset($_COOKIE['TOAST_PLACEMENT_ID']))
 
 if (isset($_GET['change_toast_placement']))
 {
-    $placementID     = (int) $_GET['change_toast_placement'];
+    //не меняем если отключаем вывод тоастов  ($_GET['change_toast_placement']==-1)
+    $placementID = (array_key_exists((int)$_GET['change_toast_placement'], $allowedToastPlacements)) ? $_GET['change_toast_placement'] : $_COOKIE['TOAST_PLACEMENT_ID'];
+
     $toast_placement = $allowedToastPlacements[$placementID];
     set_cookie('TOAST_PLACEMENT_ID', $placementID);
     Redirect(ADMIN_FILE);
@@ -91,10 +93,7 @@ $smarty->assign('mver', $rd);
 $phpver = phpversion();
 $smarty->assign('pver', $phpver);
 
-
-
 include_once 'core/controlSnippetsProcessor.php';
-
 
 //show Smarty output
 try
@@ -110,19 +109,6 @@ catch (SmartyException $e)
     $smarty->assign('smarty_error_message', $e->getMessage());
     dump($smarty->getTemplateVars());
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if (0 or ADMIN_SMARTY_LOG_VARS)
 {

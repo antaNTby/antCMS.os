@@ -1,4 +1,5 @@
 // uiAdmin.js
+
 export const elH1 = document.querySelector("[data-id='PageH1']");
 export const elTemplateNow = document.querySelector("[data-id='template-now']");
 export const arrowUp = document.querySelectorAll("[name='arrowUp']");
@@ -10,6 +11,9 @@ export const btnOpenMenu = document.querySelector('a[data-bs-toggle="offcanvas"]
 
 export const switcherMenuOnLoad = document.querySelector('input#switcherMenuOnLoad');
 export const switcherMenuPosition = document.querySelector('input#switcherMenuPosition');
+export const switcherOnlyErrorsToastShow = document.querySelector('input#switcherOnlyErrorsToastShow');
+
+export const IS_ALLOW_SUCCESS_TOASTS_SHOW = switcherOnlyErrorsToastShow.checked;
 
 export const current_sub_id = getUrlComponent('sub', checkOnUrl(document.location.href));
 export const current_dpt_id = getUrlComponent('dpt', checkOnUrl(document.location.href));

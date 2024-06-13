@@ -31,17 +31,44 @@ ui.allCheckBoxes.forEach(checkbox => {
     checkbox.addEventListener('change', onCheckboxChange);
 });
 // для ВСЕХ ControlSnippet
-export const onControlSnippetChange = (e) => {
+export const onChangeAllControlSnipetsByDefault = (e) => {
     const el = e.target;
     ui.blockCS(el);
     csDefaultCallbackFunction(el);
 };
 ui.allControlSnippets.forEach(cs => {
-    cs.addEventListener('change', onControlSnippetChange);
+    cs.addEventListener('change', onChangeAllControlSnipetsByDefault);
 });
 // [].forEach.call(ui.allControlSnippets, function(el) {
-//     el.onchange = onControlSnippetChange;
+//     el.onchange = onChangeAllControlSnipetsByDefault;
 // });
+
+
+[].forEach.call(ui.sortOrderInputs, function(item, i, arr) {
+    item.removeEventListener('change', onChangeAllControlSnipetsByDefault);
+    item.addEventListener('change', onChangeSortOrderInput);
+
+    // item.onchange = changeSortOrder(item, i, arr);
+});
+
+
+
+
+function onChangeSortOrderInput(event) {
+    event.preventDefault();
+    const el = e.target;
+    console.info(event.target);
+}
+
+
+
+
+
+
+
+
+
+//
 async function csDefaultCallbackFunction(el) {
     // let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
     let url = 'admin/admin.php' + '?app=controlSnippetsProcessor' + '&operation=updateCSValue';
