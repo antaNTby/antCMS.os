@@ -1,10 +1,6 @@
 {* single_checkbox.tpl.html debug_print_var *}
 {if isset($p) && is_array($p)}
 
-
-
-
-
 {if $label}
 <label for="input_{$p.id}" class="form-label{if isset($p.class_add_label)} {$p.class_add_label}{/if}">{$label}</label>
 {/if}

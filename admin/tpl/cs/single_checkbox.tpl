@@ -1,5 +1,6 @@
 {* single_checkbox.tpl.html *}
 {if isset($p) && is_array($p)}
+
 {if isset($label)}
   {if $toggle}
 <div class="form-check form-switch{if isset($p.class_div)} {$p.class_div}{/if}">
