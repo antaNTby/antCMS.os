@@ -59,28 +59,28 @@
             {assign var ="rowData" value=$Configurations[$smarty.section.row.index]}
 
             {assign var ="values" value=$rowData.fieldValues}
-            {assign var ="p" value=$rowData.fieldParams}
+            {assign var ="params" value=$rowData.fieldParams}
 
             {assign var ="options" value=$rowData.fieldOptions}
 
-            {assign var ="attributes" value=$rowData.fieldAttributes}
+            {* {assign var ="attributes" value=$rowData.fieldAttributes} *}
             <tr class="align-items-center">
                 <td class="align-middle">{$smarty.section.row.index}</td>
-                <td class="align-middle"  data-old-value="{$values.id}">{include file="cs/single_badge.tpl" content=$values.id dataset=$attributes.id}</td>
-                <td class="align-middle" data-old-value="{$values.data}">{include file="cs/single_plaintext.tpl" p=$p.data dataset=$attributes.data}</td>
-                <td class="align-middle" data-old-value="{$values.ind}">{include file="cs/single_plaintext.tpl" p=$p.ind dataset=$attributes.ind}</td>
-                <td class="align-middle" data-old-value="{$values.db}">{include file="cs/single_inputtext.tpl" p=$p.db datalist=$options.db dataset=$attributes.db}</td>
-                <td class="align-middle" data-old-value="{$values.dt}">{include file="cs/single_inputtext.tpl" p=$p.dt datalist=$options.dt dataset=$attributes.dt}</td>
-                <td class="align-middle" data-old-value="{$values.title}">{include file="cs/single_inputtext.tpl" p=$p.title dataset=$attributes.title}</td>
-                <td class="align-middle" data-old-value="{$values.visible}">{include file="cs/single_checkbox.tpl" p=$p.visible dataset=$attributes.visible}</td>
-                <td class="align-middle" data-old-value="{$values.searchable}">{include file="cs/single_checkbox.tpl" p=$p.searchable dataset=$attributes.searchable}</td>
-                <td class="align-middle" data-old-value="{$values.orderable}">{include file="cs/single_checkbox.tpl" p=$p.orderable dataset=$attributes.orderable}</td>
-                {* <td class="align-middle" data-old-value="{$values.editable}">{include file="cs/single_checkbox.tpl" p=$p.editable dataset=$attributes.editable}</td> *}
-                <td class="align-middle" data-old-value="{$values.sort_order}">{include file="cs/single_inputnumber.tpl" p=$p.sort_order dataset=$attributes.sort_order}</td>
-                <td class="align-middle" data-old-value="{$values.enable}">{include file="cs/single_checkbox.tpl" p=$p.enable dataset=$attributes.enable label="" toggle=true}</td>
-                {* <td class="align-middle" data-old-value="{$values.actions}">{include file="cs/single_checkbox.tpl" p=$p.actions dataset=$attributes.actions}</td> *}
-                {* <td class="align-middle" data-old-value="{$values.sql_type}">{include file="cs/single_checkbox.tpl" p=$p.sql_type dataset=$attributes.sql_type}</td> *}
-                <td class="align-middle" data-old-value="{$values.input_type}">{include file="cs/single_inputtext.tpl" p=$p.input_type dataset=$attributes.input_type}</td>
+                <td class="align-middle"  data-old-value="{$values.id}">{include file="cs/single_badge.tpl" content=$values.id}</td>
+                <td class="align-middle" data-old-value="{$values.data}">{include file="cs/single_plaintext.tpl" p=$params.data}</td>
+                <td class="align-middle" data-old-value="{$values.ind}">{include file="cs/single_plaintext.tpl" p=$params.ind}</td>
+                <td class="align-middle" data-old-value="{$values.db}">{include file="cs/single_inputtext.tpl" p=$params.db datalist=$options.db}</td>
+                <td class="align-middle" data-old-value="{$values.dt}">{include file="cs/single_inputtext.tpl" p=$params.dt datalist=$options.dt}</td>
+                <td class="align-middle" data-old-value="{$values.title}">{include file="cs/single_inputtext.tpl" p=$params.title}</td>
+                <td class="align-middle" data-old-value="{$values.visible}">{include file="cs/single_checkbox.tpl" p=$params.visible}</td>
+                <td class="align-middle" data-old-value="{$values.searchable}">{include file="cs/single_checkbox.tpl" p=$params.searchable}</td>
+                <td class="align-middle" data-old-value="{$values.orderable}">{include file="cs/single_checkbox.tpl" p=$params.orderable}</td>
+                {* <td class="align-middle" data-old-value="{$values.editable}">{include file="cs/single_checkbox.tpl" p=$params.editable}</td> *}
+                <td class="align-middle" data-old-value="{$values.sort_order}">{include file="cs/single_inputnumber.tpl" p=$params.sort_order}</td>
+                <td class="align-middle" data-old-value="{$values.enable}">{include file="cs/single_checkbox.tpl" p=$params.enable label="" toggle=true}</td>
+                {* <td class="align-middle" data-old-value="{$values.actions}">{include file="cs/single_checkbox.tpl" p=$params.actions}</td> *}
+                {* <td class="align-middle" data-old-value="{$values.sql_type}">{include file="cs/single_checkbox.tpl" p=$params.sql_type}</td> *}
+                <td class="align-middle" data-old-value="{$values.input_type}">{include file="cs/single_inputtext.tpl" p=$params.input_type}</td>
             </tr>
             {/section}
             {else}
@@ -99,4 +99,4 @@
 </div>
 <script src="/admin/js/ui/sub/conf_columns.js" type="module"></script>
 {* {$options.db|debug_print_var|unescape:"entity"}<br> *}
-{* {$dataset|debug_print_var|unescape:"entity"}<br> *}
+{* {$params.dataset|debug_print_var|unescape:"entity"}<br> *}

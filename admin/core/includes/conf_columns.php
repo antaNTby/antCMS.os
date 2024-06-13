@@ -43,7 +43,7 @@ $rbcolumnsDefault = [
     'sort_order'  => 'sort order',
     'inputType'   => 'DB Type',
     'enable'      => 'Включить',
-    'actions'     => 'Действия',
+    'actions'     => 'Действия'
 ];
 
 $columnsJsonFileName = PATH_CONFIGS . 'trade_companies' . '__columns.json';
@@ -97,18 +97,18 @@ INSERT|UPDATE
                 'enable'      => true,
                 'actions'     => null,
                 'sql_type'    => $value['sqlType'],
-                'input_type'  => $value['inputType'],
+                'input_type'  => $value['inputType']
             ];
 
             $where = [
                 'config_name' => $config_name,
-                'data'        => $key,
+                'data'        => $key
             ];
 
             $r        = $db->table(ANT_RBCOLUMNS)->count('id', 'ccount')->where($where)->get();
             $doInsert = $r->ccount;
 
-            if ((int)$doInsert == 0)
+            if ((int) $doInsert == 0)
             {
                 $r       = $db->table(ANT_RBCOLUMNS)->insert($data);
                 $message = 'Новая конфигурация создана';
@@ -135,7 +135,7 @@ INSERT|UPDATE
     if (($operation == 'loadDataTablesColumnDescriptions') || ($operation == 'loadDataTablesColumnDescriptionsFromDB'))
     {
         $where = [
-            'config_name' => $config_name,
+            'config_name' => $config_name
         ];
 
         $Rows = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
@@ -169,30 +169,30 @@ dump($Row);
 
             foreach ($Row as $fieldName => $fieldData)
             {
-
                 $Configurations[$rowIndex]['fieldValues']['ind']      = $rowIndex;
                 $Configurations[$rowIndex]['fieldValues'][$fieldName] = $Row->$fieldName;
 
 ############ attributes
                 $attributes = [
                     'config-name'  => $config_name,
-                    'config-name2' => $Row->config_name,
+                    // 'config-name2' => $Row->config_name,
                     'primary-id'   => $Row->id,
                     'field-name'   => $fieldName,
                     'row-number'   => $rowIndex,
-                    'old-value'    => $Row->$fieldName,
-                    'old-value2'   => $fieldData,
-                    'class'        => 'control-snippet',
+                    // 'old-value'    => $Row->$fieldName,
+                    'old-value'   => $fieldData,
+                    'class'        => 'control-snippet'
                 ];
 
-                $Configurations[$rowIndex]['fieldAttributes'][$fieldName] = $attributes;
+                // $Configurations[$rowIndex]['fieldAttributes'][$fieldName] = $attributes;
 
 ############ params
                 $params = [
 
-                    'id'    => "{$fieldName}_{$rowIndex}",
-                    'name'  => $fieldName,
-                    'value' => $Row->$fieldName,
+                    'dataset' => $attributes,
+                    'id'      => "{$fieldName}_{$rowIndex}",
+                    'name'    => $fieldName,
+                    'value'   => $Row->$fieldName
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
@@ -239,9 +239,8 @@ dump($Row);
                     }
                 }
                 // dump($options);
-                if (is_array($options)  && count($options))
+                if (is_array($options) && count($options))
                 {
-
                     $Configurations[$rowIndex]['fieldOptions'][$fieldName] = $options;
                 }
                 else
@@ -250,9 +249,7 @@ dump($Row);
                 }
 
 ############ /options
-
             }
-
         }
         $smarty->assign('Configurations', $Configurations);
 
@@ -343,7 +340,5 @@ dump($Row);
 ]
 ]
  */
-
     }
-
 }

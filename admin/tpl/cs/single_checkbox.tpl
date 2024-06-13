@@ -15,8 +15,8 @@
   {if isset($p.name)} name="checkbox_{$p.name}"{/if}
   {if isset($p.value)} value="{$p.value}"{/if}
 
- {if isset($dataset) && is_array($dataset)}
- {foreach $dataset as $key=>$item}
+ {if isset($p.dataset) && is_array($p.dataset)}
+ {foreach $p.dataset as $key=>$item}
  data-{$key}="{$item}"
  {/foreach}
  {/if}
