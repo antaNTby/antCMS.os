@@ -24,7 +24,6 @@ const getAllowToShowSuccessToasts = () => {
     } else {
         res = true;
     }
-
     return res;
 }
 
