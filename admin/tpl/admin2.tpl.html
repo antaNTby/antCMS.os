@@ -36,9 +36,9 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/uiAdmin.css">
 </head>
 
-<body class="d-flex flex-column h-100" style="overflow-y: scroll;"> {* h-100 shadow-lg px-0 *}
+<body> {* h-100 shadow-lg px-0 *}
     <header>
-        {include file="admin__navbar.tpl.html"}
+        {* {include file="admin__navbar.tpl.html"} *}
     </header>
     {if $smarty_error}
     <h6 class="text-bg-danger p-2">
@@ -47,22 +47,18 @@
     {/if}
 
 
-    <main class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
-        <div aria-live="polite" aria-atomic="true" class="position-relative" id="toast-area">
-            <!-- Position it: -->
-            <!-- - `.toast-container` for spacing between toasts -->
-            <!-- - `top-0` & `end-0` to position the toasts in the upper right corner -->
-            <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-                {include file="../apps/Toasts/appToasts.tpl.html" position=0}
-        </div>
+
+<div class="layout gap-3">
+  <main class="layout-main px-4">
+     {include file="$admin_main_content_template"}
+  </main>
+  <aside class="layout-sidebar border-end"  style="width:300px">
+ {include file="admin__menu_accordion.tpl.html"}
+  </aside>
+</div>
 
 
-        <div class="{$container_width}">
-                {include file="admin__menu_offcanvas.tpl.html"}
-                {include file="$admin_main_content_template"}
-        </div>
 
-    </main>
 
 
 

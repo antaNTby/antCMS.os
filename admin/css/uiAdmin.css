@@ -15,3 +15,26 @@ tr.ant-text-rotated th, tr.ant-text-rotated td, th.ant-text-rotated, td.ant-text
 th.ant-text-no-rotated, td.ant-text-no-rotated {
     writing-mode: horizontal-tb!important;
 }
+
+
+.layout {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.layout-sidebar {
+  grid-area: sidebar;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+.layout-main {
+  grid-area: main;
+  position: relative;
+  min-width: 0;
+}
