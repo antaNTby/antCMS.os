@@ -1,7 +1,6 @@
 import * as ui from './uiCS.js';
 import * as bsToast from '../../apps/Toasts/appToasts.js';
 console.log(ui)
-
 // для "enable" чекбоксов
 export const onEnableChange = (e) => {
     const row = e.target.dataset.rowNumber;
@@ -19,7 +18,6 @@ export const onEnableChange = (e) => {
 ui.enableCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', onEnableChange);
 });
-
 // для ВСЕХ чекбоксов
 export const onCheckboxChange = (e) => {
     const el = e.target;
@@ -28,12 +26,10 @@ export const onCheckboxChange = (e) => {
     } else {
         el.value = 0;
     }
-
 };
 ui.allCheckBoxes.forEach(checkbox => {
     checkbox.addEventListener('change', onCheckboxChange);
 });
-
 // для ВСЕХ ControlSnippet
 export const onControlSnippetChange = (e) => {
     const el = e.target;
@@ -43,23 +39,18 @@ export const onControlSnippetChange = (e) => {
 ui.allControlSnippets.forEach(cs => {
     cs.addEventListener('change', onControlSnippetChange);
 });
-
 // [].forEach.call(ui.allControlSnippets, function(el) {
 //     el.onchange = onControlSnippetChange;
 // });
-
 async function csDefaultCallbackFunction(el) {
     // let url = checkOnUrl(document.location.href) + '&operation=updateCSValue';
     let url = 'admin/admin.php' + '?app=controlSnippetsProcessor' + '&operation=updateCSValue';
-
     const primaryID = el.dataset.primaryId;
-
     const configName = el.dataset.configName;
     const fieldName = el.dataset.fieldName;
     const newValue = el.value;
     const oldValue = el.dataset.oldValue;
     const rowNumber = el.dataset.rowNumber;
-
     const DATA = {
         "primaryID": primaryID,
         "configName": configName,
@@ -68,7 +59,6 @@ async function csDefaultCallbackFunction(el) {
         "oldValue": oldValue,
         "rowNumber": rowNumber,
     };
-
     let myResponse = await fetch(url, {
         method: 'POST',
         headers: {
@@ -76,12 +66,9 @@ async function csDefaultCallbackFunction(el) {
         },
         body: JSON.stringify(DATA)
     });
-
     let result = await myResponse.json();
-
     ui.unblockCS(el);
-    el.dataset.oldValue=newValue;
-
+    el.dataset.oldValue = newValue;
     if (result.message) {
         if (result.errors === false) {
             bsToast.showToast(result.message, "Удачно", "success");
@@ -91,5 +78,4 @@ async function csDefaultCallbackFunction(el) {
             })
         }
     }
-
 }

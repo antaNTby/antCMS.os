@@ -4,6 +4,9 @@ import * as cs from '../../../js/cs/uiCS.js';
 import * as csEvents from '../../../js/cs/csEvents.js';
 const legalOperations = ['addNewConfig', 'resetConfig'];
 
+const columnsConfiguratorTable =
+    document.querySelector('table#columnsConfiguratorTable');
+
 const switcherFieldsetToggle = document.querySelector('[name="switcherFieldsetToggle"]');
 const selectEl = document.querySelector('select[name="configSelector"]');
 const fieldset = document.querySelector("#selectConfigFieldset");
@@ -22,6 +25,7 @@ switcherFieldsetToggle.addEventListener('change', function(event) {
     if (switcher.checked) {
         fieldset.disabled = false;
         ico.className = "bi bi-unlock-fill text-primary";
+        columnsConfiguratorTable.tHead.className="table-primary";
         cs.allControlSnippets.forEach(el => {
             const rowNumber = el.dataset.rowNumber;
             const switcherEnable = document.querySelector('input[type="checkbox"][data-row-number="' + rowNumber + '"][data-field-name="enable"]');
@@ -37,7 +41,7 @@ switcherFieldsetToggle.addEventListener('change', function(event) {
     } else {
         fieldset.disabled = true;
         ico.className = "bi bi-lock-fill text-danger";
-
+        columnsConfiguratorTable.tHead.className="table-secondary opacity-50";
         cs.allControlSnippets.forEach(el => {
             cs.blockCS(el);
         });
