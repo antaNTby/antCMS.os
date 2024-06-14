@@ -253,6 +253,6 @@ dump($Row);
         }
         $smarty->assign('Configurations', $Configurations);
 
-        dump($Configurations[1]);
+        // dump($Configurations[1]);
     }
 }
