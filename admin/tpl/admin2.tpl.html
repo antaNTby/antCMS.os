@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html class="{$container_width} h-100" lang="ru-RU">{* text-bg-secondary bg-opacity-50 *}
+<html  class="h-100" lang="ru-BY">{* text-bg-secondary bg-opacity-50 *}
 {assign var=use_offcanvas_menu value=1}
 
 <head>
     {literal}
-    <style type="text/css">
+    <style tye="text/css">
     div.offcanvas {
         background-color: #8888aa88;
     }
 
     div.offcanvas-header {
         background-color: #222222;
-        S
     }
 
     div#uiControl {
@@ -36,37 +35,30 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/uiAdmin.css">
 </head>
 
-<body> {* h-100 shadow-lg px-0 *}
-    <header>
-        {include file="admin__navbar.tpl.html"}
-    </header>
+<body class="d-flex flex-column h-100" style="overflow-y: scroll;"> {* class="d-flex flex-column h-100" style="overflow-y: scroll;" *}
     {if $smarty_error}
     <h6 class="text-bg-danger p-2">
         {$smarty_error_message}
     </h6>
     {/if}
-
-
-
-<div class="layout gap-2">
-  <main class="layout-main px-4">
-     {include file="$admin_main_content_template"}
-
-  </main>
-  <aside class="layout-sidebar border-end"  style="width:300px">
- {include file="admin__menu_accordion.tpl.html"}
-  </aside>
-</div>
-
-<footer class="text-bg-dark d-block mt-auto">
-    <div class="{$container_width}">
-        {include file="admin__footer.tpl.html"}
+    {include file="admin__menu_offcanvas.tpl.html"}
+    <div aria-live="polite" aria-atomic="true" class="position-relative" id="toast-area">{include file="../apps/Toasts/appToasts.tpl.html" position=0}</div>
+    <header>
+        {include file="admin__navbar.tpl.html"}
+    </header>
+    <div class="layout gap-1">
+        <aside id="uiAside" class="layout-sidebar border-end">
+            {include file="admin__menu_accordion.tpl.html"}
+        </aside>
+        <main id="uiMain" class="layout-main px-1">
+            <div class="{$container_width}">
+                {include file="$admin_main_content_template"}
+            </div>
+        </main>
     </div>
-</footer>
-
-
-
-
+        <footer id="uiFooter" class="d-block mt-auto text-bg-dark bg-opacity-75">
+            {include file="admin__footer.tpl.html"}
+        </footer>
     {*main scripts.js*}
     {* <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script> *}
     <script src="/vendor/components/jquery/jquery.min.js"></script>
@@ -77,12 +69,10 @@
     <script src="/admin/js/admin.js"></script>
     <script src="/admin/js/index.js" type="module"></script>
     <script src="/admin/js/dt/dataTables.cellEdit.js"></script>
-
     {literal}
     <style type="text/css">
     </style>
     {/literal}
-
 </body>
 
 </html>

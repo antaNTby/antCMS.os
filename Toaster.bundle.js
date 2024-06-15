@@ -3,7 +3,7 @@ var zs=Object.defineProperty;var qs=(i,t)=>{for(var e in t)zs(i,e,{get:t[e],enum
     <div class="toast-header">
         <span class="bs-toaster-icon d-flex">%ICON%</span>
         <strong class="bs-toaster-title me-auto">%TITLE%</strong>
-        <small class="bs-toaster-timer text-muted">%TIMER%</small>
+        <small class="bs-toaster-timer text-body-secondary">%TIMER%</small>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="bs-toaster-text toast-body">

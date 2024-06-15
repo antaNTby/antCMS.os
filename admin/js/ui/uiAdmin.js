@@ -8,7 +8,7 @@ export const elTemplateNow = document.querySelector("[data-id='template-now']");
 export const arrowUp = document.querySelectorAll("[name='arrowUp']");
 export const arrowDown = document.querySelectorAll("[name='arrowDown']");
 
-
+// ## ofcanvas
 export const elOffcanvasMenu = document.querySelector('div#offcanvasMenu');
 export const bsOffcanvasMenu = (elOffcanvasMenu)?new bootstrap.Offcanvas(elOffcanvasMenu):{};
 export const btnCloseMenu = document.querySelector('button#btnCloseMenu');
@@ -19,14 +19,13 @@ export const switcherMenuPosition = document.querySelector('input#switcherMenuPo
 
 export const offcanvasElementList = document.querySelectorAll('.offcanvas');
 export const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl));
+// ## ofcanvas
 
 
 
 export const allowedToastPlacementsList = document.querySelector('ul#allowedToastPlacementsList');
 export const switcherOnlyErrorsToastShow = document.querySelector('input#switcherOnlyErrorsToastShow');
 export const IS_ALLOW_SUCCESS_TOASTS_SHOW = switcherOnlyErrorsToastShow.checked;
-
-
 
 // alert(import.meta.url); // ссылка на html страницу для встроенного скрипта
 
@@ -39,7 +38,7 @@ export const indeterminate = document.querySelectorAll('input.indeterminate[type
     .forEach(checkbox => {
         // if (checkbox.id.includes('Indeterminate')) {
         checkbox.indeterminate = true
-        console.log("indeterminate");
+        // console.log("indeterminate");
         // }
     });
 
