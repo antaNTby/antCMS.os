@@ -36,11 +36,56 @@ session_cache_expire();
 // Upgrading to version 2.7.6 (stable channel).
 //
 #composer
+
+
+
+
 require '../vendor/autoload.php';
+
+use flight\debug\tracy\TracyExtensionLoader;
+use Tracy\Debugger;
+
+$ds = DIRECTORY_SEPARATOR;
+
+/*
+ * Get Tracy up and running
+ *
+ * There lots of setup options for Tracy! Logs, emails, clicking to
+ * open in your editor and a lot more!
+ * Check out the docs here:
+ * https://tracy.nette.org/
+ */
+Debugger::enable(); // auto tries to figure out your environment
+                    // Debugger::enable(Debugger::DEVELOPMENT) // sometimes you have to be explicit (also Debugger::PRODUCTION)
+                    // Debugger::enable('23.75.345.200'); // you can also provide an array of IP addresses
+Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
+Debugger::$strictMode   = true; // display all errors
+                                // Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED; // all errors except deprecated notices
+
+// Set the default timezone
+// date_default_timezone_set('America/New_York');
+date_default_timezone_set('Europe/Minsk');
+
+// Set the error reporting level
+error_reporting(E_ALL);
+
+// Set the default character encoding
+if (function_exists('mb_internal_encoding') === true)
+{
+    mb_internal_encoding('UTF-8');
+}
+
+// Set the default locale
+if (function_exists('setlocale') === true)
+{
+    // setlocale(LC_ALL, 'en_US.UTF-8');
+    setlocale(LC_ALL, 'ru_Belarus.UTF-8');
+}
+
 
 require_once 'core/const.php'; // управляющие и служебные константы
 
-require_once 'core/connect.php';  // DB_CONST
+require_once 'core/connect.php'; // DB_CONST
 
 // require_once 'core/errors.php';   // обработка ошибок  // будем use Tracy\Debugger;
 
@@ -139,8 +184,8 @@ $db = new \Buki\Pdox($config);
 
 require_once 'core/classes/class.Toasts.php'; //load php class
 
-### //init Smarty 5.3
 use Smarty\Smarty;
+### //init Smarty 5.3
 $smarty = new Smarty();
 $smarty->setTemplateDir('../admin/tpl');              // здесь лежат шаблоны tpl.html
 $smarty->setCompileDir('../admin/core/cache/php');    // здесь компилируюся *.php
@@ -149,13 +194,15 @@ $smarty->setCacheDir('../admin/core/cache/');
 $smarty->compile_id    = 'ant';
 $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->setEscapeHtml(true); //Enable auto-escaping for HTML as follows:
-$smarty->setEscapeHtml(false); //Enable auto-escaping for HTML as follows:
-                              // $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
-                              // $smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
-                              // $smarty->testInstall();
-                              //
-                              //
-                              // dd($smarty);
+$smarty->setEscapeHtml(false);
+###
+//Enable auto-escaping for HTML as follows:
+// $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
+// $smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
+// $smarty->testInstall();
+//
+//
+// dd($smarty);
 
 $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
@@ -174,20 +221,15 @@ else
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
 define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 
+// @ini_set('session.use_trans_sid', 0);
+// @ini_set('session.use_cookies', 1);
+// @ini_set('session.use_only_cookies', 1);
+// @ini_set('session.auto_start', 0);
+// @ini_set('magic_quotes_gpc', 0);
+// @ini_set('magic_quotes_runtime', 0);
+// @ini_set('register_globals', 0);
 
-
-
-
-
-@ini_set('session.use_trans_sid', 0);
-@ini_set('session.use_cookies', 1);
-@ini_set('session.use_only_cookies', 1);
-@ini_set('session.auto_start', 0);
-@ini_set('magic_quotes_gpc', 0);
-@ini_set('magic_quotes_runtime', 0);
-@ini_set('register_globals', 0);
-
- // будем use Tracy\Debugger;
+// будем use Tracy\Debugger;
 // @ini_set('display_errors', 0);
 // // вместо этого set_error_handler('errorHandler');
 //                                // error_reporting(1);

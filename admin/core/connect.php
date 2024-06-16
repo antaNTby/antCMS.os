@@ -20,3 +20,5 @@ const DB_PRFX = 'ant_';
 #### const DB_NAME= "nixby_UTF8";
 #### const DB_PASS= "nixby_dbadmin658!!!";
 #### const DB_PRFX= "UTF_";
+
+// dump(DB_HOST);

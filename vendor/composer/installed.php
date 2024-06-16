@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b379658a27afbacd805ec2144e96aa8a59fe8b82',
+        'reference' => 'de485b460e5dc840a577c4845167603c661ff5e1',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b379658a27afbacd805ec2144e96aa8a59fe8b82',
+            'reference' => 'de485b460e5dc840a577c4845167603c661ff5e1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -81,6 +81,15 @@
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'tracy/tracy' => array(
+            'pretty_version' => 'v2.10.7',
+            'version' => '2.10.7.0',
+            'reference' => '7e7b25ba103968d5318d37db330b2e9c755dc765',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tracy/tracy',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'twbs/bootstrap' => array(
             'pretty_version' => 'v5.3.3',

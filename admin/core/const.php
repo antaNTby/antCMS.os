@@ -8,9 +8,9 @@ const SITE_URL = 'antCMS.os';                         //    {$smarty.const.SITE_
 const ADMIN_FILE        = '/admin/admin.php';         //    {$smarty.const.ADMIN_FILE}
 const ADMIN_LOGOUT_LINK = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN_LOGOUT_LINK}
 
-const FILEDEBUGJSON         = 'logs/FILEDEBUG.JSON';   //  {$smarty.const.FILEDEBUGJSON}
-const SQLDEBUG              = 'logs/SQLDEBUG.JSON';    //  {$smarty.const.SQLDEBUG}
-const SMARTYDEBUGJSON       = 'logs/SMARTYDEBUG.JSON'; //  {$smarty.const.SMARTYDEBUGJSON}
+const FILEDEBUGJSON         = 'log/FILEDEBUG.JSON';   //  {$smarty.const.FILEDEBUGJSON}
+const SQLDEBUG              = 'log/SQLDEBUG.JSON';    //  {$smarty.const.SQLDEBUG}
+const SMARTYDEBUGJSON       = 'log/SMARTYDEBUG.JSON'; //  {$smarty.const.SMARTYDEBUGJSON}
 const ADMIN_SMARTY_LOG_VARS = 0;                       //   {$smarty.const.ADMIN_SMARTY_LOG_VARS}
 
 const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {$smarty.const.ERROR_DB_INIT} database system

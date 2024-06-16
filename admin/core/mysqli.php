@@ -100,7 +100,7 @@ function db_query(
 
         $Dump = var_export($_REQUEST, true);
 
-        $fp = fopen('logs/SQLDEBUG.JSON', 'a');
+        $fp = fopen('log/SQLDEBUG.JSON', 'a');
         fwrite($fp, json_encode($out, JSON_PRETTY_PRINT | JSON_INVALID_UTF8_IGNORE | JSON_UNESCAPED_UNICODE));
         fwrite($fp, "\r\n");
         fwrite($fp, $Dump);
