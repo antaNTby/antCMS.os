@@ -68,7 +68,7 @@ Debugger::$strictMode = true;
 
 
 ## визуальная тема (начиная с версии Tracy 2.8)
-Debugger::$dumpTheme = 'dark';
+Debugger::$dumpTheme = 'light';
 ## (light|dark) по умолчанию 'light'
 
 

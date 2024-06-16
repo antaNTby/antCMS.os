@@ -30,6 +30,9 @@ $config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
+
+
+
 $rbcolumnsDefault = [
     'config_name' => 'Конфигурация',
     'data'        => 'column name',
@@ -138,7 +141,7 @@ INSERT|UPDATE
             'config_name' => $config_name,
         ];
 
-        $Rows = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll();
+        $Rows = $db->table(ANT_RBCOLUMNS)->where($where)->orderBy('sort_order')->getAll('array');
 
         // теперь нужно какждому полу дать controlSnippet
         $Configurations = [];
@@ -167,19 +170,20 @@ dump($Row);
 }
  */
 
+
             foreach ($Row as $fieldName => $fieldData)
             {
                 $Configurations[$rowIndex]['fieldValues']['ind']      = $rowIndex;
-                $Configurations[$rowIndex]['fieldValues'][$fieldName] = $Row->$fieldName;
+                $Configurations[$rowIndex]['fieldValues'][$fieldName] = $Row[$fieldName];
 
 ############ attributes
                 $attributes = [
                     'config-name' => $config_name,
-                    // 'config-name2' => $Row->config_name,
-                     'primary-id'  => $Row->id,
+                    // 'config-name2' => $Row["config_name"],
+                     'primary-id'  => $Row["id"],
                     'field-name'  => $fieldName,
                     'row-number'  => $rowIndex,
-                    // 'old-value'    => $Row->$fieldName,
+                    // 'old-value'    => $Row["$fieldName"],
                      'old-value'   => $fieldData,
                     'class'       => 'control-snippet',
                 ];
@@ -192,14 +196,14 @@ dump($Row);
                     'dataset' => $attributes,
                     'id'      => "{$fieldName}_{$rowIndex}",
                     'name'    => $fieldName,
-                    'value'   => $Row->$fieldName,
+                    'value'   => $Row[$fieldName],
                 ];
 
                 ## ставим checked для чекбоксов с value="1"
                 $params['isChecked'] = ($params['value'] == 1) ? 1 : 0;
 
                 ## если поле отключено , дизаблим инпуты и красим их в мутный цвет
-                if ($Row->enable != 1)
+                if ($Row["enable"] != 1)
                 {
                     $params['class_add']  = 'opacity-50';
                     $params['isDisabled'] = 1;

@@ -11,7 +11,10 @@ use Smarty\Smarty;
 // composer require smarty/smarty
 // composer require twbs/bootstrap-icons
 // composer require gabordemooij/redbean
+
+
 // composer require --dev symfony/var-dumper
+
 
 // composer require datatables.net-bs5
 // composer require datatables.net-buttons-bs5
