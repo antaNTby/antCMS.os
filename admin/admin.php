@@ -1,4 +1,5 @@
 <?php
+use Tracy\Debugger;
 
 // https://profitweb.net/resources/phpmyadmin-dlja-open-server-panel-6-0-0-nastrojki-menju.9/
 # The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
@@ -10,19 +11,77 @@
 // d:\OSPanel\userdata\config\path.txt  -- создать файл в опенсервер для подключения Npm
 // C:\Program Files\nodejs\             -- прописать в него путь до nodejs
 
-include_once 'core/const.php';
-// echo (PATH_CORE);
+$ds = DIRECTORY_SEPARATOR;
+function isWindows()
+{
+    return (isset($_SERVER['WINDIR']) || isset($_SERVER['windir']));
+}
+$IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
+define('PATH_DELIMITER', isWindows() ? ';' : ':');
+$dird          = dirname($_SERVER['PHP_SELF']); ## "/admin"
+$sourcessrandd = ['//' => '/', '\\' => '/'];
+$dird          = strtr($dird, $sourcessrandd);
+if ($dird != '/')
+{
+    $dirf = '/';
+}
+else
+{
+    $dirf = '';
+}
+$url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
+define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
+
+require '../vendor/autoload.php';
+
+# сбрасываем время сессии
+session_cache_expire();
+
+/*
+ * Get Tracy up and running
+ *
+ * There lots of setup options for Tracy! Logs, emails, clicking to
+ * open in your editor and a lot more!
+ * Check out the docs here:
+ * https://tracy.nette.org/
+ */
+
+Debugger::enable();
+
+Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
+
+Debugger::$strictMode = true; // display all errors
+                              // Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED; // all errors except deprecated notices
+                              //
+                              // максимальная длина строки
+Debugger::$maxLength = 150;   // (int) по умолчанию согласно Трейси
+
+// насколько глубоким будет список
+Debugger::$maxDepth = 10; // (int) по умолчанию согласно Tracy
+
+// скрывать значения этих ключей (начиная с версии Tracy 2.8)
+// Debugger::$keysToHide = ['password', /* ... */]; // (string[]) по умолчанию []
+
+// визуальная тема (начиная с версии Tracy 2.8)
+Debugger::$dumpTheme = 'dark'; // (light|dark) по умолчанию 'light'
+
+// отображает место, где был вызван dump()?
+// Debugger::$showLocation = /* ... */; // (bool) по умолчанию в соответствии с Tracy
+
+###
+// auto tries to figure out your environment
+// Debugger::enable(Debugger::DEVELOPMENT) // sometimes you have to be explicit (also Debugger::PRODUCTION)
+// Debugger::enable('23.75.345.200'); // you can also provide an array of IP addresses
+
+require_once 'core/const.php'; // управляющие и служебные константы
+                               // echo (PATH_CORE);
 include_once PATH_CORE . 'bootstrap.php';
 
 include_once PATH_CORE . 'authentication.php';
-
 ### define department and subdepartment
 include_once PATH_CORE . 'departments.php';
 
-// dump($Deparments);
 
-//define start smarty template
-$smarty->assign('admin_main_content_template', 'start.tpl.html');
 
 //show department if it is being selected
 if (!isset($_GET['dpt']))

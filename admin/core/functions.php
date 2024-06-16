@@ -44,11 +44,6 @@ function gmts()
     return $usec + $sec;
 }
 
-function isWindows()
-{
-    return (isset($_SERVER['WINDIR']) || isset($_SERVER['windir']));
-}
-
 function fix_directory_separator($str)
 {
     global $IS_WINDOWS;

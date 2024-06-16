@@ -1,11 +1,5 @@
 <?php
-# сбрасываем время сессии
-use Tracy\Debugger;
 use Smarty\Smarty;
-
-
-session_cache_expire();
-
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
@@ -40,54 +34,6 @@ session_cache_expire();
 // Upgrading to version 2.7.6 (stable channel).
 //
 #composer
-$ds = DIRECTORY_SEPARATOR;
-
-require '../vendor/autoload.php';
-
-/*
- * Get Tracy up and running
- *
- * There lots of setup options for Tracy! Logs, emails, clicking to
- * open in your editor and a lot more!
- * Check out the docs here:
- * https://tracy.nette.org/
- */
-
-
-Debugger::enable();
-
-Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
-
-Debugger::$strictMode = true;// display all errors
-// Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED; // all errors except deprecated notices
-//
-// максимальная длина строки
-Debugger::$maxLength = 150; // (int) по умолчанию согласно Трейси
-
-// насколько глубоким будет список
-Debugger::$maxDepth = 10; // (int) по умолчанию согласно Tracy
-
-// скрывать значения этих ключей (начиная с версии Tracy 2.8)
-// Debugger::$keysToHide = ['password', /* ... */]; // (string[]) по умолчанию []
-
-// визуальная тема (начиная с версии Tracy 2.8)
-Debugger::$dumpTheme = 'dark'; // (light|dark) по умолчанию 'light'
-
-// отображает место, где был вызван dump()?
-// Debugger::$showLocation = /* ... */; // (bool) по умолчанию в соответствии с Tracy
-
-
-
-###
-// auto tries to figure out your environment
-// Debugger::enable(Debugger::DEVELOPMENT) // sometimes you have to be explicit (also Debugger::PRODUCTION)
-// Debugger::enable('23.75.345.200'); // you can also provide an array of IP addresses
-
-
-
-
-
-
 
 // Set the default timezone
 // date_default_timezone_set('America/New_York');
@@ -108,8 +54,6 @@ if (function_exists('setlocale') === true)
     // setlocale(LC_ALL, 'en_US.UTF-8');
     setlocale(LC_ALL, 'ru_Belarus.UTF-8');
 }
-
-require_once 'core/const.php'; // управляющие и служебные константы
 
 require_once 'core/connect.php'; // DB_CONST
 
@@ -220,6 +164,10 @@ $smarty->compile_id    = 'ant';
 $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->setEscapeHtml(true); //Enable auto-escaping for HTML as follows:
 $smarty->setEscapeHtml(false);
+
+
+//define start smarty template
+$smarty->assign('admin_main_content_template', 'start.tpl.html');
 ###
 //Enable auto-escaping for HTML as follows:
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
@@ -228,23 +176,6 @@ $smarty->setEscapeHtml(false);
 //
 //
 // dd($smarty);
-
-$IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
-define('PATH_DELIMITER', isWindows() ? ';' : ':');
-
-$dird = dirname($_SERVER['PHP_SELF']); // "/admin"
-                                       // $sourcessrandd = array('//' => '/', '\\' => '/');
-$dird = strtr($dird, ['//' => '/', '\\' => '/']);
-if ($dird != '/')
-{
-    $dirf = '/';
-}
-else
-{
-    $dirf = '';
-}
-$url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
-define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 
 // @ini_set('session.use_trans_sid', 0);
 // @ini_set('session.use_cookies', 1);
@@ -263,3 +194,6 @@ define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 // set_error_handler('errorHandler');
 // register_shutdown_function('shutdownHandler');
 // error_reporting(E_ALL & ~E_NOTICE);
+
+
+
