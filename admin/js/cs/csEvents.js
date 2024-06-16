@@ -1,6 +1,6 @@
 import * as ui from './uiCS.js';
 import * as bsToast from '../../apps/Toasts/appToasts.js';
-console.log(ui)
+// console.log(ui)
 // для "enable" чекбоксов
 export const onEnableChange = (e) => {
     const row = e.target.dataset.rowNumber;

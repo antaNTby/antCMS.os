@@ -25,7 +25,7 @@
                 "media",
                 "vendor",
                 ".idea",
-                "smarty4.2.1",
+                // "smarty4.2.1",
                 "database_install",
             ],
         }
@@ -51,7 +51,7 @@
         // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Mariana.sublime-color-scheme",
-        // "color_scheme": "Mariana.sublime-color-scheme",
-        "color_scheme": "Breakers.sublime-color-scheme",
+        "color_scheme": "Mariana.sublime-color-scheme",
+        // "color_scheme": "Breakers.sublime-color-scheme",
     }
 }

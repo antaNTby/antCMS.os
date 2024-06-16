@@ -21,8 +21,6 @@ export const offcanvasElementList = document.querySelectorAll('.offcanvas');
 export const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl));
 // ## ofcanvas
 
-
-
 export const allowedToastPlacementsList = document.querySelector('ul#allowedToastPlacementsList');
 export const switcherOnlyErrorsToastShow = document.querySelector('input#switcherOnlyErrorsToastShow');
 export const IS_ALLOW_SUCCESS_TOASTS_SHOW = switcherOnlyErrorsToastShow.checked;
