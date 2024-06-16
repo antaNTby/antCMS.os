@@ -11,35 +11,3 @@ import './ui/uiHotKeys.js';
 // console.log(ui)
 let today = new Date();
 // ui.elTemplateNow.innerHTML = formatTime(today);
-
-// import Noty from "./noty";
-
-// const Noty = require('../../../vendor/needim/noty/lib/noty.js');
-
-// new Noty({
-//    type: 'error',
-//    layout: 'center',
-//    theme: 'metroui',
-//    text: 'Hello, just testing! 🤖',
-//    timeout: '40000',
-//    progressBar: true,
-//    closeWith: ['click'],
-//    killer: true,
-//    callbacks: {
-//       beforeShow: function() {
-//          log.insertAdjacentHTML('beforeend', 'Preparing... ⏱<br/>');
-//       },
-//       onShow: function() {
-//          log.insertAdjacentHTML('beforeend', 'Showed ✨<br/>');
-//       },
-//       onHover: function() {
-//          log.insertAdjacentHTML('beforeend', 'Hovered 👀<br/>');
-//       },
-//       onClick: function() {
-//         log.insertAdjacentHTML('beforeend', 'Clicked ✅<br/>');
-//       },
-//       onClose: function() {
-//          log.insertAdjacentHTML('beforeend', 'Bye 👋🏻<br/>');
-//       }
-//    },
-// }).show();

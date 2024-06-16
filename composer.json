@@ -5,8 +5,7 @@
         "twbs/bootstrap-icons": "^1.11",
         "vakata/jstree": "^3.3",
         "gabordemooij/redbean": "^5.7",
-        "izniburak/pdox": "^1.6",
-        "needim/noty": "^3.1"
+        "izniburak/pdox": "^1.6"
     },
     "require-dev": {
         "symfony/var-dumper": "^5.4"

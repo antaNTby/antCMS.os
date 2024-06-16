@@ -41,7 +41,9 @@ require '../vendor/autoload.php';
 require_once 'core/const.php'; // управляющие и служебные константы
 
 require_once 'core/connect.php';  // DB_CONST
+
 require_once 'core/errors.php';   // обработка ошибок
+
 require_once 'core/orklang.php';  // строки текста
 require_once 'core/settings.php'; // настройки
 require_once 'core/functions.php';
@@ -171,6 +173,11 @@ else
 }
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
 define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
+
+
+
+
+
 
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies', 1);

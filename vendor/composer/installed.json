@@ -155,60 +155,18 @@
             "install-path": "../izniburak/pdox"
         },
         {
-            "name": "needim/noty",
-            "version": "v3.1.4",
-            "version_normalized": "3.1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/needim/noty.git",
-                "reference": "77268c46b6db6a1eb7a920ed7c859fbc8de17993"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/needim/noty/zipball/77268c46b6db6a1eb7a920ed7c859fbc8de17993",
-                "reference": "77268c46b6db6a1eb7a920ed7c859fbc8de17993",
-                "shasum": ""
-            },
-            "time": "2017-12-13T20:36:34+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nedim Arabaci",
-                    "homepage": "http://ned.im",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Noty is a library that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.",
-            "homepage": "http://ned.im/noty",
-            "keywords": [
-                "notification",
-                "noty"
-            ],
-            "support": {
-                "issues": "https://github.com/needim/noty/issues",
-                "source": "https://github.com/needim/noty/tree/master"
-            },
-            "abandoned": true,
-            "install-path": "../needim/noty"
-        },
-        {
             "name": "smarty/smarty",
-            "version": "v5.1.0",
-            "version_normalized": "5.1.0.0",
+            "version": "v5.3.0",
+            "version_normalized": "5.3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "8d53d3cbf2a986f392d680349be0fc22661bf16c"
+                "reference": "353ca06d076da46964b0c709d8e4dd87677195b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/8d53d3cbf2a986f392d680349be0fc22661bf16c",
-                "reference": "8d53d3cbf2a986f392d680349be0fc22661bf16c",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/353ca06d076da46964b0c709d8e4dd87677195b8",
+                "reference": "353ca06d076da46964b0c709d8e4dd87677195b8",
                 "shasum": ""
             },
             "require": {
@@ -219,7 +177,7 @@
                 "phpunit/phpunit": "^8.5 || ^7.5",
                 "smarty/smarty-lexer": "^4.0.2"
             },
-            "time": "2024-04-22T22:22:15+00:00",
+            "time": "2024-05-30T11:14:56+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -265,7 +223,7 @@
             "support": {
                 "forum": "https://github.com/smarty-php/smarty/discussions",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v5.1.0"
+                "source": "https://github.com/smarty-php/smarty/tree/v5.3.0"
             },
             "install-path": "../smarty/smarty"
         },
@@ -437,17 +395,17 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.39",
-            "version_normalized": "5.4.39.0",
+            "version": "v5.4.40",
+            "version_normalized": "5.4.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e"
+                "reference": "af8868a6e9d6082dfca11f1a1f205ae93a8b6d93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e",
-                "reference": "1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/af8868a6e9d6082dfca11f1a1f205ae93a8b6d93",
+                "reference": "af8868a6e9d6082dfca11f1a1f205ae93a8b6d93",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +429,7 @@
                 "ext-intl": "To show region name in time zone dump",
                 "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
             },
-            "time": "2024-04-18T08:26:06+00:00",
+            "time": "2024-05-31T14:33:22+00:00",
             "bin": [
                 "Resources/bin/var-dump-server"
             ],
@@ -509,7 +467,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.39"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.40"
             },
             "funding": [
                 {

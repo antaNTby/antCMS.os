@@ -20,10 +20,10 @@
             ],
             "folder_exclude_patterns": [
                 "cache/templates_c",
-                "lib",
+                // "lib",
+                // "vendor",
                 "smarty_config",
                 "media",
-                "vendor",
                 ".idea",
                 // "smarty4.2.1",
                 "database_install",
