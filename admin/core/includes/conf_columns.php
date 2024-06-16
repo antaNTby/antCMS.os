@@ -71,7 +71,7 @@ INSERT|UPDATE
 
     if (($operation == 'addNewConfig') || ($operation == 'resetConfig'))
     {
-        // dump($dbTableFields);
+        tdump($dbTableFields);
         $cortages = [];
         $ii       = 0;
         foreach ($dbTableFields as $name => $type)
