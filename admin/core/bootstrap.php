@@ -1,5 +1,9 @@
 <?php
 # сбрасываем время сессии
+use Tracy\Debugger;
+use Smarty\Smarty;
+
+
 session_cache_expire();
 
 ### стартовая загрузка инициализаци bootstrap.php
@@ -36,16 +40,9 @@ session_cache_expire();
 // Upgrading to version 2.7.6 (stable channel).
 //
 #composer
-
-
-
+$ds = DIRECTORY_SEPARATOR;
 
 require '../vendor/autoload.php';
-
-use flight\debug\tracy\TracyExtensionLoader;
-use Tracy\Debugger;
-
-$ds = DIRECTORY_SEPARATOR;
 
 /*
  * Get Tracy up and running
@@ -55,19 +52,49 @@ $ds = DIRECTORY_SEPARATOR;
  * Check out the docs here:
  * https://tracy.nette.org/
  */
-Debugger::enable(); // auto tries to figure out your environment
-                    // Debugger::enable(Debugger::DEVELOPMENT) // sometimes you have to be explicit (also Debugger::PRODUCTION)
-                    // Debugger::enable('23.75.345.200'); // you can also provide an array of IP addresses
+
+
+Debugger::enable();
+
 Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
-Debugger::$strictMode   = true; // display all errors
-                                // Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED; // all errors except deprecated notices
+
+Debugger::$strictMode = true;// display all errors
+// Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED; // all errors except deprecated notices
+//
+// максимальная длина строки
+Debugger::$maxLength = 150; // (int) по умолчанию согласно Трейси
+
+// насколько глубоким будет список
+Debugger::$maxDepth = 10; // (int) по умолчанию согласно Tracy
+
+// скрывать значения этих ключей (начиная с версии Tracy 2.8)
+// Debugger::$keysToHide = ['password', /* ... */]; // (string[]) по умолчанию []
+
+// визуальная тема (начиная с версии Tracy 2.8)
+Debugger::$dumpTheme = 'dark'; // (light|dark) по умолчанию 'light'
+
+// отображает место, где был вызван dump()?
+// Debugger::$showLocation = /* ... */; // (bool) по умолчанию в соответствии с Tracy
+
+
+
+###
+// auto tries to figure out your environment
+// Debugger::enable(Debugger::DEVELOPMENT) // sometimes you have to be explicit (also Debugger::PRODUCTION)
+// Debugger::enable('23.75.345.200'); // you can also provide an array of IP addresses
+
+
+
+
+
+
 
 // Set the default timezone
 // date_default_timezone_set('America/New_York');
 date_default_timezone_set('Europe/Minsk');
 
-// Set the error reporting level
-error_reporting(E_ALL);
+// // Set the error reporting level
+// error_reporting(E_ALL);
 
 // Set the default character encoding
 if (function_exists('mb_internal_encoding') === true)
@@ -81,7 +108,6 @@ if (function_exists('setlocale') === true)
     // setlocale(LC_ALL, 'en_US.UTF-8');
     setlocale(LC_ALL, 'ru_Belarus.UTF-8');
 }
-
 
 require_once 'core/const.php'; // управляющие и служебные константы
 
@@ -184,7 +210,6 @@ $db = new \Buki\Pdox($config);
 
 require_once 'core/classes/class.Toasts.php'; //load php class
 
-use Smarty\Smarty;
 ### //init Smarty 5.3
 $smarty = new Smarty();
 $smarty->setTemplateDir('../admin/tpl');              // здесь лежат шаблоны tpl.html
