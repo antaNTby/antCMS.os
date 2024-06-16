@@ -50,23 +50,31 @@ Debugger::enable();
 
 Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
 
-Debugger::$strictMode = true; // display all errors
-                              // Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED; // all errors except deprecated notices
-                              //
-                              // максимальная длина строки
-Debugger::$maxLength = 150;   // (int) по умолчанию согласно Трейси
+Debugger::$strictMode = true;
+## display all errors
 
-// насколько глубоким будет список
-Debugger::$maxDepth = 10; // (int) по умолчанию согласно Tracy
+## Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
+## all errors except deprecated notices
 
-// скрывать значения этих ключей (начиная с версии Tracy 2.8)
-// Debugger::$keysToHide = ['password', /* ... */]; // (string[]) по умолчанию []
+## максимальная длина строки
+// Debugger::$maxLength = 150;
+## (int) по умолчанию согласно Трейси
+## насколько глубоким будет список
+// Debugger::$maxDepth = 10;
+## (int) по умолчанию согласно Tracy
+## скрывать значения этих ключей (начиная с версии Tracy 2.8)
+## Debugger::$keysToHide = ['password', /* ... */];
+## (string[]) по умолчанию []
 
-// визуальная тема (начиная с версии Tracy 2.8)
-Debugger::$dumpTheme = 'dark'; // (light|dark) по умолчанию 'light'
 
-// отображает место, где был вызван dump()?
-// Debugger::$showLocation = /* ... */; // (bool) по умолчанию в соответствии с Tracy
+## визуальная тема (начиная с версии Tracy 2.8)
+Debugger::$dumpTheme = 'dark';
+## (light|dark) по умолчанию 'light'
+
+
+## отображает место, где был вызван dump()?
+Debugger::$showLocation = true; ##/* ... */;
+## (bool) по умолчанию в соответствии с Tracy
 
 ###
 // auto tries to figure out your environment
@@ -80,8 +88,6 @@ include_once PATH_CORE . 'bootstrap.php';
 include_once PATH_CORE . 'authentication.php';
 ### define department and subdepartment
 include_once PATH_CORE . 'departments.php';
-
-
 
 //show department if it is being selected
 if (!isset($_GET['dpt']))
