@@ -30,9 +30,6 @@ $config_name = $allTablesNames[$configSelectedIndex];
 
 $operation = $_GET['operation'] ?? 'loadDataTablesColumnDescriptions';
 
-
-
-
 $rbcolumnsDefault = [
     'config_name' => 'Конфигурация',
     'data'        => 'column name',
@@ -170,11 +167,12 @@ dump($Row);
 }
  */
 
-
             foreach ($Row as $fieldName => $fieldData)
             {
                 $Configurations[$rowIndex]['fieldValues']['ind']      = $rowIndex;
                 $Configurations[$rowIndex]['fieldValues'][$fieldName] = $Row[$fieldName];
+
+                // dump($dbTableFields);
 
 ############ attributes
                 $attributes = [
