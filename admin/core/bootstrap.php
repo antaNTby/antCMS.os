@@ -42,7 +42,7 @@ require_once 'core/const.php'; // управляющие и служебные �
 
 require_once 'core/connect.php';  // DB_CONST
 
-require_once 'core/errors.php';   // обработка ошибок
+// require_once 'core/errors.php';   // обработка ошибок  // будем use Tracy\Debugger;
 
 require_once 'core/orklang.php';  // строки текста
 require_once 'core/settings.php'; // настройки
@@ -50,11 +50,11 @@ require_once 'core/functions.php';
 require_once 'core/headers.php';
 require_once 'core/tables.php';
 
-// какая-то херня для теста производительности  ДБ
-$sc_1 = gmts();
-$sc_4 = 0;
-$sc_8 = 0;
-$gmc  = 1;
+// какая-то херня для теста производительности  ДБ  // будем use Tracy\Debugger;
+// $sc_1 = gmts();
+// $sc_4 = 0;
+// $sc_8 = 0;
+// $gmc  = 1;
 
 $_POST   = stripslashes_deep($_POST);
 $_GET    = stripslashes_deep($_GET);
@@ -139,7 +139,7 @@ $db = new \Buki\Pdox($config);
 
 require_once 'core/classes/class.Toasts.php'; //load php class
 
-### //init Smarty 5.1
+### //init Smarty 5.3
 use Smarty\Smarty;
 $smarty = new Smarty();
 $smarty->setTemplateDir('../admin/tpl');              // здесь лежат шаблоны tpl.html
@@ -186,8 +186,13 @@ define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 @ini_set('magic_quotes_gpc', 0);
 @ini_set('magic_quotes_runtime', 0);
 @ini_set('register_globals', 0);
-@ini_set('display_errors', 0); // вместо этого set_error_handler('errorHandler');
-                               // error_reporting(1);
-set_error_handler('errorHandler');
-register_shutdown_function('shutdownHandler');
-error_reporting(E_ALL & ~E_NOTICE);
+
+ // будем use Tracy\Debugger;
+// @ini_set('display_errors', 0);
+// // вместо этого set_error_handler('errorHandler');
+//                                // error_reporting(1);
+//                                //
+//                                //
+// set_error_handler('errorHandler');
+// register_shutdown_function('shutdownHandler');
+// error_reporting(E_ALL & ~E_NOTICE);
