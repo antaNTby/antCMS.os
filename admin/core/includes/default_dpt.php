@@ -1,6 +1,5 @@
 <?php
 ###default_dpt.php
-use RedBeanPHP\R;
 
 $page_message      = '';
 $page_message_type = 'success';
@@ -14,7 +13,7 @@ $table_primaryKey    = $department_sub['table_primaryKey'];
 
 $OK                 = 0;
 $saveNewJsonColumns = false;
-$dtColumns          = array();
+$dtColumns          = [];
 
 if (!is_null($table_name))
 {
@@ -32,12 +31,12 @@ if (!is_null($table_name))
         }
         else
         {
-            // d('NO FILE');
+
             $dtColumnFieldNames = $dbTableFieldNames;
 
             $jsonColumns       = exportColumnsToJson($dtColumnFieldNames, $limit = 4);
             $isSaved           = file_put_contents($columnsJsonFileName, $jsonColumns);
-            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int) $isSaved);
+            $page_message      = $columnsJsonFileName . ' Is saved size: ' . format_size((int)$isSaved);
             $page_message_type = 'warning';
         }
 
@@ -60,12 +59,11 @@ if ($OK && isset($_GET['operation']))
 
         if ($OK)
         {
-            // dump([$_POST, $dbTable, $primaryKey, $dtColumns]);
             $ssp_result = adminSSP::simple($_POST, $pdo_connect, $dbTable, $primaryKey, $dtColumns);
         }
         else
         {
-            $ssp_result = array();
+            $ssp_result = [];
         }
 
         header('Content-Type: application/json; charset=utf-8');
@@ -85,45 +83,44 @@ if ($OK && isset($_GET['operation']))
         $newValue    = $DATA['newValue'];
         $editID      = $DATA['editID'];
 
-        $Column = array(
-            'index' => $dtColumns[$columnIndex]['index'],
-            'data'  => $dtColumns[$columnIndex]['data'],
-            'db'    => $dtColumns[$columnIndex]['db'],
-            'dt'    => $dtColumns[$columnIndex]['dt']
-        );
+        $Column = [
+            'ind'  => $dtColumns[$columnIndex]['ind'],
+            'data' => $dtColumns[$columnIndex]['data'],
+            'db'   => $dtColumns[$columnIndex]['db'],
+            'dt'   => $dtColumns[$columnIndex]['dt'],
+        ];
 
         if ($OK)
         {
-            // $editedID=$_POST['updatedCell']['companyID'];
-            $sql = "UPDATE `{$dbTable}` SET `{$Column['db']}` = :newValue WHERE `{$primaryKey}`= :editID;";
 
-            R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-            ##  расширение для таблиц с _ в имени
-            R::ext('xdispense', function ($table_name)
-            {
-                return R::getRedBean()->dispense($table_name);});
+            $where = [
+                "{$primaryKey}" => $editID,
+            ];
 
-            $rb    = R::xdispense($dbTable);
-            $aRows = R::exec($sql, array(':newValue' => htmlspecialchars($newValue), ':editID' => ($editID)));
-            // $aRows = R::exec($sql, array(':newValue' => trim($newValue), ':editID' => ($editID)));
+            $data = [
+                "{$Column['db']}" => $newValue,
 
-            // d($aRows);
+            ];
+
+            $r = $db->table($dbTable)->where($where)->update($data);
 
             $page_message = 'CELL HAS BEEN EDITED';
         }
 
         header('Content-Type: application/json; charset=utf-8');
 
-        exit(json_encode(array(
+        exit(json_encode([
             'page_message' => $page_message,
             'table_name'   => $dbTable,
             'primaryKey'   => $primaryKey,
             'columnIndex'  => $columnIndex,
             'Column'       => $Column,
-            'sql'          => $sql,
-                                     // "editedID"=> (int)$editedID,
-            'phpDATA'      => $DATA //as array
-        )));
+            'sql'          => $db->getQuery(),
+            'query_count'  => $db->queryCount(),
+            'phpDATA'      => $DATA, //as array
+        ]));
+        // 'sql'          => $sql,
+        // "editedID"=> (int)$editedID,
     }
 
 ################

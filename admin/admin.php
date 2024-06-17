@@ -185,17 +185,4 @@ if (!is_null($route_message))
     $smarty->assign('ROUTE_MESSAGE', $route_message);
 }
 
-// $book = R::dispense("ant_companies");
-// dd($book);
-
-// $post            = R::xdispense('ant_ippost');
-// $post->timeStamp = addslashes(time());
-// $post->title     = 'My antaNT ЯкоБы IP';
-// $post->ip        = addslashes(stGetCustomerIP_Address());
-// $id              = R::store($post);
-
-// $t = R::getAll('SELECT * FROM ant_ippost where time_Stamp Like "%7%";');
-
-// d($t);
-
 include_once PATH_CORE . 'admin_end.php';

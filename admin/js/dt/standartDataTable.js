@@ -202,14 +202,33 @@ table.MakeCellsEditable(
 );
 
 async function dtDefaultCallbackFunction(updatedCell, updatedRow, oldValue, columnIndex) {
+
+
+// console.log(updatedCell.data(), columnIndex)
+// console.info(updatedRow.data())
+
+let row=updatedRow.data();
+let field= row[columnIndex];
+
+let keys = Object.keys(row);
+let myKey= keys[columnIndex];
+let primaryKey= keys[0];
+
+console.log(row,keys, columnIndex,field,myKey)
+
     let url = checkOnUrl(document.location.href) + '&operation=editCell';
-    let editID = updatedRow.data().companyID;
+
+    // let editID = updatedRow.data().myKey;
+    let editID = row[primaryKey];
+
     let DATA = {
         // "updatedRow": updatedRow.data(),
         "editID": +editID,
         "newValue": updatedCell.data(),
         "oldValue": oldValue,
         "columnIndex": columnIndex,
+        "myKey": myKey,
+        "primaryKey": primaryKey,
     };
     let defaultResponse = await fetch(url, {
         method: 'POST',
