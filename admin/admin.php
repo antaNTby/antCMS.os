@@ -48,38 +48,17 @@ session_cache_expire();
 
 Debugger::enable();
 
-Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
-
+// Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
+Debugger::$logDirectory = __DIR__ . $ds . 'log';
 Debugger::$strictMode = true;
-## display all errors
+Debugger::$showLocation = true; // Shows all additional location information
 
-## Debugger::$strictMode = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
-## all errors except deprecated notices
+// в режиме разработки вы будете видеть уведомления или предупреждения об ошибках как BlueScreen
+Debugger::$strictMode = E_ALL; /* ... */; // (bool|int) по умолчанию false, вы можете выбрать только определенные уровни ошибок (например, E_USER_DEPRECATED | E_DEPRECATED)
 
-## максимальная длина строки
-// Debugger::$maxLength = 150;
-## (int) по умолчанию согласно Трейси
-## насколько глубоким будет список
-// Debugger::$maxDepth = 10;
-## (int) по умолчанию согласно Tracy
-## скрывать значения этих ключей (начиная с версии Tracy 2.8)
-## Debugger::$keysToHide = ['password', /* ... */];
-## (string[]) по умолчанию []
+// отображает беззвучные (@) сообщения об ошибках
+Debugger::$scream = E_ALL; /* ... */; // (bool|int) по умолчанию false, с версии 2.9 можно выбрать только определенные уровни ошибок (например, E_USER_DEPRECATED | E_DEPRECATED)
 
-
-## визуальная тема (начиная с версии Tracy 2.8)
-Debugger::$dumpTheme = 'light';
-## (light|dark) по умолчанию 'light'
-
-
-## отображает место, где был вызван dump()?
-Debugger::$showLocation = true; ##/* ... */;
-## (bool) по умолчанию в соответствии с Tracy
-
-###
-// auto tries to figure out your environment
-// Debugger::enable(Debugger::DEVELOPMENT) // sometimes you have to be explicit (also Debugger::PRODUCTION)
-// Debugger::enable('23.75.345.200'); // you can also provide an array of IP addresses
 
 require_once 'core/const.php'; // управляющие и служебные константы
                                // echo (PATH_CORE);
