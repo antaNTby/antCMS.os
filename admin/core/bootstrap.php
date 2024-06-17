@@ -11,6 +11,7 @@ use Smarty\Smarty;
 // composer require smarty/smarty
 // composer require twbs/bootstrap-icons
 // composer require gabordemooij/redbean
+// composer remove gabordemooij/redbean
 
 
 // composer require --dev symfony/var-dumper
