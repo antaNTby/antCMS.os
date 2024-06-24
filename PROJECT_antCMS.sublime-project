@@ -38,12 +38,6 @@
         "default_encoding": "UTF-8",
         "fallback_encoding": "UTF-8",
         "tab_size": 4,
-        "xdebug":
-        {
-            // "url": "nix.os",
-            // "url": "http://nix.os/admin.php",
-            "url": "http://antCMS.os/admin/admin.php",
-        },
          // "color_scheme": "Dark Knight.sublime-color-scheme",
         // "color_scheme": "Breakers.sublime-color-scheme",
         // "color_scheme": "Monokai.sublime-color-scheme",
