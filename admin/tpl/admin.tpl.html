@@ -35,15 +35,14 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/uiAdmin.css">
 </head>
 
-<body class="d-flex flex-column h-100" style="overflow-y: scroll;"> {* h-100 shadow-lg px-0 *}
-    <header>
-        {include file="admin__navbar.tpl.html"}
-    </header>
+
+<body class="h-100" > {* h-100 shadow-lg px-0 *}
     {if $smarty_error}
     <h6 class="text-bg-danger p-2">
         {$smarty_error_message}
     </h6>
     {/if}
+
     <div aria-live="polite" aria-atomic="true" class="position-relative" id="toast-area">
         <!-- Position it: -->
         <!-- - `.toast-container` for spacing between toasts -->
@@ -51,17 +50,34 @@
         <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
         {include file="../apps/Toasts/appToasts.tpl.html" position=0}
     </div>
+
+
+<div id="wrapper" class="d-flex flex-column h-100">
+
+    <header>
+        {include file="admin__navbar.tpl.html"}
+    </header>
+
+
+
     {include file="admin__menu_offcanvas.tpl.html"}
     <main id="uiMain" class="flex-shrink-0" data-tpl="admin.tpl.html" style="padding-top:60px;">
         <div class="{$container_width}">
             {include file="$admin_main_content_template"}
         </div>
     </main>
+
+
     <footer id="uiFooter" class="text-bg-dark d-block mt-auto">
         {* <div class="{$container_width}"> *}
             {include file="admin__footer.tpl.html"}
         {* </div> *}
     </footer>
+
+</div>
+
+
+
     {*main scripts.js*}
     {* <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script> *}
     <script src="/vendor/components/jquery/jquery.min.js"></script>

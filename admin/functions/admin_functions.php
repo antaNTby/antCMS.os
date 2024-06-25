@@ -21,7 +21,7 @@ function set_cookie(
 
 function checklogin()
 {
-    $rls = array();
+    $rls = [];
     if (isset($_SESSION['log'])) //look for user in the database
     {
         $q   = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
@@ -38,14 +38,17 @@ function checklogin()
             # fix log errors WARNING: in_array() expects parameter 2 to be array, boolean given
             if (!is_array($rls))
             {
-                $rls = array();
+                $rls = [];
             }
         }
     }
     return $rls;
 }
 
-function correct_URL($url, $mode = 'http') //converts
+function correct_URL(
+    $url,
+    $mode = 'http'
+) //converts
 
 {
     $URLprefix = trim($url);
@@ -70,7 +73,10 @@ function Redirect($url)
     exit();
 }
 
-function RedirectMetaRefresh($url, $timer = 5)
+function RedirectMetaRefresh(
+    $url,
+    $timer = 5
+)
 {
     if (CONF_PROTECTED_CONNECTION == '1')
     {
@@ -81,7 +87,7 @@ function RedirectMetaRefresh($url, $timer = 5)
         $urlToRedirect = ($url);
     }
 
-    echo ('<meta http-equiv="refresh" content="' . (int) $timer . ';URL=' . $urlToRedirect . '">');
+    echo ('<meta http-equiv="refresh" content="' . (int)$timer . ';URL=' . $urlToRedirect . '">');
 }
 // *****************************************************************************
 // Purpose        redirects to other PHP page specified URL ( $url )
@@ -124,8 +130,12 @@ function set_query(
         $_request = $_SERVER['REQUEST_URI'];
     }
 
-    $_anchor                  = '';
-    @list($_request, $_anchor) = explode('#', $_request);
+    $_anchor = '';
+
+    if (strpos($_request, '#') !== false)
+    {
+        @list($_request, $_anchor) = explode('#', $_request);
+    }
 
     if (strpos($_vars, '#') !== false)
     {
@@ -142,7 +152,7 @@ function set_query(
         return $_request . '#' . $_anchor;
     }
 
-    $_rvars  = array();
+    $_rvars  = [];
     $tr_vars = explode('&', strpos($_request, '?') !== false ? preg_replace('|.*\?|', '', $_request) :
         '');
     foreach ($tr_vars as $_var)
@@ -153,7 +163,7 @@ function set_query(
             $_rvars[$_t[0]] = $_t[1];
         }
     }
-    $tr_vars = explode('&', preg_replace(array('|^\&|', '|^\?|'), '', $_vars));
+    $tr_vars = explode('&', preg_replace(['|^\&|', '|^\?|'], '', $_vars));
     foreach ($tr_vars as $_var)
     {
         $_t = explode('=', $_var);
@@ -166,7 +176,7 @@ function set_query(
             $_rvars[$_t[0]] = $_t[1];
         }
     }
-    $tr_vars = array();
+    $tr_vars = [];
     foreach ($_rvars as $_var => $_val)
     {
         $tr_vars[] = "$_var=$_val";
