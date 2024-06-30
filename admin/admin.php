@@ -65,6 +65,12 @@ require_once 'core/const.php'; // управляющие и служебные �
 include_once PATH_CORE . 'bootstrap.php';
 
 include_once PATH_CORE . 'authentication.php';
+
+//define start smarty template
+$smarty->assign('admin_main_content_template', 'start.tpl.html');
+###
+
+
 ### define department and subdepartment
 include_once PATH_CORE . 'departments.php';
 

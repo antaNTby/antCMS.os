@@ -25,6 +25,11 @@ if (isset($_COOKIE['PHPSESSID']))
 
 $relaccess = checklogin();
 
+
+// if($relaccess==[]){
+//    die(ERROR_FORBIDDEN);
+// }
+
 if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
 {
     if (isset($_POST['user_login']) && isset($_POST['user_pw']))
@@ -46,6 +51,7 @@ if (isset($_GET['logout'])) //user logout
 
     // RedirectJavaScript(ADMIN_FILE . '?access_deny=' . SITE_URL);
     RedirectJavaScript(ADMIN_FILE);
+    die(ERROR_FORBIDDEN);
 }
 
 /*

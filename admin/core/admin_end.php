@@ -101,8 +101,8 @@ try
     $smarty->assign('container_width', $container_width);
     $smarty->assign('placementID', $placementID);
     $smarty->assign('toast_placement', $toast_placement);
-    // $smarty->display('admin.tpl.html');
-    $smarty->display('admin2.tpl.html');
+    $smarty->display('admin.tpl.html');
+    // $smarty->display('admin2.tpl.html');
 }
 catch (SmartyException $e)
 {

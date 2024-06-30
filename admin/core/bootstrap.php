@@ -134,13 +134,13 @@ $config = [
 
 # Database Charset (optional)
      # default value: utf8
-     // 'charset'   => 'utf8',
      'charset'   => 'utf8mb4',
+     // 'charset'   => 'utf8',
 
 # Database Charset Collation (optional)
      # default value: utf8_general_ci
-     // 'collation' => 'utf8_general_ci',
      'collation' => 'utf8mb4_unicode_ci',
+     // 'collation' => 'utf8_general_ci',
 
 # Database Prefix (optional)
      # default value: null
@@ -170,9 +170,6 @@ $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 $smarty->setEscapeHtml(false);
 
 
-//define start smarty template
-$smarty->assign('admin_main_content_template', 'start.tpl.html');
-###
 //Enable auto-escaping for HTML as follows:
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
