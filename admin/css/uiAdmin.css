@@ -2,6 +2,9 @@
 .bg-tnas {
     background-color: #03844F;
 }
+.text-tnas {
+    background-color: #03844F;
+}
 
 .btn-xs {
     --bs-btn-padding-y: .05rem;
