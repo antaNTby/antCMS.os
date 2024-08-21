@@ -62,7 +62,7 @@ Debugger::$scream = E_ALL; /* ... */; // (bool|int) по умолчанию fals
 
 require_once 'core/const.php'; // управляющие и служебные константы
                                // echo (PATH_CORE);
-include_once PATH_CORE . 'bootstrap.php';
+require_once PATH_CORE . 'bootstrap.php';
 
 include_once PATH_CORE . 'authentication.php';
 
