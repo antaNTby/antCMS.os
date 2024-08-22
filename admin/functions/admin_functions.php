@@ -23,10 +23,12 @@ function checklogin()
 {
     $rls = [];
     if (isset($_SESSION['log'])) //look for user in the database
+
     {
-        $q   = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
+        $q = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
         $row = db_fetch_row($q);                                                //found customer - check password
         if (!$row || !isset($_SESSION['pass']) || $row[0] != $_SESSION['pass']) //unauthorized access
+
         {
             unset($_SESSION['log']);
             unset($_SESSION['pass']);
@@ -46,9 +48,9 @@ function checklogin()
 }
 
 function correct_URL(
+
     $url,
-    $mode = 'http'
-) //converts
+    $mode = 'http') //converts
 
 {
     $URLprefix = trim($url);
@@ -152,7 +154,7 @@ function set_query(
         return $_request . '#' . $_anchor;
     }
 
-    $_rvars  = [];
+    $_rvars = [];
     $tr_vars = explode('&', strpos($_request, '?') !== false ? preg_replace('|.*\?|', '', $_request) :
         '');
     foreach ($tr_vars as $_var)
@@ -185,7 +187,7 @@ function set_query(
     if ($_store)
     {
         global $_SERVER;
-        $_request               = $_SERVER['REQUEST_URI'];
+        $_request = $_SERVER['REQUEST_URI'];
         $_SERVER['REQUEST_URI'] = preg_replace('|\?.*$|', '', $_request) . (count($tr_vars) ? '?' . implode
             ('&', $tr_vars) : '') . ($_anchor ? '#' . $_anchor : '');
         return $_SERVER['REQUEST_URI'];

@@ -18,9 +18,9 @@ function isWindows()
 }
 $IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('PATH_DELIMITER', isWindows() ? ';' : ':');
-$dird          = dirname($_SERVER['PHP_SELF']); ## "/admin"
+$dird = dirname($_SERVER['PHP_SELF']); ## "/admin"
 $sourcessrandd = ['//' => '/', '\\' => '/'];
-$dird          = strtr($dird, $sourcessrandd);
+$dird = strtr($dird, $sourcessrandd);
 if ($dird != '/')
 {
     $dirf = '/';
@@ -59,17 +59,13 @@ Debugger::$strictMode = E_ALL; /* ... */; // (bool|int) по умолчанию 
 // отображает беззвучные (@) сообщения об ошибках
 Debugger::$scream = E_ALL; /* ... */; // (bool|int) по умолчанию false, с версии 2.9 можно выбрать только определенные уровни ошибок (например, E_USER_DEPRECATED | E_DEPRECATED)
 
-
 require_once 'core/const.php'; // управляющие и служебные константы
                                // echo (PATH_CORE);
 require_once PATH_CORE . 'bootstrap.php';
-
 include_once PATH_CORE . 'authentication.php';
-
 //define start smarty template
 $smarty->assign('admin_main_content_template', 'start.tpl.html');
 ###
-
 
 ### define department and subdepartment
 include_once PATH_CORE . 'departments.php';
@@ -96,7 +92,7 @@ else
     $sub = $_GET['sub'];
 }
 
-$plucked_dpt_ids   = pluck($Departments, 'id');
+$plucked_dpt_ids = pluck($Departments, 'id');
 $plucked_dpt_names = pluck($Departments, 'name');
 $current_dpt_index = array_search($dpt, $plucked_dpt_ids);
 
@@ -115,22 +111,22 @@ if (in_array($dpt, $plucked_dpt_ids))
         if ($dpt === $department['id'])
         {
             $plucked_sub_names = pluck($department['sub_departments'], 'name');
-            $plucked_sub_ids   = pluck($department['sub_departments'], 'id');
+            $plucked_sub_ids = pluck($department['sub_departments'], 'id');
 
             if (isset($sub) && in_array($sub, $plucked_sub_ids))
             {
                 $route_message = null;
-                $sub           = $sub;
+                $sub = $sub;
             }
             else
             {
                 $route_message = 'not correct sub => ' . $sub;
-                $sub           = selectDefaultSub($department['sub_departments']);
+                $sub = selectDefaultSub($department['sub_departments']);
             }
 
             $current_sub_index = array_search($sub, $plucked_sub_ids);
-            $current_sub_id    = ($plucked_sub_ids[$current_sub_index]);
-            $current_sub_name  = ($plucked_sub_names[$current_sub_index]);
+            $current_sub_id = ($plucked_sub_ids[$current_sub_index]);
+            $current_sub_name = ($plucked_sub_names[$current_sub_index]);
 
             $smarty->assign('current_sub_index', $current_sub_index);
             $smarty->assign('current_sub_id', $current_sub_id);
@@ -139,12 +135,12 @@ if (in_array($dpt, $plucked_dpt_ids))
             // $smarty->assign('plucked_sub_ids', $plucked_sub_ids);
             // $smarty->assign('plucked_sub_names', $plucked_sub_names);
 
-            $admin_page          = $department['sub_departments'][$current_sub_index]['admin_page'];
-            $table_name          = $department['sub_departments'][$current_sub_index]['table_name'];
+            $admin_page = $department['sub_departments'][$current_sub_index]['admin_page'];
+            $table_name = $department['sub_departments'][$current_sub_index]['table_name'];
             $columnsJsonFileName = $department['sub_departments'][$current_sub_index]['columnsJsonFileName'];
-            $table_primaryKey    = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
-            $sub_processor       = $department['sub_departments'][$current_sub_index]['sub_processor'];
-            $sub_template        = $department['sub_departments'][$current_sub_index]['sub_template'];
+            $table_primaryKey = $department['sub_departments'][$current_sub_index]['table_primaryKey'];
+            $sub_processor = $department['sub_departments'][$current_sub_index]['sub_processor'];
+            $sub_template = $department['sub_departments'][$current_sub_index]['sub_template'];
 
             if (file_exists($sub_processor))
             {

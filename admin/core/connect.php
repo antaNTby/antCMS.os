@@ -23,9 +23,9 @@
 
 // dump(DB_HOST);
 
-const DBMS    = 'mysqli';    //   {$smarty.const.DBMS}          database host
+const DBMS = 'mysqli';       //   {$smarty.const.DBMS}          database host
 const DB_HOST = 'MySQL-5.7'; //   {$smarty.const.DB_HOST}       username
 const DB_USER = 'root';      //   {$smarty.const.DB_USER}       database name
-const DB_PASS = 'root';          //   {$smarty.const.DB_PASS}       database prefix
+const DB_PASS = 'root';      //   {$smarty.const.DB_PASS}       database prefix
 const DB_NAME = 'db_antCMS'; //   {$smarty.const.DB_NAME}       password
 const DB_PRFX = 'ant_';

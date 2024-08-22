@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.3.1, created on 2024-08-21 10:48:11
+/* Smarty version 5.3.1, created on 2024-08-22 13:26:31
   from 'file:start.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.3.1',
-  'unifunc' => 'content_66c59bbb7af9d8_71618315',
+  'unifunc' => 'content_66c712572bd808_66313354',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66c59bbb7af9d8_71618315 (\Smarty\Template $_smarty_tpl) {
+function content_66c712572bd808_66313354 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antaNT64\\antCMS.os\\admin\\tpl';
 ?><h1 class="display-5 text-xl-center">Welcome, <span class="badge text-bg-secondary"> <?php echo $_smarty_tpl->getValue('adminlogname');?>
  ! </span></h1>

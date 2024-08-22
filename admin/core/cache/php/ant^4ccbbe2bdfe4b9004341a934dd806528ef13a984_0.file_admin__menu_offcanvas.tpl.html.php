@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.3.1, created on 2024-08-21 10:49:27
+/* Smarty version 5.3.1, created on 2024-08-22 13:26:33
   from 'file:admin__menu_offcanvas.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.3.1',
-  'unifunc' => 'content_66c59c0719a0f8_09877684',
+  'unifunc' => 'content_66c712597e42a9_02050542',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:atoms/aDivDropdownContainerSize.tpl.html' => 1,
   ),
 ))) {
-function content_66c59c0719a0f8_09877684 (\Smarty\Template $_smarty_tpl) {
+function content_66c712597e42a9_02050542 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antaNT64\\antCMS.os\\admin\\tpl';
 if ($_smarty_tpl->getValue('show_offcanvas_menu_on_load')) {
 $_smarty_tpl->assign('show', " show", false, NULL);
