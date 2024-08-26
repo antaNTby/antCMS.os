@@ -7,12 +7,12 @@
 
 declare(strict_types=1);
 
-if (!function_exists('tdump')) {
+if (!function_exists('dump')) {
 	/**
 	 * Tracy\Debugger::dump() shortcut.
 	 * @tracySkipLocation
 	 */
-	function tdump(mixed $var): mixed
+	function dump(mixed $var): mixed
 	{
 		array_map([Tracy\Debugger::class, 'dump'], func_get_args());
 		return $var;

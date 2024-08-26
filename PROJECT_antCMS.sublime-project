@@ -1,51 +1,57 @@
 {
-    "folders": [
-        {
+    "folders": [{
             "path": ".",
             // "path": "admin",
             "file_exclude_patterns": [
                 "**.sublime-workspace",
-                // "**.sublime-project",
+                "**.sublime-project",
                 // "composer.*",
-                "adminer.*",
-                ".gitignore",
-                ".gitkeep",
-                "smarty4.2.1.tar",
-                "cache/ant*.php",
-                "cache/php/ant*.php",
-                "composer.*",
-                "*.zip",
-                "*.rar",
-                "*.ico",
+                // "adminer.*",
+                // ".gitignore",
+                // ".gitkeep",
+                // "smarty4.2.1.tar",
+                // "cache/ant*.php",
+                // "cache/php/ant*.php",
+                // "composer.*",
+                // "*.zip",
+                // "*.rar",
+                // "*.ico",
             ],
             "folder_exclude_patterns": [
                 "cache/templates_c",
                 // "lib",
                 // "vendor",
-                "smarty_config",
-                "media",
-                ".idea",
+                // "smarty_config",
+                // "media",
+                // ".idea",
                 // "smarty4.2.1",
-                "database_install",
+                // "database_install",
             ],
         }
 
     ],
 
 
-    "settings":
-    {
+    "settings": {
         "default_encoding": "UTF-8",
         "fallback_encoding": "UTF-8",
         "tab_size": 4,
-         "color_scheme": "Dark Knight.sublime-color-scheme",
+
+        "color_scheme": "Dark Knight.sublime-color-scheme",
+        // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Breakers.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+
+        // "color_scheme": "Dark Knight.sublime-color-scheme",
+        // "color_scheme": "Dark Knight.sublime-color-scheme",
         // "color_scheme": "Monokai.sublime-color-scheme",
         // "color_scheme": "Sixteen.sublime-color-scheme",
         // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Mariana.sublime-color-scheme",
-        // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Breakers.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
     }
 }

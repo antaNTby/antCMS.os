@@ -15,8 +15,8 @@ function set_cookie(
         . (empty($Expires) ? '' : ' ; expires=' . gmdate('D, d-M-Y H:i:s', $Expires) . ' GMT')
         . (empty($Path) ? '' : ' ; path=' . $Path)
         . (empty($Domain) ? '' : ' ; domain=' . $Domain)
-        . (!$Secure ? ' ; flavor=choco; SameSite=Lax' : ' ; SameSite=None; Secure ')
-        . (!$HTTPOnly ? '' : '; HttpOnly'), false);
+        . ( ! $Secure ? ' ; flavor=choco; SameSite=Lax' : ' ; SameSite=None; Secure ')
+        . ( ! $HTTPOnly ? '' : '; HttpOnly'), false);
 }
 
 function checklogin()
@@ -25,9 +25,9 @@ function checklogin()
     if (isset($_SESSION['log'])) //look for user in the database
 
     {
-        $q = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
+        $q   = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
         $row = db_fetch_row($q);                                                //found customer - check password
-        if (!$row || !isset($_SESSION['pass']) || $row[0] != $_SESSION['pass']) //unauthorized access
+        if ( ! $row || ! isset($_SESSION['pass']) || $row[0] != $_SESSION['pass']) //unauthorized access
 
         {
             unset($_SESSION['log']);
@@ -38,7 +38,7 @@ function checklogin()
             $rls = unserialize($row[1]);
             unset($row);
             # fix log errors WARNING: in_array() expects parameter 2 to be array, boolean given
-            if (!is_array($rls))
+            if ( ! is_array($rls))
             {
                 $rls = [];
             }
@@ -46,12 +46,11 @@ function checklogin()
     }
     return $rls;
 }
-
+//converts
 function correct_URL(
-
     $url,
-    $mode = 'http') //converts
-
+    $mode = 'http'
+)
 {
     $URLprefix = trim($url);
     $URLprefix = str_replace('http://', '', $URLprefix);
@@ -126,7 +125,7 @@ function set_query(
     $_store = false
 )
 {
-    if (!$_request)
+    if ( ! $_request)
     {
         global $_SERVER;
         $_request = $_SERVER['REQUEST_URI'];
@@ -144,17 +143,17 @@ function set_query(
         @list($_vars, $_anchor) = explode('#', $_vars);
     }
 
-    if (!$_vars && !$_anchor)
+    if ( ! $_vars && ! $_anchor)
     {
         return preg_replace('|\?.*$|', '', $_request) . ($_anchor ? '#' . $_anchor :
             '');
     }
-    elseif (!$_vars && $_anchor)
+    elseif ( ! $_vars && $_anchor)
     {
         return $_request . '#' . $_anchor;
     }
 
-    $_rvars = [];
+    $_rvars  = [];
     $tr_vars = explode('&', strpos($_request, '?') !== false ? preg_replace('|.*\?|', '', $_request) :
         '');
     foreach ($tr_vars as $_var)
@@ -169,7 +168,7 @@ function set_query(
     foreach ($tr_vars as $_var)
     {
         $_t = explode('=', $_var);
-        if (!$_t[1])
+        if ( ! $_t[1])
         {
             unset($_rvars[$_t[0]]);
         }
@@ -187,7 +186,7 @@ function set_query(
     if ($_store)
     {
         global $_SERVER;
-        $_request = $_SERVER['REQUEST_URI'];
+        $_request               = $_SERVER['REQUEST_URI'];
         $_SERVER['REQUEST_URI'] = preg_replace('|\?.*$|', '', $_request) . (count($tr_vars) ? '?' . implode
             ('&', $tr_vars) : '') . ($_anchor ? '#' . $_anchor : '');
         return $_SERVER['REQUEST_URI'];

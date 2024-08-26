@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.3.1, created on 2024-08-22 13:26:33
+/* Smarty version 5.3.1, created on 2024-08-23 21:58:18
   from 'file:atoms/aPageH1.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.3.1',
-  'unifunc' => 'content_66c712598605b3_02478951',
+  'unifunc' => 'content_66c8dbca8bc050_83958246',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66c712598605b3_02478951 (\Smarty\Template $_smarty_tpl) {
+function content_66c8dbca8bc050_83958246 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antaNT64\\antCMS.os\\admin\\tpl\\atoms';
 ?><h1 class="h4 fw-lighter text-body" data-id="PageH1">
     <?php echo $_smarty_tpl->getValue('current_sub_name');?>

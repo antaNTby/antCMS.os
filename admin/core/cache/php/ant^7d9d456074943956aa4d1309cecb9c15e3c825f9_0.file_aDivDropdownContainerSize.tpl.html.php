@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.3.1, created on 2024-08-22 13:26:33
+/* Smarty version 5.3.1, created on 2024-08-23 21:58:18
   from 'file:atoms/aDivDropdownContainerSize.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.3.1',
-  'unifunc' => 'content_66c71259811363_97033941',
+  'unifunc' => 'content_66c8dbca846c87_63112598',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66c71259811363_97033941 (\Smarty\Template $_smarty_tpl) {
+function content_66c8dbca846c87_63112598 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antaNT64\\antCMS.os\\admin\\tpl\\atoms';
 ?><div class="dropdown-center dropup">
     <button class="btn btn-dark btn-sm dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
