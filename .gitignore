@@ -1,2 +1,9 @@
 # Specify filepatterns you want git to ignore.
-admin/core/cache
+/.vscode
+/.idea
+/.gitignore
+/admin/core/cache/php/ant*.php
+/admin/core/cache/ant*.php
+# /lib/
+*.sublime-workspace
+*DEBUG.JSON
