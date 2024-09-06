@@ -288,7 +288,8 @@ class DefaultExtension extends Base {
 				$format = str_replace($_win_from, $_win_to, $format);
 			}
 			// @ to suppress deprecation errors when running in PHP8.1 or higher.
-			return date('Y-m-d h:i:s', $timestamp); //return @strftime($format, $timestamp); //return @strftime($format, $timestamp);
+			// return date('Y-m-d h:i:s', $timestamp); //return @strftime($format, $timestamp);
+			return date($format, $timestamp); //return @strftime($format, $timestamp);
 		} else {
 			return date($format, $timestamp);
 		}
