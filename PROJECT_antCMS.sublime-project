@@ -5,8 +5,8 @@
             "file_exclude_patterns": [
                 "**.sublime-workspace",
                 "**.sublime-project",
-                // "composer.*",
-                // "adminer.*",
+                "composer.*",
+                "adminer.*",
                 // ".gitignore",
                 // ".gitkeep",
                 // "smarty4.2.1.tar",
