@@ -8,114 +8,81 @@
 	"buffers":
 	[
 		{
-			"file": "PROJECT_antCMS.sublime-project",
-			"settings":
-			{
-				"buffer_size": 1957,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
+			"file": "admin/core/admin_end.php",
+			"redo_stack":
 			[
 				[
-					3,
+					25,
 					1,
-					"toggle_comment",
-					{
-						"block": false
-					},
-					"AQAAAKwAAAAAAAAArAAAAAAAAAADAAAALy8g",
-					"BwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAxAAAAAAAAADEAAAAAAAAAAAAAAAAAPC/"
+					"left_delete",
+					null,
+					"AgAAAKgAAAAAAAAAqQAAAAAAAAAAAAAAqQAAAAAAAACtAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAqAAAAAAAAACoAAAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					7,
+					20,
+					1,
+					"left_delete",
+					null,
+					"AQAAAN0CAAAAAAAA4QIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3QIAAAAAAADdAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAN0CAAAAAAAA3QIAAAAAAAAEAAAAICAgINwCAAAAAAAA3AIAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAA4QIAAAAAAADhAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
 					1,
 					"toggle_comment",
 					{
-						"block": false
+						"block": true
 					},
-					"AQAAAHQCAAAAAAAAdAIAAAAAAAADAAAALy8g",
-					"BwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAiwIAAAAAAACLAgAAAAAAAAAAAAAAAPC/"
+					"AgAAAIQAAAAAAAAAhAAAAAAAAAACAAAALyraAgAAAAAAANoCAAAAAAAAAgAAACov",
+					"AQAAAAAAAAABAAAA3AIAAAAAAACGAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"right_delete",
+					null,
+					"AQAAAIUAAAAAAAAAhwAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAhQAAAAAAAACFAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"paste",
+					null,
+					"AQAAAIcAAAAAAAAAhwAAAAAAAADuAwAAZ2l0IGNvbmZpZyAtLWdsb2JhbCBjb3JlLmF1dG9jcmxmINCy0LLQvtC0CgrQrdGC0LAg0LPQu9C+0LHQsNC70YzQvdCw0Y8g0LrQvtC90YTQuNCz0YPRgNCw0YbQuNGPINCz0LDRgNCw0L3RgtC40YDRg9C10YIsINGH0YLQviDQv9GA0Lgg0YTQuNC60YHQsNGG0LjQuCDRhNCw0LnQu9C+0LIg0LIgR2l0IENSTEYg0L/RgNC10L7QsdGA0LDQt9GD0LXRgtGB0Y8g0LIgTEYuINCj0YHRgtCw0L3QvtCy0LrQsCBjb3JlLmF1dG9jcmxm0LLQviBpbnB1dNCy0YDQtdC80Y8g0LPQu9C+0LHQsNC70YzQvdC+0Lkg0LrQvtC90YTQuNCz0YPRgNCw0YbQuNC4IEdpdCDQs9Cw0YDQsNC90YLQuNGA0YPQtdGCLCDRh9GC0L4g0L7QutC+0L3Rh9Cw0L3QuNGPINGB0YLRgNC+0Log0LHRg9C00YPRgiDQvdC+0YDQvNCw0LvQuNC30L7QstCw0L3RiyDQv9GA0Lgg0YTQuNC60YHQsNGG0LjQuCDRhNCw0LnQu9C+0LIuCgogICAg0J/RgNC4INGE0LjQutGB0LDRhtC40Lgg0YTQsNC50LvQsCDRgSDQvtC60L7QvdGH0LDQvdC40Y/QvNC4INGB0YLRgNC+0LogQ1JMRiDQvdCwINC60L7QvNC/0YzRjtGC0LXRgNC1INGBIFdpbmRvd3MgR2l0INCw0LLRgtC+0LzQsNGC0LjRh9C10YHQutC4INC/0YDQtdC+0LHRgNCw0LfRg9C10YIg0LjRhSDQsiBMRiDQv9C10YDQtdC0INGB0L7RhdGA0LDQvdC10L3QuNC10Lwg0LIg0YDQtdC/0L7Qt9C40YLQvtGA0LjQuC4KICAgINCYINC90LDQvtCx0L7RgNC+0YIsINC10YHQu9C4INCy0Ysg0YDQsNCx0L7RgtCw0LXRgtC1INCyINGB0LjRgdGC0LXQvNC1INC90LAg0LHQsNC30LUgVW5peCDQuCDRhNC40LrRgdC40YDRg9C10YLQtSDRhNCw0LnQuyDRgSDQvtC60L7QvdGH0LDQvdC40Y/QvNC4INGB0YLRgNC+0LogTEYsIEdpdCDQs9Cw0YDQsNC90YLQuNGA0YPQtdGCLCDRh9GC0L4g0L7QutC+0L3Rh9Cw0L3QuNGPINGB0YLRgNC+0Log0L7RgdGC0LDQvdGD0YLRgdGPIExGINC/0YDQuCDRgdC+0YXRgNCw0L3QtdC90LjQuCDQsiDRgNC10L/QvtC30LjRgtC+0YDQuNC4Lg",
+					"AQAAAAAAAAABAAAA3AIAAAAAAADcAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "\n\n.."
+					},
+					"BAAAAIYAAAAAAAAAhgAAAAAAAAABAAAALoUAAAAAAAAAhQAAAAAAAAABAAAALoQAAAAAAAAAhAAAAAAAAAABAAAACoMAAAAAAAAAgwAAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAhwAAAAAAAACHAAAAAAAAAAAAAAAAAPC/"
 				]
-			]
-		},
-		{
-			"file": "/D/tempTelegram/CodeFormatter (2).sublime-settings",
+			],
 			"settings":
 			{
-				"buffer_size": 5302,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/tempTelegram/doc_2024-08-26_09-25-56.gitignore",
-			"settings":
-			{
-				"buffer_size": 126,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/tempTelegram/Package Control.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 936,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "admin/core/functions.php",
-			"settings":
-			{
-				"buffer_size": 10180,
+				"buffer_size": 3316,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			},
 			"undo_stack":
 			[
 			]
-		},
-		{
-			"file": "admin/tpl/admin.tpl.html",
-			"settings":
-			{
-				"buffer_size": 3228,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/tempTelegram/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 6287,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "admin/tpl/megamenu.tpl.html",
-			"settings":
-			{
-				"buffer_size": 6253,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "admin/tpl/default_dpt.tpl.html",
-			"settings":
-			{
-				"buffer_size": 443,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "admin/tpl/adminOLD__menu_accordion.tpl.html",
-			"settings":
-			{
-				"buffer_size": 2198,
-				"line_ending": "Windows"
-			}
 		}
 	],
 	"build_system": "",
@@ -199,19 +166,37 @@
 	"expanded_folders":
 	[
 		"/C/OSPanel/home/antCMS.os",
-		"/C/OSPanel/home/antCMS.os/.osp",
-		"/C/OSPanel/home/antCMS.os/admin",
-		"/C/OSPanel/home/antCMS.os/admin/tpl"
+		"/C/OSPanel/home/antCMS.os/vendor",
+		"/C/OSPanel/home/antCMS.os/vendor/smarty",
+		"/C/OSPanel/home/antCMS.os/vendor/smarty/smarty",
+		"/C/OSPanel/home/antCMS.os/vendor/smarty/smarty/src",
+		"/C/OSPanel/home/antCMS.os/vendor/smarty/smarty/src/Extension"
 	],
 	"file_history":
 	[
+		"/C/OSPanel/home/antCMS.os/vendor/smarty/smarty/src/Extension/DefaultExtension.php",
+		"/C/Users/a/AppData/Roaming/Sublime Merge/Packages/User/Commit Message.sublime-settings",
+		"/C/OSPanel/home/antCMS.os/admin/core/includes/conf_columns.php",
+		"/C/OSPanel/home/antCMS.os/vendor/symfony/var-dumper/VarDumper.php",
+		"/C/OSPanel/home/antCMS.os/PROJECT_antCMS.sublime-project",
+		"/C/OSPanel/home/antCMS.os/admin/tpl/megamenu.tpl.html",
+		"/C/OSPanel/home/antCMS.os/admin/tpl/default_dpt.tpl.html",
+		"/C/OSPanel/home/antCMS.os/admin/tpl/adminOLD__menu_accordion.tpl.html",
+		"/D/tempTelegram/CodeFormatter (2).sublime-settings",
+		"/D/tempTelegram/doc_2024-08-26_09-25-56.gitignore",
+		"/D/tempTelegram/Package Control.sublime-settings",
+		"/C/OSPanel/home/antCMS.os/admin/core/functions.php",
+		"/C/OSPanel/home/antCMS.os/vendor/tracy/tracy/src/Tracy/functions.php",
+		"/C/OSPanel/home/antCMS.os/admin/functions/adminUI_functions.php",
+		"/C/OSPanel/home/antCMS.os/vendor/symfony/var-dumper/Cloner/Data.php",
+		"/C/OSPanel/home/antCMS.os/admin/tpl/admin.tpl.html",
+		"/D/tempTelegram/Preferences.sublime-settings",
+		"/C/OSPanel/home/antCMS.os/admin/tpl/admin__navbar.tpl.html",
 		"/C/OSPanel/home/antCMS.os/admin/tpl/admin__menu_accordion.tpl.html",
 		"/C/OSPanel/home/antCMS.os/admin/tpl/admin__footer.tpl.html",
-		"/C/OSPanel/home/antCMS.os/admin/tpl/admin__navbar.tpl.html",
 		"/C/OSPanel/home/antCMS.os/.osp/project.ini",
 		"/D/tempTelegram/цель",
 		"/C/OSPanel/home/antCMS.os/composer.txt",
-		"/C/OSPanel/home/antCMS.os/vendor/smarty/smarty/src/Extension/DefaultExtension.php",
 		"/C/OSPanel/home/api.ospanel/core/functions.php",
 		"/C/OSPanel/home/api.ospanel/public_html/index.php",
 		"/C/OSPanel/home/api.ospanel/core/Router/Router.php",
@@ -242,6 +227,8 @@
 		"height": 104.0,
 		"where_history":
 		[
+			"<project filters>, *.php",
+			""
 		]
 	},
 	"find_state":
@@ -249,6 +236,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dump",
+			"tdump",
+			"dump",
+			"tdump"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -262,7 +253,7 @@
 		"show_context": true,
 		"use_buffer2": true,
 		"use_gitignore": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
@@ -272,142 +263,20 @@
 			[
 				{
 					"buffer": 0,
-					"file": "PROJECT_antCMS.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1957,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								499,
-								499
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/D/tempTelegram/CodeFormatter (2).sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1030,
-								1030
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 324.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/D/tempTelegram/doc_2024-08-26_09-25-56.gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 126,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/D/tempTelegram/Package Control.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 936,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								806,
-								806
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "admin/core/functions.php",
+					"file": "admin/core/admin_end.php",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10180,
+						"buffer_size": 3316,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2143,
-								2143
+								131,
+								131
 							]
 						],
 						"settings":
@@ -417,72 +286,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1566.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "admin/tpl/admin.tpl.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3228,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1582,
-								1582
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/D/tempTelegram/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6287,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2700.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"stack_multiselect": false,
 					"type": "text"
 				}
@@ -491,100 +298,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 7,
-					"file": "admin/tpl/megamenu.tpl.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "admin/tpl/default_dpt.tpl.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 443,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "admin/tpl/adminOLD__menu_accordion.tpl.html",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2198,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2198,
-								2198
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -684,7 +397,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
