@@ -1,5 +1,6 @@
 {
-    "folders": [{
+    "folders": [
+        {
             "path": ".",
             // "path": "admin",
             "file_exclude_patterns": [
@@ -19,26 +20,39 @@
             ],
             "folder_exclude_patterns": [
                 "cache/templates_c",
-                // "lib",
-                // "vendor",
+                "lib",
+                "vendor",
+                "media",
                 // "smarty_config",
-                // "media",
                 // ".idea",
                 // "smarty4.2.1",
-                // "database_install",
+                "database_install",
+            ],
+            "index_exclude_patterns": [
+                "cache/templates_c",
+                "lib",
+                "vendor",
+                "smarty_config",
+                "media",
+                ".idea",
+                "smarty4.2.1",
+                "database_install",
+                ".osp",
+                ".git",
             ],
         }
 
     ],
 
 
-    "settings": {
+    "settings":
+    {
         "default_encoding": "UTF-8",
         "fallback_encoding": "UTF-8",
         "tab_size": 4,
 
         "color_scheme": "Dark Knight.sublime-color-scheme",
-        // "color_scheme": "Mariana.sublime-color-scheme",
+        "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Breakers.sublime-color-scheme",
         // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
 
