@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-09-23 08:19:25
+/* Smarty version 5.4.1, created on 2024-09-23 08:31:06
   from 'file:sub/default_sub.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_66f0fa5dd6f591_64585452',
+  'unifunc' => 'content_66f0fd1a339916_51269394',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66f0fa5dd6f591_64585452 (\Smarty\Template $_smarty_tpl) {
+function content_66f0fd1a339916_51269394 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antCMS.os\\admin\\tpl\\sub';
 ?>
 <div class="table-responsive-md mb-4">

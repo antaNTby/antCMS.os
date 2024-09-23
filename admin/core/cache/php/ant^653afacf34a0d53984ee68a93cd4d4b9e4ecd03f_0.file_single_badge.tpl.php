@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-09-20 12:10:31
+/* Smarty version 5.4.1, created on 2024-09-23 08:32:17
   from 'file:cs/single_badge.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_66ed3c072b7982_96809269',
+  'unifunc' => 'content_66f0fd611062f4_96043891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66ed3c072b7982_96809269 (\Smarty\Template $_smarty_tpl) {
+function content_66f0fd611062f4_96043891 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antCMS.os\\admin\\tpl\\cs';
 if ((null !== ($_smarty_tpl->getValue('p') ?? null)) && is_array($_smarty_tpl->getValue('p'))) {?>
 

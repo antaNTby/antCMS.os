@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-09-06 13:15:59
+/* Smarty version 5.4.1, created on 2024-09-23 08:31:23
   from 'file:atoms/aEmptyTableBodyWithPlaceholders.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_66dad65fe31504_36106808',
+  'unifunc' => 'content_66f0fd2b1ec6e8_47209855',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66dad65fe31504_36106808 (\Smarty\Template $_smarty_tpl) {
+function content_66f0fd2b1ec6e8_47209855 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antCMS.os\\admin\\tpl\\atoms';
 $_smarty_tpl->tpl_vars['__smarty_section_upR'] = new \Smarty\Variable(array());
 if (true) {

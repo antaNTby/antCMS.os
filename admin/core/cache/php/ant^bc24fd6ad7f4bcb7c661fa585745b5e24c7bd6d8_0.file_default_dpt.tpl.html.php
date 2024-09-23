@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-09-23 08:19:25
+/* Smarty version 5.4.1, created on 2024-09-23 08:31:06
   from 'file:default_dpt.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_66f0fa5dd26c45_35598016',
+  'unifunc' => 'content_66f0fd1a2fcd17_29841524',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,7 +23,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:sub/default_sub.tpl.html' => 1,
   ),
 ))) {
-function content_66f0fa5dd26c45_35598016 (\Smarty\Template $_smarty_tpl) {
+function content_66f0fd1a2fcd17_29841524 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antCMS.os\\admin\\tpl';
 $_smarty_tpl->renderSubTemplate("file:atoms/aBreadcrump.tpl.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 $_smarty_tpl->renderSubTemplate("file:atoms/aPageH1.tpl.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
