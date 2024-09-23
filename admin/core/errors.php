@@ -1,7 +1,7 @@
 <?php
 
 // Проверка
-if (!defined('SITE_URL'))
+if ( ! defined('SITE_URL'))
 {
     exit('Access denied');
 }
@@ -77,7 +77,7 @@ function errorHandler(
 function shutdownHandler()
 {
     $lasterror = error_get_last();
-    if (!is_null($lasterror))
+    if ( ! is_null($lasterror))
     {
         switch ($lasterror['type'])
         {
@@ -118,4 +118,3 @@ function errorLogs(
 
     echo $render;
 }
-?>
