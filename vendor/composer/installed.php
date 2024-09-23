@@ -56,9 +56,9 @@
             'dev_requirement' => true,
         ),
         'symfony/polyfill-mbstring' => array(
-            'pretty_version' => 'v1.30.0',
-            'version' => '1.30.0.0',
-            'reference' => 'fd22ab50000ef01661e2a31d850ebaa297f8e03c',
+            'pretty_version' => 'v1.31.0',
+            'version' => '1.31.0.0',
+            'reference' => '85181ba99b2345b0ef10ce42ecac37612d9fd341',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),
