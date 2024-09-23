@@ -40,8 +40,7 @@
                 ".osp",
                 ".git",
             ],
-        }
-
+        },
     ],
 
 
@@ -50,9 +49,10 @@
         "default_encoding": "UTF-8",
         "fallback_encoding": "UTF-8",
         "tab_size": 4,
+        "font_face": "Intel One Mono",
 
-        "color_scheme": "Dark Knight.sublime-color-scheme",
         "color_scheme": "Mariana.sublime-color-scheme",
+        /*"color_scheme": "Mariana.sublime-color-scheme",*/
         // "color_scheme": "Breakers.sublime-color-scheme",
         // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
 
@@ -67,5 +67,5 @@
         // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
         // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
         // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
-    }
+    },
 }
