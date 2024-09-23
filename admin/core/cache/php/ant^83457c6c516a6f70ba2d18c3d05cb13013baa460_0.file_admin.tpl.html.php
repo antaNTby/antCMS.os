@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-09-20 13:16:48
+/* Smarty version 5.4.1, created on 2024-09-23 08:19:25
   from 'file:admin.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_66ed4b90538b44_04208696',
+  'unifunc' => 'content_66f0fa5dc87339_00717561',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:admin__footer.tpl.html' => 1,
   ),
 ))) {
-function content_66ed4b90538b44_04208696 (\Smarty\Template $_smarty_tpl) {
+function content_66f0fa5dc87339_00717561 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antCMS.os\\admin\\tpl';
 ?><!DOCTYPE html>
 <html class="h-100" lang="ru-BY"><?php $_smarty_tpl->assign('use_offcanvas_menu', 1, false, NULL);?>

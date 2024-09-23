@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-09-20 12:10:31
+/* Smarty version 5.4.1, created on 2024-09-23 08:19:25
   from 'file:atoms/aBreadcrump.tpl.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_66ed3c07275c79_91586600',
+  'unifunc' => 'content_66f0fa5dd41568_74274601',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_66ed3c07275c79_91586600 (\Smarty\Template $_smarty_tpl) {
+function content_66f0fa5dd41568_74274601 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\OSPanel\\home\\antCMS.os\\admin\\tpl\\atoms';
 ?><nav class="my-1 d-flex flex-column-inverse flex-md-row-inverse justify-content-start justify-content-md-end" style="--bs-breadcrumb-divider: '::'" aria-label="breadcrumb">
     <ol class="my-0 px-1 breadcrumb text-small lh-1">
