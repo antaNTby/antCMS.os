@@ -1,43 +1,68 @@
 <?php
 use Smarty\Smarty;
+use Tracy\Debugger;
+
+// https://profitweb.net/resources/phpmyadmin-dlja-open-server-panel-6-0-0-nastrojki-menju.9/
+# The VarDumper component provides mechanisms for extracting the state out of any PHP variables.
+# Built on top, it provides a better dump() function that you can use instead of var_dump
+
+// npm
+//  Открываем закладку Сервер
+//  Затем Настройка использования переменной Path -> выбираем из этого списка Свой Path + userdata/config/path.txt + Win Path
+// d:\OSPanel\userdata\config\path.txt  -- создать файл в опенсервер для подключения Npm
+// C:\Program Files\nodejs\             -- прописать в него путь до nodejs
+
+$ds = DIRECTORY_SEPARATOR;
+function isWindows()
+{
+    return (isset($_SERVER['WINDIR']) || isset($_SERVER['windir']));
+}
+$IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
+define('PATH_DELIMITER', isWindows() ? ';' : ':');
+$dird          = dirname($_SERVER['PHP_SELF']); ## "/admin"
+$sourcessrandd = ['//' => '/', '\\' => '/'];
+$dird          = strtr($dird, $sourcessrandd);
+if ($dird != '/')
+{
+    $dirf = '/';
+}
+else
+{
+    $dirf = '';
+}
+$url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
+
+require '../vendor/autoload.php';
+
+# сбрасываем время сессии
+session_cache_expire();
+
+/*
+ * Get Tracy up and running
+ *
+ * There lots of setup options for Tracy! Logs, emails, clicking to
+ * open in your editor and a lot more!
+ * Check out the docs here:
+ * https://tracy.nette.org/
+ */
+
+Debugger::enable();
+
+// Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
+Debugger::$logDirectory = __DIR__ . $ds . 'log';
+Debugger::$strictMode   = true;
+Debugger::$showLocation = true; // Shows all additional location information
+
+// в режиме разработки вы будете видеть уведомления или предупреждения об ошибках как BlueScreen
+Debugger::$strictMode = E_ALL; /* ... */; // (bool|int) по умолчанию false, вы можете выбрать только определенные уровни ошибок (например, E_USER_DEPRECATED | E_DEPRECATED)
+
+// отображает беззвучные (@) сообщения об ошибках
+Debugger::$scream = E_ALL; /* ... */; // (bool|int) по умолчанию false, с версии 2.9 можно выбрать только определенные уровни ошибок (например, E_USER_DEPRECATED | E_DEPRECATED)
+
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
-
-// cd domains
-// cd antCMS.os
-// composer require twbs/bootstrap
-// composer require smarty/smarty
-// composer require twbs/bootstrap-icons
-// composer require gabordemooij/redbean
-// composer remove gabordemooij/redbean
-
-
-// composer require --dev symfony/var-dumper
-
-
-// composer require datatables.net-bs5
-// composer require datatables.net-buttons-bs5
-// composer require datatables.net-datetime
-// composer require datatables.net-fixedcolumns-bs5
-// composer require datatables.net-fixedheader-bs5
-// composer require datatables.net-keytable-bs5
-// composer require datatables.net-responsive-bs5
-// composer require datatables.net-rowgroup-bs5
-// composer require datatables.net-rowreorder-bs5
-// composer require datatables.net-scroller-bs5
-// composer require datatables.net-searchbuilder-bs5
-// composer require datatables.net-searchpanes-bs5
-// composer require datatables.net-select-bs5
-// composer require datatables.net-staterestore-bs5
-//
-// composer require izniburak/pdox
-
-// $ composer self-update
-// Upgrading to version 2.7.6 (stable channel).
-//
-#composer
 
 // Set the default timezone
 // date_default_timezone_set('America/New_York');
@@ -110,48 +135,48 @@ $pdo_connect = [
 // ];
 $config = [
     # Database Driver Type (optional)
-     # default value: mysql
-     # values: mysql, pgsql, sqlite, oracle
-     'driver'    => 'mysql',
+    # default value: mysql
+    # values: mysql, pgsql, sqlite, oracle
+    'driver'    => 'mysql',
 
 # Host name or IP Address (optional)
-     # hostname:port (for Port Usage. Example: 127.0.0.1:1010)
-     # default value: localhost
-     'host'      => DB_HOST,
+    # hostname:port (for Port Usage. Example: 127.0.0.1:1010)
+    # default value: localhost
+    'host'      => DB_HOST,
 
 # IP Address for Database Host (optional)
-     # default value: null
-     'port'      => 3306,
+    # default value: null
+    'port'      => 3306,
 
 # Database Name (required)
-     'database'  => DB_NAME,
+    'database'  => DB_NAME,
 
 # Database User Name (required)
-     'username'  => DB_USER,
+    'username'  => DB_USER,
 
 # Database User Password (required)#
-     'password'  => DB_PASS,
+    'password'  => DB_PASS,
 
 # Database Charset (optional)
-     # default value: utf8
-     'charset'   => 'utf8mb4',
-     // 'charset'   => 'utf8',
+    # default value: utf8
+    'charset'   => 'utf8mb4',
+    // 'charset'   => 'utf8',
 
 # Database Charset Collation (optional)
-     # default value: utf8_general_ci
-     'collation' => 'utf8mb4_unicode_ci',
-     // 'collation' => 'utf8_general_ci',
+    # default value: utf8_general_ci
+    'collation' => 'utf8mb4_unicode_ci',
+    // 'collation' => 'utf8_general_ci',
 
 # Database Prefix (optional)
-     # default value: null
-     // 'prefix'    => DB_PRFX,
-     'prefix'    => null,
+    # default value: null
+    // 'prefix'    => DB_PRFX,
+    'prefix'    => null,
 
 # Cache Directory of the Sql Result (optional)
-     # default value: __DIR__ . '/cache/'
-     'cachedir'  => __DIR__ . '/cache/sql/',
+    # default value: __DIR__ . '/cache/'
+    'cachedir'  => __DIR__ . '/cache/sql/',
     # default value: true
-     'debug'     => true,
+    'debug'     => true,
 ];
 
 $db = new \Buki\Pdox($config);
@@ -168,7 +193,6 @@ $smarty->compile_id    = 'ant';
 $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->setEscapeHtml(true); //Enable auto-escaping for HTML as follows:
 $smarty->setEscapeHtml(false);
-
 
 //Enable auto-escaping for HTML as follows:
 // $smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
@@ -196,5 +220,34 @@ $smarty->setEscapeHtml(false);
 // register_shutdown_function('shutdownHandler');
 // error_reporting(E_ALL & ~E_NOTICE);
 
+// cd domains
+// cd antCMS.os
+// composer require twbs/bootstrap
+// composer require smarty/smarty
+// composer require twbs/bootstrap-icons
+// composer require gabordemooij/redbean
+// composer remove gabordemooij/redbean
 
+// composer require --dev symfony/var-dumper
 
+// composer require datatables.net-bs5
+// composer require datatables.net-buttons-bs5
+// composer require datatables.net-datetime
+// composer require datatables.net-fixedcolumns-bs5
+// composer require datatables.net-fixedheader-bs5
+// composer require datatables.net-keytable-bs5
+// composer require datatables.net-responsive-bs5
+// composer require datatables.net-rowgroup-bs5
+// composer require datatables.net-rowreorder-bs5
+// composer require datatables.net-scroller-bs5
+// composer require datatables.net-searchbuilder-bs5
+// composer require datatables.net-searchpanes-bs5
+// composer require datatables.net-select-bs5
+// composer require datatables.net-staterestore-bs5
+//
+// composer require izniburak/pdox
+
+// $ composer self-update
+// Upgrading to version 2.7.6 (stable channel).
+//
+#composer
