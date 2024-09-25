@@ -7,207 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "simple.html",
-			"redo_stack":
-			[
-				[
-					8,
-					1,
-					"left_delete",
-					null,
-					"AgAAAKcCAAAAAAAAqAIAAAAAAAAAAAAAqAIAAAAAAACpAgAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACwAQAAAAAAALABAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					7,
-					1,
-					"insert",
-					{
-						"characters": "dd"
-					},
-					"AgAAAKgCAAAAAAAAqAIAAAAAAAABAAAAZKcCAAAAAAAApwIAAAAAAAABAAAAZA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACpAgAAAAAAAKkCAAAAAAAAAAAAAAAA8L8"
-				]
-			],
-			"settings":
-			{
-				"buffer_size": 2606,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "PROJECT_antCMS.sublime-project",
-			"settings":
-			{
-				"buffer_size": 2308,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					3,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AgAAADQFAAAAAAAANQUAAAAAAAAAAAAANQUAAAAAAAA9BQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANAUAAAAAAAA0BQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					4,
-					1,
-					"paste",
-					null,
-					"AQAAAD0FAAAAAAAAWwUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAPQUAAAAAAAA9BQAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"file": "admin/functions/admin_functions.php",
-			"settings":
-			{
-				"buffer_size": 5647,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "{\n\t\"bootstrapped\": true,\n\t\"in_process_packages\":\n\t[\n\t],\n\t\"installed_packages\":\n\t[\n\t\t\"A File Icon\",\n\t\t\"AddRemoveFolder\",\n\t\t\"Advanced CSV\",\n\t\t\"AdvancedNewFile\",\n\t\t\"Alignment\",\n\t\t\"All Autocomplete\",\n\t\t\"ApacheConf\",\n\t\t\"AutoFileName\",\n\t\t\"Bootstrap 3 Autocomplete\",\n\t\t\"Bootstrap 3 Snippets\",\n\t\t\"Bootstrap 4 Snippets\",\n\t\t\"BootstrapAutocomplete\",\n\t\t\"BracketHighlighter\",\n\t\t\"CodeFormatter\",\n\t\t\"Color Convert\",\n\t\t\"ColorHelper\",\n\t\t\"ColorHints\",\n\t\t\"ColorSchemeEditor\",\n\t\t\"Compare Side-By-Side\",\n\t\t\"Drive Color Scheme\",\n\t\t\"Emmet\",\n\t\t\"HTML Boilerplate\",\n\t\t\"HTML-CSS-JS Prettify\",\n\t\t\"HTML5\",\n\t\t\"jQuery Snippets pack\",\n\t\t\"jQuery\",\n\t\t\"JSHint Gutter\",\n\t\t\"Minifier\",\n\t\t\"MySQL Snippets\",\n\t\t\"Package Control\",\n\t\t\"PHP Companion\",\n\t\t\"PHP Completions Kit\",\n\t\t\"PHP Syntax Checker\",\n\t\t\"Pug\",\n\t\t\"ReadonlyProtect\",\n\t\t\"Sass\",\n\t\t\"SFTP\",\n\t\t\"SideBarEnhancements\",\n\t\t\"Smart Path Copy\",\n\t\t\"Smarty\",\n\t\t\"VBDotNet\",\n\t\t\"VBScript\",\n\t\t\"Visual Studio Bold Color Scheme\",\n\t],\n}\n",
-			"file": "/D/tempTelegram/Package Control.sublime-settings",
-			"file_size": 988,
-			"file_write_time": 133691273154854646,
-			"settings":
-			{
-				"buffer_size": 936,
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					10,
-					1,
-					"sort_lines",
-					{
-						"case_sensitive": false
-					},
-					"AQAAAFIAAAAAAAAAoQMAAAAAAABPAwAACQkiQSBGaWxlIEljb24iLAoJCSJBZGRSZW1vdmVGb2xkZXIiLAoJCSJBZHZhbmNlZCBDU1YiLAoJCSJBZHZhbmNlZE5ld0ZpbGUiLAoJCSJBbGlnbm1lbnQiLAoJCSJBbGwgQXV0b2NvbXBsZXRlIiwKCQkiQXBhY2hlQ29uZiIsCgkJIkF1dG9GaWxlTmFtZSIsCgkJIkJvb3RzdHJhcCAzIEF1dG9jb21wbGV0ZSIsCgkJIkJvb3RzdHJhcCAzIFNuaXBwZXRzIiwKCQkiQm9vdHN0cmFwIDQgU25pcHBldHMiLAoJCSJCb290c3RyYXBBdXRvY29tcGxldGUiLAoJCSJCcmFja2V0SGlnaGxpZ2h0ZXIiLAoJCSJDb2RlRm9ybWF0dGVyIiwKCQkiQ29sb3IgQ29udmVydCIsCgkJIkNvbG9ySGVscGVyIiwKCQkiQ29sb3JIaW50cyIsCgkJIkNvbG9yU2NoZW1lRWRpdG9yIiwKCQkiQ29tcGFyZSBTaWRlLUJ5LVNpZGUiLAoJCSJEcml2ZSBDb2xvciBTY2hlbWUiLAoJCSJFbW1ldCIsCgkJIkhUTUwgQm9pbGVycGxhdGUiLAoJCSJIVE1MLUNTUy1KUyBQcmV0dGlmeSIsCgkJIkhUTUw1IiwKCQkialF1ZXJ5IiwKCQkialF1ZXJ5IFNuaXBwZXRzIHBhY2siLAoJCSJKU0hpbnQgR3V0dGVyIiwKCQkiTWluaWZpZXIiLAoJCSJNeVNRTCBTbmlwcGV0cyIsCgkJIlBhY2thZ2UgQ29udHJvbCIsCgkJIlBIUCBDb21wYW5pb24iLAoJCSJQSFAgQ29tcGxldGlvbnMgS2l0IiwKCQkiUEhQIFN5bnRheCBDaGVja2VyIiwKCQkiUHVnIiwKCQkiUmVhZG9ubHlQcm90ZWN0IiwKCQkiU2FzcyIsCgkJIlNGVFAiLAoJCSJTaWRlQmFyRW5oYW5jZW1lbnRzIiwKCQkiU21hcnQgUGF0aCBDb3B5IiwKCQkiU21hcnR5IiwKCQkiVkJEb3ROZXQiLAoJCSJWQlNjcmlwdCIsCgkJIlZpc3VhbCBTdHVkaW8gQm9sZCBDb2xvciBTY2hlbWUiLA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAKEDAAAAAAAAUgAAAAAAAAAAAAAAAADwvw"
-				]
-			]
-		},
-		{
-			"file": "/C/Users/a/AppData/Roaming/Sublime Text/Packages/User/Package Control.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 373,
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAAAgAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJTaWRlYmFyU2VwYXJhdG9yIiwKCQkiU21hcnR5IiwKCQkiVmlzdWFsIFN0dWRpbyBEYXJrIiwKCV0sCn0KAAAAAAAAAAA1AQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					2,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAAA1AQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJTaWRlYmFyU2VwYXJhdG9yIiwKCQkiU21hcnR5IiwKCQkiVmlzdWFsIFN0dWRpbyBEYXJrIiwKCV0sCn0KAAAAAAAAAABKAQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					10,
-					1,
-					"sort_lines",
-					{
-						"case_sensitive": false
-					},
-					"AQAAAFIAAAAAAAAAQwEAAAAAAADxAAAACQkiQWRkUmVtb3ZlRm9sZGVyIiwKCQkiQWR2YW5jZWROZXdGaWxlIiwKCQkiQ29sb3IgU2NoZW1lIC0gQmFzcyIsCgkJIkRhcmsgS25pZ2h0IENvbG9yIFNjaGVtZSIsCgkJIkdvdG9QaHBNYW51YWwiLAoJCSJIVE1MLUNTUy1KUyBQcmV0dGlmeSIsCgkJIklOSSIsCgkJIlBhY2thZ2UgQ29udHJvbCIsCgkJInBocGZtdCIsCgkJIlNpZGViYXJTZXBhcmF0b3IiLAoJCSJTbWFydHkiLAoJCSJWaXN1YWwgU3R1ZGlvIERhcmsiLA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEMBAAAAAAAAUgAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					14,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAABKAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJTaWRlYmFyU2VwYXJhdG9yIiwKCQkiU21hcnR5IiwKCQkiVmlzdWFsIFN0dWRpbyBEYXJrIiwKCV0sCn0KAAAAAAAAAABcAQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHIAAAAAAAAAcgAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					15,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAABcAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgkJIlJlYWRvbmx5TW9kZSIsCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJTaWRlYmFyU2VwYXJhdG9yIiwKCQkiU21hcnR5IiwKCQkiVmlzdWFsIFN0dWRpbyBEYXJrIiwKCV0sCn0KAAAAAAAAAABcAQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHIAAAAAAAAAcgAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					16,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAABcAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJSZWFkb25seU1vZGUiLAoJCSJTaWRlYmFyU2VwYXJhdG9yIiwKCQkiU21hcnR5IiwKCQkiVmlzdWFsIFN0dWRpbyBEYXJrIiwKCV0sCn0KAAAAAAAAAAB1AQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHIAAAAAAAAAcgAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					17,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAAB1AQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgkJIlNpZGVCYXJFbmhhbmNlbWVudHMiLAoJXSwKCSJpbnN0YWxsZWRfcGFja2FnZXMiOgoJWwoJCSJBZGRSZW1vdmVGb2xkZXIiLAoJCSJBZHZhbmNlZE5ld0ZpbGUiLAoJCSJDb2xvciBTY2hlbWUgLSBCYXNzIiwKCQkiRGFyayBLbmlnaHQgQ29sb3IgU2NoZW1lIiwKCQkiR290b1BocE1hbnVhbCIsCgkJIkhUTUwtQ1NTLUpTIFByZXR0aWZ5IiwKCQkiSU5JIiwKCQkiUGFja2FnZSBDb250cm9sIiwKCQkicGhwZm10IiwKCQkiUmVhZG9ubHlNb2RlIiwKCQkiU2lkZWJhclNlcGFyYXRvciIsCgkJIlNtYXJ0eSIsCgkJIlZpc3VhbCBTdHVkaW8gRGFyayIsCgldLAp9CgAAAAAAAAAAdQEAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHIAAAAAAAAAcgAAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					20,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAAB1AQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJSZWFkb25seU1vZGUiLAoJCSJTaWRlQmFyRW5oYW5jZW1lbnRzIiwKCQkiU2lkZWJhclNlcGFyYXRvciIsCgkJIlNtYXJ0eSIsCgkJIlZpc3VhbCBTdHVkaW8gRGFyayIsCgldLAp9CgAAAAAAAAAAigEAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHUBAAAAAAAAdQEAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					21,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAACKAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkZFJlbW92ZUZvbGRlciIsCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJSZWFkb25seU1vZGUiLAoJCSJTaWRlQmFyRW5oYW5jZW1lbnRzIiwKCQkiU2lkZWJhclNlcGFyYXRvciIsCgkJIlNtYXJ0eSIsCgkJIlZpc3VhbCBTdHVkaW8gRGFyayIsCgldLAp9CgAAAAAAAAAAYAEAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHUBAAAAAAAAdQEAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					22,
-					1,
-					"revert",
-					null,
-					"AgAAAAAAAAAAAAAAAAAAAAAAAABgAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJSZWFkb25seU1vZGUiLAoJCSJTaWRlQmFyRW5oYW5jZW1lbnRzIiwKCQkiU2lkZWJhclNlcGFyYXRvciIsCgkJIlNtYXJ0eSIsCgkJIlZpc3VhbCBTdHVkaW8gRGFyayIsCgldLAp9CgAAAAAAAAAAdQEAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGABAAAAAAAAYAEAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					23,
-					1,
-					"revert",
-					null,
-					"AwAAAAAAAAAAAAAAAAAAAAAAAAB1AQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkFkdmFuY2VkTmV3RmlsZSIsCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJSZWFkb25seU1vZGUiLAoJCSJTaWRlQmFyRW5oYW5jZW1lbnRzIiwKCQkiU2lkZWJhclNlcGFyYXRvciIsCgkJIlNtYXJ0eSIsCgkJIlZpc3VhbCBTdHVkaW8gRGFyayIsCgldLAp9CgAAAAAAAAAASwEAAAAAAAAAAAAAAAAAAAAAAABLAQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGABAAAAAAAAYAEAAAAAAAAAAAAAAADwvw"
-				],
-				[
-					3,
-					1,
-					"revert",
-					null,
-					"AwAAAAAAAAAAAAAAAAAAAAAAAABLAQAAewoJImJvb3RzdHJhcHBlZCI6IHRydWUsCgkiaW5fcHJvY2Vzc19wYWNrYWdlcyI6CglbCgldLAoJImluc3RhbGxlZF9wYWNrYWdlcyI6CglbCgkJIkNvbG9yIFNjaGVtZSAtIEJhc3MiLAoJCSJEYXJrIEtuaWdodCBDb2xvciBTY2hlbWUiLAoJCSJHb3RvUGhwTWFudWFsIiwKCQkiSFRNTC1DU1MtSlMgUHJldHRpZnkiLAoJCSJJTkkiLAoJCSJQYWNrYWdlIENvbnRyb2wiLAoJCSJwaHBmbXQiLAoJCSJSZWFkb25seU1vZGUiLAoJCSJTaWRlQmFyRW5oYW5jZW1lbnRzIiwKCQkiU2lkZWJhclNlcGFyYXRvciIsCgkJIlNtYXJ0eSIsCgkJIlZpc3VhbCBTdHVkaW8gRGFyayIsCgldLAp9CgAAAAAAAAAAdQEAAAAAAAAAAAAAAAAAAAAAAAB1AQAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLAQAAAAAAAEsBAAAAAAAAAAAAAAAA8L8"
-				]
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -221,12 +20,12 @@
 		"selected_items":
 		[
 			[
-				"rem",
-				"Package Control: Remove Package"
-			],
-			[
 				"ip",
 				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
 			],
 			[
 				"ins",
@@ -293,13 +92,25 @@
 	},
 	"expanded_folders":
 	[
-		"/C/OSPanel/home/antCMS.os"
+		"/C/OSPanel/home/antCMS.os",
+		"/C/OSPanel/home/antCMS.os/admin",
+		"/C/OSPanel/home/antCMS.os/admin/functions",
+		"/C/OSPanel/home/antCMS.os/admin/js",
+		"/C/OSPanel/home/antCMS.os/admin/js/cs",
+		"/C/OSPanel/home/antCMS.os/admin/js/dt"
 	],
 	"file_history":
 	[
+		"/C/OSPanel/home/antCMS.os/admin/js/dt/defaultKatzapskayaMova.js",
+		"/C/OSPanel/home/antCMS.os/admin/js/dt/standartDataTable.js",
+		"/D/tempTelegram/Package Control.sublime-settings",
+		"/C/Users/a/AppData/Roaming/Sublime Text/Packages/User/Package Control.sublime-settings",
+		"/C/OSPanel/home/antCMS.os/simple.html",
+		"/C/OSPanel/home/antCMS.os/PROJECT_antCMS.sublime-project",
+		"/C/OSPanel/home/antCMS.os/admin/functions/crypto_functions.php",
+		"/C/OSPanel/home/antCMS.os/admin/functions/registration_functions.php",
 		"/C/OSPanel/home/antCMS.os/admin/admin.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/bootstrap.php",
-		"/C/OSPanel/home/antCMS.os/admin/functions/crypto_functions.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/mysqli.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/functions.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/errors.php",
@@ -309,11 +120,9 @@
 		"/C/OSPanel/home/antCMS.os/.gitattributes",
 		"/C/Users/a/AppData/Roaming/Sublime Merge/Packages/User/Commit Message.sublime-settings",
 		"/C/Users/a/AppData/Roaming/Sublime Merge/Packages/User/Default (Windows).sublime-keymap",
-		"/C/OSPanel/home/antCMS.os/PROJECT_antCMS.sublime-project",
 		"/C/OSPanel/home/antCMS.os/admin/core/cache/php/ant^063f476e789b68867ca48a1dccece4c9157e49e1_0.file_conf_columns.tpl.html.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/admin_end.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/settings.php",
-		"/C/OSPanel/home/antCMS.os/simple.html",
 		"/D/Local Downloads/2024-09-10_localhost.sql",
 		"/C/OSPanel/home/antCMS.os/vendor/smarty/smarty/src/Extension/DefaultExtension.php",
 		"/C/OSPanel/home/antCMS.os/admin/core/includes/conf_columns.php",
@@ -323,7 +132,6 @@
 		"/C/OSPanel/home/antCMS.os/admin/tpl/adminOLD__menu_accordion.tpl.html",
 		"/D/tempTelegram/CodeFormatter (2).sublime-settings",
 		"/D/tempTelegram/doc_2024-08-26_09-25-56.gitignore",
-		"/D/tempTelegram/Package Control.sublime-settings",
 		"/C/OSPanel/home/antCMS.os/vendor/tracy/tracy/src/Tracy/functions.php",
 		"/C/OSPanel/home/antCMS.os/admin/functions/adminUI_functions.php",
 		"/C/OSPanel/home/antCMS.os/vendor/symfony/var-dumper/Cloner/Data.php",
@@ -407,170 +215,21 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "simple.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								753,
-								753
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Smarty/Syntaxes/Smarty.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "PROJECT_antCMS.sublime-project",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2308,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1371,
-								1371
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "admin/functions/admin_functions.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 5647,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		},
 		{
 			"sheets":
 			[
-				{
-					"buffer": 3,
-					"file": "/D/tempTelegram/Package Control.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 936,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								433,
-								433
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/a/AppData/Roaming/Sublime Text/Packages/User/Package Control.sublime-settings",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								331,
-								331
-							]
-						],
-						"settings":
-						{
-							"edit_settings_other_view_id": 58,
-							"edit_settings_view": "user",
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -597,12 +256,26 @@
 				0,
 				2,
 				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			],
+			[
+				3,
+				0,
+				4,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.649090226024,
+			0.25,
+			0.5,
+			0.75,
 			1.0
 		],
 		"rows":
