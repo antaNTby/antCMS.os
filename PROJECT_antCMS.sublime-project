@@ -4,8 +4,8 @@
             "path": ".",
             // "path": "admin",
             "file_exclude_patterns": [
-                // "*.sublime-workspace",
-                // "*.sublime-project",
+                "*.sublime-workspace",
+                "*.sublime-project",
                 "composer.*",
                 "adminer.*",
                 ".gitignore",
