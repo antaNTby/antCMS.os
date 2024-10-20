@@ -52,8 +52,8 @@ if (( ! isset($_SESSION['log']) || ! in_array(100, $relaccess)))
     die(ERROR_FORBIDDEN);
 }
 
-if (isset($_GET['logout'])) //user logout
-
+# user logout
+if (isset($_GET['logout']))
 {
     unset($_SESSION['log']);
     unset($_SESSION['pass']);
