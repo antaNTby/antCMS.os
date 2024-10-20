@@ -4,11 +4,11 @@
             "path": ".",
             // "path": "admin",
             "file_exclude_patterns": [
-                "*.sublime-workspace",
+                // "*.sublime-workspace",
                 "*.sublime-project",
                 "composer.*",
                 "adminer.*",
-                // ".gitignore",
+                ".gitignore",
                 ".gitkeep",
                 // "smarty4.2.1.tar",
                 "cache/ant*.php",
@@ -51,12 +51,11 @@
         "tab_size": 4,
         "font_face": "Intel One Mono",
 
-        "color_scheme": "Mariana.sublime-color-scheme",
-        /*"color_scheme": "Mariana.sublime-color-scheme",*/
+        // "color_scheme": "Mariana.sublime-color-scheme",
         // "color_scheme": "Breakers.sublime-color-scheme",
         // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+        "color_scheme": "Dark Knight.sublime-color-scheme",
 
-        // "color_scheme": "Dark Knight.sublime-color-scheme",
         // "color_scheme": "Dark Knight.sublime-color-scheme",
         // "color_scheme": "Monokai.sublime-color-scheme",
         // "color_scheme": "Sixteen.sublime-color-scheme",
