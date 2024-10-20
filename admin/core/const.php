@@ -1,6 +1,8 @@
 <?php
 ### КОНСТАНТЫ
 
+const CONF_SECURITY_EXPIRE = 12; //   {$smarty.const.CONF_SECURITY_EXPIRE}
+define('SECURITY_EXPIRE', 60 * 60 * CONF_SECURITY_EXPIRE);
 // FROM connect.inc.php
 const SLASH    = '/';                                 //   {$smarty.const.SLASH}
 const SITE_URL = 'antCMS.os';                         //    {$smarty.const.SITE_URL}
@@ -11,7 +13,7 @@ const ADMIN_LOGOUT_LINK = ADMIN_FILE . '?logout=yes'; //    {$smarty.const.ADMIN
 const FILEDEBUGJSON         = 'log/FILEDEBUG.JSON';   //  {$smarty.const.FILEDEBUGJSON}
 const SQLDEBUG              = 'log/SQLDEBUG.JSON';    //  {$smarty.const.SQLDEBUG}
 const SMARTYDEBUGJSON       = 'log/SMARTYDEBUG.JSON'; //  {$smarty.const.SMARTYDEBUGJSON}
-const ADMIN_SMARTY_LOG_VARS = 0;                       //   {$smarty.const.ADMIN_SMARTY_LOG_VARS}
+const ADMIN_SMARTY_LOG_VARS = 0;                      //   {$smarty.const.ADMIN_SMARTY_LOG_VARS}
 
 const ERROR_DB_INIT = SITE_URL . ' :: ' . 'Database connection problem!'; //   {$smarty.const.ERROR_DB_INIT} database system
 

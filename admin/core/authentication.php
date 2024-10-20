@@ -1,6 +1,5 @@
 <?php
 
-define('SECURITY_EXPIRE', 60 * 60 * CONF_SECURITY_EXPIRE);
 session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy', 'sess_gc');
 
 session_set_cookie_params(SECURITY_EXPIRE);
@@ -25,12 +24,11 @@ if (isset($_COOKIE['PHPSESSID']))
 
 $relaccess = checklogin();
 
-
 // if($relaccess==[]){
 //    die(ERROR_FORBIDDEN);
 // }
 
-if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
+if (( ! isset($_SESSION['log']) || ! in_array(100, $relaccess)))
 {
     if (isset($_POST['user_login']) && isset($_POST['user_pw']))
     {
@@ -45,6 +43,7 @@ if ((!isset($_SESSION['log']) || !in_array(100, $relaccess)))
 }
 
 if (isset($_GET['logout'])) //user logout
+
 {
     unset($_SESSION['log']);
     unset($_SESSION['pass']);

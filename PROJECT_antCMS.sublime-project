@@ -21,7 +21,7 @@
             "folder_exclude_patterns": [
                 "cache/templates_c",
                 "lib",
-                "vendor",
+                // "vendor",
                 "media",
                 "database_install",
             ],

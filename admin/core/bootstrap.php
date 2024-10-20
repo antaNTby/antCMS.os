@@ -12,26 +12,6 @@ use Tracy\Debugger;
 // d:\OSPanel\userdata\config\path.txt  -- создать файл в опенсервер для подключения Npm
 // C:\Program Files\nodejs\             -- прописать в него путь до nodejs
 
-$ds = DIRECTORY_SEPARATOR;
-function isWindows()
-{
-    return (isset($_SERVER['WINDIR']) || isset($_SERVER['windir']));
-}
-$IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
-define('PATH_DELIMITER', isWindows() ? ';' : ':');
-$dird          = dirname($_SERVER['PHP_SELF']); ## "/admin"
-$sourcessrandd = ['//' => '/', '\\' => '/'];
-$dird          = strtr($dird, $sourcessrandd);
-if ($dird != '/')
-{
-    $dirf = '/';
-}
-else
-{
-    $dirf = '';
-}
-$url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
-
 require '../vendor/autoload.php';
 
 # сбрасываем время сессии
@@ -84,15 +64,15 @@ if (function_exists('setlocale') === true)
     setlocale(LC_ALL, 'ru_Belarus.UTF-8');
 }
 
-require_once 'core/connect.php'; // DB_CONST
+require_once PATH_CORE . 'connect.php'; // DB_CONST
 
-// require_once 'core/errors.php';   // обработка ошибок  // будем use Tracy\Debugger;
+// require_once PATH_CORE.'errors.php';   // обработка ошибок  // будем use Tracy\Debugger;
 
-require_once 'core/orklang.php';  // строки текста
-require_once 'core/settings.php'; // настройки
-require_once 'core/functions.php';
-require_once 'core/headers.php';
-require_once 'core/tables.php';
+require_once PATH_CORE . 'orklang.php';  // строки текста
+require_once PATH_CORE . 'settings.php'; // настройки
+require_once PATH_CORE . 'functions.php';
+require_once PATH_CORE . 'headers.php';
+require_once PATH_CORE . 'tables.php';
 
 // какая-то херня для теста производительности  ДБ  // будем use Tracy\Debugger;
 // $sc_1 = gmts();
@@ -105,15 +85,15 @@ $_GET    = stripslashes_deep($_GET);
 $_COOKIE = stripslashes_deep($_COOKIE);
 
 # mysqli DataBase
-require 'core/mysqli.php';
+require PATH_CORE . 'mysqli.php';
 
 # подключамся к  БД
-require 'core/classes/antDataBase.php';
+require PATH_CORE . 'classes/antDataBase.php';
 $DB         = new antDataBase();
 $linkMysqli = db_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME) or exit(ERROR_DB_INIT);
 db_select_db($linkMysqli, DB_NAME) or exit(db_error());
 
-require 'core/classes/class.adminSSP.php';
+require PATH_CORE . 'classes/class.adminSSP.php';
 $pdo_connect = [
     'user'           => DB_USER,
     'pass'           => DB_PASS,
@@ -181,14 +161,14 @@ $config = [
 
 $db = new \Buki\Pdox($config);
 
-require_once 'core/classes/class.Toasts.php'; //load php class
+require_once PATH_CORE . 'classes/class.Toasts.php'; //load php class
 
 ### //init Smarty 5.3
 $smarty = new Smarty();
-$smarty->setTemplateDir('../admin/tpl');              // здесь лежат шаблоны tpl.html
-$smarty->setCompileDir('../admin/core/cache/php');    // здесь компилируюся *.php
-$smarty->setConfigDir('../admin/tpl/smarty_config/'); // незнаю
-$smarty->setCacheDir('../admin/core/cache/');
+$smarty->setTemplateDir('../admin/tpl');                        // здесь лежат шаблоны tpl.html
+$smarty->setCompileDir('../admin/' . PATH_CORE . '/cache/php'); // здесь компилируюся *.php
+$smarty->setConfigDir('../admin/tpl/smarty_config/');           // незнаю
+$smarty->setCacheDir('../admin/' . PATH_CORE . '/cache/');
 $smarty->compile_id    = 'ant';
 $smarty->force_compile = ADMIN_SMARTY_FORCE_COMPILE;
 // $smarty->setEscapeHtml(true); //Enable auto-escaping for HTML as follows:
