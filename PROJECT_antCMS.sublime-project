@@ -5,7 +5,7 @@
             // "path": "admin",
             "file_exclude_patterns": [
                 // "*.sublime-workspace",
-                "*.sublime-project",
+                // "*.sublime-project",
                 "composer.*",
                 "adminer.*",
                 ".gitignore",
@@ -23,9 +23,6 @@
                 "lib",
                 "vendor",
                 "media",
-                // "smarty_config",
-                // ".idea",
-                // "smarty4.2.1",
                 "database_install",
             ],
             "index_exclude_patterns": [
