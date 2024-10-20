@@ -21,10 +21,12 @@ function set_cookie(
 
 function checklogin()
 {
+    // cls();
     $rls = [];
     if (isset($_SESSION['log'])) //look for user in the database
 
     {
+
         $q   = db_query('SELECT cust_password, actions FROM ' . CUSTOMERS_TABLE . " WHERE Login='" . trim($_SESSION['log']) . "'");
         $row = db_fetch_row($q);                                                //found customer - check password
         if ( ! $row || ! isset($_SESSION['pass']) || $row[0] != $_SESSION['pass']) //unauthorized access

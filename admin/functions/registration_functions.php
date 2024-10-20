@@ -157,7 +157,7 @@ function regGetIdByLogin($login)
     }
     else
     {
-        return NULL;
+        return null;
     }
 
 }
@@ -176,31 +176,18 @@ function regAuthenticate(
 )
 {
 
-    $q = db_query("select cust_password, CID, ActivationCode FROM " . CUSTOMERS_TABLE . " WHERE Login='" . trim($login) . "'");
-
+    $q   = db_query("SELECT cust_password, CID, ActivationCode FROM " . CUSTOMERS_TABLE . " WHERE Login='" . trim($login) . "'");
     $row = db_fetch_row($q);
-
-    if (CONF_ENABLE_REGCONFIRMATION && $row['ActivationCode'])
-    {
-
-        if ($Redirect)
-        {
-            RedirectProtected(set_query('&act_customer=1&notact=1'));
-        }
-        else
-        {
-            return false;
-        }
-
-    }
 
     if ($row && strlen(trim($login)) > 0)
     {
-        if ($row["cust_password"] == cryptPasswordCrypt($password, null))
+        // if ($row["cust_password"] == cryptPasswordCrypt($password, null))
+        if ($row["cust_password"] == trim($password))
         {
             // set session variables
-            $_SESSION["log"]  = $login;
-            $_SESSION["pass"] = cryptPasswordCrypt($password, null);
+            $_SESSION["log"] = $login;
+            // $_SESSION["pass"] = cryptPasswordCrypt($password, null);
+            $_SESSION["pass"] = trim($password);
 
             $_SESSION["current_currency"] = $row["CID"];
 
@@ -238,6 +225,7 @@ function regSendPasswordToUser(
 {
     $q = db_query("select Login, cust_password, Email FROM " . CUSTOMERS_TABLE . " WHERE Login='" . xToText($login) . "' AND (ActivationCode=\"\" OR ActivationCode IS NULL)");
     if ($row = db_fetch_row($q)) //send password
+
     {
         $password = cryptPasswordDeCrypt($row["cust_password"], null);
         $smarty_mail->assign("user_pass", $password);
@@ -665,7 +653,7 @@ function regGetAllAddressesByLogin($log)
     $customerID = (int)$customerID;
     if ($customerID == 0)
     {
-        return NULL;
+        return null;
     }
 
     $q = db_query("select addressID, first_name, last_name, countryID, zoneID, state, city, address " .
@@ -761,7 +749,7 @@ function _testStrArrayInvalidSymbol($array)
     foreach ($array as $str)
     {
         $res = _testStrInvalidSymbol($str);
-        if (!$res)
+        if ( ! $res)
         {
             return false;
         }
@@ -872,7 +860,7 @@ function regVerifyContactInfo(
 {
     $error = "";
     if (
-        !_testStrArrayInvalidSymbol(
+         ! _testStrArrayInvalidSymbol(
             [$login, $cust_password1, $cust_password2]
         )
     )
@@ -883,7 +871,7 @@ function regVerifyContactInfo(
     {
         $error = ERROR_INPUT_LOGIN;
     }
-    elseif (!(((ord($login) >= ord("a")) && (ord($login) <= ord("z"))) || ((ord($login) >= ord("A")) && (ord($login) <= ord("Z"))) || ((ord($login) >= ord("0")) && (ord($login) <= ord("9")))))
+    elseif ( ! (((ord($login) >= ord("a")) && (ord($login) <= ord("z"))) || ((ord($login) >= ord("A")) && (ord($login) <= ord("Z"))) || ((ord($login) >= ord("0")) && (ord($login) <= ord("9")))))
     {
         $error = ERROR_LOGIN_SHOULD_START_WITH_LATIN_SYMBOL;
     }
@@ -903,7 +891,7 @@ function regVerifyContactInfo(
     {
         $error = ERROR_INPUT_EMAIL;
     }
-    elseif (!preg_match("/^[_\.a-z0-9-]{1,20}@(([a-z0-9-]+\.)+(com|net|org|mil|edu|gov|arpa|info|biz|inc|name|[a-z]{2})|[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})$/is", $Email))
+    elseif ( ! preg_match("/^[_\.a-z0-9-]{1,20}@(([a-z0-9-]+\.)+(com|net|org|mil|edu|gov|arpa|info|biz|inc|name|[a-z]{2})|[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})$/is", $Email))
     {
         //e-mail validation
         $error = ERROR_INPUT_EMAIL;
@@ -911,7 +899,7 @@ function regVerifyContactInfo(
 
     if (isset($_POST['affiliationLogin']))
     {
-        if (!regIsRegister($_POST['affiliationLogin']) && $_POST['affiliationLogin'])
+        if ( ! regIsRegister($_POST['affiliationLogin']) && $_POST['affiliationLogin'])
         {
             $error = ERROR_WRONG_AFFILIATION;
         }
@@ -919,7 +907,7 @@ function regVerifyContactInfo(
 
     foreach ($additional_field_values as $key => $val)
     {
-        if (!_testStrInvalidSymbol($val["additional_field"]))
+        if ( ! _testStrInvalidSymbol($val["additional_field"]))
         {
             return ERROR_INVALID_SYMBOL;
         }
@@ -957,7 +945,8 @@ function regUpdateContactInfo(
         SetRegField($key, $login, $val["additional_field"]);
     }
 
-    if (!strcmp($old_login, $login)) //update administrator login (core/config/connect.inc.php)
+    if ( ! strcmp($old_login, $login)) //update administrator login (core/config/connect.inc.php)
+
     {
         db_query("update " . CUSTOMERS_TABLE . " set Login='" . xToText(trim($login)) . "' where Login='" . xToText(trim($old_login)) . "'");
     }
@@ -1258,12 +1247,12 @@ function regAddressBelongToCustomer(
 )
 {
 
-    if (!$customerID)
+    if ( ! $customerID)
     {
         return false;
     }
 
-    if (!$addressID)
+    if ( ! $addressID)
     {
         return false;
     }
@@ -1278,7 +1267,7 @@ function regAddressBelongToCustomer(
 function regVerifyToDelete($customerID)
 {
 
-    if (!$customerID)
+    if ( ! $customerID)
     {
         return 0;
     }
@@ -1301,7 +1290,7 @@ function regDeleteCustomer($customerID)
         return false;
     }
 
-    if (!$customerID)
+    if ( ! $customerID)
     {
         return 0;
     }
@@ -1331,5 +1320,15 @@ function regActivateCustomer($_CustomerID)
                 WHERE customerID=' . (int)$_CustomerID;
     db_query($sql);
 }
+{
 
-?>
+}
+{
+
+}
+{
+
+}
+{
+
+}
