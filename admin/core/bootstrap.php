@@ -29,7 +29,7 @@ session_cache_expire();
 Debugger::enable();
 
 // Debugger::$logDirectory = __DIR__ . $ds . '..' . $ds . 'log';
-Debugger::$logDirectory = __DIR__ . $ds . 'log';
+Debugger::$logDirectory = __DIR__ . DIRECTORY_SEPARATOR . 'log';
 Debugger::$strictMode   = true;
 Debugger::$showLocation = true; // Shows all additional location information
 

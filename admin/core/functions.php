@@ -39,15 +39,15 @@ function get_microtime()
 
 function gmts()
 {
-    ## list($usec, $sec) = explode(' ', microtime(true)); // php 7.4
+                                                   ## list($usec, $sec) = explode(' ', microtime(true)); // php 7.4
     list($usec, $sec) = explode(' ', microtime()); // php 8.1
     return $usec + $sec;
 }
 
 function fix_directory_separator($str)
 {
-    global $IS_WINDOWS;
-    if ($IS_WINDOWS)
+
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
     {
         $str = str_replace('/', DIRECTORY_SEPARATOR, $str);
     }
@@ -108,7 +108,7 @@ function format_size($file_size)
  */
 function get_dir_size($directory)
 {
-    if (!is_dir($directory))
+    if ( ! is_dir($directory))
     {
         return 0;
     }
@@ -331,7 +331,7 @@ function file_download(
     {
         return false;
     }
-    while (!feof($handle))
+    while ( ! feof($handle))
     {
         $buffer = fread($handle, $chunksize);
 
@@ -378,9 +378,9 @@ function is_php_code($check_code)
 
 function check_permission_acp($perm)
 {
-    if (!check_permission($perm))
+    if ( ! check_permission($perm))
     {
-        if (!defined('NOPERM'))
+        if ( ! defined('NOPERM'))
         {
             define('NOPERM', 1);
         }
@@ -419,8 +419,9 @@ function idxCol(
     return $index;
 }
 
-function translitText( $str ) {
-    $tr = array(
+function translitText($str)
+{
+    $tr = [
         "А" => "A", "Б"  => "B", "В"   => "V", "Г"  => "G",
         "Д" => "D", "Е"  => "E", "Ё"   => "E", "Ж"  => "J", "З"   => "Z", "И" => "I",
         "Й" => "Y", "К"  => "K", "Л"   => "L", "М"  => "M", "Н"   => "N",
@@ -434,6 +435,6 @@ function translitText( $str ) {
         "с" => "s", "т"  => "t", "у"   => "u", "ф"  => "f", "х"   => "h",
         "ц" => "ts", "ч" => "ch", "ш"  => "sh", "щ" => "sch", "ъ" => "y",
         "ы" => "yi", "ь" => "", "э"    => "e", "ю"  => "yu", "я"  => "ya",
-    );
-    return strtr( $str, $tr );
+    ];
+    return strtr($str, $tr);
 }

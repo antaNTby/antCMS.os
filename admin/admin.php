@@ -2,13 +2,6 @@
 
 // echo (PATH_CORE);
 
-$ds = DIRECTORY_SEPARATOR;
-function isWindows()
-{
-    return (isset($_SERVER['WINDIR']) || isset($_SERVER['windir']));
-}
-$IS_WINDOWS = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
-define('PATH_DELIMITER', isWindows() ? ';' : ':');
 $dird          = dirname($_SERVER['PHP_SELF']); ## "/admin"
 $sourcessrandd = ['//' => '/', '\\' => '/'];
 $dird          = strtr($dird, $sourcessrandd);
@@ -21,8 +14,13 @@ else
     $dirf = '';
 }
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
+define('PATH_DELIMITER', (isset($_SERVER['WINDIR']) || isset($_SERVER['windir'])) ? ';' : ':');
 define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
-
+#########
+#########
+#########
+#########
+#########
 require_once 'core/' . 'const.php'; // управляющие и служебные константы
 require_once PATH_CORE . 'bootstrap.php';
 
