@@ -85,15 +85,15 @@ $_GET    = stripslashes_deep($_GET);
 $_COOKIE = stripslashes_deep($_COOKIE);
 
 # mysqli DataBase
-require PATH_CORE . 'mysqli.php';
+require_once PATH_CORE . 'mysqli.php';
 
 # подключамся к  БД
-require PATH_CORE . 'classes/antDataBase.php';
+require_once PATH_CORE . 'classes/antDataBase.php';
 $DB         = new antDataBase();
 $linkMysqli = db_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME) or exit(ERROR_DB_INIT);
 db_select_db($linkMysqli, DB_NAME) or exit(db_error());
 
-require PATH_CORE . 'classes/class.adminSSP.php';
+require_once PATH_CORE . 'classes/class.adminSSP.php';
 $pdo_connect = [
     'user'           => DB_USER,
     'pass'           => DB_PASS,

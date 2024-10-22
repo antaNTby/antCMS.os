@@ -25,6 +25,7 @@ require_once 'core/' . 'const.php'; // управляющие и служебн�
 require_once PATH_CORE . 'bootstrap.php';
 
 include_once PATH_CORE . 'authentication.php';
+
 //define start smarty template
 $smarty->assign('admin_main_content_template', 'start.tpl.html');
 ###
