@@ -1,6 +1,7 @@
 <?php
 
 define('SECURITY_EXPIRE', 60 * 60 * CONF_SECURITY_EXPIRE);
+$LOG_OK = false;
 
 session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy', 'sess_gc');
 
@@ -48,6 +49,10 @@ if (( ! isset($_SESSION['log']) || ! in_array(100, $relaccess)))
 
     $wrongLoginOrPw = 1;
     die(ERROR_FORBIDDEN);
+}
+else
+{
+    $LOG_OK = true;
 }
 
 # user logout

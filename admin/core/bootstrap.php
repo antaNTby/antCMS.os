@@ -14,9 +14,6 @@ use Tracy\Debugger;
 
 require '../vendor/autoload.php';
 
-# сбрасываем время сессии
-session_cache_expire();
-
 /*
  * Get Tracy up and running
  *
@@ -44,26 +41,6 @@ Debugger::$scream = E_ALL; /* ... */; // (bool|int) по умолчанию fals
 ### стартовая загрузка инициализаци bootstrap.php
 ### стартовая загрузка инициализаци bootstrap.php
 
-// Set the default timezone
-// date_default_timezone_set('America/New_York');
-date_default_timezone_set('Europe/Minsk');
-
-// // Set the error reporting level
-// error_reporting(E_ALL);
-
-// Set the default character encoding
-if (function_exists('mb_internal_encoding') === true)
-{
-    mb_internal_encoding('UTF-8');
-}
-
-// Set the default locale
-if (function_exists('setlocale') === true)
-{
-    // setlocale(LC_ALL, 'en_US.UTF-8');
-    setlocale(LC_ALL, 'ru_Belarus.UTF-8');
-}
-
 require_once PATH_CORE . 'connect.php'; // DB_CONST
 
 // require_once PATH_CORE.'errors.php';   // обработка ошибок  // будем use Tracy\Debugger;
@@ -79,10 +56,6 @@ require_once PATH_CORE . 'tables.php';
 // $sc_4 = 0;
 // $sc_8 = 0;
 // $gmc  = 1;
-
-$_POST   = stripslashes_deep($_POST);
-$_GET    = stripslashes_deep($_GET);
-$_COOKIE = stripslashes_deep($_COOKIE);
 
 # mysqli DataBase
 require_once PATH_CORE . 'mysqli.php';
@@ -161,8 +134,6 @@ $config = [
 
 $db = new \Buki\Pdox($config);
 
-require_once PATH_CORE . 'classes/class.Toasts.php'; //load php class
-
 ### //init Smarty 5.3
 $smarty = new Smarty();
 $smarty->setTemplateDir('../admin/tpl');                        // здесь лежат шаблоны tpl.html
@@ -181,6 +152,8 @@ $smarty->setEscapeHtml(false);
 //
 //
 // dd($smarty);
+
+require_once PATH_CORE . 'classes/class.Toasts.php'; //load php class
 
 // @ini_set('session.use_trans_sid', 0);
 // @ini_set('session.use_cookies', 1);

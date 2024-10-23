@@ -56,6 +56,5 @@ foreach ($Departments as $dpt_key => $dep)
 // $Departments_count = count($Departments);
 $Departments_type = gettype($Departments[0]['id']);
 
-$smarty->assign('Departments', $Departments);
 // $smarty->assign('Departments_count', $Departments_count);
 // $smarty->assign('Departments_type', $Departments_type);
