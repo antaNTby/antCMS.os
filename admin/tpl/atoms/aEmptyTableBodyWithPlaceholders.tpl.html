@@ -19,7 +19,6 @@
     </td>
 </tr>
 {/if}
-
 {section name=lowR start=6 loop=9}
 <tr class="ant-text-no-rotated align-items-center">
     <td>{$smarty.section.lowR.index}</td>
@@ -32,15 +31,10 @@
     {/section}
 </tr>
 {/section}
-
-
-
 {if $smarty.get.operation|isset}
 <input id="toastTimer" name="toastTimer" type="hidden" value={$timerSec}>
-
 {literal}
 <script>
-
 const iterationCount = 10;
 
 let divProgress = document.querySelector("div[data-progress]");
@@ -50,24 +44,23 @@ let time = 10; // 30 sec
 if (timerEl && timerEl.value > 0) {
     time = timerEl.value; // 30 sec
 }
-let step = 100/iterationCount; //0.3 sec
+let step = 100 / iterationCount; //0.3 sec
 let increment = 0; // счетчик
 
 function doProgress() {
 
     if (increment <= iterationCount) {
-        let percentCss =  (step * increment); //  10s*0 //+10s*1 //10*2 // 10*3
+        let percentCss = (step * increment); //  10s*0 //+10s*1 //10*2 // 10*3
         divProgress.style.width = percentCss + "%";
         // console.log(percentCss,increment,divProgress.style.width);
-    increment = increment + 1;
+        increment = increment + 1;
     }
 
-return false;
+    return false;
 }
 
-setInterval(doProgress, Math.ceil(time*1000/(iterationCount)));
+setInterval(doProgress, Math.ceil(time * 1000 / (iterationCount)));
 doProgress();
-
 </script>
 {/literal}
 {/if}

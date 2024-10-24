@@ -12,10 +12,8 @@
 <body>
     <pre>
 
-	1. Package Control ‣ Install Package ‣ Theme - Monokai Pro
+1. Package Control ‣ Install Package ‣ Theme - Monokai Pro
 2. Command Palette ‣ Monokai Pro: select theme
-
-
 Theme - Monokai Pro
 https://maximilionus.github.io/monokai_pro_keygen/
 
