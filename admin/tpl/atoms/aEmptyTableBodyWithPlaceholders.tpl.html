@@ -19,6 +19,7 @@
     </td>
 </tr>
 {/if}
+
 {section name=lowR start=6 loop=9}
 <tr class="ant-text-no-rotated align-items-center">
     <td>{$smarty.section.lowR.index}</td>
@@ -31,10 +32,15 @@
     {/section}
 </tr>
 {/section}
+
+
+
 {if $smarty.get.operation|isset}
 <input id="toastTimer" name="toastTimer" type="hidden" value={$timerSec}>
+
 {literal}
 <script>
+
 const iterationCount = 10;
 
 let divProgress = document.querySelector("div[data-progress]");
