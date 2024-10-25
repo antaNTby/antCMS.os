@@ -14,9 +14,9 @@ else
     $dirf = '';
 }
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
-define('PATH_DELIMITER', (isset($_SERVER['WINDIR']) || isset($_SERVER['windir'])) ? ';' : ':');
 define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
 
+define('PATH_DELIMITER', (isset($_SERVER['WINDIR']) || isset($_SERVER['windir'])) ? ';' : ':');
 // Set the default timezone
 // date_default_timezone_set('America/New_York');
 date_default_timezone_set('Europe/Minsk');
