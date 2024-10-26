@@ -5,17 +5,10 @@
 $dird          = dirname($_SERVER['PHP_SELF']); ## "/admin"
 $sourcessrandd = ['//' => '/', '\\' => '/'];
 $dird          = strtr($dird, $sourcessrandd);
-if ($dird != '/')
-{
-    $dirf = '/';
-}
-else
-{
-    $dirf = '';
-}
+$dirf          = ($dird != "/") ? "/" : "";
+
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $dird . $dirf;
 define('CONF_FULL_SHOP_URL', trim($url)); // "http://antcms.os/admin/"
-
 define('PATH_DELIMITER', (isset($_SERVER['WINDIR']) || isset($_SERVER['windir'])) ? ';' : ':');
 // Set the default timezone
 // date_default_timezone_set('America/New_York');
@@ -63,7 +56,7 @@ $_GET    = stripslashes_deep($_GET);
 $_COOKIE = stripslashes_deep($_COOKIE);
 
 //show department if it is being selected
-if ( ! isset($_GET['dpt']))
+if (!isset($_GET['dpt']))
 {
     $dpt = isset($_POST['dpt']) ? $_POST['dpt'] : '';
 }
@@ -72,7 +65,7 @@ else
     $dpt = $_GET['dpt'];
 }
 
-if ( ! isset($_GET['sub']))
+if (!isset($_GET['sub']))
 {
     if (isset($_POST['sub']))
     {
@@ -163,7 +156,7 @@ if (in_array($dpt, $plucked_dpt_ids))
 }
 
 if (
-     ! in_array($dpt, $plucked_dpt_ids)
+    !in_array($dpt, $plucked_dpt_ids)
 )
 {
     //no sub department found
@@ -172,8 +165,8 @@ if (
 }
 
 if (
-     ! isset($_GET['dpt']) &&
-    ! isset($_GET['sub'])
+    !isset($_GET['dpt']) &&
+    !isset($_GET['sub'])
 )
 {
     //no sub department found
@@ -181,7 +174,7 @@ if (
     $smarty->assign('admin_main_content_template', 'start.tpl.html');
 }
 
-if ( ! is_null($route_message))
+if (!is_null($route_message))
 {
     $smarty->assign('ROUTE_MESSAGE', $route_message);
 }
