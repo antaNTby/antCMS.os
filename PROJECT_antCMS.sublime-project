@@ -38,7 +38,7 @@
             "media",
             "smarty4.2.1",
             "smarty_config",
-            "vendor",
+            // "vendor",
 
         ],
     }, ],
