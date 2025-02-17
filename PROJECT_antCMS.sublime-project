@@ -9,7 +9,7 @@
             "*.sublime-project",
             "*.sublime-workspace",
             "*.zip",
-            ".gitignore",
+            // ".gitignore",
             ".gitkeep",
             "adminer.*",
             "cache/ant*.php",
@@ -31,7 +31,7 @@
         "index_exclude_patterns": [
             ".git",
             ".idea",
-            ".osp",
+            // ".osp",
             "cache/templates_c",
             "database_install",
             "lib",
@@ -50,7 +50,7 @@
         "fallback_encoding": "UTF-8",
         "tab_size": 4,
 
-        "font_face": "Fira Code",
+        // "font_face": "Fira Code",
         // "font_face": "JetBrains Mono",
         // "font_face": "Iosevka",
         // "font_face": "Consolas",
