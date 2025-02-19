@@ -1,0 +1,93 @@
+{
+    "folders": [
+    {
+        "path": ".",
+        // "path": "admin",
+        "file_exclude_patterns": [
+            "*.ico",
+            "*.rar",
+            "*.sublime-project",
+            "*.sublime-workspace",
+            "*.zip",
+            // ".gitignore",
+            ".gitkeep",
+            "adminer.*",
+            "cache/ant*.php",
+            "cache/php/ant*.php",
+            "composer.*",
+            // "composer.*",
+            // "smarty4.2.1.tar",
+            ],
+        "folder_exclude_patterns": [
+            ".git",
+            ".idea",
+            ".osp",
+            "cache/templates_c",
+            // "database_install",
+            "lib",
+            "media",
+            "vendor",
+            ],
+        "index_exclude_patterns": [
+            ".git",
+            ".idea",
+            // ".osp",
+            "cache/templates_c",
+            "database_install",
+            "lib",
+            "media",
+            "smarty4.2.1",
+            "smarty_config",
+            // "vendor",
+
+            ],
+    },],
+
+
+    "settings":
+    {
+        "default_encoding": "UTF-8",
+        "fallback_encoding": "UTF-8",
+        "tab_size": 4,
+
+        // "font_face": "Fira Code",
+        // "font_face": "JetBrains Mono",
+        // "font_face": "Iosevka",
+        // "font_face": "Consolas",
+        // "font_face": "Intel One Mono",
+        // "font_options": [
+        //     "ss01",
+        //     "ss02",
+        //     "ss03",
+        //     "ss11",
+        //     "ss12",
+        //     "locl",
+        //     "mark",
+        //     "numr",
+        //     "dnom",
+        //     "sups",
+        //     "subs",
+        //     "sinf",
+        //     "aalt"
+        // ],
+        // "font_face": "MonoLisa-Medium",
+        // "font_face": "MonoLisa-Regular",
+        // "font_face": "MonaspaceArgon",
+
+        // "color_scheme": "Mariana.sublime-color-scheme",
+        // "color_scheme": "Breakers.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+        // "color_scheme": "Dark Knight.sublime-color-scheme",
+
+        // "color_scheme": "Dark Knight.sublime-color-scheme",
+        // "color_scheme": "Monokai.sublime-color-scheme",
+        // "color_scheme": "Sixteen.sublime-color-scheme",
+        // "color_scheme": "Mariana.sublime-color-scheme",
+        // "color_scheme": "Mariana.sublime-color-scheme",
+        // "color_scheme": "Mariana.sublime-color-scheme",
+        "color_scheme": "Breakers.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+        // "color_scheme": "Bass Bowtruckle.sublime-color-scheme",
+    },
+}
