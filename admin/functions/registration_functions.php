@@ -164,11 +164,13 @@ function regAuthenticate(
 	$row = db_fetch_row( $q );
 
 	if ( $row && strlen( trim( $login ) ) > 0 ) {
+
 		// if ($row["cust_password"] == cryptPasswordCrypt($password, null))
 		//if ($row["cust_password"] == trim($password))/*2025*/
 		// Верифицируем, соответствует ли введённый пароль сохраненному хешу
-		dump( $password );
+
 		if ( password_verify( trim( $password ), $row['cust_password'] ) ) {
+			dump( $password );
 
 			// set session variables
 			$_SESSION['log'] = $login;
@@ -187,7 +189,9 @@ moveCartFromSession2DB();
 
 			return true;
 		} else {
+
 			return false;
+
 		}
 
 	} else {
